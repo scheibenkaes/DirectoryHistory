@@ -7,8 +7,8 @@
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
-          <Node name="DirectoyHistory" expanded="True" />
+        <State expanded="True">
+          <Node name="DirectoyHistory" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
