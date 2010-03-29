@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryHistory.History", 
 EndProject
 Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Translation", "Translation\Translation.mdproj", "{3AFEDE67-2034-4DA1-98B3-3B59BD8DC3FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryHistory.History.Git", "DirectoryHistory.History.Git\DirectoryHistory.History.Git.csproj", "{12C08B5B-173B-49C1-8D13-6441A300336F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -16,6 +18,12 @@ Global
 		Default|Any CPU = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12C08B5B-173B-49C1-8D13-6441A300336F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12C08B5B-173B-49C1-8D13-6441A300336F}.Debug|x86.Build.0 = Debug|Any CPU
+		{12C08B5B-173B-49C1-8D13-6441A300336F}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C08B5B-173B-49C1-8D13-6441A300336F}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{12C08B5B-173B-49C1-8D13-6441A300336F}.Release|x86.ActiveCfg = Release|Any CPU
+		{12C08B5B-173B-49C1-8D13-6441A300336F}.Release|x86.Build.0 = Release|Any CPU
 		{3AFEDE67-2034-4DA1-98B3-3B59BD8DC3FD}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{3AFEDE67-2034-4DA1-98B3-3B59BD8DC3FD}.Release|x86.ActiveCfg = Release|Any CPU
 		{3F3BCCEB-9FD6-48EB-96A5-A7D4718715C6}.Debug|x86.ActiveCfg = Debug|Any CPU
