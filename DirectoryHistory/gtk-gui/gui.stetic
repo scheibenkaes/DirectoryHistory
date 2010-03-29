@@ -9,8 +9,31 @@
     <widget-library name="../../DirectoryHistory.UI/bin/Debug/DirectoryHistory.UI.dll" />
     <widget-library name="../bin/Debug/DirectoyHistory.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
-    <action-group name="Default" />
+  <widget class="Gtk.Window" id="MainWindow" design-size="462 300">
+    <action-group name="Default">
+      <action id="openAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">openDirectory</property>
+        <property name="ShortLabel" translatable="yes">openDirectory</property>
+        <property name="StockId">gtk-open</property>
+        <signal name="Activated" handler="OnOpenActionActivated" />
+      </action>
+      <action id="FileAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">File</property>
+        <property name="ShortLabel" translatable="yes">File</property>
+      </action>
+      <action id="HistoryAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">History</property>
+        <property name="ShortLabel" translatable="yes">History</property>
+      </action>
+      <action id="InfoAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Info</property>
+        <property name="ShortLabel" translatable="yes">Info</property>
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -22,7 +45,11 @@
         <child>
           <widget class="Gtk.MenuBar" id="menubar1">
             <property name="MemberName" />
-            <node name="__gtksharp_70_Stetic_Editor_ActionMenuBar" type="Menubar" />
+            <node name="__gtksharp_70_Stetic_Editor_ActionMenuBar" type="Menubar">
+              <node type="Menu" action="FileAction" />
+              <node type="Menu" action="HistoryAction" />
+              <node type="Menu" action="InfoAction" />
+            </node>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -41,7 +68,9 @@
                 <property name="ShowArrow">False</property>
                 <property name="ButtonStyle">Icons</property>
                 <property name="IconSize">LargeToolbar</property>
-                <node name="__gtksharp_72_Stetic_Editor_ActionToolbar" type="Toolbar" />
+                <node name="__gtksharp_72_Stetic_Editor_ActionToolbar" type="Toolbar">
+                  <node type="Toolitem" action="openAction" />
+                </node>
               </widget>
               <packing>
                 <property name="Position">0</property>

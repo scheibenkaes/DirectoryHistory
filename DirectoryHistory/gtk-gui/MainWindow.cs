@@ -14,6 +14,14 @@ public partial class MainWindow {
     
     private Gtk.UIManager UIManager;
     
+    private Gtk.Action openAction;
+    
+    private Gtk.Action FileAction;
+    
+    private Gtk.Action HistoryAction;
+    
+    private Gtk.Action InfoAction;
+    
     private Gtk.VBox vbox1;
     
     private Gtk.MenuBar menubar1;
@@ -31,6 +39,18 @@ public partial class MainWindow {
         // Widget MainWindow
         this.UIManager = new Gtk.UIManager();
         Gtk.ActionGroup w1 = new Gtk.ActionGroup("Default");
+        this.openAction = new Gtk.Action("openAction", Mono.Unix.Catalog.GetString("openDirectory"), null, "gtk-open");
+        this.openAction.ShortLabel = Mono.Unix.Catalog.GetString("openDirectory");
+        w1.Add(this.openAction, null);
+        this.FileAction = new Gtk.Action("FileAction", Mono.Unix.Catalog.GetString("File"), null, null);
+        this.FileAction.ShortLabel = Mono.Unix.Catalog.GetString("File");
+        w1.Add(this.FileAction, null);
+        this.HistoryAction = new Gtk.Action("HistoryAction", Mono.Unix.Catalog.GetString("History"), null, null);
+        this.HistoryAction.ShortLabel = Mono.Unix.Catalog.GetString("History");
+        w1.Add(this.HistoryAction, null);
+        this.InfoAction = new Gtk.Action("InfoAction", Mono.Unix.Catalog.GetString("Info"), null, null);
+        this.InfoAction.ShortLabel = Mono.Unix.Catalog.GetString("Info");
+        w1.Add(this.InfoAction, null);
         this.UIManager.InsertActionGroup(w1, 0);
         this.AddAccelGroup(this.UIManager.AccelGroup);
         this.Name = "MainWindow";
@@ -41,7 +61,7 @@ public partial class MainWindow {
         this.vbox1.Name = "vbox1";
         this.vbox1.Spacing = 6;
         // Container child vbox1.Gtk.Box+BoxChild
-        this.UIManager.AddUiFromString("<ui><menubar name='menubar1'/></ui>");
+        this.UIManager.AddUiFromString("<ui><menubar name='menubar1'><menu name='FileAction' action='FileAction'/><menu name='HistoryAction' action='HistoryAction'/><menu name='InfoAction' action='InfoAction'/></menubar></ui>");
         this.menubar1 = ((Gtk.MenuBar)(this.UIManager.GetWidget("/menubar1")));
         this.menubar1.Name = "menubar1";
         this.vbox1.Add(this.menubar1);
@@ -54,7 +74,7 @@ public partial class MainWindow {
         this.vbox2.Name = "vbox2";
         this.vbox2.Spacing = 6;
         // Container child vbox2.Gtk.Box+BoxChild
-        this.UIManager.AddUiFromString("<ui><toolbar name='toolbar1'/></ui>");
+        this.UIManager.AddUiFromString("<ui><toolbar name='toolbar1'><toolitem name='openAction' action='openAction'/></toolbar></ui>");
         this.toolbar1 = ((Gtk.Toolbar)(this.UIManager.GetWidget("/toolbar1")));
         this.toolbar1.Name = "toolbar1";
         this.toolbar1.ShowArrow = false;
@@ -88,9 +108,10 @@ public partial class MainWindow {
         if ((this.Child != null)) {
             this.Child.ShowAll();
         }
-        this.DefaultWidth = 400;
+        this.DefaultWidth = 462;
         this.DefaultHeight = 300;
         this.Show();
         this.DeleteEvent += new Gtk.DeleteEventHandler(this.OnDeleteEvent);
+        this.openAction.Activated += new System.EventHandler(this.OnOpenActionActivated);
     }
 }
