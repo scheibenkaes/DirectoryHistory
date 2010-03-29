@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-03-29 12:58:23+0200\n"
-"PO-Revision-Date: 2010-03-29 12:58:23+0200\n"
+"POT-Creation-Date: 2010-03-29 13:43:12+0200\n"
+"PO-Revision-Date: 2010-03-29 13:43:12+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,7 +10,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:18
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:45
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:46
+msgid "openDirectory"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:48
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:49
+msgid "File"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:51
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:52
+msgid "History"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:54
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:55
+msgid "Info"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:57
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
+msgid "refresh"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:60
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:61
+msgid "quit"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:66
 msgid "MainWindow"
 msgstr ""
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2010-03-29 12:57:16+0200\n"
-"PO-Revision-Date: 2010-03-29 12:57:16+0200\n"
+"PO-Revision-Date: 2010-03-29 13:40:04+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -12,5 +12,5 @@ msgstr ""
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:18
 msgid "MainWindow"
-msgstr ""
+msgstr "Hauptfenster"
 
