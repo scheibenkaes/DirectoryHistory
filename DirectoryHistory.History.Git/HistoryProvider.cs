@@ -27,20 +27,21 @@ namespace DirectoryHistory.History.Git
 {
 
 
-	public class HistoryProvider: IHistoryProvider
+	public class HistoryProvider : IHistoryProvider
 	{
 		public IDirectoryWithHistory LoadDirectory (string path)
 		{
-			if (string.IsNullOrEmpty (path) || !Directory.Exists (path))
-			{
+			if (string.IsNullOrEmpty (path) || !Directory.Exists (path)) {
 				throw new Exception ("Path must exist and must not be empty!");
 			}
+			var directory = new DirectoryWithHistory (path) { IsRootDirectory = true };
+			return directory;
 		}
-		
+
 		public HistoryProvider ()
 		{
 		}
-		
+
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
 		
 	}

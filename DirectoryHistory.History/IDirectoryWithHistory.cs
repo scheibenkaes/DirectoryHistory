@@ -37,7 +37,7 @@ namespace DirectoryHistory.History
 		/// <returns>
 		/// A <see cref="System.Boolean"/>
 		/// </returns>
-		bool IsClean ();
+		bool IsClean { get; }
 
 		/// <summary>
 		/// Detect if this directory was the the originally loaded root directory.
@@ -46,7 +46,7 @@ namespace DirectoryHistory.History
 		/// <returns>
 		/// true if the directory from IDirectoryWithHistory.Path was the originally loaded directory
 		/// </returns>
-		bool IsRootDirectory ();
+		bool IsRootDirectory { get; set; }
 
 		/// <summary>
 		/// Get all directories in this directory

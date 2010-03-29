@@ -20,16 +20,47 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace DirectoryHistory.History.Git
 {
-
-
-	public class DirectoryWithHistory
+	public class DirectoryWithHistory : IDirectoryWithHistory
 	{
+		public bool IsClean { get; private set; }
 
-		public DirectoryWithHistory ()
+
+		public bool IsRootDirectory { get; set; }
+
+
+		public string Path { get; private set; }
+
+
+		public IEnumerable<IDirectoryWithHistory> ChildDirectories { get; private set; }
+
+		public DirectoryWithHistory (string path)
 		{
+			Path = path;
+			
+			//ChildDirectories = new List<IDirectoryWithHistory> ();
+			
+			ReadSubDirectories ();
 		}
+
+		private void ReadSubDirectories ()
+		{
+			var directories = Directory.GetDirectories (Path);
+			var subDirToBeAdded = new List<IDirectoryWithHistory> ();
+			foreach (var dir in directories) {
+				var dirWithHistory = new DirectoryWithHistory (dir) { 
+					IsRootDirectory = false 
+				};
+				subDirToBeAdded.Add (dirWithHistory);
+			}
+			
+			ChildDirectories = subDirToBeAdded;
+		}
+		
 	}
 }
