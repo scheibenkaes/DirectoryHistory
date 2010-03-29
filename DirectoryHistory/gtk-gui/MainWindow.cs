@@ -38,6 +38,8 @@ public partial class MainWindow {
     
     private Gtk.Statusbar statusbar1;
     
+    private Gtk.Label loadedDirectoryLabel;
+    
     protected virtual void Build() {
         Stetic.Gui.Initialize(this);
         // Widget MainWindow
@@ -109,11 +111,20 @@ public partial class MainWindow {
         this.statusbar1 = new Gtk.Statusbar();
         this.statusbar1.Name = "statusbar1";
         this.statusbar1.Spacing = 6;
-        this.vbox1.Add(this.statusbar1);
-        Gtk.Box.BoxChild w6 = ((Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+        // Container child statusbar1.Gtk.Box+BoxChild
+        this.loadedDirectoryLabel = new Gtk.Label();
+        this.loadedDirectoryLabel.Name = "loadedDirectoryLabel";
+        this.loadedDirectoryLabel.LabelProp = Mono.Unix.Catalog.GetString("No directory loaded");
+        this.statusbar1.Add(this.loadedDirectoryLabel);
+        Gtk.Box.BoxChild w6 = ((Gtk.Box.BoxChild)(this.statusbar1[this.loadedDirectoryLabel]));
         w6.Position = 2;
         w6.Expand = false;
         w6.Fill = false;
+        this.vbox1.Add(this.statusbar1);
+        Gtk.Box.BoxChild w7 = ((Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+        w7.Position = 2;
+        w7.Expand = false;
+        w7.Fill = false;
         this.Add(this.vbox1);
         if ((this.Child != null)) {
             this.Child.ShowAll();

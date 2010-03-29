@@ -31,15 +31,19 @@ using DirectoryHistory.History;
 
 public partial class MainWindow : Gtk.Window
 {
-	public event EventHandler<DirectorySelectedEventArgs> DirectorySelected;
-
 	private ApplicationLogic logic;
 
 	public MainWindow (ApplicationLogic logic) : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
 		this.logic = logic;
-		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;		
+		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;
+		logic.OnDirectoryLoaded += OnDirectoryLoaded;
+	}
+	
+	private void OnDirectoryLoaded (object sender, DirectoryStatusWasUpdatedEventArgs args)
+	{
+		loadedDirectoryLabel.Text = args.DirectoryThatChanged.Path;
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
