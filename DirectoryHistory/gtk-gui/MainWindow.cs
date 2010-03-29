@@ -22,6 +22,8 @@ public partial class MainWindow {
     
     private Gtk.Toolbar toolbar1;
     
+    private DirectoryHistory.UI.FolderList folderlist;
+    
     private Gtk.Statusbar statusbar1;
     
     protected virtual void Build() {
@@ -63,18 +65,25 @@ public partial class MainWindow {
         w3.Position = 0;
         w3.Expand = false;
         w3.Fill = false;
-        this.vbox1.Add(this.vbox2);
-        Gtk.Box.BoxChild w4 = ((Gtk.Box.BoxChild)(this.vbox1[this.vbox2]));
+        // Container child vbox2.Gtk.Box+BoxChild
+        this.folderlist = new DirectoryHistory.UI.FolderList();
+        this.folderlist.Events = ((Gdk.EventMask)(256));
+        this.folderlist.Name = "folderlist";
+        this.vbox2.Add(this.folderlist);
+        Gtk.Box.BoxChild w4 = ((Gtk.Box.BoxChild)(this.vbox2[this.folderlist]));
         w4.Position = 1;
+        this.vbox1.Add(this.vbox2);
+        Gtk.Box.BoxChild w5 = ((Gtk.Box.BoxChild)(this.vbox1[this.vbox2]));
+        w5.Position = 1;
         // Container child vbox1.Gtk.Box+BoxChild
         this.statusbar1 = new Gtk.Statusbar();
         this.statusbar1.Name = "statusbar1";
         this.statusbar1.Spacing = 6;
         this.vbox1.Add(this.statusbar1);
-        Gtk.Box.BoxChild w5 = ((Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
-        w5.Position = 2;
-        w5.Expand = false;
-        w5.Fill = false;
+        Gtk.Box.BoxChild w6 = ((Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+        w6.Position = 2;
+        w6.Expand = false;
+        w6.Fill = false;
         this.Add(this.vbox1);
         if ((this.Child != null)) {
             this.Child.ShowAll();

@@ -70,4 +70,10 @@
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\DirectoryHistory.UI\DirectoryHistory.UI.csproj">
+      <Project>{DB6C5FF9-7CC8-4C3C-BDE0-137C3C0FCD2F}</Project>
+      <Name>DirectoryHistory.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
