@@ -22,6 +22,8 @@
 using System;
 using Gtk;
 
+using DirectoryHistory.History;
+
 namespace DirectoryHistory.UI
 {
 
@@ -44,6 +46,11 @@ namespace DirectoryHistory.UI
 		{
 			treeStore = new TreeStore (typeof(string), typeof(string));
 			treeview.Model = treeStore;
+		}
+		
+		public void OnDirectoryUpdated (object sender, DirectoryStatusWasUpdatedEventArgs args)
+		{
+			Console.WriteLine ("update");
 		}
 	}
 }

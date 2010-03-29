@@ -1,5 +1,5 @@
 //  
-//  DirectoryStatusWasUpdatedEventArgs.cs
+//  History.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -24,14 +24,17 @@ using System;
 namespace DirectoryHistory.History
 {
 
-
-	public class DirectoryStatusWasUpdatedEventArgs : EventArgs
+	/// <summary>
+	/// Main application object
+	/// </summary>
+	public class ApplicationLogic
 	{
-		public IDirectoryWithHistory DirectoryThatChanged { get; private set; }
+		private IHistoryProvider historyProvider;
+		
+		private IDirectoryWithHistory rootDirectory;
 
-		public DirectoryStatusWasUpdatedEventArgs (IDirectoryWithHistory directoryWithHistory)
+		public ApplicationLogic ()
 		{
-			DirectoryThatChanged = directoryWithHistory;
 		}
 	}
 }

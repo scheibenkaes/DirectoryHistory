@@ -76,5 +76,9 @@
       <Project>{DB6C5FF9-7CC8-4C3C-BDE0-137C3C0FCD2F}</Project>
       <Name>DirectoryHistory.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
+      <Project>{3F3BCCEB-9FD6-48EB-96A5-A7D4718715C6}</Project>
+      <Name>DirectoryHistory.History</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

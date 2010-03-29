@@ -27,14 +27,17 @@ using Gtk;
 using Mono.Unix;
 
 using DirectoryHistory;
+using DirectoryHistory.History;
 
 public partial class MainWindow : Gtk.Window
 {
 	public event EventHandler<DirectorySelectedEventArgs> DirectorySelected;
 	
-	public MainWindow () : base(Gtk.WindowType.Toplevel)
+	public MainWindow (ApplicationLogic history) : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
+		
+		
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)

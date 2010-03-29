@@ -22,6 +22,8 @@
 using System;
 using Gtk;
 
+using DirectoryHistory.History;
+
 namespace DirectoryHistory
 {
 	class MainClass
@@ -29,7 +31,10 @@ namespace DirectoryHistory
 		public static void Main (string[] args)
 		{
 			Application.Init ();
-			MainWindow win = new MainWindow ();
+			
+			var applLogic = new ApplicationLogic ();
+			
+			MainWindow win = new MainWindow (applLogic);
 			win.Show ();
 			Application.Run ();
 		}
