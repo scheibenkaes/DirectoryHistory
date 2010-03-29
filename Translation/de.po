@@ -1,0 +1,16 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2010-03-29 12:57:16+0200\n"
+"PO-Revision-Date: 2010-03-29 12:57:16+0200\n"
+"Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: MonoDevelop Gettext addin\n"
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:18
+msgid "MainWindow"
+msgstr ""
+
