@@ -7,10 +7,11 @@
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="DirectoryHistory" expanded="True" selected="True" />
+        <State expanded="True" selected="True">
+          <Node name="DirectoryHistory" expanded="True" />
           <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.UI" expanded="True" />
+          <Node name="HistoryTest" expanded="True" />
         </State>
       </Pad>
     </Pads>
