@@ -24,6 +24,8 @@ public partial class MainWindow {
     
     private Gtk.Action refreshAction;
     
+    private Gtk.Action quitAction;
+    
     private Gtk.VBox vbox1;
     
     private Gtk.MenuBar menubar1;
@@ -56,6 +58,9 @@ public partial class MainWindow {
         this.refreshAction = new Gtk.Action("refreshAction", Mono.Unix.Catalog.GetString("refresh"), null, "gtk-refresh");
         this.refreshAction.ShortLabel = Mono.Unix.Catalog.GetString("refresh");
         w1.Add(this.refreshAction, null);
+        this.quitAction = new Gtk.Action("quitAction", Mono.Unix.Catalog.GetString("quit"), null, "gtk-quit");
+        this.quitAction.ShortLabel = Mono.Unix.Catalog.GetString("quit");
+        w1.Add(this.quitAction, null);
         this.UIManager.InsertActionGroup(w1, 0);
         this.AddAccelGroup(this.UIManager.AccelGroup);
         this.Name = "MainWindow";
@@ -79,7 +84,7 @@ public partial class MainWindow {
         this.vbox2.Name = "vbox2";
         this.vbox2.Spacing = 6;
         // Container child vbox2.Gtk.Box+BoxChild
-        this.UIManager.AddUiFromString("<ui><toolbar name='toolbar1'><toolitem name='openAction' action='openAction'/><toolitem name='refreshAction' action='refreshAction'/></toolbar></ui>");
+        this.UIManager.AddUiFromString("<ui><toolbar name='toolbar1'><toolitem name='openAction' action='openAction'/><toolitem name='refreshAction' action='refreshAction'/><toolitem name='quitAction' action='quitAction'/></toolbar></ui>");
         this.toolbar1 = ((Gtk.Toolbar)(this.UIManager.GetWidget("/toolbar1")));
         this.toolbar1.Name = "toolbar1";
         this.toolbar1.ShowArrow = false;
@@ -119,5 +124,6 @@ public partial class MainWindow {
         this.DeleteEvent += new Gtk.DeleteEventHandler(this.OnDeleteEvent);
         this.openAction.Activated += new System.EventHandler(this.OnOpenActionActivated);
         this.refreshAction.Activated += new System.EventHandler(this.OnRefreshActionActivated);
+        this.quitAction.Activated += new System.EventHandler(this.OnQuitActionActivated);
     }
 }

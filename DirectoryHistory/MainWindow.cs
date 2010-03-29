@@ -42,7 +42,15 @@ public partial class MainWindow : Gtk.Window
 	
 	protected virtual void OnRefreshActionActivated (object sender, System.EventArgs e)
 	{
+		
 	}
+	
+	
+	protected virtual void OnQuitActionActivated (object sender, System.EventArgs e)
+	{
+		Application.Quit ();
+	}
+	
 	
 	
 	

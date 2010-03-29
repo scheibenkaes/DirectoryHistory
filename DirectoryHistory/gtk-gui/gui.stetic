@@ -40,6 +40,13 @@
         <property name="StockId">gtk-refresh</property>
         <signal name="Activated" handler="OnRefreshActionActivated" />
       </action>
+      <action id="quitAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">quit</property>
+        <property name="ShortLabel" translatable="yes">quit</property>
+        <property name="StockId">gtk-quit</property>
+        <signal name="Activated" handler="OnQuitActionActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
@@ -52,7 +59,7 @@
         <child>
           <widget class="Gtk.MenuBar" id="menubar1">
             <property name="MemberName" />
-            <node name="__gtksharp_70_Stetic_Editor_ActionMenuBar" type="Menubar">
+            <node name="menubar1" type="Menubar">
               <node type="Menu" action="FileAction" />
               <node type="Menu" action="HistoryAction" />
               <node type="Menu" action="InfoAction" />
@@ -75,9 +82,10 @@
                 <property name="ShowArrow">False</property>
                 <property name="ButtonStyle">Icons</property>
                 <property name="IconSize">LargeToolbar</property>
-                <node name="__gtksharp_72_Stetic_Editor_ActionToolbar" type="Toolbar">
+                <node name="toolbar1" type="Toolbar">
                   <node type="Toolitem" action="openAction" />
                   <node type="Toolitem" action="refreshAction" />
+                  <node type="Toolitem" action="quitAction" />
                 </node>
               </widget>
               <packing>
