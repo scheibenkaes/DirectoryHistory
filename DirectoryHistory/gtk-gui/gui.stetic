@@ -33,6 +33,13 @@
         <property name="Label" translatable="yes">Info</property>
         <property name="ShortLabel" translatable="yes">Info</property>
       </action>
+      <action id="refreshAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">refresh</property>
+        <property name="ShortLabel" translatable="yes">refresh</property>
+        <property name="StockId">gtk-refresh</property>
+        <signal name="Activated" handler="OnRefreshActionActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
@@ -70,6 +77,7 @@
                 <property name="IconSize">LargeToolbar</property>
                 <node name="__gtksharp_72_Stetic_Editor_ActionToolbar" type="Toolbar">
                   <node type="Toolitem" action="openAction" />
+                  <node type="Toolitem" action="refreshAction" />
                 </node>
               </widget>
               <packing>

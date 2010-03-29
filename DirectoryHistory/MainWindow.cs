@@ -40,4 +40,10 @@ public partial class MainWindow : Gtk.Window
 	}
 	
 	
+	protected virtual void OnRefreshActionActivated (object sender, System.EventArgs e)
+	{
+	}
+	
+	
+	
 }
