@@ -43,8 +43,6 @@ namespace DirectoryHistory.History.Git
 		{
 			Path = path;
 			
-			//ChildDirectories = new List<IDirectoryWithHistory> ();
-			
 			ReadSubDirectories ();
 		}
 
