@@ -35,5 +35,8 @@ namespace DirectoryHistory.History.Git
 		public HistoryProvider ()
 		{
 		}
+		
+		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
+		
 	}
 }

@@ -29,6 +29,11 @@ namespace DirectoryHistory.History
 	public interface IHistoryProvider
 	{
 		/// <summary>
+		/// Is fired whenever a directory provided by this provider changed
+		/// </summary>
+		event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
+		
+		/// <summary>
 		/// Load the directory form the path given
 		/// </summary>
 		/// <param name="path">
