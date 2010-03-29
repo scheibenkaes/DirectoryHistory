@@ -37,6 +37,7 @@
     <Compile Include="IDirectoryWithHistory.cs" />
     <Compile Include="IHistoryProvider.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="DirectoryStatusWasUpdatedEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
