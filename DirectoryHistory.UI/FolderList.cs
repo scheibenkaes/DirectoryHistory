@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using Gtk;
 
 namespace DirectoryHistory.UI
 {
@@ -28,10 +29,21 @@ namespace DirectoryHistory.UI
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class FolderList : Gtk.Bin
 	{
+		private TreeStore treeStore;
 
 		public FolderList ()
 		{
 			this.Build ();
+			InitializeTreeStore ();
+			
+			treeview.AppendColumn ("Status", new CellRendererText (), "text", 0);
+			treeview.AppendColumn ("File", new CellRendererText (), "text", 1);
+		}
+
+		private void InitializeTreeStore ()
+		{
+			treeStore = new TreeStore (typeof(string), typeof(string));
+			treeview.Model = treeStore;
 		}
 	}
 }

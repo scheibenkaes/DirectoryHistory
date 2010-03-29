@@ -15,7 +15,7 @@ namespace DirectoryHistory.UI {
         
         private Gtk.ScrolledWindow GtkScrolledWindow;
         
-        private Gtk.TreeView treeview1;
+        private Gtk.TreeView treeview;
         
         protected virtual void Build() {
             Stetic.Gui.Initialize(this);
@@ -27,10 +27,10 @@ namespace DirectoryHistory.UI {
             this.GtkScrolledWindow.Name = "GtkScrolledWindow";
             this.GtkScrolledWindow.ShadowType = ((Gtk.ShadowType)(1));
             // Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-            this.treeview1 = new Gtk.TreeView();
-            this.treeview1.CanFocus = true;
-            this.treeview1.Name = "treeview1";
-            this.GtkScrolledWindow.Add(this.treeview1);
+            this.treeview = new Gtk.TreeView();
+            this.treeview.CanFocus = true;
+            this.treeview.Name = "treeview";
+            this.GtkScrolledWindow.Add(this.treeview);
             this.Add(this.GtkScrolledWindow);
             if ((this.Child != null)) {
                 this.Child.ShowAll();
