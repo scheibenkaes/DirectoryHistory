@@ -1,18 +1,16 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoyHistory/MainWindow.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory/Main.cs" ctype="Workbench">
     <Files>
-      <File FileName="DirectoyHistory/Main.cs" Line="22" Column="1" />
-      <File FileName="DirectoyHistory/MainWindow.cs" Line="22" Column="1" />
+      <File FileName="DirectoryHistory/Main.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
+          <Node name="DirectoryHistory" expanded="True" selected="True" />
           <Node name="DirectoryHistory.History" expanded="True" />
-          <Node name="DirectoyHistory" expanded="True">
-            <Node name="MainWindow.cs" selected="True" />
-          </Node>
+          <Node name="DirectoryHistory.UI" expanded="True" />
         </State>
       </Pad>
     </Pads>
