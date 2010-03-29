@@ -26,5 +26,13 @@ namespace DirectoryHistory.History
 	public interface IDirectoryWithHistory
 	{
 		string Path { get; }
+		
+		/// <summary>
+		/// Used to detect if a directory has no uncommited changes
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.Boolean"/>
+		/// </returns>
+		bool IsClean ();
 	}
 }
