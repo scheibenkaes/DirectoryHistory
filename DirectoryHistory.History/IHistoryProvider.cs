@@ -1,5 +1,5 @@
 //  
-//  IDirectoryWithHistory.cs
+//  IHistoryProvider.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,39 +20,23 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-	public interface IDirectoryWithHistory
+	/// <summary>
+	/// Describes the interface to the used Version Control System. E.g. Git, Bazaar etc.
+	/// </summary>
+	public interface IHistoryProvider
 	{
 		/// <summary>
-		/// string representation of the folder on disk
+		/// Load the directory form the path given
 		/// </summary>
-		string Path { get; }
-
-		/// <summary>
-		/// Used to detect if a directory has no uncommited changes
-		/// </summary>
+		/// <param name="path">
+		/// A <see cref="System.String"/> pointing to the path
+		/// </param>
 		/// <returns>
-		/// A <see cref="System.Boolean"/>
+		/// A <see cref="IDirectoryWithHistory"/>
 		/// </returns>
-		bool IsClean ();
-
-		/// <summary>
-		/// Detect if this directory was the the originally loaded root directory.
-		/// Is used to prevent the user from going further up the directory tree then the originally loaded folder.
-		/// </summary>
-		/// <returns>
-		/// true if the directory from IDirectoryWithHistory.Path was the originally loaded directory
-		/// </returns>
-		bool IsRootDirectory ();
-
-		/// <summary>
-		/// Get all directories in this directory
-		/// </summary>
-		IEnumerable<IDirectoryWithHistory> ChildDirectories { get; }
-		
-		
+		IDirectoryWithHistory LoadDirectory (string path);
 	}
 }
