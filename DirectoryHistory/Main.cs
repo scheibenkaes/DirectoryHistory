@@ -32,7 +32,9 @@ namespace DirectoryHistory
 		{
 			Application.Init ();
 			
-			var applLogic = new ApplicationLogic ();
+			var git = new DirectoryHistory.History.Git.HistoryProvider ();
+			
+			var applLogic = new ApplicationLogic (git);
 			
 			MainWindow win = new MainWindow (applLogic);
 			win.Show ();

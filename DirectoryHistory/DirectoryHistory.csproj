@@ -80,5 +80,9 @@
       <Project>{3F3BCCEB-9FD6-48EB-96A5-A7D4718715C6}</Project>
       <Name>DirectoryHistory.History</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DirectoryHistory.History.Git\DirectoryHistory.History.Git.csproj">
+      <Project>{12C08B5B-173B-49C1-8D13-6441A300336F}</Project>
+      <Name>DirectoryHistory.History.Git</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

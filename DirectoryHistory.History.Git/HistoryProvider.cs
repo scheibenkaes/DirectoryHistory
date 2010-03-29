@@ -21,6 +21,8 @@
 
 using System;
 
+using System.IO;
+
 namespace DirectoryHistory.History.Git
 {
 
@@ -29,7 +31,10 @@ namespace DirectoryHistory.History.Git
 	{
 		public IDirectoryWithHistory LoadDirectory (string path)
 		{
-			throw new System.NotImplementedException();
+			if (string.IsNullOrEmpty (path) || !Directory.Exists (path))
+			{
+				throw new Exception ("Path must exist and must not be empty!");
+			}
 		}
 		
 		public HistoryProvider ()

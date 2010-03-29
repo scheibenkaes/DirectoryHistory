@@ -29,12 +29,18 @@ namespace DirectoryHistory.History
 	/// </summary>
 	public class ApplicationLogic
 	{
-		private IHistoryProvider historyProvider;
-		
+		public IHistoryProvider HistoryProvider { get; private set; }
+
 		private IDirectoryWithHistory rootDirectory;
 
-		public ApplicationLogic ()
+		public void LoadDirectory (string path)
 		{
+			rootDirectory = HistoryProvider.LoadDirectory (path);
+		}
+		
+		public ApplicationLogic (IHistoryProvider provider)
+		{
+			HistoryProvider = provider;
 		}
 	}
 }

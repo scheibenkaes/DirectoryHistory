@@ -32,11 +32,14 @@ using DirectoryHistory.History;
 public partial class MainWindow : Gtk.Window
 {
 	public event EventHandler<DirectorySelectedEventArgs> DirectorySelected;
-	
-	public MainWindow (ApplicationLogic history) : base(Gtk.WindowType.Toplevel)
+
+	private ApplicationLogic logic;
+
+	public MainWindow (ApplicationLogic logic) : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		
+		this.logic = logic;
+		logic.HistoryProvider.DirectoryWasUpdated += folderlist.OnDirectoryUpdated;
 		
 	}
 
@@ -47,15 +50,13 @@ public partial class MainWindow : Gtk.Window
 	}
 
 	protected virtual void OnOpenActionActivated (object sender, System.EventArgs e)
-	{		
+	{
 		var fileChooser = new FileChooserDialog ("Open directory", this, FileChooserAction.Open, Stock.Cancel, ResponseType.Cancel, Stock.Open, ResponseType.Close);
 		FileFilter filter = new FileFilter ();
 		filter.AddCustom (FileFilterFlags.Filename, info => Directory.Exists (info.Filename));
 		fileChooser.Filter = filter;
 		if (fileChooser.Run () == (int)ResponseType.Close) {
-			if (DirectorySelected != null) {
-				DirectorySelected (this, new DirectorySelectedEventArgs (fileChooser.Filename));
-			}
+			logic.LoadDirectory (fileChooser.Filename);
 		}
 		fileChooser.Destroy ();
 	}

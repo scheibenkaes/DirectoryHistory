@@ -1,5 +1,5 @@
 //  
-//  History.cs
+//  DirectoryWithHistory.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -21,19 +21,14 @@
 
 using System;
 
-namespace DirectoryHistory.History
+namespace DirectoryHistory.History.Git
 {
 
-	/// <summary>
-	/// Main application object
-	/// </summary>
-	public class History
-	{
-		private IHistoryProvider historyProvider;
-		
-		private IDirectoryWithHistory rootDirectory;
 
-		public History ()
+	public class DirectoryWithHistory
+	{
+
+		public DirectoryWithHistory ()
 		{
 		}
 	}
