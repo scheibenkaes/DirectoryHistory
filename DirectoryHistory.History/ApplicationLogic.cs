@@ -29,6 +29,8 @@ namespace DirectoryHistory.History
 	/// </summary>
 	public class ApplicationLogic
 	{
+		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> OnDirectoryLoaded;
+			
 		public IHistoryProvider HistoryProvider { get; private set; }
 
 		private IDirectoryWithHistory rootDirectory;
@@ -36,6 +38,10 @@ namespace DirectoryHistory.History
 		public void LoadDirectory (string path)
 		{
 			rootDirectory = HistoryProvider.LoadDirectory (path);
+			if (OnDirectoryLoaded != null)
+			{
+				OnDirectoryLoaded (this, new DirectoryStatusWasUpdatedEventArgs (rootDirectory));
+			}
 		}
 		
 		public ApplicationLogic (IHistoryProvider provider)

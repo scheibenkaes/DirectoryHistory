@@ -50,7 +50,12 @@ namespace DirectoryHistory.UI
 		
 		public void OnDirectoryUpdated (object sender, DirectoryStatusWasUpdatedEventArgs args)
 		{
-			Console.WriteLine ("update");
+			InitializeTreeStore ();
+			var children = args.DirectoryThatChanged.ChildDirectories;
+			
+			foreach (var child in children) {
+				treeStore.AppendValues ("NA", child.Path);
+			}
 		}
 	}
 }

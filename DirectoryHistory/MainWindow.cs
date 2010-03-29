@@ -39,8 +39,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		Build ();
 		this.logic = logic;
-		logic.HistoryProvider.DirectoryWasUpdated += folderlist.OnDirectoryUpdated;
-		
+		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;		
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
