@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoyHistory", "Directoy
 EndProject
 Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "DirectoyHistoryTranslation", "DirectoyHistoryTranslation\DirectoyHistoryTranslation.mdproj", "{E7950842-EEB7-4D12-906D-87AF0A6C76D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryHistory.UI", "DirectoryHistory.UI\DirectoryHistory.UI.csproj", "{DB6C5FF9-7CC8-4C3C-BDE0-137C3C0FCD2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,10 @@ Global
 		{8C1F68AF-ACB3-4C87-B6F7-AA7E29B82E64}.Debug|x86.Build.0 = Debug|x86
 		{8C1F68AF-ACB3-4C87-B6F7-AA7E29B82E64}.Release|x86.ActiveCfg = Release|x86
 		{8C1F68AF-ACB3-4C87-B6F7-AA7E29B82E64}.Release|x86.Build.0 = Release|x86
+		{DB6C5FF9-7CC8-4C3C-BDE0-137C3C0FCD2F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DB6C5FF9-7CC8-4C3C-BDE0-137C3C0FCD2F}.Debug|x86.Build.0 = Debug|Any CPU
+		{DB6C5FF9-7CC8-4C3C-BDE0-137C3C0FCD2F}.Release|x86.ActiveCfg = Release|Any CPU
+		{DB6C5FF9-7CC8-4C3C-BDE0-137C3C0FCD2F}.Release|x86.Build.0 = Release|Any CPU
 		{E7950842-EEB7-4D12-906D-87AF0A6C76D1}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{E7950842-EEB7-4D12-906D-87AF0A6C76D1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
