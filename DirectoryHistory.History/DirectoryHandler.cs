@@ -1,5 +1,5 @@
 //  
-//  Main.cs
+//  DirectoryHandler.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,18 +20,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using Gtk;
 
-namespace DirectoryHistory
+namespace DirectoryHistory.History
 {
-	class MainClass
+	public class DirectoryHandler
 	{
-		public static void Main (string[] args)
+		private IDirectoryWithHistory currentDirectory;
+
+		public DirectoryHandler ()
 		{
-			Application.Init ();
-			MainWindow win = new MainWindow ();
-			win.Show ();
-			Application.Run ();
+		}
+		
+		public void SelectDirectory(string path)
+		{
+			
 		}
 	}
 }

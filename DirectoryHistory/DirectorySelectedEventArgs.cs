@@ -1,5 +1,5 @@
 //  
-//  Main.cs
+//  DirectorySelectedEventArgs.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,18 +20,18 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using Gtk;
 
 namespace DirectoryHistory
 {
-	class MainClass
+
+
+	public class DirectorySelectedEventArgs : EventArgs
 	{
-		public static void Main (string[] args)
+		public string Directory { get; private set; }
+
+		public DirectorySelectedEventArgs (string dir)
 		{
-			Application.Init ();
-			MainWindow win = new MainWindow ();
-			win.Show ();
-			Application.Run ();
+			Directory = dir;
 		}
 	}
 }

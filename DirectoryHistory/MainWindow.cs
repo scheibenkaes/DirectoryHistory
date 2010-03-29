@@ -26,8 +26,12 @@ using Gtk;
 
 using Mono.Unix;
 
+using DirectoryHistory;
+
 public partial class MainWindow : Gtk.Window
 {
+	public event EventHandler<DirectorySelectedEventArgs> DirectorySelected;
+	
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -46,7 +50,9 @@ public partial class MainWindow : Gtk.Window
 		filter.AddCustom (FileFilterFlags.Filename, info => Directory.Exists (info.Filename));
 		fileChooser.Filter = filter;
 		if (fileChooser.Run () == (int)ResponseType.Close) {
-			Console.WriteLine (fileChooser.Filename);
+			if (DirectorySelected != null) {
+				DirectorySelected (this, new DirectorySelectedEventArgs (fileChooser.Filename));
+			}
 		}
 		fileChooser.Destroy ();
 	}
