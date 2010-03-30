@@ -39,7 +39,7 @@ namespace DirectoryHistory.UI
 			this.Build ();
 			InitializeTreeStore ();
 			
-			treeview.AppendColumn ("Status", new CellRendererText (), "text", 0);
+			treeview.AppendColumn ("Status", new CellRendererPixbuf (), "icon_name", 0);
 			treeview.AppendColumn ("File", new CellRendererText (), "text", 1);
 		}
 
@@ -74,7 +74,7 @@ namespace DirectoryHistory.UI
 		
 		private TreeIter AddDirectoryToList (IDirectoryWithHistory directoryWithHistory)
 		{
-			return treeStore.AppendValues (directoryWithHistory.Status.ToString (), directoryWithHistory.Path);
+			return treeStore.AppendValues (directoryWithHistory.Status.GetStockFromFileStatus (), directoryWithHistory.Path);
 		}
 
 		private void AddSubDirectories (TreeIter iter, IDirectoryWithHistory directory)

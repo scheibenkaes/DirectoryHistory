@@ -31,7 +31,7 @@ namespace DirectoryHistory.UI
 
 	public static class Extensions
 	{
-		public static StockItem GetStockFromFileStatus (this FileStatus status)
+		public static string GetStockFromFileStatus (this FileStatus status)
 		{
 			string stock = Stock.MissingImage;
 			switch (status) {
@@ -46,7 +46,7 @@ namespace DirectoryHistory.UI
 				break;
 			}
 			
-			return Stock.Lookup (stock);
+			return stock;
 		}
 	}
 }
