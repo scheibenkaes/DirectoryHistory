@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-03-30 19:15:03+0200\n"
-"PO-Revision-Date: 2010-03-30 19:25:33+0200\n"
+"POT-Creation-Date: 2010-03-30 19:37:35+0200\n"
+"PO-Revision-Date: 2010-03-30 19:37:59+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,43 +14,48 @@ msgstr ""
 msgid "Open directory"
 msgstr "Verzeichnis angeben"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:47
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:48
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:49
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:50
 msgid "openDirectory"
 msgstr "Verzeichnis öffnen"
 
 #
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:50
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:51
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:52
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:53
 #: ../DirectoryHistory.UI/FolderList.cs:44
 msgid "File"
 msgstr "Datei"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:53
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:54
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:55
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
 msgid "History"
 msgstr "Historie"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:57
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
 msgid "Info"
 msgstr "Info"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:60
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:61
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:62
 msgid "refresh"
 msgstr "Neu laden"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:62
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:63
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:64
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:65
 msgid "quit"
 msgstr "Beenden"
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:67
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:68
+msgid "_About"
+msgstr "_Über"
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:73
 msgid "Directory History"
 msgstr "Verzeichnis Historie"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:117
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:122
 msgid "No directory loaded"
 msgstr "Kein Verzeichnis geöffnet"
 

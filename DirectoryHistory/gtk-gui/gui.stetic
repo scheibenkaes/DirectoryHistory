@@ -47,6 +47,13 @@
         <property name="StockId">gtk-quit</property>
         <signal name="Activated" handler="OnQuitActionActivated" />
       </action>
+      <action id="aboutAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">_About</property>
+        <property name="ShortLabel" translatable="yes">_About</property>
+        <property name="StockId">gtk-about</property>
+        <signal name="Activated" handler="OnAboutActionActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">Directory History</property>
@@ -68,7 +75,9 @@
               <node type="Menu" action="HistoryAction">
                 <node type="Menuitem" action="refreshAction" />
               </node>
-              <node type="Menu" action="InfoAction" />
+              <node type="Menu" action="InfoAction">
+                <node type="Menuitem" action="aboutAction" />
+              </node>
             </node>
           </widget>
           <packing>

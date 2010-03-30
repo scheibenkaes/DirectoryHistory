@@ -26,6 +26,8 @@ public partial class MainWindow {
     
     private Gtk.Action quitAction;
     
+    private Gtk.Action aboutAction;
+    
     private Gtk.VBox vbox1;
     
     private Gtk.MenuBar menubar1;
@@ -63,6 +65,9 @@ public partial class MainWindow {
         this.quitAction = new Gtk.Action("quitAction", Mono.Unix.Catalog.GetString("quit"), null, "gtk-quit");
         this.quitAction.ShortLabel = Mono.Unix.Catalog.GetString("quit");
         w1.Add(this.quitAction, null);
+        this.aboutAction = new Gtk.Action("aboutAction", Mono.Unix.Catalog.GetString("_About"), null, "gtk-about");
+        this.aboutAction.ShortLabel = Mono.Unix.Catalog.GetString("_About");
+        w1.Add(this.aboutAction, null);
         this.UIManager.InsertActionGroup(w1, 0);
         this.AddAccelGroup(this.UIManager.AccelGroup);
         this.Name = "MainWindow";
@@ -74,7 +79,7 @@ public partial class MainWindow {
         this.vbox1.Name = "vbox1";
         this.vbox1.Spacing = 6;
         // Container child vbox1.Gtk.Box+BoxChild
-        this.UIManager.AddUiFromString("<ui><menubar name='menubar1'><menu name='FileAction' action='FileAction'><menuitem name='openAction' action='openAction'/><menuitem name='quitAction' action='quitAction'/></menu><menu name='HistoryAction' action='HistoryAction'><menuitem name='refreshAction' action='refreshAction'/></menu><menu name='InfoAction' action='InfoAction'/></menubar></ui>");
+        this.UIManager.AddUiFromString("<ui><menubar name='menubar1'><menu name='FileAction' action='FileAction'><menuitem name='openAction' action='openAction'/><menuitem name='quitAction' action='quitAction'/></menu><menu name='HistoryAction' action='HistoryAction'><menuitem name='refreshAction' action='refreshAction'/></menu><menu name='InfoAction' action='InfoAction'><menuitem name='aboutAction' action='aboutAction'/></menu></menubar></ui>");
         this.menubar1 = ((Gtk.MenuBar)(this.UIManager.GetWidget("/menubar1")));
         this.menubar1.Name = "menubar1";
         this.vbox1.Add(this.menubar1);
@@ -137,5 +142,6 @@ public partial class MainWindow {
         this.openAction.Activated += new System.EventHandler(this.OnOpenActionActivated);
         this.refreshAction.Activated += new System.EventHandler(this.OnRefreshActionActivated);
         this.quitAction.Activated += new System.EventHandler(this.OnQuitActionActivated);
+        this.aboutAction.Activated += new System.EventHandler(this.OnAboutActionActivated);
     }
 }

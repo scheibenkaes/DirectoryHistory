@@ -75,8 +75,15 @@ public partial class MainWindow : Gtk.Window
 	{
 		Application.Quit ();
 	}
-	
-	
-	
+
+	void ShowInfoDialog ()
+	{
+		Console.WriteLine ("foo");
+	}
+
+	protected virtual void OnAboutActionActivated (object sender, System.EventArgs e)
+	{
+		ShowInfoDialog ();
+	}
 	
 }
