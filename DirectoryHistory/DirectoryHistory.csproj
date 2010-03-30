@@ -8,7 +8,7 @@
     <ProjectGuid>{8C1F68AF-ACB3-4C87-B6F7-AA7E29B82E64}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DirectoyHistory</RootNamespace>
-    <AssemblyName>DirectoyHistory</AssemblyName>
+    <AssemblyName>DirectoryHistory</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">

@@ -22,6 +22,8 @@
 using System;
 using Gtk;
 
+using Mono.Unix;
+
 using DirectoryHistory.History;
 
 namespace DirectoryHistory
@@ -31,6 +33,8 @@ namespace DirectoryHistory
 		public static void Main (string[] args)
 		{
 			Application.Init ();
+			
+			Catalog.Init ("i8n1", "locale");
 			
 			var git = new DirectoryHistory.History.Git.HistoryProvider ();
 			

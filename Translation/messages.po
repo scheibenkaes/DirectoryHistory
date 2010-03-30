@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-03-29 14:34:53+0200\n"
-"PO-Revision-Date: 2010-03-29 14:34:53+0200\n"
+"POT-Creation-Date: 2010-03-30 19:02:46+0200\n"
+"PO-Revision-Date: 2010-03-30 19:02:46+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,41 +10,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../DirectoryHistory/MainWindow.cs:44
-msgid "Cancel"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:45
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:46
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:47
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:48
 msgid "openDirectory"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:48
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:49
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:50
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:51
+#: ../DirectoryHistory.UI/FolderList.cs:44
 msgid "File"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:51
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:52
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:53
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:54
 msgid "History"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:54
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:55
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:57
 msgid "Info"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:57
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:60
 msgid "refresh"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:60
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:61
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:62
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:63
 msgid "quit"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:66
-msgid "MainWindow"
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:68
+msgid "Directory History"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:117
+msgid "No directory loaded"
+msgstr ""
+
+#: ../DirectoryHistory.UI/FolderList.cs:43
+msgid "Status"
 msgstr ""
 
