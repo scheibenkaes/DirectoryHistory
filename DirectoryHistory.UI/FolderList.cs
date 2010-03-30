@@ -23,6 +23,8 @@ using System;
 using System.Linq;
 using Gtk;
 
+using Mono.Unix;
+
 using DirectoryHistory.History;
 
 namespace DirectoryHistory.UI
@@ -39,8 +41,8 @@ namespace DirectoryHistory.UI
 			this.Build ();
 			InitializeTreeStore ();
 			
-			treeview.AppendColumn ("Status", new CellRendererPixbuf (), "icon_name", 0);
-			treeview.AppendColumn ("File", new CellRendererText (), "text", 1);
+			treeview.AppendColumn (Catalog.GetString ("Status"), new CellRendererPixbuf (), "icon_name", 0);
+			treeview.AppendColumn (Catalog.GetString ("File"), new CellRendererText (), "text", 1);
 		}
 
 		private void InitializeTreeStore ()
