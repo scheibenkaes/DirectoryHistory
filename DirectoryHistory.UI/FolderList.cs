@@ -72,15 +72,15 @@ namespace DirectoryHistory.UI
 			AddSubDirectories (treeIter, root);
 		}
 		
-		private void AddDirectoryToList (IDirectoryWithHistory directoryWithHistory)
+		private TreeIter AddDirectoryToList (IDirectoryWithHistory directoryWithHistory)
 		{
-			treeStore.AppendValues (directoryWithHistory.Status.ToString (), directoryWithHistory.Path);
+			return treeStore.AppendValues (directoryWithHistory.Status.ToString (), directoryWithHistory.Path);
 		}
 
 		private void AddSubDirectories (TreeIter iter, IDirectoryWithHistory directory)
 		{
 			foreach (var child in directory.ChildDirectories) {
-				var subiter = treeStore.AppendValues (directory.Status.ToString (), child.Path);
+				var subiter = AddDirectoryToList (child);
 				AddSubDirectories (iter, child);
 			}
 		}
