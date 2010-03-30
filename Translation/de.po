@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-03-30 19:00:43+0200\n"
-"PO-Revision-Date: 2010-03-30 19:08:40+0200\n"
+"POT-Creation-Date: 2010-03-30 19:15:03+0200\n"
+"PO-Revision-Date: 2010-03-30 19:18:35+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,12 +10,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
+#: ../DirectoryHistory/MainWindow.cs:56
+msgid "Open directory"
+msgstr "Verzeichnis angeben"
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:47
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:48
 msgid "openDirectory"
 msgstr ""
 
-# 
+#
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:50
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:51
 #: ../DirectoryHistory.UI/FolderList.cs:44
@@ -30,7 +34,7 @@ msgstr ""
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:57
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:60

@@ -1,14 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-03-30 19:02:46+0200\n"
-"PO-Revision-Date: 2010-03-30 19:02:46+0200\n"
+"POT-Creation-Date: 2010-03-30 19:15:03+0200\n"
+"PO-Revision-Date: 2010-03-30 19:15:03+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
+
+#: ../DirectoryHistory/MainWindow.cs:56
+msgid "Open directory"
+msgstr ""
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:47
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:48

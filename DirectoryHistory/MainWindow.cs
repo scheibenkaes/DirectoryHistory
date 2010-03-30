@@ -54,7 +54,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnOpenActionActivated (object sender, System.EventArgs e)
 	{
-		var fileChooser = new FileChooserDialog ("Open directory", this, FileChooserAction.Open, Stock.Cancel, ResponseType.Cancel, Stock.Open, ResponseType.Close);
+		var fileChooser = new FileChooserDialog (Catalog.GetString ("Open directory"), this, FileChooserAction.Open, Stock.Cancel, ResponseType.Cancel, Stock.Open, ResponseType.Close);
 		FileFilter filter = new FileFilter ();
 		filter.AddCustom (FileFilterFlags.Filename, info => Directory.Exists (info.Filename));
 		fileChooser.Filter = filter;
