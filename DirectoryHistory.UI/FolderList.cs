@@ -52,21 +52,35 @@ namespace DirectoryHistory.UI
 		public void OnDirectoryUpdated (object sender, DirectoryStatusWasUpdatedEventArgs args)
 		{
 			InitializeTreeStore ();
-			var children = args.DirectoryThatChanged.ChildDirectories;
+			
+			DisplayAsRootFolder (args.DirectoryThatChanged);
+		}
+		
+		private void DisplayAsRootFolder (IDirectoryWithHistory root)
+		{
+			if (root == null)
+				throw new ArgumentNullException ("root");
+			
+			AddDirectoryToList (root);
+			
+			var children = root.ChildDirectories;
 			
 			TreeIter treeIter;
 			
 			treeStore.GetIter (out treeIter, new TreePath ("0"));
 			
-			AddSubDirectories (treeIter, args.DirectoryThatChanged);
-			
-			//children.ToList ().ForEach (child => AddSubDirectories (treeIter, child));
+			AddSubDirectories (treeIter, root);
+		}
+		
+		private void AddDirectoryToList (IDirectoryWithHistory directoryWithHistory)
+		{
+			treeStore.AppendValues (directoryWithHistory.Status.ToString (), directoryWithHistory.Path);
 		}
 
 		private void AddSubDirectories (TreeIter iter, IDirectoryWithHistory directory)
 		{
 			foreach (var child in directory.ChildDirectories) {
-				var subiter = treeStore.AppendValues ("NA", child.Path);
+				var subiter = treeStore.AppendValues (directory.Status.ToString (), child.Path);
 				AddSubDirectories (iter, child);
 			}
 		}
