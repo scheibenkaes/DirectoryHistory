@@ -42,6 +42,11 @@ namespace DirectoryHistory.History.Git
 		{
 		}
 
+		public bool IsARepository (string path)
+		{
+			return false;
+		}
+		
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
 		
 	}

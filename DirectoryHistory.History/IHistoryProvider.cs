@@ -43,5 +43,16 @@ namespace DirectoryHistory.History
 		/// A <see cref="IDirectoryWithHistory"/>
 		/// </returns>
 		IDirectoryWithHistory LoadDirectory (string path);
+		
+		/// <summary>
+		/// Used to determine if a path is a repository and can therefore be loaded into the application.
+		/// </summary>
+		/// <param name="path">
+		/// Path on disk
+		/// </param>
+		/// <returns>
+		/// True if path is a directory and is a Git, Bazaar or whatever repository
+		/// </returns>
+		bool IsARepository (string path);
 	}
 }
