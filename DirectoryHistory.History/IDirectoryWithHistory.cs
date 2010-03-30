@@ -51,5 +51,10 @@ namespace DirectoryHistory.History
 		IEnumerable<IDirectoryWithHistory> ChildDirectories { get; }
 		
 		
+		/// <summary>
+		/// Get all contained files from this directory. Must not be null!!!
+		/// </summary>
+		IEnumerable<IFileWithHistory> ChildFiles { get; }
+		
 	}
 }

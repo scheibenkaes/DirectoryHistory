@@ -38,13 +38,25 @@ namespace DirectoryHistory.History.Git
 
 
 		public IEnumerable<IDirectoryWithHistory> ChildDirectories { get; private set; }
+		
+		public IEnumerable<IFileWithHistory> ChildFiles { get; private set; }
+			
 
 		public DirectoryWithHistory (string path)
 		{
 			Path = path;
 			
 			ReadSubDirectories ();
+			
+			ReadContainingFiles ();
 		}
+
+		private void ReadContainingFiles ()
+		{
+			var files = Directory.GetFiles (Path).ToList ();
+			ChildFiles = files.ConvertAll<IFileWithHistory> (f => new FileWithHistory (f));
+		}
+
 
 		private void ReadSubDirectories ()
 		{
