@@ -66,7 +66,8 @@ public partial class MainWindow {
         this.UIManager.InsertActionGroup(w1, 0);
         this.AddAccelGroup(this.UIManager.AccelGroup);
         this.Name = "MainWindow";
-        this.Title = Mono.Unix.Catalog.GetString("MainWindow");
+        this.Title = Mono.Unix.Catalog.GetString("Directory History");
+        this.Icon = Stetic.IconLoader.LoadIcon(this, "gtk-find-and-replace", Gtk.IconSize.Menu, 16);
         this.WindowPosition = ((Gtk.WindowPosition)(4));
         // Container child MainWindow.Gtk.Container+ContainerChild
         this.vbox1 = new Gtk.VBox();

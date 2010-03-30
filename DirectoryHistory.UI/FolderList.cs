@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Linq;
 using Gtk;
 
 using DirectoryHistory.History;
@@ -47,14 +48,26 @@ namespace DirectoryHistory.UI
 			treeStore = new TreeStore (typeof(string), typeof(string));
 			treeview.Model = treeStore;
 		}
-		
+
 		public void OnDirectoryUpdated (object sender, DirectoryStatusWasUpdatedEventArgs args)
 		{
 			InitializeTreeStore ();
 			var children = args.DirectoryThatChanged.ChildDirectories;
 			
-			foreach (var child in children) {
-				treeStore.AppendValues ("NA", child.Path);
+			TreeIter treeIter;
+			
+			treeStore.GetIter (out treeIter, new TreePath ("0"));
+			
+			AddSubDirectories (treeIter, args.DirectoryThatChanged);
+			
+			//children.ToList ().ForEach (child => AddSubDirectories (treeIter, child));
+		}
+
+		private void AddSubDirectories (TreeIter iter, IDirectoryWithHistory directory)
+		{
+			foreach (var child in directory.ChildDirectories) {
+				var subiter = treeStore.AppendValues (iter, "NA", child.Path);
+				AddSubDirectories (subiter, child);
 			}
 		}
 	}
