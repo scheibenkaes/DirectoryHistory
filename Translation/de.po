@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2010-03-30 19:15:03+0200\n"
-"PO-Revision-Date: 2010-03-30 19:18:35+0200\n"
+"PO-Revision-Date: 2010-03-30 19:25:33+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr "Verzeichnis angeben"
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:47
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:48
 msgid "openDirectory"
-msgstr ""
+msgstr "Verzeichnis öffnen"
 
 #
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:50
@@ -29,7 +29,7 @@ msgstr "Datei"
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:53
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:54
 msgid "History"
-msgstr ""
+msgstr "Historie"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:57
@@ -39,7 +39,7 @@ msgstr "Info"
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:60
 msgid "refresh"
-msgstr ""
+msgstr "Neu laden"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:62
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:63
@@ -48,7 +48,7 @@ msgstr "Beenden"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:68
 msgid "Directory History"
-msgstr ""
+msgstr "Verzeichnis Historie"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:117
 msgid "No directory loaded"
@@ -56,7 +56,7 @@ msgstr "Kein Verzeichnis geöffnet"
 
 #: ../DirectoryHistory.UI/FolderList.cs:43
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #~ msgid "MainWindow"
 #~ msgstr "Hauptfenster"
