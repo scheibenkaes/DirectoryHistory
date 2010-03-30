@@ -62,7 +62,8 @@ namespace DirectoryHistory.History.Git
 		
 		public FileStatus Status {
 			get {
-				throw new System.NotImplementedException();
+				// TODO
+				return FileStatus.NotUnderVersionControl;
 			}
 		}
 	}
