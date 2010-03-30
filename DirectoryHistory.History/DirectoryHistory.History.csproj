@@ -39,6 +39,7 @@
     <Compile Include="DirectoryStatusWasUpdatedEventArgs.cs" />
     <Compile Include="ApplicationLogic.cs" />
     <Compile Include="IFileWithHistory.cs" />
+    <Compile Include="FileStatus.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

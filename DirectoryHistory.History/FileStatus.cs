@@ -1,5 +1,5 @@
 //  
-//  IFileWithHistory.cs
+//  FileStatus.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -25,13 +25,12 @@ namespace DirectoryHistory.History
 {
 
 
-	public interface IFileWithHistory
+	public enum FileStatus
 	{
-		/// <summary>
-		/// string representation of the file/folder on disk
-		/// </summary>
-		string Path { get; }
+		NotUnderVersionControl,
 		
+		Changed,
 		
+		Commited
 	}
 }
