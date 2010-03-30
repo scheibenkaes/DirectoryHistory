@@ -31,7 +31,10 @@ namespace DirectoryHistory.History
 		/// string representation of the file/folder on disk
 		/// </summary>
 		string Path { get; }
-		
-		
+
+		/// <summary>
+		/// The status which the file has under the currently used VCS
+		/// </summary>
+		FileStatus Status { get; }
 	}
 }

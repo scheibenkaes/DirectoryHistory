@@ -60,5 +60,10 @@ namespace DirectoryHistory.History.Git
 			ChildDirectories = subDirToBeAdded;
 		}
 		
+		public FileStatus Status {
+			get {
+				throw new System.NotImplementedException();
+			}
+		}
 	}
 }

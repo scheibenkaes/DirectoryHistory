@@ -27,10 +27,19 @@ namespace DirectoryHistory.History
 
 	public enum FileStatus
 	{
+		/// <summary>
+		/// File is not yet under Version Control
+		/// </summary>
 		NotUnderVersionControl,
 		
+		/// <summary>
+		/// File is under version control and has uncommited changes
+		/// </summary>
 		Changed,
 		
+		/// <summary>
+		/// All changes have been committed
+		/// </summary>
 		Commited
 	}
 }
