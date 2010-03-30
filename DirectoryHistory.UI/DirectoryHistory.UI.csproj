@@ -45,6 +45,7 @@
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="FolderList.cs" />
     <Compile Include="gtk-gui\DirectoryHistory.UI.FolderList.cs" />
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
