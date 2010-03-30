@@ -65,8 +65,6 @@ namespace DirectoryHistory.UI
 			
 			AddDirectoryToList (root);
 			
-			var children = root.ChildDirectories;
-			
 			TreeIter treeIter;
 			
 			treeStore.GetIter (out treeIter, new TreePath ("0"));
@@ -82,7 +80,7 @@ namespace DirectoryHistory.UI
 		private void AddSubDirectories (TreeIter iter, IDirectoryWithHistory directory)
 		{
 			foreach (var child in directory.ChildDirectories) {
-				var subiter = AddDirectoryToList (child);
+				AddDirectoryToList (child);
 				AddSubDirectories (iter, child);
 			}
 		}
