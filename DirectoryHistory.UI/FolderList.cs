@@ -72,6 +72,14 @@ namespace DirectoryHistory.UI
 			AddSubDirectories (treeIter, root);
 		}
 		
+		private void AddContainingFiles (IDirectoryWithHistory directoryWithHistory)
+		{
+			var files = directoryWithHistory.ChildFiles;
+			foreach (IFileWithHistory file in files) {
+				treeStore.AppendValues (file.Status.GetStockFromFileStatus (), file.Path);
+			}
+		}
+		
 		private TreeIter AddDirectoryToList (IDirectoryWithHistory directoryWithHistory)
 		{
 			return treeStore.AppendValues (directoryWithHistory.Status.GetStockFromFileStatus (), directoryWithHistory.Path);
@@ -81,6 +89,7 @@ namespace DirectoryHistory.UI
 		{
 			foreach (var child in directory.ChildDirectories) {
 				AddDirectoryToList (child);
+				AddContainingFiles (child);
 				AddSubDirectories (iter, child);
 			}
 		}

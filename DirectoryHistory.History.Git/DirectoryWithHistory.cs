@@ -28,6 +28,8 @@ namespace DirectoryHistory.History.Git
 {
 	public class DirectoryWithHistory : IDirectoryWithHistory
 	{
+		private readonly string[] IgnoredFolders = new string[] { ".git" };
+
 		public bool IsClean { get; private set; }
 
 
@@ -38,9 +40,9 @@ namespace DirectoryHistory.History.Git
 
 
 		public IEnumerable<IDirectoryWithHistory> ChildDirectories { get; private set; }
-		
+
 		public IEnumerable<IFileWithHistory> ChildFiles { get; private set; }
-			
+
 
 		public DirectoryWithHistory (string path)
 		{
@@ -60,23 +62,22 @@ namespace DirectoryHistory.History.Git
 
 		private void ReadSubDirectories ()
 		{
-			var directories = Directory.GetDirectories (Path);
+			var directories = Directory.GetDirectories (Path).ToList ();
+			
+			var ignoredDirectories = directories.Where ( dir => dir.EndsWith (IgnoredFolders[0]));
+			
 			var subDirToBeAdded = new List<IDirectoryWithHistory> ();
-			foreach (var dir in directories) {
-				var dirWithHistory = new DirectoryWithHistory (dir) { 
-					IsRootDirectory = false 
-				};
+			foreach (var dir in directories.Except (ignoredDirectories)) {
+				var dirWithHistory = new DirectoryWithHistory (dir) { IsRootDirectory = false };
 				subDirToBeAdded.Add (dirWithHistory);
 			}
 			
 			ChildDirectories = subDirToBeAdded;
 		}
-		
+
 		public FileStatus Status {
-			get {
-				// TODO
-				return FileStatus.NotUnderVersionControl;
-			}
+// TODO
+			get { return FileStatus.NotUnderVersionControl; }
 		}
 	}
 }
