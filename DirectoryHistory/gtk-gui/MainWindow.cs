@@ -61,7 +61,7 @@ public partial class MainWindow {
         w1.Add(this.InfoAction, null);
         this.refreshAction = new Gtk.Action("refreshAction", Mono.Unix.Catalog.GetString("refresh"), null, "gtk-refresh");
         this.refreshAction.ShortLabel = Mono.Unix.Catalog.GetString("refresh");
-        w1.Add(this.refreshAction, null);
+        w1.Add(this.refreshAction, "<Control>r");
         this.quitAction = new Gtk.Action("quitAction", Mono.Unix.Catalog.GetString("quit"), null, "gtk-quit");
         this.quitAction.ShortLabel = Mono.Unix.Catalog.GetString("quit");
         w1.Add(this.quitAction, null);
