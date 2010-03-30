@@ -78,7 +78,13 @@ public partial class MainWindow : Gtk.Window
 
 	void ShowInfoDialog ()
 	{
-		Console.WriteLine ("foo");
+		var about = new AboutDialog (){
+			Authors = new [] {"Benjamin Klüglein <scheibenkaes@googlemail.com>"},
+			
+		};
+		
+		about.Run ();
+		about.Destroy ();
 	}
 
 	protected virtual void OnAboutActionActivated (object sender, System.EventArgs e)
