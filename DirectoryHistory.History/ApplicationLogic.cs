@@ -23,6 +23,7 @@ using System;
 
 namespace DirectoryHistory.History
 {
+	public delegate bool AskUserForCreation (string path);
 
 	/// <summary>
 	/// Main application object
@@ -30,6 +31,8 @@ namespace DirectoryHistory.History
 	public class ApplicationLogic
 	{
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> OnDirectoryLoaded;
+		
+		public event AskUserForCreation OnUserRequestForCreation;
 
 		public IHistoryProvider HistoryProvider { get; private set; }
 
@@ -42,10 +45,24 @@ namespace DirectoryHistory.History
 			}
 			
 			if (!HistoryProvider.IsARepository (path)) {
-				rootDirectory = HistoryProvider.CreateRepository (path);
+				bool shouldCreate = AskUserIfHeWantsARepositoryToBeCreated (path);
+				if (shouldCreate)
+				{
+					rootDirectory = HistoryProvider.CreateRepository (path);
+				}
+				else
+				{
+					return;
+				}
 			}
 			LoadExistingRepository (path);
 		}
+
+		private bool AskUserIfHeWantsARepositoryToBeCreated (string path)
+		{
+			return OnUserRequestForCreation (path);
+		}
+
 
 		private void LoadExistingRepository (string path)
 		{

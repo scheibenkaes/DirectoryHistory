@@ -40,6 +40,7 @@
     <Compile Include="ApplicationLogic.cs" />
     <Compile Include="IFileWithHistory.cs" />
     <Compile Include="FileStatus.cs" />
+    <Compile Include="AskForRepositoryCreationEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
