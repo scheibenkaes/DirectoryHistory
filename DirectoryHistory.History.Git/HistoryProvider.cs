@@ -40,7 +40,7 @@ namespace DirectoryHistory.History.Git
 			if (string.IsNullOrEmpty (path) || !Directory.Exists (path)) {
 				throw new Exception ("Path must exist and must not be empty!");
 			}
-			var directory = new DirectoryWithHistory (path) { IsRootDirectory = true };
+			var directory = new DirectoryWithHistory (this, path) { IsRootDirectory = true };
 			return directory;
 		}
 
@@ -56,7 +56,7 @@ namespace DirectoryHistory.History.Git
 			}
 			repository = Repository.Init (path);
 			
-			return repository.RepositoryToDirectoryWithHistory (path);
+			return repository.RepositoryToDirectoryWithHistory (this, path);
 		}
 
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;

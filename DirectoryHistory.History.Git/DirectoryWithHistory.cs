@@ -32,21 +32,21 @@ namespace DirectoryHistory.History.Git
 
 		public bool IsClean { get; private set; }
 
-
 		public bool IsRootDirectory { get; set; }
 
-
 		public string Path { get; private set; }
-
 
 		public IEnumerable<IDirectoryWithHistory> ChildDirectories { get; private set; }
 
 		public IEnumerable<IFileWithHistory> ChildFiles { get; private set; }
 
+		private readonly IHistoryProvider provider;
 
-		public DirectoryWithHistory (string path)
+		public DirectoryWithHistory (IHistoryProvider provider, string path)
 		{
 			Path = path;
+			
+			this.provider = provider;
 			
 			ReadSubDirectories ();
 			
@@ -64,11 +64,12 @@ namespace DirectoryHistory.History.Git
 		{
 			var directories = Directory.GetDirectories (Path).ToList ();
 			
+			// TODO Make this mor reasonable
 			var ignoredDirectories = directories.Where ( dir => dir.EndsWith (IgnoredFolders[0]));
 			
 			var subDirToBeAdded = new List<IDirectoryWithHistory> ();
 			foreach (var dir in directories.Except (ignoredDirectories)) {
-				var dirWithHistory = new DirectoryWithHistory (dir) { IsRootDirectory = false };
+				var dirWithHistory = new DirectoryWithHistory (provider, dir) { IsRootDirectory = false };
 				subDirToBeAdded.Add (dirWithHistory);
 			}
 			

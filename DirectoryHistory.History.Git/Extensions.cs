@@ -29,9 +29,9 @@ namespace DirectoryHistory.History.Git
 
 	public static class Extensions
 	{
-		public static IDirectoryWithHistory RepositoryToDirectoryWithHistory (this Repository repo, string path)
+		public static IDirectoryWithHistory RepositoryToDirectoryWithHistory (this Repository repo, IHistoryProvider provider, string path)
 		{
-			var dir = new DirectoryWithHistory (path) {
+			var dir = new DirectoryWithHistory (provider, path) {
 				IsRootDirectory = true
 			};
 			
