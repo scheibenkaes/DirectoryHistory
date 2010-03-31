@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-03-30 19:47:20+0200\n"
-"PO-Revision-Date: 2010-03-30 19:47:20+0200\n"
+"POT-Creation-Date: 2010-03-31 13:45:36+0200\n"
+"PO-Revision-Date: 2010-03-31 13:45:36+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,8 +10,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../DirectoryHistory/MainWindow.cs:56
+#: ../DirectoryHistory/MainWindow.cs:57
 msgid "Open directory"
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:69
+msgid "There is not yet a repository at this position."
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:71
+msgid ""
+"Should a new repository be created at {0}?\n"
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:72
+msgid "Yes"
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:73
+msgid "No"
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:99
+msgid "A program to keep a simple history of your files."
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:99
+msgid "About Directory History"
 msgstr ""
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:49
