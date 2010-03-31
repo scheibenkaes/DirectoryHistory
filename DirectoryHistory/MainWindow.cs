@@ -44,6 +44,7 @@ public partial class MainWindow : Gtk.Window
 		refreshAction.Sensitive = false;
 		addAction.Sensitive = false;
 		applyAction.Sensitive = false;
+		fileHistoryAction.Sensitive = false;
 	}
 
 	private void OnDirectoryLoaded (object sender, DirectoryStatusWasUpdatedEventArgs args)
@@ -123,6 +124,11 @@ public partial class MainWindow : Gtk.Window
 	protected virtual void OnApplyActionActivated (object sender, System.EventArgs e)
 	{
 	}
+	
+	protected virtual void OnFileHistoryActionActivated (object sender, System.EventArgs e)
+	{
+	}
+	
 	
 	
 	private const string LicenseText = " This program is free software: you can redistribute it and/or modify\r\n it under the terms of the GNU General Public License as published by\r\n the Free Software Foundation, either version 3 of the License, or\r\n (at your option) any later version.\r\n\r\n This program is distributed in the hope that it will be useful,\r\n but WITHOUT ANY WARRANTY; without even the implied warranty of\r\n MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\r\n GNU General Public License for more details.\r\n\r\n You should have received a copy of the GNU General Public License\r\n along with this program.  If not, see <http://www.gnu.org/licenses/>.\r\n";

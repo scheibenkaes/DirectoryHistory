@@ -69,6 +69,13 @@
         <property name="StockId">gtk-apply</property>
         <signal name="Activated" handler="OnApplyActionActivated" />
       </action>
+      <action id="fileHistoryAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">File_History</property>
+        <property name="ShortLabel" translatable="yes">File_History</property>
+        <property name="StockId">gtk-dnd-multiple</property>
+        <signal name="Activated" handler="OnFileHistoryActionActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">Directory History</property>
@@ -117,6 +124,7 @@
                   <node type="Toolitem" action="refreshAction" />
                   <node type="Toolitem" action="addAction" />
                   <node type="Toolitem" action="applyAction" />
+                  <node type="Toolitem" action="fileHistoryAction" />
                   <node type="Toolitem" action="quitAction" />
                 </node>
               </widget>
