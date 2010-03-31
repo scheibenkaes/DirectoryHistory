@@ -23,6 +23,8 @@ using System;
 
 using System.IO;
 
+using Mono.Unix;
+
 using GitSharp;
 
 namespace DirectoryHistory.History.Git
@@ -31,6 +33,8 @@ namespace DirectoryHistory.History.Git
 
 	public class HistoryProvider : IHistoryProvider
 	{
+		private Repository repository;
+
 		public IDirectoryWithHistory LoadDirectory (string path)
 		{
 			if (string.IsNullOrEmpty (path) || !Directory.Exists (path)) {
@@ -40,20 +44,21 @@ namespace DirectoryHistory.History.Git
 			return directory;
 		}
 
-		public HistoryProvider ()
-		{
-		}
-
 		public bool IsARepository (string path)
 		{
 			return Repository.IsValid (path);
 		}
-		
+
 		public IDirectoryWithHistory CreateRepository (string path)
 		{
-			throw new System.NotImplementedException();
+			if (IsARepository (path) && repository == null) {
+				throw new Exception ( "There's already a repository at the given path " + path);
+			}
+			repository = Repository.Init (path);
+			
+			return repository.RepositoryToDirectoryWithHistory (path);
 		}
-		
+
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
 		
 	}

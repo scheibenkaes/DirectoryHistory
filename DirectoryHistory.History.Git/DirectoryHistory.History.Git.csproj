@@ -52,12 +52,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Posix" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="HistoryProvider.cs" />
     <Compile Include="DirectoryWithHistory.cs" />
     <Compile Include="FileWithHistory.cs" />
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
