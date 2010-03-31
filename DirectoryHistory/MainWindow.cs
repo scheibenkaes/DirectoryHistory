@@ -40,11 +40,15 @@ public partial class MainWindow : Gtk.Window
 		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;
 		logic.OnDirectoryLoaded += OnDirectoryLoaded;
 		logic.OnUserRequestForCreation += AskUserForRepositoryCreation;
+		
+		refreshAction.Sensitive = false;
 	}
 
 	private void OnDirectoryLoaded (object sender, DirectoryStatusWasUpdatedEventArgs args)
 	{
 		loadedDirectoryLabel.Text = args.DirectoryThatChanged.Path;
+		
+		refreshAction.Sensitive = true;
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -86,7 +90,9 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnRefreshActionActivated (object sender, System.EventArgs e)
 	{
-		
+		if (logic.RootDirectory != null) {
+			logic.LoadDirectory (logic.RootDirectory.Path);
+		}
 	}
 
 

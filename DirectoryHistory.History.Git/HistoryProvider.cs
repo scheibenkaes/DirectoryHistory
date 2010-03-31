@@ -52,7 +52,7 @@ namespace DirectoryHistory.History.Git
 		public IDirectoryWithHistory CreateRepository (string path)
 		{
 			if (IsARepository (path) && repository == null) {
-				throw new Exception ( "There's already a repository at the given path " + path);
+				throw new Exception ("There's already a repository at the given path " + path);
 			}
 			repository = Repository.Init (path);
 			

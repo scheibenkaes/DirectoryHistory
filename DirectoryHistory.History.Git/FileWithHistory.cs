@@ -27,7 +27,6 @@ namespace DirectoryHistory.History.Git
 
 	public class FileWithHistory: IFileWithHistory
 	{
-		#region IFileWithHistory implementation
 		public string Path {
 			get ;
 			private set;
@@ -41,8 +40,6 @@ namespace DirectoryHistory.History.Git
 			}
 		}
 		
-		#endregion
-
 		public FileWithHistory (string path)
 		{
 			Path = path;

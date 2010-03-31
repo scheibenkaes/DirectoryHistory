@@ -31,12 +31,12 @@ namespace DirectoryHistory.History
 	public class ApplicationLogic
 	{
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> OnDirectoryLoaded;
-		
+
 		public event AskUserForCreation OnUserRequestForCreation;
 
 		public IHistoryProvider HistoryProvider { get; private set; }
 
-		private IDirectoryWithHistory rootDirectory;
+		public IDirectoryWithHistory RootDirectory { get; private set; }
 
 		public void LoadDirectory (string path)
 		{
@@ -46,12 +46,9 @@ namespace DirectoryHistory.History
 			
 			if (!HistoryProvider.IsARepository (path)) {
 				bool shouldCreate = AskUserIfHeWantsARepositoryToBeCreated (path);
-				if (shouldCreate)
-				{
-					rootDirectory = HistoryProvider.CreateRepository (path);
-				}
-				else
-				{
+				if (shouldCreate) {
+					RootDirectory = HistoryProvider.CreateRepository (path);
+				} else {
 					return;
 				}
 			}
@@ -66,9 +63,9 @@ namespace DirectoryHistory.History
 
 		private void LoadExistingRepository (string path)
 		{
-			rootDirectory = HistoryProvider.LoadDirectory (path);
+			RootDirectory = HistoryProvider.LoadDirectory (path);
 			if (OnDirectoryLoaded != null) {
-				OnDirectoryLoaded (this, new DirectoryStatusWasUpdatedEventArgs (rootDirectory));
+				OnDirectoryLoaded (this, new DirectoryStatusWasUpdatedEventArgs (RootDirectory));
 			}
 		}
 

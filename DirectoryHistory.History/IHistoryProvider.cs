@@ -65,5 +65,16 @@ namespace DirectoryHistory.History
 		/// The newly created repository as a <see cref="IDirectoryWithHistory"/>
 		/// </returns>
 		IDirectoryWithHistory CreateRepository (string path);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="repository">
+		/// A <see cref="IDirectoryWithHistory"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="IFileWithHistory"/>
+		/// </returns>
+		//IFileWithHistory AddToRepository (IDirectoryWithHistory repository);
 	}
 }
