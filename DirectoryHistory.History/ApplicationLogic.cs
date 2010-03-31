@@ -37,11 +37,14 @@ namespace DirectoryHistory.History
 
 		public void LoadDirectory (string path)
 		{
+			if (string.IsNullOrEmpty (path)) {
+				throw new ArgumentNullException ("path");
+			}
+			
 			if (!HistoryProvider.IsARepository (path)) {
 				rootDirectory = HistoryProvider.CreateRepository (path);
 			}
 			LoadExistingRepository (path);
-			
 		}
 
 		private void LoadExistingRepository (string path)
