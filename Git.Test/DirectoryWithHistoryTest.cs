@@ -40,34 +40,20 @@ namespace Git.Test
 		
 		private DirectoryInfo tmpDir;
 		
-		private const string TEMP_DIR = "/tmp/gittest";
 		
-		private static readonly string DIR_WO_GIT = Path.Combine (TEMP_DIR, "wo");
-		
-		private static readonly string DIR_WITH_GIT = Path.Combine (TEMP_DIR, "with");
-		
-		private static List<string> TEST_DIRS = new List<string> {DIR_WO_GIT, DIR_WITH_GIT};
 		
 		private IHistoryProvider provider = new HistoryProvider ();
 		
 		[SetUp]
 		public void SetUp()
 		{
-			if (!Directory.Exists (TEMP_DIR)) {
-				tmpDir = Directory.CreateDirectory (TEMP_DIR);	
-			}
-			
-			TEST_DIRS.ForEach ( dir => Directory.CreateDirectory (dir) );
-			if (!Repository.IsValid (DIR_WITH_GIT)) {
-				Repository.Init (DIR_WITH_GIT);
-			}
-			
+			TestData.SetUp ();			
 		}
 		
 		[TearDown]
 		public void TearDown()
 		{
-			TEST_DIRS.Where ( dir => Directory.Exists (dir)).ToList ().ForEach (d => Directory.Delete (d, true));
+			TestData.TearDown ();
 		}
 
 		[Test]
@@ -87,7 +73,8 @@ namespace Git.Test
 		[Test]
 		public void FileStatusIsNotYetImplemented ()
 		{
-			Assert.AreEqual (new DirectoryWithHistory (provider, DIR_WITH_GIT).Status, FileStatus.NotUnderVersionControl);
+			
+			Assert.AreEqual (new DirectoryWithHistory (provider, TestData.DIR_WITH_GIT).Status, FileStatus.NotUnderVersionControl);
 		}
 	}
 }

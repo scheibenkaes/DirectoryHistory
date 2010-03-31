@@ -80,8 +80,9 @@ namespace DirectoryHistory.History.Git
 		}
 
 		public FileStatus Status {
-// TODO
-			get { return FileStatus.NotUnderVersionControl; }
+			get { 
+				return FileStatus.NotUnderVersionControl; 
+			}
 		}
 	}
 }
