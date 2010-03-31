@@ -44,6 +44,9 @@ namespace DirectoryHistory.History.Git
 
 		public DirectoryWithHistory (IHistoryProvider provider, string path)
 		{
+			if (provider == null) {
+				throw new ArgumentNullException("provider");
+			}
 			Path = path;
 			
 			this.provider = provider;

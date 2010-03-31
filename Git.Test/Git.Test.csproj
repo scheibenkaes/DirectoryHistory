@@ -40,4 +40,10 @@
     <Compile Include="DirectoryWithHistoryTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\DirectoryHistory.History.Git\DirectoryHistory.History.Git.csproj">
+      <Project>{12C08B5B-173B-49C1-8D13-6441A300336F}</Project>
+      <Name>DirectoryHistory.History.Git</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

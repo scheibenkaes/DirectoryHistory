@@ -22,17 +22,28 @@
 using System;
 using NUnit.Framework;
 
+using DirectoryHistory.History.Git;
+
+
 namespace Git.Test
 {
-
-
 	[TestFixture()]
 	public class DirectoryWithHistoryTest
 	{
+		private DirectoryWithHistory directory;
 
-		[Test()]
-		public void TestCase ()
+		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void Ctor_PathIsNecessary ()
 		{
+			new DirectoryWithHistory (new HistoryProvider (), null);
+		}
+		
+		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void Ctor_ProviderIsNecessary ()
+		{
+			new DirectoryWithHistory (null, "/tmp");
 		}
 	}
 }
