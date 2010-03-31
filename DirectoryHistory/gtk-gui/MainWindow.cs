@@ -28,6 +28,10 @@ public partial class MainWindow {
     
     private Gtk.Action aboutAction;
     
+    private Gtk.Action addAction;
+    
+    private Gtk.Action applyAction;
+    
     private Gtk.VBox vbox1;
     
     private Gtk.MenuBar menubar1;
@@ -68,6 +72,12 @@ public partial class MainWindow {
         this.aboutAction = new Gtk.Action("aboutAction", Mono.Unix.Catalog.GetString("_About"), null, "gtk-about");
         this.aboutAction.ShortLabel = Mono.Unix.Catalog.GetString("_About");
         w1.Add(this.aboutAction, null);
+        this.addAction = new Gtk.Action("addAction", Mono.Unix.Catalog.GetString("_Add"), null, "gtk-add");
+        this.addAction.ShortLabel = Mono.Unix.Catalog.GetString("_Add");
+        w1.Add(this.addAction, null);
+        this.applyAction = new Gtk.Action("applyAction", Mono.Unix.Catalog.GetString("_Apply"), null, "gtk-apply");
+        this.applyAction.ShortLabel = Mono.Unix.Catalog.GetString("_Apply");
+        w1.Add(this.applyAction, null);
         this.UIManager.InsertActionGroup(w1, 0);
         this.AddAccelGroup(this.UIManager.AccelGroup);
         this.Name = "MainWindow";
@@ -92,7 +102,7 @@ public partial class MainWindow {
         this.vbox2.Name = "vbox2";
         this.vbox2.Spacing = 6;
         // Container child vbox2.Gtk.Box+BoxChild
-        this.UIManager.AddUiFromString("<ui><toolbar name='toolbar1'><toolitem name='openAction' action='openAction'/><toolitem name='refreshAction' action='refreshAction'/><toolitem name='quitAction' action='quitAction'/></toolbar></ui>");
+        this.UIManager.AddUiFromString("<ui><toolbar name='toolbar1'><toolitem name='openAction' action='openAction'/><toolitem name='refreshAction' action='refreshAction'/><toolitem name='addAction' action='addAction'/><toolitem name='applyAction' action='applyAction'/><toolitem name='quitAction' action='quitAction'/></toolbar></ui>");
         this.toolbar1 = ((Gtk.Toolbar)(this.UIManager.GetWidget("/toolbar1")));
         this.toolbar1.Name = "toolbar1";
         this.toolbar1.ShowArrow = false;
@@ -143,5 +153,7 @@ public partial class MainWindow {
         this.refreshAction.Activated += new System.EventHandler(this.OnRefreshActionActivated);
         this.quitAction.Activated += new System.EventHandler(this.OnQuitActionActivated);
         this.aboutAction.Activated += new System.EventHandler(this.OnAboutActionActivated);
+        this.addAction.Activated += new System.EventHandler(this.OnAddActionActivated);
+        this.applyAction.Activated += new System.EventHandler(this.OnApplyActionActivated);
     }
 }
