@@ -46,6 +46,8 @@
     <Compile Include="FolderList.cs" />
     <Compile Include="gtk-gui\DirectoryHistory.UI.FolderList.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="CommitDialog.cs" />
+    <Compile Include="gtk-gui\DirectoryHistory.UI.CommitDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
