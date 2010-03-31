@@ -4,7 +4,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Translation/de.po" ctype="Workbench">
     <Files>
       <File FileName="DirectoryHistory/Main.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.UI/FolderList.cs" Line="92" Column="32" />
+      <File FileName="DirectoryHistory.UI/FolderList.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/ApplicationLogic.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="1" Column="1" />
@@ -21,12 +21,16 @@
           <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.History.Git" expanded="True" />
           <Node name="DirectoryHistory.UI" expanded="True" />
-          <Node name="Translation" expanded="True">
-            <Node name="de" selected="True" />
+          <Node name="Git.Test" expanded="True">
+            <Node name="References" selected="True" />
           </Node>
+          <Node name="Translation" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True" selected="True" />
       </Pad>
     </Pads>

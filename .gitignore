@@ -4,3 +4,4 @@
 *.exe
 */bin
 *~
+test-results/
