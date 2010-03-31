@@ -23,6 +23,8 @@ using System;
 
 using System.IO;
 
+using GitSharp;
+
 namespace DirectoryHistory.History.Git
 {
 
@@ -44,7 +46,12 @@ namespace DirectoryHistory.History.Git
 
 		public bool IsARepository (string path)
 		{
-			return false;
+			return Repository.IsValid (path);
+		}
+		
+		public IDirectoryWithHistory CreateRepository (string path)
+		{
+			throw new System.NotImplementedException();
 		}
 		
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;

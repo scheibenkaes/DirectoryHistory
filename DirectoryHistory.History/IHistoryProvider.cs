@@ -54,5 +54,16 @@ namespace DirectoryHistory.History
 		/// True if path is a directory and is a Git, Bazaar or whatever repository
 		/// </returns>
 		bool IsARepository (string path);
+		
+		/// <summary>
+		/// Create a repository in the given directory.
+		/// </summary>
+		/// <param name="path">
+		/// Path on file system
+		/// </param>
+		/// <returns>
+		/// The newly created repository as a <see cref="IDirectoryWithHistory"/>
+		/// </returns>
+		IDirectoryWithHistory CreateRepository (string path);
 	}
 }

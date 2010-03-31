@@ -30,20 +30,27 @@ namespace DirectoryHistory.History
 	public class ApplicationLogic
 	{
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> OnDirectoryLoaded;
-			
+
 		public IHistoryProvider HistoryProvider { get; private set; }
 
 		private IDirectoryWithHistory rootDirectory;
 
 		public void LoadDirectory (string path)
 		{
+			if (HistoryProvider.IsARepository (path)) {
+				LoadExistingRepository (path);
+			}
+			
+		}
+
+		private void LoadExistingRepository (string path)
+		{
 			rootDirectory = HistoryProvider.LoadDirectory (path);
-			if (OnDirectoryLoaded != null)
-			{
+			if (OnDirectoryLoaded != null) {
 				OnDirectoryLoaded (this, new DirectoryStatusWasUpdatedEventArgs (rootDirectory));
 			}
 		}
-		
+
 		public ApplicationLogic (IHistoryProvider provider)
 		{
 			HistoryProvider = provider;
