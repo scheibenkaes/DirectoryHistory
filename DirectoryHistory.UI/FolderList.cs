@@ -65,6 +65,8 @@ namespace DirectoryHistory.UI
 			
 			AddDirectoryToList (root);
 			
+			AddContainingFiles (root);
+			
 			TreeIter treeIter;
 			
 			treeStore.GetIter (out treeIter, new TreePath ("0"));
