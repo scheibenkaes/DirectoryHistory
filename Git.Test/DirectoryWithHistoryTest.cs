@@ -20,8 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using NUnit.Framework;
 
+using GitSharp;
+
+using DirectoryHistory.History;
 using DirectoryHistory.History.Git;
 
 
@@ -31,6 +37,38 @@ namespace Git.Test
 	public class DirectoryWithHistoryTest
 	{
 		private DirectoryWithHistory directory;
+		
+		private DirectoryInfo tmpDir;
+		
+		private const string TEMP_DIR = "/tmp/gittest";
+		
+		private static readonly string DIR_WO_GIT = Path.Combine (TEMP_DIR, "wo");
+		
+		private static readonly string DIR_WITH_GIT = Path.Combine (TEMP_DIR, "with");
+		
+		private static List<string> TEST_DIRS = new List<string> {DIR_WO_GIT, DIR_WITH_GIT};
+		
+		private IHistoryProvider provider = new HistoryProvider ();
+		
+		[SetUp]
+		public void SetUp()
+		{
+			if (!Directory.Exists (TEMP_DIR)) {
+				tmpDir = Directory.CreateDirectory (TEMP_DIR);	
+			}
+			
+			TEST_DIRS.ForEach ( dir => Directory.CreateDirectory (dir) );
+			if (!Repository.IsValid (DIR_WITH_GIT)) {
+				Repository.Init (DIR_WITH_GIT);
+			}
+			
+		}
+		
+		[TearDown]
+		public void TearDown()
+		{
+			TEST_DIRS.Where ( dir => Directory.Exists (dir)).ToList ().ForEach (d => Directory.Delete (d, true));
+		}
 
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
@@ -44,6 +82,12 @@ namespace Git.Test
 		public void Ctor_ProviderIsNecessary ()
 		{
 			new DirectoryWithHistory (null, "/tmp");
+		}
+		
+		[Test]
+		public void FileStatusIsNotYetImplemented ()
+		{
+			Assert.AreEqual (new DirectoryWithHistory (provider, DIR_WITH_GIT).Status, FileStatus.NotUnderVersionControl);
 		}
 	}
 }

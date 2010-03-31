@@ -35,6 +35,27 @@
     <Reference Include="nunit.framework, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
       <Package>nunit</Package>
     </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="GitSharp.Core, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GitSharp, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp-0.2.0.0.9\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Tamir.SharpSSH, Version=1.1.1.13, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp-0.2.0.0.9\Tamir.SharpSSH.dll</HintPath>
+    </Reference>
+    <Reference Include="Winterdom.IO.FileMap, Version=2.0.2.0, Culture=neutral, PublicKeyToken=4982617362e1edb5">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp-0.2.0.0.9\Winterdom.IO.FileMap.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryWithHistoryTest.cs" />
@@ -44,6 +65,10 @@
     <ProjectReference Include="..\DirectoryHistory.History.Git\DirectoryHistory.History.Git.csproj">
       <Project>{12C08B5B-173B-49C1-8D13-6441A300336F}</Project>
       <Name>DirectoryHistory.History.Git</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
+      <Project>{3F3BCCEB-9FD6-48EB-96A5-A7D4718715C6}</Project>
+      <Name>DirectoryHistory.History</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
