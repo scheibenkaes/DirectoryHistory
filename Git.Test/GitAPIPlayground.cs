@@ -20,7 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using NUnit.Framework;
 
 using GitSharp;
@@ -46,26 +48,36 @@ namespace Git.Test
 		{
 			TestData.TearDown ();
 		}
-
+		
+//		private static File CreateFile (string path)
+//		{
+//			var file = File.CreateText (path);
+//			return file;
+//		}
+		
 		[Test()]
 		public void HowTo_DetectIfAFileIsAddedToGit ()
 		{
-			//Commands.GitDirectory = TestData.DIR_WITH_GIT;
-			
-			//Assert.IsNotNull (Commands.Repository);
-			
 			var repo = new Repository (TestData.DIR_WITH_GIT);
 			
 			Assert.IsTrue (Repository.IsValid (TestData.DIR_WITH_GIT));
-			
-			var testFile = File.CreateText (Path.Combine (TestData.DIR_WITH_GIT, "test.txt"));
+			var filePath = Path.Combine (TestData.DIR_WITH_GIT, "test.txt");
+			var testFile = File.CreateText (filePath);
 			testFile.WriteLine ("test 123");
 			testFile.Flush ();
-			testFile.Close ();			
+			testFile.Close ();				
 			
-			repo.
+			//var blob = Blob.CreateFromFile (repo, filePath);
 			
-			Assert.Fail ();
+			var status  = repo.Index.Status;
+			
+			repo.Index.Add (filePath);		
+			
+			Assert.IsTrue (status.Added.Contains ("test.txt"), "Added");
+			Assert.IsTrue (status.Untracked.Contains ("asd.txt"), "Untracked");
+			
+			//Assert.Fail ();
+			
 		}
 	}
 }

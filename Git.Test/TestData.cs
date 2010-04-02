@@ -54,7 +54,12 @@ namespace Git.Test
 		
 		public static void TearDown ()
 		{
-			TEST_DIRS.Where ( dir => Directory.Exists (dir)).ToList ().ForEach (d => Directory.Delete (d, true));
+			try {
+				TEST_DIRS.Where ( dir => Directory.Exists (dir)).ToList ().ForEach (d => Directory.Delete (d, true));
+			} catch (Exception ex) {
+					
+			}
+			
 		}
 	}
 }
