@@ -20,7 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.IO;
 using NUnit.Framework;
+
+using GitSharp;
 
 namespace Git.Test
 {
@@ -29,10 +32,40 @@ namespace Git.Test
 	[TestFixture()]
 	public class GitAPIPlayground
 	{
+		private Repository repo;
+		
+		[SetUp]
+		public void SetUp ()
+		{
+			TestData.SetUp ();
+			
+		}
+
+		[TearDown]
+		public void TearDown ()
+		{
+			TestData.TearDown ();
+		}
 
 		[Test()]
-		public void HowTo_DetectIfAFileHasUncommittedChanges ()
+		public void HowTo_DetectIfAFileIsAddedToGit ()
 		{
+			//Commands.GitDirectory = TestData.DIR_WITH_GIT;
+			
+			//Assert.IsNotNull (Commands.Repository);
+			
+			var repo = new Repository (TestData.DIR_WITH_GIT);
+			
+			Assert.IsTrue (Repository.IsValid (TestData.DIR_WITH_GIT));
+			
+			var testFile = File.CreateText (Path.Combine (TestData.DIR_WITH_GIT, "test.txt"));
+			testFile.WriteLine ("test 123");
+			testFile.Flush ();
+			testFile.Close ();			
+			
+			repo.
+			
+			Assert.Fail ();
 		}
 	}
 }
