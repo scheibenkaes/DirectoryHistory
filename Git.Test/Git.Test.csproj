@@ -63,6 +63,7 @@
     <Compile Include="TestData.cs" />
     <Compile Include="FileWithHistoryTest.cs" />
     <Compile Include="GitTestCase.cs" />
+    <Compile Include="ExtensionsTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

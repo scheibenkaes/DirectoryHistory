@@ -1,5 +1,5 @@
 //  
-//  Extensions.cs
+//  ExtensionsTest.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,39 +20,26 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Linq;
 using System.IO;
-using System.Text.RegularExpressions;
+using NUnit.Framework;
 
-using GitSharp;
+using DirectoryHistory.History.Git;
 
-namespace DirectoryHistory.History.Git
+namespace Git.Test
 {
 
 
-	public static class Extensions
+	[TestFixture()]
+	public class ExtensionsTest
 	{
-		public static IDirectoryWithHistory RepositoryToDirectoryWithHistory (this Repository repo, IHistoryProvider provider, string path)
+
+		[Test()]
+		public void Test_ReducePath ()
 		{
-			var dir = new DirectoryWithHistory (provider, path) { IsRootDirectory = true };
+			var proj = TestData.DIR_WITH_GIT;
+			var file = Path.Combine (proj, "foo/bar.txt");
 			
-			return dir;
+			Assert.AreEqual ("foo/bar.txt", Extensions.ReducePath (proj, file));
 		}
-		
-		public static string ReducePath (string path, string reducedWith)
-		{
-			if (string.IsNullOrEmpty (path)) {
-				throw new ArgumentException ("path is null or empty");
-			}
-			var full = new Regex (path);
-			
-			var stripped = full.Replace (reducedWith, "");
-			
-			if (stripped.StartsWith (Path.DirectorySeparatorChar.ToString ())) {
-				return stripped.Remove (0, 1);
-			}
-			return stripped;
-		}
-		
 	}
 }

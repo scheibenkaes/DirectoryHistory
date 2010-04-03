@@ -36,5 +36,13 @@ namespace DirectoryHistory.History
 		/// The status which the file has under the currently used VCS
 		/// </summary>
 		FileStatus Status { get; }
+
+		/// <summary>
+		/// Get the path to the file without the repository path.
+		/// E.g.:
+		/// 	Path -> /foo/bar/myproj/file.txt
+		/// 	PathInRepository -> file.txt
+		/// </summary>
+		string PathInRepository { get; }
 	}
 }

@@ -42,7 +42,7 @@ namespace Git.Test
 		
 		private HistoryProvider provider = new HistoryProvider ();
 
-		[Test()]
+		[Test]
 		public void Status_NotUnderVersionControll ()
 		{
 			//var repo = new Repository (TestData.DIR_WITH_GIT);
@@ -54,6 +54,20 @@ namespace Git.Test
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, file.Status);
 			
 			
+		}
+		
+		[Test]
+		public void Status_Changed ()
+		{
+			//var repo = new Repository (TestData.DIR_WITH_GIT);
+			var dir = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "changed.txt");
+			CreateFile (testFilePath);
+			var file = new FileWithHistory (provider, testFilePath);
+			
+			
+			
+			Assert.AreEqual (FileStatus.Changed, file.Status);			
 		}
 	}
 }

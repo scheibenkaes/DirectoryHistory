@@ -79,6 +79,15 @@ namespace DirectoryHistory.History.Git
 			ChildDirectories = subDirToBeAdded;
 		}
 
+		#region IFileWithHistory implementation
+		public string PathInRepository {
+			get {
+				var prov = (HistoryProvider)Provider;
+				return Extensions.ReducePath (prov.Repository.WorkingDirectory, Path);
+			}
+		}
+		
+		#endregion
 		public FileStatus Status {
 			get { 
 				return FileStatus.NotUnderVersionControl; 
