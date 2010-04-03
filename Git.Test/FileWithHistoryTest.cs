@@ -64,10 +64,27 @@ namespace Git.Test
 			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "changed.txt");
 			CreateFile (testFilePath);
 			var file = new FileWithHistory (provider, testFilePath);
-			
-			
+			// TODO Test this over API not directly with git impl
+			provider.Repository.Index.Add (file.PathInRepository);
 			
 			Assert.AreEqual (FileStatus.Changed, file.Status);			
+		}
+		
+		[Test]
+		public void Status_Committed ()
+		{
+			//var repo = new Repository (TestData.DIR_WITH_GIT);
+			var dir = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "committed.txt");
+			CreateFile (testFilePath);
+			var file = new FileWithHistory (provider, testFilePath);
+			provider.Repository.Index.Add (file.PathInRepository);
+			
+			Assert.AreEqual (FileStatus.Changed, file.Status);	
+			
+			provider.Repository.Index.CommitChanges ("Heureka", new Author ("sad", "sad@boo.de"));
+			
+			Assert.AreEqual (FileStatus.Commited, file.Status);
 		}
 	}
 }

@@ -51,7 +51,8 @@ namespace Git.Test
 		
 
 		
-		[Test()]
+		[Test]
+		[Ignore]
 		public void HowTo_DetectIfAFileIsAddedToGit ()
 		{
 			var repo = new Repository (TestData.DIR_WITH_GIT);

@@ -43,10 +43,10 @@ namespace DirectoryHistory.History.Git
 		public FileStatus Status {
 			get {
 				var status = repository.Index.Status;
-				var pathToFile = Extensions.ReducePath (repository.WorkingDirectory, Path);
+				var pathToFile = PathInRepository;
 				if (status.Untracked.Contains (pathToFile)) {
 					return FileStatus.NotUnderVersionControl;
-				} else if (status.Modified.Contains (pathToFile)) {
+				} else if (status.Modified.Contains (pathToFile) || status.Added.Contains (pathToFile)) {
 					return FileStatus.Changed;
 				} 
 				
@@ -82,7 +82,7 @@ namespace DirectoryHistory.History.Git
 		#region IFileWithHistory implementation
 		public string PathInRepository {
 			get {
-				throw new System.NotImplementedException();
+				return Extensions.ReducePath (repository.WorkingDirectory, Path);
 			}
 		}
 		

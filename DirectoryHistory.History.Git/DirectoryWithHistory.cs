@@ -24,6 +24,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
+using GitSharp;
+
 namespace DirectoryHistory.History.Git
 {
 	public class DirectoryWithHistory : IDirectoryWithHistory
@@ -41,6 +43,8 @@ namespace DirectoryHistory.History.Git
 		public IEnumerable<IFileWithHistory> ChildFiles { get; private set; }
 
 		public IHistoryProvider Provider { get; private set; }
+		
+		private Repository repository;
 
 		public DirectoryWithHistory (IHistoryProvider provider, string path)
 		{
@@ -50,6 +54,8 @@ namespace DirectoryHistory.History.Git
 			Path = path;
 			
 			Provider = provider;
+			
+			repository = ((HistoryProvider) provider).Repository;
 			
 			ReadSubDirectories ();
 			
