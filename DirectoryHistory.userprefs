@@ -1,28 +1,27 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Git.Test/FileWithHistoryTest.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History/Extensions.cs" ctype="Workbench">
     <Files>
-      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="68" Column="4" />
-      <File FileName="Git.Test/GitAPIPlayground.cs" Line="69" Column="4" />
+      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="45" Column="9" />
+      <File FileName="Git.Test/GitAPIPlayground.cs" Line="55" Column="10" />
       <File FileName="Git.Test/TestData.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="53" Column="34" />
-      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="31" Column="49" />
-      <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="44" Column="36" />
-      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="86" Column="75" />
-      <File FileName="DirectoryHistory.History.Git/Extensions.cs" Line="54" Column="20" />
-      <File FileName="Git.Test/ExtensionsTest.cs" Line="37" Column="3" />
+      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="49" Column="90" />
+      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
+      <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="1" Column="1" />
+      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="51" Column="27" />
+      <File FileName="DirectoryHistory.History.Git/Extensions.cs" Line="1" Column="1" />
+      <File FileName="Git.Test/ExtensionsTest.cs" Line="1" Column="1" />
+      <File FileName="Git.Test/DirectoryWithHistoryTest.cs" Line="62" Column="45" />
+      <File FileName="DirectoryHistory.History/ApplicationLogic.cs" Line="40" Column="1" />
+      <File FileName="DirectoryHistory.History/Extensions.cs" Line="23" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="DirectoryHistory" expanded="True" />
           <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.History.Git" expanded="True" />
-          <Node name="DirectoryHistory.UI" expanded="True" />
-          <Node name="Git.Test" expanded="True">
-            <Node name="FileWithHistoryTest.cs" selected="True" />
-          </Node>
+          <Node name="Git.Test" expanded="True" selected="True" />
           <Node name="Translation" expanded="True" />
         </State>
       </Pad>
@@ -30,17 +29,7 @@
         <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="Git.Test" expanded="True">
-            <Node name="Git" expanded="True">
-              <Node name="Test" expanded="True">
-                <Node name="DirectoryWithHistoryTest" expanded="True" />
-                <Node name="ExtensionsTest" expanded="True" />
-                <Node name="FileWithHistoryTest" expanded="True" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

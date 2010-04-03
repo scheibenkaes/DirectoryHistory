@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryHistory.History.Gi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Git.Test", "Git.Test\Git.Test.csproj", "{95905E4A-A9BB-4F83-A471-7DA48F72C451}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "History.Test", "History.Test\History.Test.csproj", "{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -20,6 +22,12 @@ Global
 		Default|Any CPU = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}.Debug|x86.Build.0 = Debug|Any CPU
+		{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}.Release|x86.ActiveCfg = Release|Any CPU
+		{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}.Release|x86.Build.0 = Release|Any CPU
 		{12C08B5B-173B-49C1-8D13-6441A300336F}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{12C08B5B-173B-49C1-8D13-6441A300336F}.Debug|x86.Build.0 = Debug|Any CPU
 		{12C08B5B-173B-49C1-8D13-6441A300336F}.Default|Any CPU.ActiveCfg = Debug|Any CPU

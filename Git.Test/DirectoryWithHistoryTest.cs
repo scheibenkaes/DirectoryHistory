@@ -34,27 +34,13 @@ using DirectoryHistory.History.Git;
 namespace Git.Test
 {
 	[TestFixture()]
-	public class DirectoryWithHistoryTest
+	public class DirectoryWithHistoryTest: GitTestCase
 	{
 		private DirectoryWithHistory directory;
 		
 		private DirectoryInfo tmpDir;
 		
-		
-		
 		private IHistoryProvider provider = new HistoryProvider ();
-		
-		[SetUp]
-		public void SetUp()
-		{
-			TestData.SetUp ();			
-		}
-		
-		[TearDown]
-		public void TearDown()
-		{
-			TestData.TearDown ();
-		}
 
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
@@ -71,10 +57,14 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void FileStatusIsNotYetImplemented ()
+		public void Status_ShouldBe_NotUnderVC_WhenCreated ()
 		{
+			var dir = provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			
-			Assert.AreEqual (new DirectoryWithHistory (provider, TestData.DIR_WITH_GIT).Status, FileStatus.NotUnderVersionControl);
+			string dirPath = TestData.DIR_WITH_GIT.PathCombine ("testdir");
+			Directory.CreateDirectory (dirPath);			
+			
+			Assert.AreEqual (FileStatus.NotUnderVersionControl, dir.Status);
 		}
 	}
 }

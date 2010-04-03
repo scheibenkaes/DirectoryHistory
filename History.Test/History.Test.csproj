@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3F3BCCEB-9FD6-48EB-96A5-A7D4718715C6}</ProjectGuid>
+    <ProjectGuid>{0E68A29C-9E69-438A-93D8-D7C4BBA1040C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DirectoryHistory.History</RootNamespace>
-    <AssemblyName>DirectoryHistory.History</AssemblyName>
+    <RootNamespace>History.Test</RootNamespace>
+    <AssemblyName>History.Test</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -19,7 +19,6 @@
     <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -27,22 +26,25 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="nunit.core, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Package>nunit</Package>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Package>nunit</Package>
+    </Reference>
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="IDirectoryWithHistory.cs" />
-    <Compile Include="IHistoryProvider.cs" />
-    <Compile Include="DirectoryStatusWasUpdatedEventArgs.cs" />
-    <Compile Include="ApplicationLogic.cs" />
-    <Compile Include="IFileWithHistory.cs" />
-    <Compile Include="FileStatus.cs" />
-    <Compile Include="AskForRepositoryCreationEventArgs.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="ExtensionsTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
+      <Project>{3F3BCCEB-9FD6-48EB-96A5-A7D4718715C6}</Project>
+      <Name>DirectoryHistory.History</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
