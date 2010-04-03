@@ -20,6 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using GitSharp;
 
 namespace DirectoryHistory.History.Git
 {
@@ -32,17 +36,44 @@ namespace DirectoryHistory.History.Git
 			private set;
 		}
 		
+		public IHistoryProvider Provider { get; private set; }
+		
+		private Repository repository;
 		
 		public FileStatus Status {
 			get {
-				// TODO
-				return FileStatus.NotUnderVersionControl;
+				var status = repository.Index.Status;
+				var pathToFile = Path;
+				if (status.Untracked.Contains (pathToFile)) {
+					return FileStatus.NotUnderVersionControl;
+				} else if (status.Modified.Contains (pathToFile)) {
+					return FileStatus.Changed;
+				} 
+				
+				var isClean = AmIClean (status);
+				
+				return FileStatus.Unknown;
 			}
 		}
-		
-		public FileWithHistory (string path)
+
+		private bool AmIClean (RepositoryStatus status)
 		{
+			var filesWithChanges = new List<string> ();
+			
+			filesWithChanges.AddRange (status.Added);
+			filesWithChanges.AddRange (status.Modified);
+			filesWithChanges.AddRange (status.Staged);
+			
+			return ! filesWithChanges.Contains (Path);
+		}
+
+		
+		public FileWithHistory (IHistoryProvider provider, string path)
+		{
+			Provider = provider;
 			Path = path;
+			
+			repository = ((HistoryProvider)provider).Repository;
 		}
 	}
 }

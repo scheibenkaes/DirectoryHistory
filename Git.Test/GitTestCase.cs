@@ -1,5 +1,5 @@
 //  
-//  GitAPIPlayground.cs
+//  GitTestCase.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,22 +20,17 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using NUnit.Framework;
 
-using GitSharp;
+using NUnit.Framework;
 
 namespace Git.Test
 {
 
 
-	[TestFixture()]
-	public class GitAPIPlayground
+	public class GitTestCase
 	{
-		private Repository repo;
-		
+
 		[SetUp]
 		public void SetUp ()
 		{
@@ -49,28 +44,13 @@ namespace Git.Test
 			TestData.TearDown ();
 		}
 		
-
-		
-		[Test()]
-		public void HowTo_DetectIfAFileIsAddedToGit ()
+		public void CreateFile (string path)
 		{
-			var repo = new Repository (TestData.DIR_WITH_GIT);
-			
-			Assert.IsTrue (Repository.IsValid (TestData.DIR_WITH_GIT));
-			var filePath = Path.Combine (TestData.DIR_WITH_GIT, "test.txt");
-			var testFile = File.CreateText (filePath);
-			testFile.WriteLine ("test 123");
-			testFile.Flush ();
-			testFile.Close ();				
-			
-			//var blob = Blob.CreateFromFile (repo, filePath);
-			
-			var status  = repo.Index.Status;
-			
-			repo.Index.Add (filePath);		
-			
-			Assert.IsTrue (status.Added.Contains ("test.txt"), "Added");
-			Assert.IsTrue (status.Untracked.Contains ("asd.txt"), "Untracked");
+			using (var file = File.CreateText (path))
+			{
+				file.WriteLine (Guid.NewGuid ().ToString ());
+			}			
 		}
+		
 	}
 }

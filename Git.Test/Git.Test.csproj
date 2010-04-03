@@ -36,14 +36,6 @@
       <Package>nunit</Package>
     </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="GitSharp.Core, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="GitSharp, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\GitSharp-0.2.0.0.9\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -56,11 +48,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\GitSharp-0.2.0.0.9\Winterdom.IO.FileMap.dll</HintPath>
     </Reference>
+    <Reference Include="GitSharp.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GitSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryWithHistoryTest.cs" />
     <Compile Include="GitAPIPlayground.cs" />
     <Compile Include="TestData.cs" />
+    <Compile Include="FileWithHistoryTest.cs" />
+    <Compile Include="GitTestCase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

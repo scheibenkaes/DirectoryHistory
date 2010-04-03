@@ -76,5 +76,6 @@ namespace DirectoryHistory.History
 		/// A <see cref="IFileWithHistory"/>
 		/// </returns>
 		//IFileWithHistory AddToRepository (IDirectoryWithHistory repository);
+		
 	}
 }

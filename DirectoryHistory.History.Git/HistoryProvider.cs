@@ -20,7 +20,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-
 using System.IO;
 
 using Mono.Unix;
@@ -29,19 +28,19 @@ using GitSharp;
 
 namespace DirectoryHistory.History.Git
 {
-
-
 	public class HistoryProvider : IHistoryProvider
 	{
-		private Repository repository;
+		public Repository Repository {get; private set;}
 
 		public IDirectoryWithHistory LoadDirectory (string path)
 		{
 			if (string.IsNullOrEmpty (path) || !Directory.Exists (path)) {
 				throw new Exception ("Path must exist and must not be empty!");
 			}
-			var directory = new DirectoryWithHistory (this, path) { IsRootDirectory = true };
-			return directory;
+			
+			Repository = new Repository (path);
+			
+			return new DirectoryWithHistory (this, path) { IsRootDirectory = true };
 		}
 
 		public bool IsARepository (string path)
@@ -51,12 +50,12 @@ namespace DirectoryHistory.History.Git
 
 		public IDirectoryWithHistory CreateRepository (string path)
 		{
-			if (IsARepository (path) && repository == null) {
+			if (IsARepository (path) && Repository == null) {
 				throw new Exception ("There's already a repository at the given path " + path);
 			}
-			repository = Repository.Init (path);
+			Repository = Repository.Init (path);
 			
-			return repository.RepositoryToDirectoryWithHistory (this, path);
+			return Repository.RepositoryToDirectoryWithHistory (this, path);
 		}
 
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;

@@ -1,5 +1,5 @@
 //  
-//  GitAPIPlayground.cs
+//  FileWithHistoryTest.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,57 +20,40 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using NUnit.Framework;
 
 using GitSharp;
+
+using DirectoryHistory.History;
+using DirectoryHistory.History.Git;
 
 namespace Git.Test
 {
 
 
 	[TestFixture()]
-	public class GitAPIPlayground
+	public class FileWithHistoryTest: GitTestCase
 	{
-		private Repository repo;
-		
-		[SetUp]
-		public void SetUp ()
+		public FileWithHistoryTest ()
 		{
-			TestData.SetUp ();
 			
 		}
-
-		[TearDown]
-		public void TearDown ()
-		{
-			TestData.TearDown ();
-		}
 		
+		private HistoryProvider provider = new HistoryProvider ();
 
-		
 		[Test()]
-		public void HowTo_DetectIfAFileIsAddedToGit ()
+		public void Status_NotUnderVersionControll ()
 		{
-			var repo = new Repository (TestData.DIR_WITH_GIT);
+			//var repo = new Repository (TestData.DIR_WITH_GIT);
+			var dir = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "Status_NotUnderVersionControll.txt");
+			CreateFile (testFilePath);
+			var file = new FileWithHistory (provider, testFilePath);
 			
-			Assert.IsTrue (Repository.IsValid (TestData.DIR_WITH_GIT));
-			var filePath = Path.Combine (TestData.DIR_WITH_GIT, "test.txt");
-			var testFile = File.CreateText (filePath);
-			testFile.WriteLine ("test 123");
-			testFile.Flush ();
-			testFile.Close ();				
+			Assert.AreEqual (FileStatus.NotUnderVersionControl, file.Status);
 			
-			//var blob = Blob.CreateFromFile (repo, filePath);
 			
-			var status  = repo.Index.Status;
-			
-			repo.Index.Add (filePath);		
-			
-			Assert.IsTrue (status.Added.Contains ("test.txt"), "Added");
-			Assert.IsTrue (status.Untracked.Contains ("asd.txt"), "Untracked");
 		}
 	}
 }

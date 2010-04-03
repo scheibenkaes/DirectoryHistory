@@ -40,7 +40,7 @@ namespace DirectoryHistory.History.Git
 
 		public IEnumerable<IFileWithHistory> ChildFiles { get; private set; }
 
-		private readonly IHistoryProvider provider;
+		public IHistoryProvider Provider { get; private set; }
 
 		public DirectoryWithHistory (IHistoryProvider provider, string path)
 		{
@@ -49,7 +49,7 @@ namespace DirectoryHistory.History.Git
 			}
 			Path = path;
 			
-			this.provider = provider;
+			Provider = provider;
 			
 			ReadSubDirectories ();
 			
@@ -59,7 +59,7 @@ namespace DirectoryHistory.History.Git
 		private void ReadContainingFiles ()
 		{
 			var files = Directory.GetFiles (Path).ToList ();
-			ChildFiles = files.ConvertAll<IFileWithHistory> (f => new FileWithHistory (f));
+			ChildFiles = files.ConvertAll<IFileWithHistory> (f => new FileWithHistory (Provider, f));
 		}
 
 
@@ -72,7 +72,7 @@ namespace DirectoryHistory.History.Git
 			
 			var subDirToBeAdded = new List<IDirectoryWithHistory> ();
 			foreach (var dir in directories.Except (ignoredDirectories)) {
-				var dirWithHistory = new DirectoryWithHistory (provider, dir) { IsRootDirectory = false };
+				var dirWithHistory = new DirectoryWithHistory (Provider, dir) { IsRootDirectory = false };
 				subDirToBeAdded.Add (dirWithHistory);
 			}
 			
