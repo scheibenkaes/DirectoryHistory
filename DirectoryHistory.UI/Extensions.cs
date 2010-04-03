@@ -36,13 +36,13 @@ namespace DirectoryHistory.UI
 			string stock = Stock.MissingImage;
 			switch (status) {
 			case FileStatus.Changed:
-				stock = Stock.DialogWarning;
+				stock = Stock.No;
 				break;
 			case FileStatus.NotUnderVersionControl:
 				stock = Stock.New;
 				break;
 			case FileStatus.Commited:
-				stock = Stock.Ok;
+				stock = Stock.Yes;
 				break;
 			}
 			
