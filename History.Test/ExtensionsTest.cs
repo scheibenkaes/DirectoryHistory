@@ -40,5 +40,23 @@ namespace History.Test
 			
 			Assert.AreEqual (p1 + "/" + p2, p1.PathCombine (p2));
 		}
+		
+		[Test]
+		public void Test_PathCombine_WithMultipleParams ()
+		{
+			string [] parts = new string[] {
+				//"/tmp",
+				"foo",
+				"bar.txt"
+			};
+			
+			string result = Extensions.PathCombine ("/tmp", parts);
+			
+			Assert.AreEqual ("/tmp/foo/bar.txt", result);
+			
+			Assert.AreEqual ("/tmp", Extensions.PathCombine ("/tmp"));
+			Assert.AreEqual ("/tmp", Extensions.PathCombine ("/tmp", (string[])null));
+			Assert.AreEqual ("/tmp", Extensions.PathCombine ("/tmp", ""));
+		}
 	}
 }

@@ -20,7 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace DirectoryHistory.History
 {
@@ -31,6 +33,22 @@ namespace DirectoryHistory.History
 		public static string PathCombine (this string p1, string p2)
 		{
 			return Path.Combine (p1, p2);
+		}
+
+		public static string PathCombine (this string p1, params string[] p2)
+		{
+			if (p2 == null || !p2.Any ()) {
+				return p1;
+			}
+			var result = Path.Combine (p1, p2[0]);
+			var rest = p2.ToList ();
+			rest.RemoveAt (0);
+			
+			rest.ForEach (s => {
+				result = Path.Combine (result, s);
+			});
+			
+			return result;
 		}
 	}
 }
