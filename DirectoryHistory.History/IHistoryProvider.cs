@@ -72,12 +72,6 @@ namespace DirectoryHistory.History
 		/// <param name="file">
 		/// A <see cref="IFileWithHistory"/>
 		/// </param>
-		/// <param name="directory">
-		/// A <see cref="IDirectoryWithHistory"/>
-		/// </param>
-		/// <returns>
-		/// A <see cref="IFileWithHistory"/>
-		/// </returns>
-		IFileWithHistory AddFileToDirectory (IFileWithHistory file, IDirectoryWithHistory directory);
+		void AddFile (IFileWithHistory file);
 	}
 }

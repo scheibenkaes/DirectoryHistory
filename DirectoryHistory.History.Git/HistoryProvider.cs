@@ -58,12 +58,12 @@ namespace DirectoryHistory.History.Git
 			return Repository.RepositoryToDirectoryWithHistory (this, path);
 		}
 
-		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
-		
-		public IFileWithHistory AddFileToDirectory (IFileWithHistory file, IDirectoryWithHistory directory)
+		public void AddFile (IFileWithHistory file)
 		{
-			throw new NotImplementedException ();
+			throw new System.NotImplementedException();
 		}
+		
+		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
 		
 	}
 }

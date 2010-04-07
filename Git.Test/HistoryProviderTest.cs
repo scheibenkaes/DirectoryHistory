@@ -1,5 +1,5 @@
 //  
-//  GitTestCase.cs
+//  HistoryProviderTest.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,37 +20,46 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.IO;
-
 using NUnit.Framework;
+
+using DirectoryHistory.History;
+using DirectoryHistory.History.Git;
 
 namespace Git.Test
 {
 
 
-	public class GitTestCase
+	[TestFixture()]
+	public class HistoryProviderTest : GitTestCase
 	{
-
+		private HistoryProvider provider;
+		
 		[SetUp]
-		public virtual void SetUp ()
+		public override void SetUp ()
 		{
-			TestData.SetUp ();
-			
+			base.SetUp ();
+			provider = new HistoryProvider ();
 		}
-
+		
 		[TearDown]
-		public virtual void TearDown ()
+		public override void TearDown()
 		{
-			TestData.TearDown ();
+			base.TearDown ();
+			provider = null;
 		}
 		
-		public void CreateFile (string path)
+		[Test]
+		public void AddsAFileToTheRepository ()
 		{
-			using (var file = File.CreateText (path))
-			{
-				file.WriteLine (Guid.NewGuid ().ToString ());
-			}			
+			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
+			Console.WriteLine (testFile);
+			CreateFile (testFile);
+			
+			var file = new FileWithHistory (provider, testFile);
+			
+			provider.AddFile (file);
+			
+			Assert.IsNotNull (file.Status);
 		}
-		
 	}
 }
