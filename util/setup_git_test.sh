@@ -4,14 +4,14 @@ NOGIT="/tmp/nogit"
 GIT="/tmp/gittest"
 
 function init_git () {
-    rm -R $GIT
+    rm -fR $GIT
     mkdir $GIT
     cd $GIT
     git init
 }
 
 function init_no_git () {
-    rm -R $NOGIT
+    rm -fR $NOGIT
     mkdir $NOGIT
 }
 
