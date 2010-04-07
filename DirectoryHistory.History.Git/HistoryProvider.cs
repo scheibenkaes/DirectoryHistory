@@ -60,5 +60,10 @@ namespace DirectoryHistory.History.Git
 
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
 		
+		public IFileWithHistory AddFileToDirectory (IFileWithHistory file, IDirectoryWithHistory directory)
+		{
+			throw new NotImplementedException ();
+		}
+		
 	}
 }

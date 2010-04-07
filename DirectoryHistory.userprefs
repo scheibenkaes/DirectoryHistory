@@ -1,27 +1,24 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History/Extensions.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History/IHistoryProvider.cs" ctype="Workbench">
     <Files>
-      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="45" Column="9" />
-      <File FileName="Git.Test/GitAPIPlayground.cs" Line="55" Column="10" />
-      <File FileName="Git.Test/TestData.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="49" Column="90" />
-      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="51" Column="27" />
-      <File FileName="DirectoryHistory.History.Git/Extensions.cs" Line="1" Column="1" />
-      <File FileName="Git.Test/ExtensionsTest.cs" Line="1" Column="1" />
-      <File FileName="Git.Test/DirectoryWithHistoryTest.cs" Line="62" Column="45" />
-      <File FileName="DirectoryHistory.History/ApplicationLogic.cs" Line="40" Column="1" />
-      <File FileName="DirectoryHistory.History/Extensions.cs" Line="23" Column="17" />
+      <File FileName="DirectoryHistory.History/Extensions.cs" Line="48" Column="39" />
+      <File FileName="History.Test/ExtensionsTest.cs" Line="59" Column="26" />
+      <File FileName="DirectoryHistory.History/IDirectoryWithHistory.cs" Line="59" Column="1" />
+      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="103" Column="6" />
+      <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="74" Column="15" />
+      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="65" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="DirectoryHistory.History" expanded="True" />
+          <Node name="DirectoryHistory.History" expanded="True">
+            <Node name="IHistoryProvider.cs" selected="True" />
+          </Node>
           <Node name="DirectoryHistory.History.Git" expanded="True" />
-          <Node name="Git.Test" expanded="True" selected="True" />
+          <Node name="Git.Test" expanded="True" />
+          <Node name="History.Test" expanded="True" />
           <Node name="Translation" expanded="True" />
         </State>
       </Pad>

@@ -85,7 +85,6 @@ namespace DirectoryHistory.History.Git
 			ChildDirectories = subDirToBeAdded;
 		}
 
-		#region IFileWithHistory implementation
 		public string PathInRepository {
 			get {
 				var prov = (HistoryProvider)Provider;
@@ -93,11 +92,15 @@ namespace DirectoryHistory.History.Git
 			}
 		}
 		
-		#endregion
 		public FileStatus Status {
 			get { 
 				return FileStatus.NotUnderVersionControl; 
 			}
+		}
+		
+		public void AddFile (IFileWithHistory file)
+		{
+			//Provider.AddFileToDirectory (file);
 		}
 	}
 }

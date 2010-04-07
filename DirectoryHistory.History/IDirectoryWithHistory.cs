@@ -56,5 +56,13 @@ namespace DirectoryHistory.History
 		/// </summary>
 		IEnumerable<IFileWithHistory> ChildFiles { get; }
 		
+		/// <summary>
+		/// Add a contained file to version control
+		/// </summary>
+		/// <param name="file">
+		/// A <see cref="IFileWithHistory"/>
+		/// </param>
+		void AddFile (IFileWithHistory file);
+		
 	}
 }

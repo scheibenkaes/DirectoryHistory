@@ -69,13 +69,15 @@ namespace DirectoryHistory.History
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="repository">
+		/// <param name="file">
+		/// A <see cref="IFileWithHistory"/>
+		/// </param>
+		/// <param name="directory">
 		/// A <see cref="IDirectoryWithHistory"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="IFileWithHistory"/>
 		/// </returns>
-		//IFileWithHistory AddToRepository (IDirectoryWithHistory repository);
-		
+		IFileWithHistory AddFileToDirectory (IFileWithHistory file, IDirectoryWithHistory directory);
 	}
 }
