@@ -28,7 +28,7 @@ using GitSharp;
 
 namespace DirectoryHistory.History.Git
 {
-	public class HistoryProvider : IHistoryProvider
+	public class HistoryProvider : IHistoryProvider, IDisposable
 	{
 		public Repository Repository {get; private set;}
 
@@ -61,6 +61,13 @@ namespace DirectoryHistory.History.Git
 		public void AddFile (IFileWithHistory file)
 		{
 			throw new System.NotImplementedException();
+		}
+		
+		public void Dispose ()
+		{
+			if (Repository != null) {
+				Repository.Dispose ();
+			}
 		}
 		
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;

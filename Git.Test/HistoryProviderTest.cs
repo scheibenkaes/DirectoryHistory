@@ -60,6 +60,13 @@ namespace Git.Test
 			provider.AddFile (file);
 			
 			Assert.IsNotNull (file.Status);
+			Assert.AreEqual (FileStatus.Changed, file.Status);
+		}
+		
+		[Test]
+		public void IsAIDisposable ()
+		{
+			Assert.IsTrue (provider is IDisposable);
 		}
 	}
 }
