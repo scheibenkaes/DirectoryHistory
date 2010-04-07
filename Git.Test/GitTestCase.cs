@@ -46,6 +46,10 @@ namespace Git.Test
 		
 		public void CreateFile (string path)
 		{
+			if (File.Exists (path)) {
+				File.Delete (path);
+			}
+			
 			using (var file = File.CreateText (path))
 			{
 				file.WriteLine (Guid.NewGuid ().ToString ());

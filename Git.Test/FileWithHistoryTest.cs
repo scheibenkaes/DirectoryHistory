@@ -33,14 +33,24 @@ namespace Git.Test
 
 
 	[TestFixture()]
-	public class FileWithHistoryTest: GitTestCase
+	public class FileWithHistoryTest : GitTestCase
 	{
-		public FileWithHistoryTest ()
+		private HistoryProvider provider;
+
+		[SetUp]
+		public override void SetUp ()
 		{
-			
+			base.SetUp ();
+			provider = new HistoryProvider ();
 		}
-		
-		private HistoryProvider provider = new HistoryProvider ();
+
+		[TearDown]
+		public override void TearDown ()
+		{
+			base.TearDown ();
+			provider.Dispose ();
+			provider = null;
+		}
 
 		[Test]
 		public void Status_NotUnderVersionControll ()
@@ -52,10 +62,8 @@ namespace Git.Test
 			var file = new FileWithHistory (provider, testFilePath);
 			
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, file.Status);
-			
-			
 		}
-		
+
 		[Test]
 		public void Status_Changed ()
 		{
@@ -67,9 +75,9 @@ namespace Git.Test
 			// TODO Test this over API not directly with git impl
 			provider.Repository.Index.Add (file.PathInRepository);
 			
-			Assert.AreEqual (FileStatus.Changed, file.Status);			
+			Assert.AreEqual (FileStatus.Changed, file.Status);
 		}
-		
+
 		[Test]
 		public void Status_Committed ()
 		{
@@ -80,9 +88,10 @@ namespace Git.Test
 			var file = new FileWithHistory (provider, testFilePath);
 			provider.Repository.Index.Add (file.PathInRepository);
 			
-			Assert.AreEqual (FileStatus.Changed, file.Status);	
+			Assert.AreEqual (FileStatus.Changed, file.Status);
 			
 			provider.Repository.Index.CommitChanges ("Heureka", new Author ("sad", "sad@boo.de"));
+			provider.Dispose ();
 			
 			Assert.AreEqual (FileStatus.Commited, file.Status);
 		}

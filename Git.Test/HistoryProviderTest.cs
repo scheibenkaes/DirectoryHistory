@@ -45,6 +45,7 @@ namespace Git.Test
 		public override void TearDown()
 		{
 			base.TearDown ();
+			provider.Dispose ();
 			provider = null;
 		}
 		

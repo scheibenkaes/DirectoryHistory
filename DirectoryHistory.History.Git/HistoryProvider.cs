@@ -67,6 +67,7 @@ namespace DirectoryHistory.History.Git
 		{
 			if (Repository != null) {
 				Repository.Dispose ();
+				Repository = null;
 			}
 		}
 		
