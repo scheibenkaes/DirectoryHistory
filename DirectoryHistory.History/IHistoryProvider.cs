@@ -26,7 +26,7 @@ namespace DirectoryHistory.History
 	/// <summary>
 	/// Describes the interface to the used Version Control System. E.g. Git, Bazaar etc.
 	/// </summary>
-	public interface IHistoryProvider
+	public interface IHistoryProvider: IDisposable
 	{
 		/// <summary>
 		/// Is fired whenever a directory provided by this provider changed

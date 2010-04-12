@@ -68,6 +68,12 @@ namespace DirectoryHistory.History
 				OnDirectoryLoaded (this, new DirectoryStatusWasUpdatedEventArgs (RootDirectory));
 			}
 		}
+		
+		public void CleanUp()
+		{
+			if (HistoryProvider != null)
+				HistoryProvider.Dispose ();
+		}
 
 		public ApplicationLogic (IHistoryProvider provider)
 		{

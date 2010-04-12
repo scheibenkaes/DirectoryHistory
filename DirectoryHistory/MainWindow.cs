@@ -101,6 +101,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnQuitActionActivated (object sender, System.EventArgs e)
 	{
+		logic.CleanUp ();
 		Application.Quit ();
 	}
 
