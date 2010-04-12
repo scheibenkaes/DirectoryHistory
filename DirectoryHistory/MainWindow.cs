@@ -67,7 +67,7 @@ public partial class MainWindow : Gtk.Window
 		filter.AddCustom (FileFilterFlags.Filename, info => Directory.Exists (info.Filename));
 		fileChooser.Filter = filter;
 		if (fileChooser.Run () == (int)ResponseType.Close) {
-			logic.LoadDirectory (fileChooser.Filename);
+			logic.LoadDirectory (fileChooser.Filename ?? fileChooser.CurrentFolder);
 		}
 		fileChooser.Destroy ();
 	}
