@@ -1,22 +1,27 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Git.Test/HistoryProviderTest.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History/ApplicationLogic.cs" ctype="Workbench">
     <Files>
       <File FileName="DirectoryHistory.History/Extensions.cs" Line="1" Column="1" />
       <File FileName="History.Test/ExtensionsTest.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/IDirectoryWithHistory.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="1" Column="1" />
+      <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="29" Column="48" />
       <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
-      <File FileName="Git.Test/HistoryProviderTest.cs" Line="1" Column="1" />
+      <File FileName="Git.Test/HistoryProviderTest.cs" Line="45" Column="21" />
+      <File FileName="DirectoryHistory.History/ApplicationLogic.cs" Line="57" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="DirectoryHistory.History" expanded="True" />
+          <Node name="DirectoryHistory" expanded="True" />
+          <Node name="DirectoryHistory.History" expanded="True">
+            <Node name="ApplicationLogic.cs" selected="True" />
+          </Node>
           <Node name="DirectoryHistory.History.Git" expanded="True" />
-          <Node name="Git.Test" expanded="True" selected="True" />
+          <Node name="DirectoryHistory.UI" expanded="True" />
+          <Node name="Git.Test" expanded="True" />
           <Node name="History.Test" expanded="True" />
           <Node name="Translation" expanded="True" />
         </State>
@@ -24,9 +29,16 @@
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore" />
 </Properties>
