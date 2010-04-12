@@ -27,8 +27,6 @@ using DirectoryHistory.History.Git;
 
 namespace Git.Test
 {
-
-
 	[TestFixture()]
 	public class HistoryProviderTest : GitTestCase
 	{
@@ -52,6 +50,7 @@ namespace Git.Test
 		[Test]
 		public void AddsAFileToTheRepository ()
 		{
+			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
 			Console.WriteLine (testFile);
 			CreateFile (testFile);

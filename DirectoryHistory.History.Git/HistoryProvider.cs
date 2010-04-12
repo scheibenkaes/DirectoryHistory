@@ -60,7 +60,8 @@ namespace DirectoryHistory.History.Git
 
 		public void AddFile (IFileWithHistory file)
 		{
-			throw new System.NotImplementedException();
+			var index = Repository.Index;
+			index.Add (file.PathInRepository);
 		}
 		
 		public void Dispose ()

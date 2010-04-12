@@ -67,7 +67,7 @@ namespace DirectoryHistory.History
 		IDirectoryWithHistory CreateRepository (string path);
 		
 		/// <summary>
-		/// 
+		/// Add the given file to the repository
 		/// </summary>
 		/// <param name="file">
 		/// A <see cref="IFileWithHistory"/>
