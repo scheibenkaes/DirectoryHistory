@@ -25,6 +25,7 @@ using Gtk;
 
 using Mono.Unix;
 
+using DirectoryHistory;
 using DirectoryHistory.History;
 
 namespace DirectoryHistory.UI
@@ -35,6 +36,8 @@ namespace DirectoryHistory.UI
 	public partial class FolderList : Gtk.Bin
 	{
 		private TreeStore treeStore;
+		
+		public event EventHandler<FileSelectedEventArgs> OnFileSelected;
 
 		public FolderList ()
 		{
@@ -43,7 +46,37 @@ namespace DirectoryHistory.UI
 			
 			treeview.AppendColumn (Catalog.GetString ("Status"), new CellRendererPixbuf (), "icon_name", 0);
 			treeview.AppendColumn (Catalog.GetString ("File"), new CellRendererText (), "text", 1);
+			
+			RegisterCallbacks ();
 		}
+
+		private void RegisterCallbacks ()
+		{
+			treeview.Selection.Changed += HandleTreeviewSelectionChanged;
+		}
+
+		private void HandleTreeviewSelectionChanged (object sender, EventArgs e)
+		{
+			var selectedFile = ReadSelection (sender);
+			
+			if (OnFileSelected != null) {
+				OnFileSelected (this, new FileSelectedEventArgs (selectedFile));
+			}
+		}
+		
+		private string ReadSelection (object sender)
+		{
+			TreeIter iter;
+			TreeModel model;
+			
+			if (((TreeSelection)sender).GetSelected (out model, out iter)) 
+			{
+				return (string) model.GetValue (iter, 1);
+			}
+			return string.Empty;
+		}
+		
+		
 
 		private void InitializeTreeStore ()
 		{
@@ -57,7 +90,7 @@ namespace DirectoryHistory.UI
 			
 			DisplayAsRootFolder (args.DirectoryThatChanged);
 		}
-		
+
 		private void DisplayAsRootFolder (IDirectoryWithHistory root)
 		{
 			if (root == null)
@@ -73,7 +106,7 @@ namespace DirectoryHistory.UI
 			
 			AddSubDirectories (treeIter, root);
 		}
-		
+
 		private void AddContainingFiles (IDirectoryWithHistory directoryWithHistory)
 		{
 			var files = directoryWithHistory.ChildFiles;
@@ -81,7 +114,7 @@ namespace DirectoryHistory.UI
 				treeStore.AppendValues (file.Status.GetStockFromFileStatus (), file.Path);
 			}
 		}
-		
+
 		private TreeIter AddDirectoryToList (IDirectoryWithHistory directoryWithHistory)
 		{
 			return treeStore.AppendValues (directoryWithHistory.Status.GetStockFromFileStatus (), directoryWithHistory.Path);

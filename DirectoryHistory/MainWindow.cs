@@ -31,8 +31,6 @@ using DirectoryHistory.History;
 
 public partial class MainWindow : Gtk.Window
 {
-	public event EventHandler<FileSelectedEventArgs> OnFileSelected;
-	
 	private ApplicationLogic logic;
 
 	public MainWindow (ApplicationLogic logic) : base(Gtk.WindowType.Toplevel)
@@ -42,6 +40,8 @@ public partial class MainWindow : Gtk.Window
 		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;
 		logic.OnDirectoryLoaded += OnDirectoryLoaded;
 		logic.OnUserRequestForCreation += AskUserForRepositoryCreation;
+		
+		folderlist.OnFileSelected += HandleFolderlistOnFileSelected;
 		
 		refreshAction.Sensitive = false;
 		addAction.Sensitive = false;
@@ -54,6 +54,11 @@ public partial class MainWindow : Gtk.Window
 		loadedDirectoryLabel.Text = args.DirectoryThatChanged.Path;
 		
 		refreshAction.Sensitive = true;
+	}
+
+	private void HandleFolderlistOnFileSelected (object sender, FileSelectedEventArgs e)
+	{
+		Console.WriteLine (e.SelectedFile);
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -84,8 +89,7 @@ public partial class MainWindow : Gtk.Window
 		
 		bool yesNo = false;
 		dialog.ShowAll ();
-		if (dialog.Run () == (int) ResponseType.Yes)
-		{
+		if (dialog.Run () == (int)ResponseType.Yes) {
 			yesNo = true;
 		}
 		dialog.Destroy ();
@@ -122,17 +126,17 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnAddActionActivated (object sender, System.EventArgs e)
 	{
-	}	
-	
+	}
+
 	protected virtual void OnApplyActionActivated (object sender, System.EventArgs e)
 	{
 	}
-	
+
 	protected virtual void OnFileHistoryActionActivated (object sender, System.EventArgs e)
 	{
 	}
-	
-	
-	
+
+
+
 	private const string LicenseText = " This program is free software: you can redistribute it and/or modify\r\n it under the terms of the GNU General Public License as published by\r\n the Free Software Foundation, either version 3 of the License, or\r\n (at your option) any later version.\r\n\r\n This program is distributed in the hope that it will be useful,\r\n but WITHOUT ANY WARRANTY; without even the implied warranty of\r\n MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\r\n GNU General Public License for more details.\r\n\r\n You should have received a copy of the GNU General Public License\r\n along with this program.  If not, see <http://www.gnu.org/licenses/>.\r\n";
 }
