@@ -31,6 +31,8 @@ using DirectoryHistory.History;
 
 public partial class MainWindow : Gtk.Window
 {
+	public event EventHandler<FileSelectedEventArgs> OnFileSelected;
+	
 	private ApplicationLogic logic;
 
 	public MainWindow (ApplicationLogic logic) : base(Gtk.WindowType.Toplevel)

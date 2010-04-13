@@ -1,24 +1,16 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History/ApplicationLogic.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory/FileSelectedEventArgs.cs" ctype="Workbench">
     <Files>
-      <File FileName="DirectoryHistory.History/Extensions.cs" Line="1" Column="1" />
-      <File FileName="History.Test/ExtensionsTest.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History/IDirectoryWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="29" Column="48" />
-      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
-      <File FileName="Git.Test/HistoryProviderTest.cs" Line="45" Column="21" />
-      <File FileName="DirectoryHistory.History/ApplicationLogic.cs" Line="57" Column="1" />
+      <File FileName="DirectoryHistory/MainWindow.cs" Line="34" Column="22" />
+      <File FileName="DirectoryHistory/FileSelectedEventArgs.cs" Line="25" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="DirectoryHistory" expanded="True" />
-          <Node name="DirectoryHistory.History" expanded="True">
-            <Node name="ApplicationLogic.cs" selected="True" />
-          </Node>
+          <Node name="DirectoryHistory" expanded="True" selected="True" />
+          <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.History.Git" expanded="True" />
           <Node name="DirectoryHistory.UI" expanded="True" />
           <Node name="Git.Test" expanded="True" />

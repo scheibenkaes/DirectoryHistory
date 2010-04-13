@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8C1F68AF-ACB3-4C87-B6F7-AA7E29B82E64}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DirectoyHistory</RootNamespace>
+    <RootNamespace>DirectoryHistory</RootNamespace>
     <AssemblyName>DirectoryHistory</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -69,6 +69,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="DirectorySelectedEventArgs.cs" />
+    <Compile Include="FileSelectedEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
