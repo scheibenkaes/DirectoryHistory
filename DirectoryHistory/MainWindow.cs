@@ -65,8 +65,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		var file = logic.HistoryProvider.GetFile (selectedFile);
 		
-		switch (file.Status) 
-		{
+		switch (file.Status) {
 		case FileStatus.NotUnderVersionControl:
 			addAction.Sensitive = true;
 			fileHistoryAction.Sensitive = false;
@@ -87,10 +86,16 @@ public partial class MainWindow : Gtk.Window
 		}
 	}
 
+	private void ExitApp ()
+	{
+		logic.CleanUp ();
+		Application.Quit ();
+	}
+
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
-		Application.Quit ();
+		ExitApp ();
 		a.RetVal = true;
 	}
 
@@ -134,8 +139,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnQuitActionActivated (object sender, System.EventArgs e)
 	{
-		logic.CleanUp ();
-		Application.Quit ();
+		ExitApp ();
 	}
 
 	void ShowInfoDialog ()
@@ -153,6 +157,9 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnAddActionActivated (object sender, System.EventArgs e)
 	{
+		var file = folderlist.ReadSelectedFile ();
+		logic.HistoryProvider.AddFile (logic.HistoryProvider.GetFile (file));
+		refreshAction.Activate ();
 	}
 
 	protected virtual void OnApplyActionActivated (object sender, System.EventArgs e)

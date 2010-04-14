@@ -57,19 +57,20 @@ namespace DirectoryHistory.UI
 
 		private void HandleTreeviewSelectionChanged (object sender, EventArgs e)
 		{
-			var selectedFile = ReadSelection (sender);
+			var selectedFile = ReadSelectedFile ();
 			
 			if (OnFileSelected != null) {
 				OnFileSelected (this, new FileSelectedEventArgs (selectedFile));
 			}
 		}
 		
-		private string ReadSelection (object sender)
+		
+		public string ReadSelectedFile ()
 		{
 			TreeIter iter;
 			TreeModel model;
 			
-			if (((TreeSelection)sender).GetSelected (out model, out iter)) 
+			if (treeview.Selection.GetSelected (out model, out iter)) 
 			{
 				return (string) model.GetValue (iter, 1);
 			}
