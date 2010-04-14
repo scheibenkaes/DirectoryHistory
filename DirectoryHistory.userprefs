@@ -3,9 +3,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory/MainWindow.cs" ctype="Workbench">
     <Files>
-      <File FileName="DirectoryHistory/MainWindow.cs" Line="61" Column="36" />
-      <File FileName="DirectoryHistory.UI/FolderList.cs" Line="57" Column="1" />
+      <File FileName="DirectoryHistory/MainWindow.cs" Line="162" Column="29" />
+      <File FileName="DirectoryHistory.UI/FolderList.cs" Line="68" Column="33" />
       <File FileName="DirectoryHistory.History/ApplicationLogic.cs" Line="41" Column="42" />
+      <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="77" Column="3" />
+      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="77" Column="44" />
+      <File FileName="Git.Test/HistoryProviderTest.cs" Line="58" Column="40" />
+      <File FileName="DirectoryHistory.History/FileStatus.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
