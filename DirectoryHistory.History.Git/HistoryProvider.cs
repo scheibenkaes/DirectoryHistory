@@ -72,6 +72,11 @@ namespace DirectoryHistory.History.Git
 			}
 		}
 		
+		public IFileWithHistory GetFile (string path)
+		{
+			return new FileWithHistory (this, path);
+		}
+		
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
 		
 	}

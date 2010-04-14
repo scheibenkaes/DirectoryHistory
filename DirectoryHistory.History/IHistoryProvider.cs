@@ -73,5 +73,16 @@ namespace DirectoryHistory.History
 		/// A <see cref="IFileWithHistory"/>
 		/// </param>
 		void AddFile (IFileWithHistory file);
+		
+		/// <summary>
+		/// Retrieve the file corresponding to the given path.
+		/// </summary>
+		/// <param name="path">
+		/// The path to the file, absolute or 'in-repo'
+		/// </param>
+		/// <returns>
+		/// A <see cref="IFileWithHistory"/>
+		/// </returns>
+		IFileWithHistory GetFile (string path);
 	}
 }

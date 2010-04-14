@@ -58,8 +58,35 @@ public partial class MainWindow : Gtk.Window
 
 	private void HandleFolderlistOnFileSelected (object sender, FileSelectedEventArgs e)
 	{
-		Console.WriteLine (e.SelectedFile);
+		EnableAvailableActions (e.SelectedFile);
 	}
+
+	private void EnableAvailableActions (string selectedFile)
+	{
+		var file = logic.HistoryProvider.GetFile (selectedFile);
+		
+		switch (file.Status) 
+		{
+		case FileStatus.NotUnderVersionControl:
+			addAction.Sensitive = true;
+			fileHistoryAction.Sensitive = false;
+			applyAction.Sensitive = false;
+			break;
+		case FileStatus.Commited:
+			addAction.Sensitive = false;
+			fileHistoryAction.Sensitive = true;
+			applyAction.Sensitive = false;
+			break;
+		case FileStatus.Changed:
+			addAction.Sensitive = false;
+			fileHistoryAction.Sensitive = true;
+			applyAction.Sensitive = true;
+			break;
+		default:
+			throw new Exception (string.Format ("Unknown status {0}", file.Status));
+		}
+	}
+
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
