@@ -38,7 +38,9 @@ namespace DirectoryHistory.History.Git
 				throw new Exception ("Path must exist and must not be empty!");
 			}
 			
-			Repository = new Repository (path);
+			if (Repository == null || Repository.WorkingDirectory != path) {
+				Repository = new Repository (path);
+			}			
 			
 			return new DirectoryWithHistory (this, path) { IsRootDirectory = true };
 		}
