@@ -48,6 +48,21 @@ namespace Git.Test
 		}
 		
 		[Test]
+		public void GitCommitting()
+		{
+			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
+			
+			var file = provider.GetFile (testFile);
+			
+			var commit = new Commit (file, "GitCommitting TestCase");
+			
+			provider.CommitChanges (commit);
+			
+			Assert.AreEqual (FileStatus.Commited, file.Status);
+		}
+		
+		[Test]
 		public void Test_GetFile()
 		{
 			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
