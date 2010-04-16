@@ -169,10 +169,11 @@ public partial class MainWindow : Gtk.Window
 		var commitDialog = new CommitDialog ();
 		if (commitDialog.Run () == (int) ResponseType.Ok) {
 			var comment = commitDialog.Comment;
-			commitDialog.Destroy ();
 			
 			Commit (selected, comment);
 		}
+		commitDialog.Destroy ();
+		refreshAction.Activate ();
 	}
 
 	private void Commit (string selected, string comment)

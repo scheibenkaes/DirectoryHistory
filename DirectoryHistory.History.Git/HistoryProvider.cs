@@ -31,6 +31,16 @@ namespace DirectoryHistory.History.Git
 	public class HistoryProvider : IHistoryProvider, IDisposable
 	{
 		public Repository Repository {get; private set;}
+		
+		public Author Author {
+			private set;
+			get;
+		}
+		
+		public HistoryProvider ()
+		{
+			Author = new Author(Environment.UserName, "TODO@FIXME.COM");
+		}
 
 		public IDirectoryWithHistory LoadDirectory (string path)
 		{
@@ -68,7 +78,8 @@ namespace DirectoryHistory.History.Git
 		
 		public void CommitChanges (ICommit commit)
 		{
-			throw new NotImplementedException ();
+			Repository.Index.Add (commit.File.Path);
+			Repository.Index.CommitChanges (commit.Comment, Author);
 		}
 		
 		public void Dispose ()
