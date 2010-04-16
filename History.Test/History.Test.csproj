@@ -30,13 +30,20 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="nunit.core, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Package>mono-nunit</Package>
     </Reference>
     <Reference Include="nunit.framework, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Package>mono-nunit</Package>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="NMock2, Version=2.0.0.44, Culture=neutral, PublicKeyToken=37d3be0adc87c2b7">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NMock\NMock2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionsTest.cs" />
+    <Compile Include="CommitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
