@@ -2,7 +2,6 @@
 *.mdb
 *.swp
 *.pidb
-*.dll
 *.exe
 */bin
 *~
