@@ -145,7 +145,7 @@ public partial class MainWindow : Gtk.Window
 
 	void ShowInfoDialog ()
 	{
-		var about = new AboutDialog { Authors = new[] { "Benjamin Klüglein <scheibenkaes@googlemail.com>" }, ProgramName = "Directory History", License = LicenseText, Comments = Catalog.GetString ("A program to keep a simple history of your files."), Title = Catalog.GetString ("About Directory History") };
+		var about = new AboutDialog { Authors = new[] { "Benjamin Klüglein <scheibenkaes@googlemail.com>" }, ProgramName = Catalog.GetString ("Directory History"), License = LicenseText, Comments = Catalog.GetString ("A program to keep a simple history of your files."), Title = Catalog.GetString ("About Directory History") };
 		
 		about.Run ();
 		about.Destroy ();
@@ -166,7 +166,7 @@ public partial class MainWindow : Gtk.Window
 	protected virtual void OnApplyActionActivated (object sender, System.EventArgs e)
 	{
 		var selected = folderlist.ReadSelectedFile ();
-		var commitDialog = new CommitDialog ();
+		var commitDialog = new CommitDialog (selected);
 		if (commitDialog.Run () == (int) ResponseType.Ok) {
 			var comment = commitDialog.Comment;
 			

@@ -22,11 +22,15 @@
 using System;
 using Gtk;
 
+using Mono.Unix;
+
 namespace DirectoryHistory.UI
 {
 	public partial class CommitDialog : Gtk.Dialog
 	{
-		public CommitDialog ()
+		private static readonly string TITLE = Catalog.GetString ("Commit changes in {0}");
+
+		public CommitDialog (string file)
 		{
 			this.Build ();
 			
@@ -35,24 +39,22 @@ namespace DirectoryHistory.UI
 			buttonOk.Sensitive = false;
 			
 			textview.Buffer.Changed += HandleTextviewBufferChanged;
+			
+			Title = string.Format (TITLE, file);
 		}
-		
-		
-		public string Comment 
-		{
-			get {
-				return textview.Buffer.Text;
-			}
+
+
+		public string Comment {
+			get { return textview.Buffer.Text; }
 		}
-		
+
 		private void HandleTextviewBufferChanged (object sender, EventArgs e)
 		{
 			var stripped = textview.Buffer.Text.Trim ();
 			
 			if (string.IsNullOrEmpty (stripped)) {
 				buttonOk.Sensitive = false;
-			}
-			else {
+			} else {
 				buttonOk.Sensitive = true;
 			}
 		}

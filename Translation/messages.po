@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-03-31 15:43:27+0200\n"
-"PO-Revision-Date: 2010-03-31 15:43:27+0200\n"
+"POT-Creation-Date: 2010-04-17 00:02:42+0200\n"
+"PO-Revision-Date: 2010-04-17 00:02:42+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,103 +10,105 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../DirectoryHistory/MainWindow.cs:64
+#: ../DirectoryHistory/MainWindow.cs:104
 msgid "Open directory"
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:76
+#: ../DirectoryHistory/MainWindow.cs:116
 msgid "There is not yet a repository at this position."
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:78
+#: ../DirectoryHistory/MainWindow.cs:118
 msgid ""
 "Should a new repository be created at {0}?\n"
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:79
+#: ../DirectoryHistory/MainWindow.cs:119
 msgid "Yes"
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:80
+#: ../DirectoryHistory/MainWindow.cs:120
 msgid "No"
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:108
-msgid "A program to keep a simple history of your files."
-msgstr ""
-
-#: ../DirectoryHistory/MainWindow.cs:108
-msgid "About Directory History"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:55
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
-msgid "openDirectory"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
-#: ../DirectoryHistory.UI/FolderList.cs:44
-msgid "File"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:61
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:62
-msgid "History"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:64
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:65
-msgid "Info"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:67
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:68
-msgid "refresh"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:70
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:71
-msgid "quit"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:73
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:74
-msgid "_About"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:76
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:77
-msgid "_Add"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:79
+#: ../DirectoryHistory/MainWindow.cs:147
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:80
-msgid "_Apply"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:82
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:83
-msgid "File_History"
-msgstr ""
-
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:88
 msgid "Directory History"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:137
+#: ../DirectoryHistory/MainWindow.cs:147
+msgid "A program to keep a simple history of your files."
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:147
+msgid "About Directory History"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:47
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:48
+msgid "openDirectory"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:50
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:51
+#: ../DirectoryHistory.UI/FolderList.cs:47
+msgid "File"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:53
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:54
+msgid "History"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:57
+msgid "Info"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:60
+msgid "refresh"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:62
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:63
+msgid "quit"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:65
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:66
+msgid "_About"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:68
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:69
+msgid "_Add"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:71
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:72
+msgid "_Apply"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:74
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:75
+msgid "File_History"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:129
 msgid "No directory loaded"
 msgstr ""
 
-#: ../DirectoryHistory.UI/FolderList.cs:43
+#: ../DirectoryHistory.UI/FolderList.cs:46
 msgid "Status"
 msgstr ""
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.CommitDialog.cs:53
-msgid "Comment:"
+#: ../DirectoryHistory.UI/CommitDialog.cs:30
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.CommitDialog.cs:23
+msgid "Commit changes in {0}"
 msgstr ""
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.CommitDialog.cs:82
-msgid "GtkExpander"
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.CommitDialog.cs:52
+msgid "Comment:"
 msgstr ""
 

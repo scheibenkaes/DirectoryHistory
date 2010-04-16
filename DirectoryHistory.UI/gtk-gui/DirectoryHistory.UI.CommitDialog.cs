@@ -21,6 +21,8 @@ namespace DirectoryHistory.UI
 			global::Stetic.Gui.Initialize (this);
 			// Widget DirectoryHistory.UI.CommitDialog
 			this.Name = "DirectoryHistory.UI.CommitDialog";
+			this.Title = global::Mono.Unix.Catalog.GetString ("Commit changes in {0}");
+			this.Icon = global::Stetic.IconLoader.LoadIcon (this, "gtk-apply", global::Gtk.IconSize.Menu);
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Internal child DirectoryHistory.UI.CommitDialog.VBox
 			global::Gtk.VBox w1 = this.VBox;
