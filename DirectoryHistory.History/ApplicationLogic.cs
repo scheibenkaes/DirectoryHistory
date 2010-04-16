@@ -37,6 +37,11 @@ namespace DirectoryHistory.History
 		public IHistoryProvider HistoryProvider { get; private set; }
 
 		public IDirectoryWithHistory RootDirectory { get; private set; }
+		
+		public ICommit CreateCommit (string selectedFile, string comment)
+		{
+			return new Commit (HistoryProvider.GetFile (selectedFile), comment);
+		}
 
 		public void LoadDirectory (string path)
 		{

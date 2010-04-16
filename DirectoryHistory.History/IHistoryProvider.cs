@@ -84,5 +84,7 @@ namespace DirectoryHistory.History
 		/// A <see cref="IFileWithHistory"/>
 		/// </returns>
 		IFileWithHistory GetFile (string path);
+		
+		void CommitChanges (ICommit commit);
 	}
 }

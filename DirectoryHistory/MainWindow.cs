@@ -28,6 +28,7 @@ using Mono.Unix;
 
 using DirectoryHistory;
 using DirectoryHistory.History;
+using DirectoryHistory.UI;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -164,7 +165,21 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnApplyActionActivated (object sender, System.EventArgs e)
 	{
+		var selected = folderlist.ReadSelectedFile ();
+		var commitDialog = new CommitDialog ();
+		if (commitDialog.Run () == (int) ResponseType.Ok) {
+			var comment = commitDialog.Comment;
+			commitDialog.Destroy ();
+			
+			Commit (selected, comment);
+		}
 	}
+
+	private void Commit (string selected, string comment)
+	{
+		logic.HistoryProvider.CommitChanges (logic.CreateCommit (selected, comment));
+	}
+
 
 	protected virtual void OnFileHistoryActionActivated (object sender, System.EventArgs e)
 	{

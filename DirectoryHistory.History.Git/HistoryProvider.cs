@@ -66,6 +66,11 @@ namespace DirectoryHistory.History.Git
 			index.Add (file.PathInRepository);
 		}
 		
+		public void CommitChanges (ICommit commit)
+		{
+			throw new NotImplementedException ();
+		}
+		
 		public void Dispose ()
 		{
 			if (Repository != null) {

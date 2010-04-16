@@ -43,6 +43,8 @@
     <Compile Include="FileStatus.cs" />
     <Compile Include="AskForRepositoryCreationEventArgs.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="ICommit.cs" />
+    <Compile Include="Commit.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

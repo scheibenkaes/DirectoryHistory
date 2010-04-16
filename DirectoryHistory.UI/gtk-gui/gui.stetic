@@ -34,72 +34,65 @@
         <property name="MemberName" />
         <property name="BorderWidth">2</property>
         <child>
-          <widget class="Gtk.VBox" id="vbox3">
+          <widget class="Gtk.Table" id="table1">
             <property name="MemberName" />
-            <property name="Spacing">6</property>
+            <property name="NRows">3</property>
+            <property name="NColumns">2</property>
+            <property name="RowSpacing">6</property>
+            <property name="ColumnSpacing">6</property>
             <child>
-              <widget class="Gtk.HBox" id="hbox2">
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
                 <property name="MemberName" />
-                <property name="Spacing">6</property>
+                <property name="ShadowType">In</property>
                 <child>
-                  <widget class="Gtk.Label" id="commentLabel">
+                  <widget class="Gtk.TextView" id="textview">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">Comment:</property>
+                    <property name="CanFocus">True</property>
+                    <property name="ShowScrollbars">True</property>
+                    <property name="Text" translatable="yes" />
                   </widget>
-                  <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
-                    <property name="MemberName" />
-                    <property name="ShadowType">In</property>
-                    <child>
-                      <widget class="Gtk.TextView" id="textview1">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="ShowScrollbars">True</property>
-                        <property name="Text" translatable="yes" />
-                      </widget>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
-                  </packing>
                 </child>
               </widget>
               <packing>
-                <property name="Position">0</property>
+                <property name="LeftAttach">1</property>
+                <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">True</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Expander" id="expander1">
+              <widget class="Gtk.Label" id="label1">
                 <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <child>
-                  <placeholder />
-                </child>
-                <child>
-                  <widget class="Gtk.Label" id="GtkLabel2">
-                    <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">GtkExpander</property>
-                    <property name="UseUnderline">True</property>
-                  </widget>
-                  <packing>
-                    <property name="type">label_item</property>
-                  </packing>
-                </child>
+                <property name="LabelProp" translatable="yes">Comment:</property>
               </widget>
               <packing>
-                <property name="Position">1</property>
                 <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
               </packing>
             </child>
           </widget>

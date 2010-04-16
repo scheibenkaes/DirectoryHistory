@@ -20,17 +20,45 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using Gtk;
 
 namespace DirectoryHistory.UI
 {
-
-
 	public partial class CommitDialog : Gtk.Dialog
 	{
-
 		public CommitDialog ()
 		{
 			this.Build ();
+			
+			Modal = true;
+			
+			buttonOk.Sensitive = false;
+			
+			textview.Buffer.Changed += HandleTextviewBufferChanged;
 		}
+		
+		
+		public string Comment 
+		{
+			get {
+				return textview.Buffer.Text;
+			}
+		}
+		
+		private void HandleTextviewBufferChanged (object sender, EventArgs e)
+		{
+			var stripped = textview.Buffer.Text.Trim ();
+			
+			if (string.IsNullOrEmpty (stripped)) {
+				buttonOk.Sensitive = false;
+			}
+			else {
+				buttonOk.Sensitive = true;
+			}
+		}
+		
 	}
 }
+
+
+
