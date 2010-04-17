@@ -11,9 +11,19 @@ function init_git () {
     git init
 
     echo "asdf" > existing.txt
-
     git add existing.txt
+    echo "asdf asfasg " > existing2.txt
+    git add existing*
+
+    echo "test" > changed.txt
+    git add changed.txt
+    echo "test2" > changed2.txt
+    git add changed2.txt
+
     git commit -m "For unittesting"
+
+    echo "foo bar" >> changed.txt
+    echo "foo bar" >> changed2.txt
 }
 
 function init_no_git () {

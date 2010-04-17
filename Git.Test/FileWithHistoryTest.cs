@@ -51,6 +51,18 @@ namespace Git.Test
 			provider.Dispose ();
 			provider = null;
 		}
+		
+		[Test]
+		public void Test_PathInRepository()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var file1 	= provider.GetFile ("/tmp/gittest/changed.txt");
+			var file2 	= provider.GetFile ("/tmp/gittest/committed.txt");
+			
+			Assert.AreEqual ("changed.txt", file1.PathInRepository);
+			Assert.AreEqual ("committed.txt", file2.PathInRepository);
+			
+		}
 
 		[Test]
 		public void Status_NotUnderVersionControll ()

@@ -41,5 +41,14 @@ namespace Git.Test
 			
 			Assert.AreEqual ("foo/bar.txt", Extensions.ReducePath (proj, file));
 		}
+		
+		[Test]
+		public void Test_WrongReducing()
+		{
+			var file = "/tmp/gittest/existing.txt";
+			Assert.AreEqual ("existing.txt", Extensions.ReducePath ("/tmp/gittest", file));
+				
+		}
+			
 	}
 }

@@ -34,11 +34,9 @@ namespace Git.Test
 	{
 		public const string TEMP_DIR = "/tmp/gittest";
 		
-		public static readonly string DIR_WO_GIT = Path.Combine (TEMP_DIR, "wo");
-		
 		public static readonly string DIR_WITH_GIT = Path.Combine (TEMP_DIR, "with");
 		
-		public static List<string> TEST_DIRS = new List<string> {DIR_WO_GIT, DIR_WITH_GIT};
+		public static List<string> TEST_DIRS = new List<string> {DIR_WITH_GIT};
 		
 		public static void SetUp()
 		{

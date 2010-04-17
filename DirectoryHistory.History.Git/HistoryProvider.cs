@@ -72,14 +72,18 @@ namespace DirectoryHistory.History.Git
 
 		public void AddFile (IFileWithHistory file)
 		{
-			var index = Repository.Index;
-			index.Add (file.PathInRepository);
+			Repository.Index.Add (file.PathInRepository);
 		}
 		
 		public void CommitChanges (ICommit commit)
 		{
-			Repository.Index.Add (commit.File.Path);
-			Repository.Index.CommitChanges (commit.Comment, Author);
+//			if (!Repository.Status.Modified.Contains (commit.File.Path)) {
+//				throw new InvalidOperationException ("Can't commit a not staged file");
+//			}
+			
+			AddFile (commit.File);
+				
+			Repository.Commit (commit.Comment, Author);
 		}
 		
 		public void Dispose ()

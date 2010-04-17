@@ -79,13 +79,11 @@ namespace DirectoryHistory.History.Git
 			
 			repository = ((HistoryProvider)provider).Repository;
 		}
-		#region IFileWithHistory implementation
+		
 		public string PathInRepository {
 			get {
 				return Extensions.ReducePath (repository.WorkingDirectory, Path);
 			}
 		}
-		
-		#endregion
 	}
 }

@@ -21,23 +21,25 @@
 
 using System;
 
+using Mono.Unix;
+
 namespace DirectoryHistory.History
 {
 	public class Commit : ICommit
 	{
-		public IFileWithHistory File {
-			get;
-			private set;
-		}
-		
-		
-		public string Comment {
-			get;
-			private set;
-		}
-		
+		public IFileWithHistory File { get; private set; }
+
+
+		public string Comment { get; private set; }
+
 		public Commit (IFileWithHistory file, string comment)
 		{
+			if (file == null) {
+				throw new ArgumentNullException ("file");
+			}
+			if (string.IsNullOrEmpty (comment)) {
+				throw new ArgumentException (Catalog.GetString ("A comment must not be empty"));
+			}
 			File = file;
 			Comment = comment;
 		}
