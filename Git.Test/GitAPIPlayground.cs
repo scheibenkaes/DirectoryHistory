@@ -48,30 +48,5 @@ namespace Git.Test
 		{
 			TestData.TearDown ();
 		}
-		
-
-		
-		[Test]
-		[Ignore]
-		public void HowTo_DetectIfAFileIsAddedToGit ()
-		{
-			var repo = new Repository (TestData.DIR_WITH_GIT);
-			
-			Assert.IsTrue (Repository.IsValid (TestData.DIR_WITH_GIT));
-			var filePath = Path.Combine (TestData.DIR_WITH_GIT, "test.txt");
-			var testFile = File.CreateText (filePath);
-			testFile.WriteLine ("test 123");
-			testFile.Flush ();
-			testFile.Close ();				
-			
-			//var blob = Blob.CreateFromFile (repo, filePath);
-			
-			var status  = repo.Index.Status;
-			
-			repo.Index.Add (filePath);		
-			
-			Assert.IsTrue (status.Added.Contains ("test.txt"), "Added");
-			Assert.IsTrue (status.Untracked.Contains ("asd.txt"), "Untracked");
-		}
 	}
 }
