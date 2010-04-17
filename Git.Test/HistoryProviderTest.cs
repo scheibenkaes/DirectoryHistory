@@ -69,28 +69,16 @@ namespace Git.Test
 		[Test]
 		public void GitCommit_EffectsOnlySelectedFiles()
 		{
-			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			provider.LoadDirectory (TestData.TEMP_DIR);
 			
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding_but_committed.txt");
-			var testFile_not2BeCommitted = TestData.DIR_WITH_GIT.PathCombine ("adding_no_commit.txt");
+			var testFile_not2BeCommitted 	= "/tmp/gittest/changed2.txt";
+			var testFile 					= "/tmp/gittest/changed.txt";
 			
-			CreateFile (testFile);
-			CreateFile (testFile_not2BeCommitted);
-			
-			var file = provider.GetFile (testFile);
-			var fileNotCommitted = provider.GetFile (testFile_not2BeCommitted);
-			
-			provider.AddFile (file);
-			provider.AddFile (fileNotCommitted);
-			
-			Assert.AreEqual (FileStatus.Changed, file.Status, "Should be version controlled and changed (no commit)");
-			Assert.AreEqual (FileStatus.Changed, fileNotCommitted.Status, "Should be version controlled and changed (commit)");
-			
-			var commit = new Commit (file, "GitCommitting TestCase");
+			var commit = new Commit (provider.GetFile (testFile), "GitCommit_EffectsOnlySelectedFiles");
 			provider.CommitChanges (commit);
 			
-			Assert.AreEqual (FileStatus.Commited, file.Status, "Committed file is not committed");
-			Assert.AreEqual (FileStatus.Changed, fileNotCommitted.Status, "NOT committed file is not changed");
+			Assert.AreEqual (FileStatus.Commited, provider.GetFile (testFile).Status, 				"Committed file is not committed");
+			Assert.AreEqual (FileStatus.Changed, provider.GetFile (testFile_not2BeCommitted).Status, "NOT committed file is not changed");
 		}
 		
 		[Test]
