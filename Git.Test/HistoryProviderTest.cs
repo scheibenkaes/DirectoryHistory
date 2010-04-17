@@ -71,18 +71,26 @@ namespace Git.Test
 		{
 			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
+			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding_but_committed.txt");
 			var testFile_not2BeCommitted = TestData.DIR_WITH_GIT.PathCombine ("adding_no_commit.txt");
 			
+			CreateFile (testFile);
 			CreateFile (testFile_not2BeCommitted);
 			
 			var file = provider.GetFile (testFile);
 			var fileNotCommitted = provider.GetFile (testFile_not2BeCommitted);
+			
+			provider.AddFile (file);
 			provider.AddFile (fileNotCommitted);
+			
+			Assert.AreEqual (FileStatus.Changed, file.Status, "Should be version controlled and changed (no commit)");
+			Assert.AreEqual (FileStatus.Changed, fileNotCommitted.Status, "Should be version controlled and changed (commit)");
+			
 			var commit = new Commit (file, "GitCommitting TestCase");
 			provider.CommitChanges (commit);
 			
-			Assert.AreEqual (FileStatus.Changed, fileNotCommitted.Status);
+			Assert.AreEqual (FileStatus.Commited, file.Status, "Committed file is not committed");
+			Assert.AreEqual (FileStatus.Changed, fileNotCommitted.Status, "NOT committed file is not changed");
 		}
 		
 		[Test]

@@ -78,8 +78,8 @@ namespace DirectoryHistory.History.Git
 		
 		public void CommitChanges (ICommit commit)
 		{
-			Repository.Index.Add (commit.File.Path);
-			Repository.Index.CommitChanges (commit.Comment, Author);
+			Repository.Index.Stage (commit.File.Path);
+			Repository.Commit (commit.Comment, Author);
 		}
 		
 		public void Dispose ()
