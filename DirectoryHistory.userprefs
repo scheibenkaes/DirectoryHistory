@@ -1,12 +1,14 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.UI/CommitDialog.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Git.Test/HistoryProviderTest.cs" ctype="Workbench">
     <Files>
-      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="83" Column="4" />
-      <File FileName="Git.Test/HistoryProviderTest.cs" Line="65" Column="9" />
-      <File FileName="DirectoryHistory/MainWindow.cs" Line="169" Column="48" />
+      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
+      <File FileName="Git.Test/HistoryProviderTest.cs" Line="74" Column="35" />
+      <File FileName="DirectoryHistory/MainWindow.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.UI/CommitDialog.cs" Line="36" Column="4" />
+      <File FileName="Git.Test/GitTestCase.cs" Line="1" Column="1" />
+      <File FileName="Git.Test/TestData.cs" Line="43" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,9 +17,11 @@
           <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.History.Git" expanded="True" />
           <Node name="DirectoryHistory.UI" expanded="True" />
-          <Node name="Git.Test" expanded="True" />
+          <Node name="Git.Test" expanded="True">
+            <Node name="HistoryProviderTest.cs" selected="True" />
+          </Node>
           <Node name="History.Test" expanded="True" />
-          <Node name="Translation" expanded="True" selected="True" />
+          <Node name="Translation" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">

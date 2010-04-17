@@ -50,16 +50,39 @@ namespace Git.Test
 		[Test]
 		public void GitCommitting()
 		{
+			var testFile = TestData.DIR_WITH_GIT.PathCombine ("GitCommitting.txt");
+			
 			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
+			CreateFile (testFile);
 			
 			var file = provider.GetFile (testFile);
+			provider.AddFile (file);
+			Assert.AreEqual (FileStatus.Changed, file.Status);
 			
 			var commit = new Commit (file, "GitCommitting TestCase");
 			
 			provider.CommitChanges (commit);
 			
 			Assert.AreEqual (FileStatus.Commited, file.Status);
+		}
+		
+		[Test]
+		public void GitCommit_EffectsOnlySelectedFiles()
+		{
+			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			
+			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
+			var testFile_not2BeCommitted = TestData.DIR_WITH_GIT.PathCombine ("adding_no_commit.txt");
+			
+			CreateFile (testFile_not2BeCommitted);
+			
+			var file = provider.GetFile (testFile);
+			var fileNotCommitted = provider.GetFile (testFile_not2BeCommitted);
+			provider.AddFile (fileNotCommitted);
+			var commit = new Commit (file, "GitCommitting TestCase");
+			provider.CommitChanges (commit);
+			
+			Assert.AreEqual (FileStatus.Changed, fileNotCommitted.Status);
 		}
 		
 		[Test]
