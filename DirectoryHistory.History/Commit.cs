@@ -29,7 +29,6 @@ namespace DirectoryHistory.History
 	{
 		public IFileWithHistory File { get; private set; }
 
-
 		public string Comment { get; private set; }
 
 		public Commit (IFileWithHistory file, string comment)

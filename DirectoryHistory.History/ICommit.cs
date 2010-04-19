@@ -18,14 +18,25 @@
 // 
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
+
 
 namespace DirectoryHistory.History
 {
+	/// <summary>
+	/// Describes the datastructure which is used to create a new version of a file
+	/// </summary>
 	public interface ICommit
 	{
+		/// <summary>
+		/// File to be committed
+		/// </summary>
 		IFileWithHistory File { get; }
 
+		/// <summary>
+		/// A user entered message which is used to add additional information
+		/// </summary>
 		string Comment { get; }
 	}
 }
