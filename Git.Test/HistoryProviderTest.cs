@@ -84,7 +84,7 @@ namespace Git.Test
 		[Test]
 		public void Test_GetFile()
 		{
-			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFile = TestData.DIR_WITH_GIT.PathCombine ("existing.txt");
 			
 			var file = provider.GetFile (testFile);
@@ -95,7 +95,7 @@ namespace Git.Test
 		[Test]
 		public void AddsAFileToTheRepository ()
 		{
-			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
 			Console.WriteLine (testFile);
 			CreateFile (testFile);

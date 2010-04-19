@@ -81,6 +81,8 @@
     <property name="Title" translatable="yes">Directory History</property>
     <property name="Icon">stock:gtk-find-and-replace Menu</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="DefaultWidth">550</property>
+    <property name="DefaultHeight">640</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox1">
