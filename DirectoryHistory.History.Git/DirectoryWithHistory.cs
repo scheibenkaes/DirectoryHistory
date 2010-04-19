@@ -85,6 +85,12 @@ namespace DirectoryHistory.History.Git
 			ChildDirectories = subDirToBeAdded;
 		}
 
+		public IEnumerable<IFileVersion> History {
+			get {
+				throw new System.NotImplementedException();
+			}
+		}
+		
 		public string PathInRepository {
 			get {
 				var prov = (HistoryProvider)Provider;
@@ -98,9 +104,6 @@ namespace DirectoryHistory.History.Git
 			}
 		}
 		
-		public void AddFile (IFileWithHistory file)
-		{
-			//Provider.AddFileToDirectory (file);
-		}
+
 	}
 }

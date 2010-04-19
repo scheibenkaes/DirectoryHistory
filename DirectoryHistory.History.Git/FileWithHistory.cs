@@ -80,6 +80,12 @@ namespace DirectoryHistory.History.Git
 			repository = ((HistoryProvider)provider).Repository;
 		}
 		
+		public IEnumerable<IFileVersion> History {
+			get {
+				throw new System.NotImplementedException();
+			}
+		}
+		
 		public string PathInRepository {
 			get {
 				return Extensions.ReducePath (repository.WorkingDirectory, Path);
