@@ -21,6 +21,8 @@
 
 using System;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 using GitSharp;
@@ -106,6 +108,16 @@ namespace Git.Test
 			provider.Dispose ();
 			
 			Assert.AreEqual (FileStatus.Commited, file.Status);
+		}
+		
+		[Test]
+		public void File_ProvidesHistory()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var file2 	= provider.GetFile ("/tmp/gittest/committed.txt");
+			
+			Assert.AreEqual (2, file2.History.Count ());
+			
 		}
 	}
 }

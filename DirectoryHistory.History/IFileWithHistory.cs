@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
@@ -44,5 +45,10 @@ namespace DirectoryHistory.History
 		/// 	PathInRepository -> file.txt
 		/// </summary>
 		string PathInRepository { get; }
+		
+		/// <summary>
+		/// Retrieve the history to this file.
+		/// </summary>
+		IEnumerable<IFileVersion> History { get; }
 	}
 }
