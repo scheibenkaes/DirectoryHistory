@@ -111,15 +111,17 @@ namespace DirectoryHistory.History.Git
 				var branch = repository.CurrentBranch;
 				var lastCommit = branch.CurrentCommit;
 				
-				var history = new List<IFileVersion> ();
-				
 				var commitsWithThisFile = CommitsWithThisFile (lastCommit, Enumerable.Empty<GitSharp.Commit> ());
 				
-				throw new NotImplementedException ();
-				
-				return history;
+				return TransformCommitsIntoFileVersions (commitsWithThisFile);
 			}
 		}
+
+		private IEnumerable<IFileVersion> TransformCommitsIntoFileVersions (IEnumerable<GitSharp.Commit> commitsWithThisFile)
+		{
+			throw new NotImplementedException();
+		}
+
 		
 		public string PathInRepository {
 			get {

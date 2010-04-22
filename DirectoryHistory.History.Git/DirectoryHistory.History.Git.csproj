@@ -60,6 +60,7 @@
     <Compile Include="DirectoryWithHistory.cs" />
     <Compile Include="FileWithHistory.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="FileVersion.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
