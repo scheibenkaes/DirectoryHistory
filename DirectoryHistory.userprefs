@@ -1,22 +1,27 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History/Commit.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History.Git/FileWithHistory.cs" ctype="Workbench">
     <Files>
       <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="22" Column="14" />
       <File FileName="DirectoryHistory.UI/HistoryEntry.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History/ICommit.cs" Line="48" Column="14" />
-      <File FileName="DirectoryHistory.History/Commit.cs" Line="34" Column="26" />
+      <File FileName="DirectoryHistory.History/ICommit.cs" Line="40" Column="26" />
+      <File FileName="DirectoryHistory.History/Commit.cs" Line="28" Column="30" />
+      <File FileName="DirectoryHistory.History/IFileVersion.cs" Line="33" Column="17" />
+      <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="49" Column="3" />
+      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="88" Column="13" />
+      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="118" Column="42" />
+      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="105" Column="54" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="DirectoryHistory" expanded="True" />
-          <Node name="DirectoryHistory.History" expanded="True">
-            <Node name="Commit.cs" selected="True" />
+          <Node name="DirectoryHistory.History" expanded="True" />
+          <Node name="DirectoryHistory.History.Git" expanded="True">
+            <Node name="FileWithHistory.cs" selected="True" />
           </Node>
-          <Node name="DirectoryHistory.History.Git" expanded="True" />
           <Node name="DirectoryHistory.UI" expanded="True" />
           <Node name="Git.Test" expanded="True" />
           <Node name="History.Test" expanded="True" />
@@ -32,11 +37,9 @@
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True">
           <Node name="Git.Test" expanded="True">
-            <Node name="Git" expanded="True">
+            <Node name="Git" expanded="True" selected="True">
               <Node name="Test" expanded="True">
-                <Node name="HistoryProviderTest" expanded="True">
-                  <Node name="GitCommit_EffectsOnlySelectedFiles" selected="True" />
-                </Node>
+                <Node name="HistoryProviderTest" expanded="True" />
               </Node>
             </Node>
           </Node>

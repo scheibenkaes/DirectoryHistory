@@ -80,9 +80,44 @@ namespace DirectoryHistory.History.Git
 			repository = ((HistoryProvider)provider).Repository;
 		}
 		
+		private bool CommitIncludedThisFile (GitSharp.Commit commit)
+		{
+			return commit.Changes.Any (ChangeEffectedThisFile);
+		}
+		
+		private bool ChangeEffectedThisFile (GitSharp.Change change)
+		{
+			return change.Path == PathInRepository;
+		}
+		
+		private IEnumerable<GitSharp.Commit> CommitsWithThisFile (GitSharp.Commit commit, IEnumerable<GitSharp.Commit> commits)
+		{
+			var hasCommitThisFile = CommitIncludedThisFile (commit);
+			var newList = commits.ToList ();
+			if (hasCommitThisFile) {
+				newList.Add (commit);
+			}
+			
+			if (commit.HasParents) {
+				return CommitsWithThisFile (commit.Parent, newList);
+			}
+			else {
+				return newList;
+			}
+		}
+		
 		public IEnumerable<IFileVersion> History {
 			get {
-				throw new System.NotImplementedException();
+				var branch = repository.CurrentBranch;
+				var lastCommit = branch.CurrentCommit;
+				
+				var history = new List<IFileVersion> ();
+				
+				var commitsWithThisFile = CommitsWithThisFile (lastCommit, Enumerable.Empty<GitSharp.Commit> ());
+				
+				throw new NotImplementedException ();
+				
+				return history;
 			}
 		}
 		
