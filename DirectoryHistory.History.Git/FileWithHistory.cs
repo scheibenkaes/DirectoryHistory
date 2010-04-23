@@ -29,17 +29,14 @@ namespace DirectoryHistory.History.Git
 {
 
 
-	public class FileWithHistory: IFileWithHistory
+	public class FileWithHistory : IFileWithHistory
 	{
-		public string Path {
-			get ;
-			private set;
-		}
-		
+		public string Path { get; private set; }
+
 		public IHistoryProvider Provider { get; private set; }
-		
+
 		private Repository repository;
-		
+
 		public FileStatus Status {
 			get {
 				var status = repository.Index.Status;
@@ -48,7 +45,7 @@ namespace DirectoryHistory.History.Git
 					return FileStatus.NotUnderVersionControl;
 				} else if (status.Modified.Contains (pathToFile) || status.Added.Contains (pathToFile)) {
 					return FileStatus.Changed;
-				} 
+				}
 				
 				var isClean = AmIClean (status);
 				
@@ -68,10 +65,10 @@ namespace DirectoryHistory.History.Git
 			filesWithChanges.AddRange (status.Modified);
 			filesWithChanges.AddRange (status.Staged);
 			
-			return ! filesWithChanges.Contains (Path);
+			return !filesWithChanges.Contains (Path);
 		}
 
-		
+
 		public FileWithHistory (IHistoryProvider provider, string path)
 		{
 			Provider = provider;
@@ -79,17 +76,17 @@ namespace DirectoryHistory.History.Git
 			
 			repository = ((HistoryProvider)provider).Repository;
 		}
-		
+
 		private bool CommitIncludedThisFile (GitSharp.Commit commit)
 		{
 			return commit.Changes.Any (ChangeEffectedThisFile);
 		}
-		
+
 		private bool ChangeEffectedThisFile (GitSharp.Change change)
 		{
 			return change.Path == PathInRepository;
 		}
-		
+
 		private IEnumerable<GitSharp.Commit> CommitsWithThisFile (GitSharp.Commit commit, IEnumerable<GitSharp.Commit> commits)
 		{
 			var hasCommitThisFile = CommitIncludedThisFile (commit);
@@ -100,12 +97,11 @@ namespace DirectoryHistory.History.Git
 			
 			if (commit.HasParents) {
 				return CommitsWithThisFile (commit.Parent, newList);
-			}
-			else {
+			} else {
 				return newList;
 			}
 		}
-		
+
 		public IEnumerable<IFileVersion> History {
 			get {
 				var branch = repository.CurrentBranch;
@@ -113,20 +109,20 @@ namespace DirectoryHistory.History.Git
 				
 				var commitsWithThisFile = CommitsWithThisFile (lastCommit, Enumerable.Empty<GitSharp.Commit> ());
 				
-				return TransformCommitsIntoFileVersions (commitsWithThisFile);
+				return TransformCommitsIntoFileVersions (commitsWithThisFile).ToList ();
 			}
 		}
 
 		private IEnumerable<IFileVersion> TransformCommitsIntoFileVersions (IEnumerable<GitSharp.Commit> commitsWithThisFile)
 		{
-			throw new NotImplementedException();
+			foreach (GitSharp.Commit commit in commitsWithThisFile) {
+				yield return new FileVersion { ID = commit.ShortHash, CreationAt = commit.AuthorDate.DateTime, File = this };
+			}
 		}
 
-		
+
 		public string PathInRepository {
-			get {
-				return Extensions.ReducePath (repository.WorkingDirectory, Path);
-			}
+			get { return Extensions.ReducePath (repository.WorkingDirectory, Path); }
 		}
 	}
 }

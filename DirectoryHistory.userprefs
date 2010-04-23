@@ -1,18 +1,18 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History.Git/FileWithHistory.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Git.Test/FileWithHistoryTest.cs" ctype="Workbench">
     <Files>
       <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.UI/HistoryEntry.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/ICommit.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History/Commit.cs" Line="28" Column="30" />
+      <File FileName="DirectoryHistory.History/Commit.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/IFileVersion.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="49" Column="3" />
+      <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="97" Column="25" />
-      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="105" Column="54" />
+      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="110" Column="27" />
+      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="116" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,13 +21,17 @@
           <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.History.Git" expanded="True" />
           <Node name="DirectoryHistory.UI" expanded="True" />
-          <Node name="Git.Test" expanded="True" selected="True" />
+          <Node name="Git.Test" expanded="True">
+            <Node name="FileWithHistoryTest.cs" selected="True" />
+          </Node>
           <Node name="History.Test" expanded="True" />
           <Node name="Translation" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" selected="True">
+          <Node name="DirectoryHistory.History.Git" expanded="True" />
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
@@ -35,15 +39,12 @@
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True">
           <Node name="Git.Test" expanded="True">
-            <Node name="Git" expanded="True" selected="True">
+            <Node name="Git" expanded="True">
               <Node name="Test" expanded="True">
-                <Node name="HistoryProviderTest" expanded="True" />
+                <Node name="FileWithHistoryTest" expanded="True">
+                  <Node name="File_ProvidesHistory" selected="True" />
+                </Node>
               </Node>
-            </Node>
-          </Node>
-          <Node name="History.Test" expanded="True">
-            <Node name="History" expanded="True">
-              <Node name="Test" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -51,7 +52,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/bkn/Code/DirectoryHistory/DirectoryHistory.History.Git/FileWithHistory.cs" line="107" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore" />
 </Properties>
