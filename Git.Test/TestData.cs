@@ -40,24 +40,10 @@ namespace Git.Test
 		
 		public static void SetUp()
 		{
-			if (!Directory.Exists (TEMP_DIR)) {
-				Directory.CreateDirectory (TEMP_DIR);	
-			}
-			
-			TEST_DIRS.ForEach ( dir => Directory.CreateDirectory (dir) );
-			if (!Repository.IsValid (DIR_WITH_GIT)) {
-				Repository.Init (DIR_WITH_GIT);
-			}
 		}
 		
 		public static void TearDown ()
-		{
-			try {
-				TEST_DIRS.Where ( dir => Directory.Exists (dir)).ToList ().ForEach (d => Directory.Delete (d, true));
-			} catch (Exception ex) {
-					
-			}
-			
+		{	
 		}
 	}
 }

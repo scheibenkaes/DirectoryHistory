@@ -11,8 +11,9 @@
       <File FileName="DirectoryHistory.History/IFileVersion.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="110" Column="27" />
-      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="116" Column="2" />
+      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="1" Column="1" />
+      <File FileName="Git.Test/FileWithHistoryTest.cs" Line="117" Column="66" />
+      <File FileName="Git.Test/GitTestCase.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

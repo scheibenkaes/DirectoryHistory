@@ -114,10 +114,9 @@ namespace Git.Test
 		public void File_ProvidesHistory()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 	= provider.GetFile ("/tmp/gittest/committed.txt");
+			var file2 	= provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
 			
 			Assert.AreEqual (2, file2.History.Count ());
-			
 		}
 	}
 }
