@@ -59,7 +59,7 @@ namespace Git.Test
 		[Test]
 		public void Status_ShouldBe_NotUnderVC_WhenCreated ()
 		{
-			var dir = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			var dir = provider.LoadDirectory (TestData.TEMP_DIR);
 			
 			string dirPath = TestData.DIR_WITH_GIT.PathCombine ("testdir");
 			Directory.CreateDirectory (dirPath);			

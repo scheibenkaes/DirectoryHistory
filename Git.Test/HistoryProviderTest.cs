@@ -71,8 +71,8 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			
-			var testFile_not2BeCommitted 	= "/tmp/gittest/changed2.txt";
-			var testFile 					= "/tmp/gittest/changed.txt";
+			var testFile_not2BeCommitted 	= "/tmp/test_repo/changed2.txt";
+			var testFile 					= "/tmp/test_repo/changed.txt";
 			
 			var commit = new Commit (provider.GetFile (testFile), "GitCommit_EffectsOnlySelectedFiles");
 			provider.CommitChanges (commit);

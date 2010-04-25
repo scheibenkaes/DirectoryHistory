@@ -10,7 +10,7 @@ function init_git () {
     then
         rm -fR "/tmp/test_repo"
     fi
-    cp -fR $test_dir /tmp
+    cp -R $test_dir /tmp
 }
 
 function init_no_git () {

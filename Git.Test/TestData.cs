@@ -32,11 +32,11 @@ namespace Git.Test
 
 	public static class TestData
 	{
-		public const string TEMP_DIR = "/tmp/gittest";
+		public const string TEMP_DIR = "/tmp/test_repo";
 		
-		public static readonly string DIR_WITH_GIT = Path.Combine (TEMP_DIR, "with");
+		public static readonly string DIR_WITH_GIT = TEMP_DIR;
 		
-		public static List<string> TEST_DIRS = new List<string> {DIR_WITH_GIT};
+		public static IList<string> TEST_DIRS = new List<string> {DIR_WITH_GIT};
 		
 		public static void SetUp()
 		{

@@ -58,8 +58,8 @@ namespace Git.Test
 		public void Test_PathInRepository()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file1 	= provider.GetFile ("/tmp/gittest/changed.txt");
-			var file2 	= provider.GetFile ("/tmp/gittest/committed.txt");
+			var file1 	= provider.GetFile ("/tmp/test_repo/changed.txt");
+			var file2 	= provider.GetFile ("/tmp/test_repo/committed.txt");
 			
 			Assert.AreEqual ("changed.txt", file1.PathInRepository);
 			Assert.AreEqual ("committed.txt", file2.PathInRepository);
@@ -78,34 +78,22 @@ namespace Git.Test
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, file.Status);
 		}
 
-		[Test]
+		[Test(Description = "Test against the test repo")]
 		public void Status_Changed ()
 		{
-			//var repo = new Repository (TestData.DIR_WITH_GIT);
 			var dir = provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "changed.txt");
-			CreateFile (testFilePath);
-			var file = new FileWithHistory (provider, testFilePath);
-			// TODO Test this over API not directly with git impl
-			provider.Repository.Index.Add (file.PathInRepository);
+			var file = provider.GetFile (testFilePath);
 			
 			Assert.AreEqual (FileStatus.Changed, file.Status);
 		}
 
-		[Test]
+		[Test(Description = "Point the code to a already existing repo and check the file there")]
 		public void Status_Committed ()
 		{
-			//var repo = new Repository (TestData.DIR_WITH_GIT);
 			var dir = provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "committed.txt");
-			CreateFile (testFilePath);
-			var file = new FileWithHistory (provider, testFilePath);
-			provider.Repository.Index.Add (file.PathInRepository);
-			
-			Assert.AreEqual (FileStatus.Changed, file.Status);
-			
-			provider.Repository.Index.CommitChanges ("Heureka", new Author ("sad", "sad@boo.de"));
-			provider.Dispose ();
+			var file = provider.GetFile (testFilePath);
 			
 			Assert.AreEqual (FileStatus.Commited, file.Status);
 		}
