@@ -85,6 +85,23 @@ namespace DirectoryHistory.History
 		/// </returns>
 		IFileWithHistory GetFile (string path);
 		
+		/// <summary>
+		/// Archive changes to the repository
+		/// </summary>
+		/// <param name="commit">
+		/// A <see cref="ICommit"/>
+		/// </param>
 		void CommitChanges (ICommit commit);
+		
+		/// <summary>
+		/// Provides access to a directory in the repo
+		/// </summary>
+		/// <param name="path">
+		/// Path on the disk!
+		/// </param>
+		/// <returns>
+		/// A <see cref="IDirectoryWithHistory"/>
+		/// </returns>
+		IDirectoryWithHistory GetDirectory (string path);
 	}
 }

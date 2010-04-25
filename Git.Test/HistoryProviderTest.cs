@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.IO;
 using NUnit.Framework;
 
 using DirectoryHistory.History;
@@ -63,7 +64,7 @@ namespace Git.Test
 			
 			provider.CommitChanges (commit);
 			
-			Assert.AreEqual (FileStatus.Commited, file.Status);
+			Assert.AreEqual (FileStatus.Committed, file.Status);
 		}
 		
 		[Test]
@@ -77,7 +78,7 @@ namespace Git.Test
 			var commit = new Commit (provider.GetFile (testFile), "GitCommit_EffectsOnlySelectedFiles");
 			provider.CommitChanges (commit);
 			
-			Assert.AreEqual (FileStatus.Commited, provider.GetFile (testFile).Status, 				"Committed file is not committed");
+			Assert.AreEqual (FileStatus.Committed, provider.GetFile (testFile).Status, 				"Committed file is not committed");
 			Assert.AreEqual (FileStatus.Changed, provider.GetFile (testFile_not2BeCommitted).Status, "NOT committed file is not changed");
 		}
 		
@@ -85,7 +86,7 @@ namespace Git.Test
 		public void Test_GetFile()
 		{
 			provider.LoadDirectory (TestData.DIR_WITH_GIT);
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("existing.txt");
+			var testFile = TestData.DIR_WITH_GIT.PathCombine ("committed.txt");
 			
 			var file = provider.GetFile (testFile);
 			
@@ -112,6 +113,24 @@ namespace Git.Test
 		public void IsAIDisposable ()
 		{
 			Assert.IsTrue (provider is IDisposable);
+		}
+		
+		[Test]
+		[ExpectedException(typeof(FileNotFoundException))]
+		public void TryingToAccessANotExistingFileLeadsToAnError ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var file2 	= provider.GetFile ("/tmp/test_repo/i_do_NOT_exist.txt");
+		}
+		
+		[Test]
+		public void Test_GetDirectory ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var path = TestData.TEMP_DIR.PathCombine ("committed_dir");
+			
+			var dir = provider.GetDirectory (path);
+			Assert.IsNotNull (dir);
 		}
 	}
 }

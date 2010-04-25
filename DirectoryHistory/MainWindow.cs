@@ -72,7 +72,7 @@ public partial class MainWindow : Gtk.Window
 			fileHistoryAction.Sensitive = false;
 			applyAction.Sensitive = false;
 			break;
-		case FileStatus.Commited:
+		case FileStatus.Committed:
 			addAction.Sensitive = false;
 			fileHistoryAction.Sensitive = true;
 			applyAction.Sensitive = false;

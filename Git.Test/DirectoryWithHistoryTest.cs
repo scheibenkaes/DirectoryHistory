@@ -59,12 +59,33 @@ namespace Git.Test
 		[Test]
 		public void Status_ShouldBe_NotUnderVC_WhenCreated ()
 		{
-			var dir = provider.LoadDirectory (TestData.TEMP_DIR);
+			provider.LoadDirectory (TestData.TEMP_DIR);
 			
-			string dirPath = TestData.DIR_WITH_GIT.PathCombine ("testdir");
+			string dirPath = TestData.TEMP_DIR.PathCombine ("testdir_new");
 			Directory.CreateDirectory (dirPath);			
-			
+			var dir = provider.GetDirectory (dirPath);
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, dir.Status);
+		}
+		
+		[Test]
+		public void Status_ShouldBe_NotUnderVC_WhenCreated_NotEmptyDirectory ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			
+			string dirPath = TestData.TEMP_DIR.PathCombine ("testdir_new_not_empty");
+			Directory.CreateDirectory (dirPath);			
+			CreateFile (dirPath.PathCombine ("a_file.txt"));
+			var dir = provider.GetDirectory (dirPath);
+			Assert.AreEqual (FileStatus.NotUnderVersionControl, dir.Status);
+		}
+		
+		[Test]
+		public void IfNotUnderVC_TheStatusShouldBeAlwaysCommitted ()
+		{
+			var dir = provider.LoadDirectory (TestData.TEMP_DIR);
+			string path = TestData.TEMP_DIR.PathCombine ("committed_dir");
+			
+			Assert.Fail ("Need to implement getting of dirs first"); // 
 		}
 	}
 }

@@ -50,7 +50,7 @@ namespace DirectoryHistory.History.Git
 				var isClean = AmIClean (status);
 				
 				if (isClean) {
-					return FileStatus.Commited;
+					return FileStatus.Committed;
 				}
 				
 				return FileStatus.Unknown;

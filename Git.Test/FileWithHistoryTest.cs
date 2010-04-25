@@ -95,7 +95,7 @@ namespace Git.Test
 			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "committed.txt");
 			var file = provider.GetFile (testFilePath);
 			
-			Assert.AreEqual (FileStatus.Commited, file.Status);
+			Assert.AreEqual (FileStatus.Committed, file.Status);
 		}
 		
 		[Test]
@@ -106,5 +106,7 @@ namespace Git.Test
 			
 			Assert.AreEqual (2, file2.History.Count ());
 		}
+		
+		
 	}
 }

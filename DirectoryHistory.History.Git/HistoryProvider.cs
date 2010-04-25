@@ -96,7 +96,18 @@ namespace DirectoryHistory.History.Git
 		
 		public IFileWithHistory GetFile (string path)
 		{
+			if (!File.Exists (path)) {
+				throw new FileNotFoundException (string.Format (Catalog.GetString ("The file {0} isn't existing!"), path));
+			}
 			return new FileWithHistory (this, path);
+		}
+		
+		public IDirectoryWithHistory GetDirectory (string path)
+		{
+			if (!Directory.Exists (path)) {
+				throw new DirectoryNotFoundException (string.Format (Catalog.GetString ("The directory under {0} is not existing"), path));
+			}
+			return new DirectoryWithHistory (this, path);
 		}
 		
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;

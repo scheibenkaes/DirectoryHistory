@@ -41,7 +41,7 @@ namespace DirectoryHistory.UI
 			case FileStatus.NotUnderVersionControl:
 				stock = Stock.New;
 				break;
-			case FileStatus.Commited:
+			case FileStatus.Committed:
 				stock = Stock.Yes;
 				break;
 			}

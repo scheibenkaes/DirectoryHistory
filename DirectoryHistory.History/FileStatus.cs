@@ -40,7 +40,7 @@ namespace DirectoryHistory.History
 		/// <summary>
 		/// All changes have been committed
 		/// </summary>
-		Commited,
+		Committed,
 		
 		/// <summary>
 		/// The file/folder has an unknown status. Which is mostly bad.
