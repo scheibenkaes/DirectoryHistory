@@ -110,6 +110,17 @@ namespace DirectoryHistory.History.Git
 			return new DirectoryWithHistory (this, path);
 		}
 		
+		public IFileWithHistory GetFileOrDirectory (string path)
+		{
+			if (Directory.Exists (path)) {
+				return GetDirectory (path);
+			}
+			else if (File.Exists (path)) {
+				return GetFile (path);
+			}
+			throw new FileNotFoundException (Catalog.GetString ("The file or directory you tried to open does not exist! ({0})"), path);
+		}
+		
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
 		
 	}

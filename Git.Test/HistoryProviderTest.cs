@@ -132,5 +132,46 @@ namespace Git.Test
 			var dir = provider.GetDirectory (path);
 			Assert.IsNotNull (dir);
 		}
+		
+		[Test]
+		public void GetFileOrDirectory_ReturnsADirectoryIfExisting()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var path = TestData.TEMP_DIR.PathCombine ("committed_dir");
+			
+			var dir = provider.GetFileOrDirectory (path);
+			Assert.IsNotNull (dir);
+			Assert.IsInstanceOfType (typeof (IDirectoryWithHistory), dir);
+		}
+		
+		[Test]
+		public void GetFileOrDirectory_ReturnsAFileIfExisting()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var path = TestData.DIR_WITH_GIT.PathCombine ("committed.txt");
+			
+			var dir = provider.GetFileOrDirectory (path);
+			Assert.IsNotNull (dir);
+			Assert.IsInstanceOfType (typeof (IFileWithHistory), dir);
+		}
+		
+		[Test]
+		[ExpectedException(typeof(FileNotFoundException))]
+		public void GetFileOrDirectory_ThrowsFileNotFound()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var path = TestData.DIR_WITH_GIT.PathCombine ("not_existing_xxx.txt");
+			
+			var dir = provider.GetFileOrDirectory (path);
+		}
+		
+		[Test]
+		[ExpectedException(typeof(FileNotFoundException))]
+		public void GetFileOrDirectory_ThrowsFileNotFound_WhenNullGiven()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			
+			var dir = provider.GetFileOrDirectory (null);
+		}
 	}
 }

@@ -103,5 +103,16 @@ namespace DirectoryHistory.History
 		/// A <see cref="IDirectoryWithHistory"/>
 		/// </returns>
 		IDirectoryWithHistory GetDirectory (string path);
+		
+		/// <summary>
+		/// Provides access to the repository nonetheless if path is a file or a directory
+		/// </summary>
+		/// <param name="path">
+		/// Path of the file/directory
+		/// </param>
+		/// <returns>
+		/// A instance of <see cref="IFileWithHistory"/> or <see cref="IDirectoryWithHistory"/>
+		/// </returns>
+		IFileWithHistory GetFileOrDirectory (string path);
 	}
 }
