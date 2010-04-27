@@ -45,7 +45,7 @@ namespace DirectoryHistory.History.Git
 		public IDirectoryWithHistory LoadDirectory (string path)
 		{
 			if (string.IsNullOrEmpty (path) || !Directory.Exists (path)) {
-				throw new Exception ("Path must exist and must not be empty!");
+				throw new HistoryException ("Path must exist and must not be empty!");
 			}
 			
 			if (Repository == null || Repository.WorkingDirectory != path) {
@@ -63,7 +63,7 @@ namespace DirectoryHistory.History.Git
 		public IDirectoryWithHistory CreateRepository (string path)
 		{
 			if (IsARepository (path) && Repository == null) {
-				throw new Exception ("There's already a repository at the given path " + path);
+				throw new HistoryException ("There's already a repository at the given path " + path);
 			}
 			Repository = Repository.Init (path);
 			

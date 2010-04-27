@@ -27,6 +27,9 @@ namespace DirectoryHistory.History
 	/// </summary>
 	public class HistoryException : Exception
 	{
+		public HistoryException (string msg) : base (msg) 
+		{
+		}
 	}
 }
 

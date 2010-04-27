@@ -83,7 +83,7 @@ public partial class MainWindow : Gtk.Window
 			applyAction.Sensitive = true;
 			break;
 		default:
-			throw new Exception (string.Format ("Unknown status {0}", file.Status));
+			throw new HistoryException (string.Format ("Unknown status {0}", file.Status));
 		}
 	}
 
