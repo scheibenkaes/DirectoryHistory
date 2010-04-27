@@ -53,7 +53,7 @@ namespace Git.Test
 		{
 			var testFile = TestData.DIR_WITH_GIT.PathCombine ("GitCommitting.txt");
 			
-			var repo = provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			CreateFile (testFile);
 			
 			var file = provider.GetFile (testFile);
@@ -120,7 +120,7 @@ namespace Git.Test
 		public void TryingToAccessANotExistingFileLeadsToAnError ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 	= provider.GetFile ("/tmp/test_repo/i_do_NOT_exist.txt");
+			provider.GetFile ("/tmp/test_repo/i_do_NOT_exist.txt");
 		}
 		
 		[Test]
@@ -162,7 +162,7 @@ namespace Git.Test
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			var path = TestData.DIR_WITH_GIT.PathCombine ("not_existing_xxx.txt");
 			
-			var dir = provider.GetFileOrDirectory (path);
+			provider.GetFileOrDirectory (path);
 		}
 		
 		[Test]
@@ -171,7 +171,7 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			
-			var dir = provider.GetFileOrDirectory (null);
+			provider.GetFileOrDirectory (null);
 		}
 	}
 }

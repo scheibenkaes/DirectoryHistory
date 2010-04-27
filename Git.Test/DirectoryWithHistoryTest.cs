@@ -36,9 +36,6 @@ namespace Git.Test
 	[TestFixture()]
 	public class DirectoryWithHistoryTest: GitTestCase
 	{
-		private DirectoryWithHistory directory;
-		
-		private DirectoryInfo tmpDir;
 		
 		private IHistoryProvider provider = new HistoryProvider ();
 
@@ -82,8 +79,7 @@ namespace Git.Test
 		[Test]
 		public void IfNotUnderVC_TheStatusShouldBeAlwaysCommitted ()
 		{
-			var dir = provider.LoadDirectory (TestData.TEMP_DIR);
-			string path = TestData.TEMP_DIR.PathCombine ("committed_dir");
+			provider.LoadDirectory (TestData.TEMP_DIR);
 			
 			Assert.Fail ("Need to implement getting of dirs first"); // 
 		}

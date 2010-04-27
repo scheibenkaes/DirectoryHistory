@@ -34,8 +34,6 @@ namespace Git.Test
 	[TestFixture()]
 	public class GitAPIPlayground
 	{
-		private Repository repo;
-		
 		[SetUp]
 		public void SetUp ()
 		{
