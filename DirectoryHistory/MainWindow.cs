@@ -64,7 +64,7 @@ public partial class MainWindow : Gtk.Window
 
 	private void EnableAvailableActions (string selectedFile)
 	{
-		var file = logic.HistoryProvider.GetFile (selectedFile);
+		var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
 		
 		switch (file.Status) {
 		case FileStatus.NotUnderVersionControl:
