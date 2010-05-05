@@ -64,6 +64,15 @@ public partial class MainWindow : Gtk.Window
 
 	private void EnableAvailableActions (string selectedFile)
 	{
+		if (string.IsNullOrEmpty (selectedFile)) {
+			DisableAllFileActions ();
+		} else {
+			EnableActionsDependingOnTheSelectedFile (selectedFile);
+		}
+	}
+
+	private void EnableActionsDependingOnTheSelectedFile (string selectedFile)
+	{
 		var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
 		
 		switch (file.Status) {
@@ -86,6 +95,15 @@ public partial class MainWindow : Gtk.Window
 			throw new HistoryException (string.Format ("Unknown status {0}", file.Status));
 		}
 	}
+
+
+	private void DisableAllFileActions ()
+	{
+		addAction.Sensitive = false;
+		fileHistoryAction.Sensitive = false;
+		applyAction.Sensitive = false;
+	}
+
 
 	private void ExitApp ()
 	{
@@ -167,7 +185,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		var selected = folderlist.ReadSelectedFile ();
 		var commitDialog = new CommitDialog (selected);
-		if (commitDialog.Run () == (int) ResponseType.Ok) {
+		if (commitDialog.Run () == (int)ResponseType.Ok) {
 			var comment = commitDialog.Comment;
 			
 			Commit (selected, comment);

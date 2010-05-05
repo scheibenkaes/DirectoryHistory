@@ -59,7 +59,7 @@ namespace DirectoryHistory.UI
 		{
 			var selectedFile = ReadSelectedFile ();
 			
-			if (!string.IsNullOrEmpty (selectedFile) && OnFileSelected != null) {
+			if (OnFileSelected != null) {
 				OnFileSelected (this, new FileSelectedEventArgs (selectedFile));
 			}
 		}
