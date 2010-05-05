@@ -1,22 +1,22 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory/MainWindow.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory/Main.cs" ctype="Workbench">
     <Files>
-      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="1" Column="1" />
-      <File FileName="Git.Test/DirectoryWithHistoryTest.cs" Line="78" Column="3" />
-      <File FileName="Git.Test/HistoryProviderTest.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="121" Column="126" />
-      <File FileName="DirectoryHistory.History.Git/FileWithHistory.cs" Line="47" Column="32" />
-      <File FileName="DirectoryHistory/MainWindow.cs" Line="67" Column="70" />
-      <File FileName="DirectoryHistory.UI/FolderList.cs" Line="28" Column="24" />
-      <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="1" Column="1" />
+      <File FileName="Git.Test/DirectoryWithHistoryTest.cs" Line="91" Column="9" />
+      <File FileName="DirectoryHistory.History.Git/DirectoryWithHistory.cs" Line="103" Column="27" />
+      <File FileName="DirectoryHistory.History.Git/HistoryProvider.cs" Line="87" Column="29" />
+      <File FileName="DirectoryHistory/MainWindow.cs" Line="106" Column="1" />
+      <File FileName="DirectoryHistory.History/IHistoryProvider.cs" Line="86" Column="3" />
+      <File FileName="DirectoryHistory.UI/FolderList.cs" Line="62" Column="8" />
+      <File FileName="DirectoryHistory.History/ApplicationLogic.cs" Line="1" Column="1" />
+      <File FileName="DirectoryHistory/Main.cs" Line="42" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="DirectoryHistory" expanded="True">
-            <Node name="MainWindow.cs" selected="True" />
+            <Node name="Main.cs" selected="True" />
           </Node>
           <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.History.Git" expanded="True" />
@@ -35,12 +35,10 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
+        <State expanded="True" selected="True">
           <Node name="Git.Test" expanded="True">
             <Node name="Git" expanded="True">
-              <Node name="Test" expanded="True">
-                <Node name="HistoryProviderTest" selected="True" />
-              </Node>
+              <Node name="Test" expanded="True" />
             </Node>
           </Node>
         </State>
