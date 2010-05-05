@@ -80,5 +80,26 @@ namespace Git.Test
 			// Impl. feels a bit dirty, so just to make sure ...
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, provider.GetFile (containedFile).Status);
 		}
+		
+		[Test]
+		public void TheRootDir_CantBeNotUnderVersionControl ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			Assert.AreEqual (FileStatus.Committed, provider.GetDirectory (TestData.TEMP_DIR).Status);
+		}
+		
+		[Test]
+		public void IsRootDirectory_IsSetWhenRoot()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			Assert.IsTrue (provider.GetDirectory (TestData.TEMP_DIR).IsRootDirectory);
+		}
+		
+		[Test]
+		public void IsNotRootDirectory_WhenNotRoot()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			Assert.IsFalse (provider.GetDirectory (TestData.TEMP_DIR.PathCombine ("committed_dir")).IsRootDirectory);
+		}
 	}
 }

@@ -107,7 +107,9 @@ namespace DirectoryHistory.History.Git
 			if (!Directory.Exists (path)) {
 				throw new DirectoryNotFoundException (string.Format (Catalog.GetString ("The directory under {0} is not existing"), path));
 			}
-			return new DirectoryWithHistory (this, path);
+			return new DirectoryWithHistory (this, path){
+				IsRootDirectory = Repository.WorkingDirectory == path
+			};
 		}
 		
 		public IFileWithHistory GetFileOrDirectory (string path)
