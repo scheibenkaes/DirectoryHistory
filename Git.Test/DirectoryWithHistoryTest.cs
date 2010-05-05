@@ -71,9 +71,14 @@ namespace Git.Test
 			
 			string dirPath = TestData.TEMP_DIR.PathCombine ("testdir_new_not_empty");
 			Directory.CreateDirectory (dirPath);			
-			CreateFile (dirPath.PathCombine ("a_file.txt"));
+			var containedFile = dirPath.PathCombine ("a_file.txt");
+			CreateFile (containedFile);
 			var dir = provider.GetDirectory (dirPath);
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, dir.Status);
+			
+			// Breaking the one assert per test rule here because of gits handling of empty files and the implementation taking care of this.
+			// Impl. feels a bit dirty, so just to make sure ...
+			Assert.AreEqual (FileStatus.NotUnderVersionControl, provider.GetFile (containedFile).Status);
 		}
 		
 		[Test]

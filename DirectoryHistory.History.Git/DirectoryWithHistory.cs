@@ -43,19 +43,19 @@ namespace DirectoryHistory.History.Git
 		public IEnumerable<IFileWithHistory> ChildFiles { get; private set; }
 
 		public IHistoryProvider Provider { get; private set; }
-		
+
 		private Repository repository;
 
 		public DirectoryWithHistory (IHistoryProvider provider, string path)
 		{
 			if (provider == null) {
-				throw new ArgumentNullException("provider");
+				throw new ArgumentNullException ("provider");
 			}
 			Path = path;
 			
 			Provider = provider;
 			
-			repository = ((HistoryProvider) provider).Repository;
+			repository = ((HistoryProvider)provider).Repository;
 			
 			ReadSubDirectories ();
 			
@@ -74,7 +74,7 @@ namespace DirectoryHistory.History.Git
 			var directories = Directory.GetDirectories (Path).ToList ();
 			
 			// TODO Make this mor reasonable
-			var ignoredDirectories = directories.Where ( dir => dir.EndsWith (IgnoredFolders[0]));
+			var ignoredDirectories = directories.Where (dir => dir.EndsWith (IgnoredFolders[0]));
 			
 			var subDirToBeAdded = new List<IDirectoryWithHistory> ();
 			foreach (var dir in directories.Except (ignoredDirectories)) {
@@ -87,36 +87,40 @@ namespace DirectoryHistory.History.Git
 
 		public IEnumerable<IFileVersion> History {
 			get {
-				throw new System.NotImplementedException();
+				throw new System.NotImplementedException ();
 			}
 		}
-		
+
 		public string PathInRepository {
 			get {
 				var prov = (HistoryProvider)Provider;
 				return Extensions.ReducePath (prov.Repository.WorkingDirectory, Path);
 			}
 		}
-		
+
 		public FileStatus Status {
-			get { 
+			get {
 				// Git repositories only can be not under version controll or committed
 				// NOTE Git doesn't realize folders if they are empty
 				if (DirectoryIsEmpty ()) {
 					return FileStatus.NotUnderVersionControl;
 				}
-				if (repository.Status.Untracked.Contains (PathInRepository)) {
+				if (repository.Index.Status.Untracked.Contains (PathInRepository) || AUntrackedFileContainsThisDirectory ()) {
 					return FileStatus.NotUnderVersionControl;
-				}				
-				return FileStatus.Committed; 
+				}
+				return FileStatus.Committed;
 			}
 		}
-		
+
+		private bool AUntrackedFileContainsThisDirectory ()
+		{
+			return repository.Status.Untracked.Any (file => file.StartsWith (PathInRepository));
+		}
+
+
 		private bool DirectoryIsEmpty ()
 		{
-			return ! Directory.GetFiles (Path).Any ();
+			return !Directory.GetFiles (Path).Any ();
 		}
-		
-
 	}
 }
