@@ -80,13 +80,5 @@ namespace Git.Test
 			// Impl. feels a bit dirty, so just to make sure ...
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, provider.GetFile (containedFile).Status);
 		}
-		
-		[Test]
-		public void IfNotUnderVC_TheStatusShouldBeAlwaysCommitted ()
-		{
-			provider.LoadDirectory (TestData.TEMP_DIR);
-			
-			Assert.Fail ("Need to implement getting of dirs first"); // 
-		}
 	}
 }
