@@ -100,19 +100,18 @@ namespace DirectoryHistory.History.Git
 
 		public FileStatus Status {
 			get {
-				FileStatus state = FileStatus.Unknown;
 				if (IsRootDirectory) {
-					state = FileStatus.Committed; 
+					return FileStatus.Committed; 
 				}
 				// Git repositories only can be not under version controll or committed
 				// NOTE Git doesn't realize folders if they are empty
-				else if (DirectoryIsEmpty ()) {
-					state = FileStatus.NotUnderVersionControl;
+				if (DirectoryIsEmpty ()) {
+					return FileStatus.NotUnderVersionControl;
 				}
-				else if (repository.Index.Status.Untracked.Contains (PathInRepository) || AUntrackedFileContainsThisDirectory ()) {
-					state = FileStatus.NotUnderVersionControl;
+				if (repository.Index.Status.Untracked.Contains (PathInRepository) || AUntrackedFileContainsThisDirectory ()) {
+					return FileStatus.NotUnderVersionControl;
 				}
-				return state;
+				return FileStatus.NotUnderVersionControl;
 			}
 		}
 

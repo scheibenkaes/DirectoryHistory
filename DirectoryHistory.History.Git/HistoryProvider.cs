@@ -77,10 +77,6 @@ namespace DirectoryHistory.History.Git
 		
 		public void CommitChanges (ICommit commit)
 		{
-//			if (!Repository.Status.Modified.Contains (commit.File.Path)) {
-//				throw new InvalidOperationException ("Can't commit a not staged file");
-//			}
-			
 			AddFile (commit.File);
 				
 			Repository.Commit (commit.Comment, Author);
@@ -120,7 +116,7 @@ namespace DirectoryHistory.History.Git
 			else if (File.Exists (path)) {
 				return GetFile (path);
 			}
-			throw new FileNotFoundException (Catalog.GetString ("The file or directory you tried to open does not exist! ({0})"), path);
+			throw new FileNotFoundException (string.Format (Catalog.GetString ("The file or directory you tried to open does not exist! ({0})"), path));
 		}
 		
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
