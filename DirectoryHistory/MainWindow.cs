@@ -159,7 +159,7 @@ public partial class MainWindow : Gtk.Window
 	protected virtual void OnAddActionActivated (object sender, System.EventArgs e)
 	{
 		var file = folderlist.ReadSelectedFile ();
-		logic.HistoryProvider.AddFile (logic.HistoryProvider.GetFile (file));
+		logic.HistoryProvider.AddFile (logic.HistoryProvider.GetFileOrDirectory (file));
 		refreshAction.Activate ();
 	}
 
