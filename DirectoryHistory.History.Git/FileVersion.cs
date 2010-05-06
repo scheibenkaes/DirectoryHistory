@@ -33,11 +33,12 @@ namespace DirectoryHistory.History.Git
 		public DateTime CreationAt { get; set; }
 
 
-		public IFileWithHistory File { get; set; }
+		public ICommit Commit { get; set; }
 
 		
-		public FileVersion ()
+		public override string ToString ()
 		{
+			return string.Format("[FileVersion: ID={0}, CreationAt={1}, File={2}]", ID, CreationAt, Commit.File.PathInRepository);
 		}
 	}
 }

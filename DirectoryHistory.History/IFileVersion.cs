@@ -37,11 +37,11 @@ namespace DirectoryHistory.History
 		/// Time this version of the file was created
 		/// </summary>
 		DateTime CreationAt { get; }
-		
+
 		/// <summary>
-		/// The file this version belongs to
+		/// The commit which created this version
 		/// </summary>
-		IFileWithHistory File { get; }
+		ICommit Commit { get; }
 	}
 }
 

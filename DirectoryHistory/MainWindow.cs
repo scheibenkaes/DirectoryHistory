@@ -21,6 +21,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 
 using Gtk;
 
@@ -202,6 +203,13 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnFileHistoryActionActivated (object sender, System.EventArgs e)
 	{
+		var selectedFile = folderlist.ReadSelectedFile ();
+		if (!string.IsNullOrEmpty (selectedFile)) {
+			var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
+			if (file is IFileWithHistory) {
+				file.History.ToList ().ForEach (Console.WriteLine);
+			}
+		}
 	}
 
 

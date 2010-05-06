@@ -116,7 +116,7 @@ namespace DirectoryHistory.History.Git
 		private IEnumerable<IFileVersion> TransformCommitsIntoFileVersions (IEnumerable<GitSharp.Commit> commitsWithThisFile)
 		{
 			foreach (GitSharp.Commit commit in commitsWithThisFile) {
-				yield return new FileVersion { ID = commit.ShortHash, CreationAt = commit.AuthorDate.DateTime, File = this };
+				yield return new FileVersion { ID = commit.ShortHash, CreationAt = commit.AuthorDate.DateTime, Commit = MyCommit.FromGitCommit (commit) };
 			}
 		}
 
