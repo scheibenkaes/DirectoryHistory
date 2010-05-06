@@ -56,6 +56,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.dll</HintPath>
     </Reference>
+    <Reference Include="NMock2, Version=2.0.0.44, Culture=neutral, PublicKeyToken=37d3be0adc87c2b7">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NMock\NMock2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryWithHistoryTest.cs" />
@@ -66,6 +70,7 @@
     <Compile Include="ExtensionsTest.cs" />
     <Compile Include="HistoryProviderTest.cs" />
     <Compile Include="FileVersionTest.cs" />
+    <Compile Include="MyCommitTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
