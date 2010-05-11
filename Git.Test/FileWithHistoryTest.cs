@@ -98,14 +98,13 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void File_ProvidesHistory()
+		public void History_OfAFileWith2Entries()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			var file2 	= provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
 			
 			Assert.AreEqual (2, file2.History.Count ());
 		}
-		
 		
 	}
 }

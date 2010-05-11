@@ -38,7 +38,7 @@ namespace DirectoryHistory.History.Git
 		
 		public override string ToString ()
 		{
-			return string.Format("[FileVersion: ID={0}, CreationAt={1}, File={2}]", ID, CreationAt, Commit.File.PathInRepository);
+			return string.Format("[FileVersion: ID={0}, CreationAt={1}, File={2}]", ID, CreationAt, Commit);
 		}
 	}
 }

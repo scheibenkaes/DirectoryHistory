@@ -34,6 +34,11 @@ namespace DirectoryHistory.History.Git
 			get;
 			set;
 		}
+		
+		public override string ToString ()
+		{
+			return string.Format("[Commit: File={0}, Comment={1}]", File.PathInRepository, Comment);
+		}
 	}
 }
 
