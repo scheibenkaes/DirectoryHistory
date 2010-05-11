@@ -58,15 +58,6 @@ namespace Git.Test
 		{
 			Assert.IsInstanceOfType (typeof(ICommit), new MyCommit ());
 		}
-
-		[Test]
-		public void Creates_Commit_From_GitCommit ()
-		{
-			provider.LoadDirectory (TestData.TEMP_DIR);
-			var git = new GitSharp.Commit (provider.Repository, "");
-			var commit = MyCommit.FromGitCommit (git);
-			Assert.IsNotNull (commit);
-		}
 	}
 }
 

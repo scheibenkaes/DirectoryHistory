@@ -25,26 +25,14 @@ namespace DirectoryHistory.History.Git
 {
 	public class MyCommit: ICommit
 	{
-		public MyCommit ()
-		{
-		}
-		
-		public static ICommit FromGitCommit (GitSharp.Commit commit) 
-		{
-			throw new System.NotImplementedException();
-		}
-		
 		public IFileWithHistory File {
-			get {
-				throw new System.NotImplementedException();
-			}
+			get;
+			set;
 		}
-		
 		
 		public string Comment {
-			get {
-				throw new System.NotImplementedException();
-			}
+			get;
+			set;
 		}
 	}
 }
