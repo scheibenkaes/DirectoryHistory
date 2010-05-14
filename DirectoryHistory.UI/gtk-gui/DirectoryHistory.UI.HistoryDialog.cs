@@ -4,7 +4,7 @@ namespace DirectoryHistory.UI
 {
 	public partial class HistoryDialog
 	{
-		private global::Gtk.VBox vbox2;
+		private global::Gtk.VBox entriesVbox;
 
 		private global::Gtk.Label label;
 
@@ -23,20 +23,20 @@ namespace DirectoryHistory.UI
 			w1.Name = "dialog1_VBox";
 			w1.BorderWidth = ((uint)(2));
 			// Container child dialog1_VBox.Gtk.Box+BoxChild
-			this.vbox2 = new global::Gtk.VBox ();
-			this.vbox2.Name = "vbox2";
-			this.vbox2.Spacing = 6;
-			// Container child vbox2.Gtk.Box+BoxChild
+			this.entriesVbox = new global::Gtk.VBox ();
+			this.entriesVbox.Name = "entriesVbox";
+			this.entriesVbox.Spacing = 6;
+			// Container child entriesVbox.Gtk.Box+BoxChild
 			this.label = new global::Gtk.Label ();
 			this.label.Name = "label";
 			this.label.LabelProp = global::Mono.Unix.Catalog.GetString ("label1");
-			this.vbox2.Add (this.label);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label]));
+			this.entriesVbox.Add (this.label);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.entriesVbox[this.label]));
 			w2.Position = 0;
 			w2.Expand = false;
 			w2.Fill = false;
-			w1.Add (this.vbox2);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(w1[this.vbox2]));
+			w1.Add (this.entriesVbox);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(w1[this.entriesVbox]));
 			w3.Position = 0;
 			// Internal child DirectoryHistory.UI.HistoryDialog.ActionArea
 			global::Gtk.HButtonBox w4 = this.ActionArea;

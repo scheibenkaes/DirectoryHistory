@@ -4,15 +4,23 @@ namespace DirectoryHistory.UI
 {
 	public partial class HistoryEntry
 	{
-		private global::Gtk.Table table2;
+		private global::Gtk.Table table1;
+
+		private global::Gtk.Alignment alignment1;
+
+		private global::Gtk.Button button45;
 
 		private global::Gtk.Label dateLabel;
 
 		private global::Gtk.ScrolledWindow GtkScrolledWindow;
 
-		private global::Gtk.TextView textview1;
+		private global::Gtk.TextView commentTextview;
 
-		private global::Gtk.Label label;
+		private global::Gtk.Label label1;
+
+		private global::Gtk.Label label3;
+
+		private global::Gtk.Label label4;
 
 		protected virtual void Build ()
 		{
@@ -21,44 +29,84 @@ namespace DirectoryHistory.UI
 			global::Stetic.BinContainer.Attach (this);
 			this.Name = "DirectoryHistory.UI.HistoryEntry";
 			// Container child DirectoryHistory.UI.HistoryEntry.Gtk.Container+ContainerChild
-			this.table2 = new global::Gtk.Table (((uint)(2)), ((uint)(2)), false);
-			this.table2.Name = "table2";
-			this.table2.RowSpacing = ((uint)(6));
-			this.table2.ColumnSpacing = ((uint)(6));
-			// Container child table2.Gtk.Table+TableChild
+			this.table1 = new global::Gtk.Table (((uint)(4)), ((uint)(2)), false);
+			this.table1.Name = "table1";
+			this.table1.RowSpacing = ((uint)(6));
+			this.table1.ColumnSpacing = ((uint)(6));
+			// Container child table1.Gtk.Table+TableChild
+			this.alignment1 = new global::Gtk.Alignment (0.5f, 0.5f, 1f, 1f);
+			this.alignment1.Name = "alignment1";
+			// Container child alignment1.Gtk.Container+ContainerChild
+			this.button45 = new global::Gtk.Button ();
+			this.button45.CanFocus = true;
+			this.button45.Name = "button45";
+			this.button45.UseUnderline = true;
+			this.button45.Label = global::Mono.Unix.Catalog.GetString ("Open this version");
+			this.alignment1.Add (this.button45);
+			this.table1.Add (this.alignment1);
+			global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table1[this.alignment1]));
+			w2.TopAttach = ((uint)(3));
+			w2.BottomAttach = ((uint)(4));
+			w2.LeftAttach = ((uint)(1));
+			w2.RightAttach = ((uint)(2));
+			w2.XOptions = ((global::Gtk.AttachOptions)(0));
+			w2.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
 			this.dateLabel = new global::Gtk.Label ();
 			this.dateLabel.Name = "dateLabel";
-			this.dateLabel.LabelProp = global::Mono.Unix.Catalog.GetString ("label3");
-			this.table2.Add (this.dateLabel);
-			global::Gtk.Table.TableChild w1 = ((global::Gtk.Table.TableChild)(this.table2[this.dateLabel]));
-			w1.LeftAttach = ((uint)(1));
-			w1.RightAttach = ((uint)(2));
-			w1.XOptions = ((global::Gtk.AttachOptions)(4));
-			w1.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child table2.Gtk.Table+TableChild
+			this.dateLabel.LabelProp = global::Mono.Unix.Catalog.GetString ("label2");
+			this.table1.Add (this.dateLabel);
+			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table1[this.dateLabel]));
+			w3.LeftAttach = ((uint)(1));
+			w3.RightAttach = ((uint)(2));
+			w3.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
 			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-			this.textview1 = new global::Gtk.TextView ();
-			this.textview1.CanFocus = true;
-			this.textview1.Name = "textview1";
-			this.GtkScrolledWindow.Add (this.textview1);
-			this.table2.Add (this.GtkScrolledWindow);
-			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table2[this.GtkScrolledWindow]));
-			w3.TopAttach = ((uint)(1));
-			w3.BottomAttach = ((uint)(2));
-			w3.LeftAttach = ((uint)(1));
-			w3.RightAttach = ((uint)(2));
-			// Container child table2.Gtk.Table+TableChild
-			this.label = new global::Gtk.Label ();
-			this.label.Name = "label";
-			this.label.LabelProp = global::Mono.Unix.Catalog.GetString ("Date created:");
-			this.table2.Add (this.label);
-			global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table2[this.label]));
-			w4.XOptions = ((global::Gtk.AttachOptions)(4));
-			w4.YOptions = ((global::Gtk.AttachOptions)(4));
-			this.Add (this.table2);
+			this.commentTextview = new global::Gtk.TextView ();
+			this.commentTextview.CanFocus = true;
+			this.commentTextview.Name = "commentTextview";
+			this.commentTextview.Editable = false;
+			this.GtkScrolledWindow.Add (this.commentTextview);
+			this.table1.Add (this.GtkScrolledWindow);
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1[this.GtkScrolledWindow]));
+			w5.TopAttach = ((uint)(1));
+			w5.BottomAttach = ((uint)(2));
+			w5.LeftAttach = ((uint)(1));
+			w5.RightAttach = ((uint)(2));
+			w5.XOptions = ((global::Gtk.AttachOptions)(4));
+			w5.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label1 = new global::Gtk.Label ();
+			this.label1.Name = "label1";
+			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Date");
+			this.table1.Add (this.label1);
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1[this.label1]));
+			w6.XOptions = ((global::Gtk.AttachOptions)(4));
+			w6.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label3 = new global::Gtk.Label ();
+			this.label3.Name = "label3";
+			this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Comment");
+			this.table1.Add (this.label3);
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1[this.label3]));
+			w7.TopAttach = ((uint)(1));
+			w7.BottomAttach = ((uint)(2));
+			w7.XOptions = ((global::Gtk.AttachOptions)(4));
+			w7.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label4 = new global::Gtk.Label ();
+			this.label4.Name = "label4";
+			this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("Difference");
+			this.table1.Add (this.label4);
+			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1[this.label4]));
+			w8.TopAttach = ((uint)(2));
+			w8.BottomAttach = ((uint)(3));
+			w8.XOptions = ((global::Gtk.AttachOptions)(4));
+			w8.YOptions = ((global::Gtk.AttachOptions)(4));
+			this.Add (this.table1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}

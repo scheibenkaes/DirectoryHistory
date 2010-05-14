@@ -20,15 +20,51 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using DirectoryHistory.History;
 
 namespace DirectoryHistory.UI
 {
 	public partial class HistoryDialog : Gtk.Dialog
 	{
-		public HistoryDialog ()
+		public IFileWithHistory File  {
+			get;
+			private set;
+		}
+		
+		public HistoryDialog (IFileWithHistory file)
 		{
 			this.Build ();
+			File = file;
+			
+			label.Text = file.PathInRepository;
+			
+			var entries = CreateEntriesForFile (file);
+			
+			DisplayEntries (entries);
+			
+			ShowAll ();
 		}
+
+		private void DisplayEntries (IEnumerable<HistoryEntry> entries)
+		{
+			var entryBox = new Gtk.VBox ();
+			entries.ToList ().ForEach (entryBox.Add);
+			
+			entriesVbox.Add (entryBox);
+		}
+
+
+		private static IEnumerable<HistoryEntry> CreateEntriesForFile (IFileWithHistory file)
+		{
+			foreach (var version in file.History) {
+				yield return new HistoryEntry (version);
+			}
+			yield break;
+		}
+
 	}
 }
 

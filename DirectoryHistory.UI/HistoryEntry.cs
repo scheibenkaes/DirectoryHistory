@@ -28,20 +28,21 @@ namespace DirectoryHistory.UI
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class HistoryEntry : Gtk.Bin
 	{
-		public ICommit Commit {
+		public IFileVersion Version {
 			private set;
 			get;
 		}
 		
-		public HistoryEntry (ICommit commit)
-		{
-			if (commit == null) {
-				throw new ArgumentNullException ("commit");
-			}
+		public HistoryEntry (IFileVersion version)
+		{	
+			Version = version;
+			this.Build ();			
 			
-			this.Build ();
+			dateLabel.Text = Version.CreationAt.ToString ();
 			
+			commentTextview.Buffer.Text = Version.Commit.Comment;
 			
+			Show ();
 		}
 	}
 }
