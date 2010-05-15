@@ -44,11 +44,16 @@
   <ItemGroup>
     <Compile Include="ExtensionsTest.cs" />
     <Compile Include="CommitTest.cs" />
+    <Compile Include="ExceptionHandlingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
       <Project>{3F3BCCEB-9FD6-48EB-96A5-A7D4718715C6}</Project>
       <Name>DirectoryHistory.History</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DirectoryHistory\DirectoryHistory.csproj">
+      <Project>{8C1F68AF-ACB3-4C87-B6F7-AA7E29B82E64}</Project>
+      <Name>DirectoryHistory</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

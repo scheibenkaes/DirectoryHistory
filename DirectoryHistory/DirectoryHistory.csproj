@@ -70,6 +70,10 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="DirectorySelectedEventArgs.cs" />
+    <Compile Include="ExceptionHandling.cs" />
+    <Compile Include="ExceptionOccuredDialog.cs" />
+    <Compile Include="gtk-gui\DirectoryHistory.ExceptionOccuredDialog.cs" />
+    <Compile Include="IExceptionDisplayer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -151,15 +151,18 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnRefreshActionActivated (object sender, System.EventArgs e)
 	{
-		if (logic.RootDirectory != null) {
-			logic.LoadDirectory (logic.RootDirectory.Path);
-		}
+		RunActionSavely (() =>
+		{
+			if (logic.RootDirectory != null) {
+				logic.LoadDirectory (logic.RootDirectory.Path);
+			}
+		});
 	}
 
 
 	protected virtual void OnQuitActionActivated (object sender, System.EventArgs e)
 	{
-		ExitApp ();
+		RunActionSavely (() => { ExitApp (); });
 	}
 
 	void ShowInfoDialog ()
@@ -172,7 +175,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnAboutActionActivated (object sender, System.EventArgs e)
 	{
-		ShowInfoDialog ();
+		RunActionSavely (() => { ShowInfoDialog (); });
 	}
 
 	protected virtual void OnAddActionActivated (object sender, System.EventArgs e)
@@ -203,16 +206,17 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnFileHistoryActionActivated (object sender, System.EventArgs e)
 	{
-		var selectedFile = folderlist.ReadSelectedFile ();
-		if (!string.IsNullOrEmpty (selectedFile)) {
-			var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
-			if (file is IFileWithHistory) {
-				var historyDialog = new HistoryDialog (file) {
-					Modal = true,
-				};
-				historyDialog.Show ();
+		RunActionSavely (() =>
+		{
+			var selectedFile = folderlist.ReadSelectedFile ();
+			if (!string.IsNullOrEmpty (selectedFile)) {
+				var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
+				if (file is IFileWithHistory) {
+					var historyDialog = new HistoryDialog (file) { Modal = true };
+					historyDialog.Show ();
+				}
 			}
-		}
+		});
 	}
 
 	private static void RunActionSavely (System.Action action)
@@ -223,7 +227,13 @@ public partial class MainWindow : Gtk.Window
 			HandleExceptionTriggeredByAction ();
 		}
 	}
-	
+
+	static void HandleExceptionTriggeredByAction ()
+	{
+		throw new System.NotImplementedException ();
+	}
+
+
 
 	private const string LicenseText = " This program is free software: you can redistribute it and/or modify\r\n it under the terms of the GNU General Public License as published by\r\n the Free Software Foundation, either version 3 of the License, or\r\n (at your option) any later version.\r\n\r\n This program is distributed in the hope that it will be useful,\r\n but WITHOUT ANY WARRANTY; without even the implied warranty of\r\n MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\r\n GNU General Public License for more details.\r\n\r\n You should have received a copy of the GNU General Public License\r\n along with this program.  If not, see <http://www.gnu.org/licenses/>.\r\n";
 }
