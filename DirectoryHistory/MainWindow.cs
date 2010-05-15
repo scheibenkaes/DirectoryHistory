@@ -208,6 +208,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		RunActionSavely (() =>
 		{
+			throw new HistoryException ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 			var selectedFile = folderlist.ReadSelectedFile ();
 			if (!string.IsNullOrEmpty (selectedFile)) {
 				var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);

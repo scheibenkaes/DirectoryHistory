@@ -27,7 +27,7 @@ namespace DirectoryHistory
 	{
 		public void DisplayException (Exception exc)
 		{
-			typeLabel.Text = exc.ToString ();
+			typeLabel.Text = exc.Message;
 			stacktraceTextview.Buffer.Text = exc.StackTrace;
 			ShowAll ();
 			Run ();
