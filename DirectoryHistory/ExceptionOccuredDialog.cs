@@ -25,9 +25,12 @@ namespace DirectoryHistory
 {
 	public partial class ExceptionOccuredDialog : Gtk.Dialog, IExceptionDisplayer
 	{
-		public void DisplayException (Exception exception)
+		public void DisplayException (Exception exc)
 		{
-			throw new System.NotImplementedException();
+			typeLabel.Text = exc.ToString ();
+			stacktraceTextview.Buffer.Text = exc.StackTrace;
+			ShowAll ();
+			Run ();
 		}
 		
 		public ExceptionOccuredDialog ()
