@@ -3,12 +3,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.UI/HistoryEntry.cs" ctype="Workbench">
     <Files>
-      <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="33" Column="8" />
+      <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.UI/HistoryEntry.cs" Line="33" Column="8" />
       <File FileName="DirectoryHistory.History/IFileVersion.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/ICommit.cs" Line="30" Column="2" />
       <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory/MainWindow.cs" Line="198" Column="33" />
+      <File FileName="DirectoryHistory/MainWindow.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
