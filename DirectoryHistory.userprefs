@@ -1,22 +1,25 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.UI/HistoryEntry.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory/ExceptionOccuredDialog.cs" ctype="Workbench">
     <Files>
       <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.UI/HistoryEntry.cs" Line="33" Column="8" />
       <File FileName="DirectoryHistory.History/IFileVersion.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History/ICommit.cs" Line="30" Column="2" />
       <File FileName="DirectoryHistory.History/IFileWithHistory.cs" Line="1" Column="1" />
-      <File FileName="DirectoryHistory/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="DirectoryHistory/MainWindow.cs" Line="195" Column="8" />
+      <File FileName="DirectoryHistory/ExceptionHandling.cs" Line="41" Column="30" />
+      <File FileName="History.Test/ExceptionHandlingTest.cs" Line="40" Column="13" />
+      <File FileName="DirectoryHistory/ExceptionOccuredDialog.cs" Line="32" Column="15" />
+      <File FileName="DirectoryHistory/IExceptionDisplayer.cs" Line="22" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="DirectoryHistory" expanded="True">
-            <Node name="MainWindow.cs" selected="True" />
+            <Node name="ExceptionOccuredDialog.cs" selected="True" />
           </Node>
-          <Node name="DirectoryHistory.History" expanded="True" />
           <Node name="DirectoryHistory.UI" expanded="True" />
           <Node name="History.Test" expanded="True" />
           <Node name="Translation" expanded="True" />
@@ -31,12 +34,8 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True">
-          <Node name="Git.Test" expanded="True">
-            <Node name="Git" expanded="True">
-              <Node name="Test" expanded="True" />
-            </Node>
-          </Node>
+        <State expanded="True">
+          <Node name="History.Test" selected="True" />
         </State>
       </Pad>
     </Pads>
