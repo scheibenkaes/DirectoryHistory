@@ -106,5 +106,20 @@ namespace Git.Test
 			Assert.AreEqual (2, file2.History.Count ());
 		}
 		
+		[Test]
+		public void DetectsIfAFileIsBinary ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var file2 	= provider.GetFile ("/tmp/test_repo/use_cases.odt");
+			Assert.IsTrue (file2.IsBinaryFile ());
+		}
+		
+		[Test]
+		public void DetectsIfAFileIsNotBinary ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var file2 	= provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
+			Assert.IsFalse (file2.IsBinaryFile ());
+		}
 	}
 }
