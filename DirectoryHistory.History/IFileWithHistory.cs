@@ -50,5 +50,13 @@ namespace DirectoryHistory.History
 		/// Retrieve the history to this file.
 		/// </summary>
 		IEnumerable<IFileVersion> History { get; }
+		
+		/// <summary>
+		/// Detect if a file is a binary file or not.
+		/// </summary>
+		/// <returns>
+		/// true if the file is binary or if it's a directory
+		/// </returns>
+		bool IsBinaryFile ();
 	}
 }

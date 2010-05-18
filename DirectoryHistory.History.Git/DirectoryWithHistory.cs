@@ -125,5 +125,10 @@ namespace DirectoryHistory.History.Git
 		{
 			return !Directory.GetFiles (Path).Any ();
 		}
+		
+		public bool IsBinaryFile ()
+		{
+			return false;
+		}
 	}
 }

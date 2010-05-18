@@ -45,6 +45,7 @@
     <Compile Include="ExtensionsTest.cs" />
     <Compile Include="CommitTest.cs" />
     <Compile Include="ExceptionHandlingTest.cs" />
+    <Compile Include="FileSystemTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
@@ -54,6 +55,10 @@
     <ProjectReference Include="..\DirectoryHistory\DirectoryHistory.csproj">
       <Project>{8C1F68AF-ACB3-4C87-B6F7-AA7E29B82E64}</Project>
       <Name>DirectoryHistory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Git.Test\Git.Test.csproj">
+      <Project>{95905E4A-A9BB-4F83-A471-7DA48F72C451}</Project>
+      <Name>Git.Test</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

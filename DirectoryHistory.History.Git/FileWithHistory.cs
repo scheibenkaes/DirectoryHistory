@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 using GitSharp;
 
@@ -128,6 +129,12 @@ namespace DirectoryHistory.History.Git
 			yield break;
 		}
 
+		public bool IsBinaryFile ()
+		{
+			//if (File)
+			return false;
+		}
+		
 		public string PathInRepository {
 			get { return Extensions.ReducePath (repository.WorkingDirectory, Path); }
 		}
