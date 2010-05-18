@@ -29,8 +29,17 @@ namespace DirectoryHistory
 		{
 			typeLabel.Text = exc.Message;
 			stacktraceTextview.Buffer.Text = exc.StackTrace;
+			
+			buttonCancel.Clicked += Quit;
+			buttonOk.Clicked += Quit;
+			
 			ShowAll ();
 			Run ();
+		}
+		
+		public void Quit (object sender, EventArgs args)
+		{
+			Destroy ();
 		}
 		
 		public ExceptionOccuredDialog ()
