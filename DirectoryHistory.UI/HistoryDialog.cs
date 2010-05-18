@@ -45,8 +45,18 @@ namespace DirectoryHistory.UI
 			
 			DisplayEntries (entries);
 			
+			RegisterEvents ();
+			
 			ShowAll ();
 		}
+
+		void RegisterEvents ()
+		{
+			buttonOk.Clicked += delegate(object sender, EventArgs e) {
+				Destroy ();
+			};
+		}
+
 
 		private void DisplayEntries (IEnumerable<HistoryEntry> entries)
 		{
