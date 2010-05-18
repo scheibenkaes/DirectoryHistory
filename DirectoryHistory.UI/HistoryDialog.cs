@@ -37,6 +37,7 @@ namespace DirectoryHistory.UI
 		public HistoryDialog (IFileWithHistory file)
 		{
 			this.Build ();
+			RegisterEvents ();
 			File = file;
 			
 			label.Text = file.PathInRepository;
@@ -45,12 +46,10 @@ namespace DirectoryHistory.UI
 			
 			DisplayEntries (entries);
 			
-			RegisterEvents ();
-			
 			ShowAll ();
 		}
 
-		void RegisterEvents ()
+		private void RegisterEvents ()
 		{
 			buttonOk.Clicked += delegate(object sender, EventArgs e) {
 				Destroy ();
