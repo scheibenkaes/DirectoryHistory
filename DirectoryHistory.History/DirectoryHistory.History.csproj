@@ -48,6 +48,7 @@
     <Compile Include="Commit.cs" />
     <Compile Include="IFileVersion.cs" />
     <Compile Include="HistoryException.cs" />
+    <Compile Include="IVersionOpener.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
