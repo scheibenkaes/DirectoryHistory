@@ -69,7 +69,7 @@ namespace DirectoryHistory.UI
 		private static IEnumerable<HistoryEntry> CreateEntriesForFile (IFileWithHistory file)
 		{
 			foreach (var version in file.History) {
-				yield return new HistoryEntry (version);
+				yield return new HistoryEntry (file, version);
 			}
 			yield break;
 		}

@@ -22,6 +22,7 @@
 using System;
 
 using DirectoryHistory.History;
+using DirectoryHistory.Common;
 
 namespace DirectoryHistory.UI
 {
@@ -33,10 +34,14 @@ namespace DirectoryHistory.UI
 			get;
 		}
 		
-		public HistoryEntry (IFileVersion version)
+		public HistoryEntry (IFileWithHistory file, IFileVersion version)
 		{	
 			Version = version;
-			this.Build ();			
+			this.Build ();	
+			
+			openButton.Clicked += delegate(object sender, EventArgs e) {
+				FileStarter.StartFile (file.Path);
+			};
 			
 			dateLabel.Text = Version.CreationAt.ToString ();
 			

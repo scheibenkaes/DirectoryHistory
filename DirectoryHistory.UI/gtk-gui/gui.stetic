@@ -230,7 +230,7 @@
           <widget class="Gtk.Alignment" id="alignment1">
             <property name="MemberName" />
             <child>
-              <widget class="Gtk.Button" id="button45">
+              <widget class="Gtk.Button" id="openButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>

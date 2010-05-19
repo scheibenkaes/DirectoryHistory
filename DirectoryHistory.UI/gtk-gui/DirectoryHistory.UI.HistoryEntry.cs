@@ -8,7 +8,7 @@ namespace DirectoryHistory.UI
 
 		private global::Gtk.Alignment alignment1;
 
-		private global::Gtk.Button button45;
+		private global::Gtk.Button openButton;
 
 		private global::Gtk.Label dateLabel;
 
@@ -37,12 +37,12 @@ namespace DirectoryHistory.UI
 			this.alignment1 = new global::Gtk.Alignment (0.5f, 0.5f, 1f, 1f);
 			this.alignment1.Name = "alignment1";
 			// Container child alignment1.Gtk.Container+ContainerChild
-			this.button45 = new global::Gtk.Button ();
-			this.button45.CanFocus = true;
-			this.button45.Name = "button45";
-			this.button45.UseUnderline = true;
-			this.button45.Label = global::Mono.Unix.Catalog.GetString ("Open this version");
-			this.alignment1.Add (this.button45);
+			this.openButton = new global::Gtk.Button ();
+			this.openButton.CanFocus = true;
+			this.openButton.Name = "openButton";
+			this.openButton.UseUnderline = true;
+			this.openButton.Label = global::Mono.Unix.Catalog.GetString ("Open this version");
+			this.alignment1.Add (this.openButton);
 			this.table1.Add (this.alignment1);
 			global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table1[this.alignment1]));
 			w2.TopAttach = ((uint)(3));
