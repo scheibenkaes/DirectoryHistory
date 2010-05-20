@@ -71,6 +71,7 @@
     <Compile Include="HistoryProviderTest.cs" />
     <Compile Include="FileVersionTest.cs" />
     <Compile Include="MyCommitTest.cs" />
+    <Compile Include="TempFileCreatorTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
