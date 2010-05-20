@@ -49,6 +49,7 @@
     <Compile Include="IFileVersion.cs" />
     <Compile Include="HistoryException.cs" />
     <Compile Include="IVersionOpener.cs" />
+    <Compile Include="ITempFileCreator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

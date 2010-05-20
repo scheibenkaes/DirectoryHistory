@@ -1,17 +1,21 @@
 ﻿<Properties>
   <AuthorInfo Name="Benjamin Klüglein" Email="scheibenkaes@googlemail.com" Copyright="Benjamin Klüglein" ctype="AuthorInformation" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="History.Test/FileStarterTest.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History.Git/VersionOpener.cs" ctype="Workbench">
     <Files>
       <File FileName="History.Test/FileStarterTest.cs" Line="49" Column="50" />
+      <File FileName="DirectoryHistory.UI/HistoryEntry.cs" Line="44" Column="6" />
+      <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="64" Column="4" />
+      <File FileName="DirectoryHistory.History/IVersionOpener.cs" Line="22" Column="1" />
+      <File FileName="DirectoryHistory.History.Git/VersionOpener.cs" Line="23" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="DirectoryHistory.Common" expanded="True" />
-          <Node name="History.Test" expanded="True">
-            <Node name="FileStarterTest.cs" selected="True" />
-          </Node>
+          <Node name="DirectoryHistory.History" expanded="True" />
+          <Node name="DirectoryHistory.History.Git" expanded="True" selected="True" />
+          <Node name="History.Test" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -23,9 +27,7 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="History.Test" selected="True" />
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
