@@ -3,18 +3,23 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryHistory.History.Git/VersionOpener.cs" ctype="Workbench">
     <Files>
-      <File FileName="History.Test/FileStarterTest.cs" Line="49" Column="50" />
-      <File FileName="DirectoryHistory.UI/HistoryEntry.cs" Line="44" Column="6" />
+      <File FileName="History.Test/FileStarterTest.cs" Line="1" Column="1" />
+      <File FileName="DirectoryHistory.UI/HistoryEntry.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="64" Column="4" />
-      <File FileName="DirectoryHistory.History/IVersionOpener.cs" Line="22" Column="1" />
+      <File FileName="DirectoryHistory.History/IVersionOpener.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History.Git/VersionOpener.cs" Line="23" Column="1" />
+      <File FileName="DirectoryHistory.History.Git/TempFileCreator.cs" Line="22" Column="1" />
+      <File FileName="Git.Test/TempFileCreatorTest.cs" Line="43" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="DirectoryHistory.Common" expanded="True" />
           <Node name="DirectoryHistory.History" expanded="True" />
-          <Node name="DirectoryHistory.History.Git" expanded="True" selected="True" />
+          <Node name="DirectoryHistory.History.Git" expanded="True">
+            <Node name="VersionOpener.cs" selected="True" />
+          </Node>
+          <Node name="Git.Test" expanded="True" />
           <Node name="History.Test" expanded="True" />
         </State>
       </Pad>
@@ -27,7 +32,9 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Git.Test" expanded="True" selected="True" />
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
