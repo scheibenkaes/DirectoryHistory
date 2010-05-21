@@ -8,7 +8,7 @@
       <File FileName="DirectoryHistory.UI/HistoryDialog.cs" Line="64" Column="4" />
       <File FileName="DirectoryHistory.History/IVersionOpener.cs" Line="1" Column="1" />
       <File FileName="DirectoryHistory.History.Git/VersionOpener.cs" Line="23" Column="1" />
-      <File FileName="DirectoryHistory.History.Git/TempFileCreator.cs" Line="22" Column="1" />
+      <File FileName="DirectoryHistory.History.Git/TempFileCreator.cs" Line="1" Column="1" />
       <File FileName="Git.Test/TempFileCreatorTest.cs" Line="43" Column="43" />
     </Files>
     <Pads>

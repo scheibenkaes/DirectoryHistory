@@ -47,6 +47,7 @@
     <Compile Include="ExceptionHandlingTest.cs" />
     <Compile Include="FileSystemTests.cs" />
     <Compile Include="FileStarterTest.cs" />
+    <Compile Include="TempFileCacheTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectoryHistory.History\DirectoryHistory.History.csproj">
