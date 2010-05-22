@@ -75,7 +75,7 @@ namespace History.Test
 			var file1 = myMockery.NewMock<IFileWithHistory> ();
 			string filename = "/tmp/test_repo/use_cases.odt";
 			
-			Stub.On (creator).Method ("CreateTempFileFromVersion").Will (Return.Value (filename));
+			
 			
 			Stub.On (file1).GetProperty ("Path").Will (Return.Value (filename));
 			
@@ -83,6 +83,9 @@ namespace History.Test
 			Stub.On (version).GetProperty ("ID").Will (Return.Value ("0475abdb01ed08f8997986e319e2467b"));
 			var version2 = myMockery.NewMock<IFileVersion> ();
 			Stub.On (version2).GetProperty ("ID").Will (Return.Value ("72311666ba461988b1264f6f5e368d17"));
+			
+			Stub.On (creator).Method ("CreateTempFileFromVersion").With (file1, version).Will (Return.Value (filename));
+			Stub.On (creator).Method ("CreateTempFileFromVersion").With (file1, version2).Will (Return.Value (filename  + "2"));
 			
 			Assert.AreNotEqual (cache.GetFile (file1, version), cache.GetFile (file1, version2));
 		}

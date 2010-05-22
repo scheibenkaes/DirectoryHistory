@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-	internal struct CacheKey
+	public struct CacheKey
 	{
 		public IFileWithHistory File {
 			get;
@@ -63,7 +63,7 @@ namespace DirectoryHistory.History
 		
 		public override int GetHashCode ()
 		{
-			return Version.ID.GetHashCode ();
+			return Version.ID.GetHashCode () + File.Path.GetHashCode ();
 		}
 	}
 }
