@@ -24,8 +24,6 @@ using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-
-
 	public interface IFileWithHistory
 	{
 		/// <summary>

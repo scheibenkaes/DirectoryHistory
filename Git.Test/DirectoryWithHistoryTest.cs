@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
+using NMock2;
 
 using GitSharp;
 
@@ -38,6 +39,20 @@ namespace Git.Test
 	{
 		
 		private IHistoryProvider provider = new HistoryProvider ();
+		private Mockery myMockery;
+		
+		 [SetUp]
+		 public void SetUp ()
+		 {
+			myMockery = new Mockery ();
+		}
+		
+		[TearDown]
+		public void TearDown ()
+		{
+			myMockery.Dispose ();
+			myMockery = null;
+		}
 
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
@@ -100,6 +115,14 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			Assert.IsFalse (provider.GetDirectory (TestData.TEMP_DIR.PathCombine ("committed_dir")).IsRootDirectory);
+		}
+		
+		[Test]
+		[ExpectedException (typeof (InvalidOperationException))]
+		public void GetContentForVersion_IsNotAValidOperation ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			provider.GetDirectory ("/tmp/test_repo").GetContentForVersion (myMockery.NewMock<IFileVersion> ());
 		}
 	}
 }

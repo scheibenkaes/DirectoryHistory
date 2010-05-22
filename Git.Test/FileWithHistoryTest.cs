@@ -121,5 +121,11 @@ namespace Git.Test
 			var file2 	= provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
 			Assert.IsFalse (file2.IsBinaryFile ());
 		}
+		
+		[Test]
+		public void ReadsContentsCorrectly ()
+		{
+			Assert.Fail ();
+		}
 	}
 }

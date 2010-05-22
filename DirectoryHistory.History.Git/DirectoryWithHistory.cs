@@ -24,6 +24,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
+using Mono.Unix;
+
 using GitSharp;
 
 namespace DirectoryHistory.History.Git
@@ -129,6 +131,11 @@ namespace DirectoryHistory.History.Git
 		public bool IsBinaryFile ()
 		{
 			return false;
+		}
+		
+		public byte[] GetContentForVersion (IFileVersion version)
+		{
+			throw new InvalidOperationException(Catalog.GetString ("This operation (GetContentForVersion) is not valid for a directory."));
 		}
 	}
 }

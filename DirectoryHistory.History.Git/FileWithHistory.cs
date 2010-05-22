@@ -135,6 +135,11 @@ namespace DirectoryHistory.History.Git
 			return false;
 		}
 		
+		public byte[] GetContentForVersion (IFileVersion version)
+		{
+			throw new System.NotImplementedException();
+		}
+		
 		public string PathInRepository {
 			get { return Extensions.ReducePath (repository.WorkingDirectory, Path); }
 		}

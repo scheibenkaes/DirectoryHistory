@@ -29,8 +29,8 @@ namespace DirectoryHistory.History.Git
 		{
 			var temp = Path.GetTempFileName ();
 			var content = file.GetContentForVersion (version);
-			WriteContentToTempFile (content, temp);
-			return RenameTempFile (temp);
+			//WriteContentToTempFile (content, temp);
+			return "";//RenameTempFile (temp);
 		}
 	}
 }
