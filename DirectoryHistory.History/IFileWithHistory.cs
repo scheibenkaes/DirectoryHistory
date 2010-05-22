@@ -58,5 +58,15 @@ namespace DirectoryHistory.History
 		/// true if the file is binary or if it's a directory
 		/// </returns>
 		bool IsBinaryFile ();
+		
+		/// <summary>
+		/// Returns the binary content of the file from the given version.
+		/// </summary>
+		/// <param name="version">
+		/// Must not be null
+		/// </param>
+		/// <returns>
+		/// </returns>
+		byte[] GetContentForVersion (IFileVersion version);
 	}
 }
