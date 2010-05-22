@@ -2,9 +2,9 @@
 //  TempFileCache.cs
 //  
 //  Author:
-//       Benjamin Klüglein <scheibenkaes@googlemail.com>
+//       bkn <${AuthorEmail}>
 // 
-//  Copyright (c) 2010 Benjamin Klüglein
+//  Copyright (c) 2010 bkn
 // 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,43 +18,52 @@
 // 
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using System.Collections.Generic;
 
+
 namespace DirectoryHistory.History
 {
-	public class TempFileCache
+	internal struct CacheKey
 	{
-		private readonly ITempFileCreator creator;
-		
-		private IDictionary<CacheKey,string> Cache  {
+		public IFileWithHistory File {
 			get;
-			set;
+			private set;
 		}
 		
-		public string GetFile (IFileWithHistory file, IFileVersion version)
-		{
-			if (file == null || version == null) {
-				throw new ArgumentNullException ("file and version must not be null");
-			}
-			string cachedFile;
-			var key = new CacheKey (file, version);
-			if (Cache.ContainsKey (key)) {
-				cachedFile = Cache[key];
-			}
-			else {
-				var tempFile = creator.CreateTempFileFromVersion (file, version);
-				Cache[key] = tempFile;
-				cachedFile = tempFile;
-			}
-			return cachedFile;
+		public IFileVersion Version  {
+			get;
+			private set;
 		}
 		
-		public TempFileCache (ITempFileCreator creator)
+		public override bool Equals (object obj)
 		{
-			Cache = new Dictionary<CacheKey, string> ();
-			this.creator = creator;
+			if (obj == null) {
+				return false;
+			}
+			
+			if (object.ReferenceEquals (this, obj)) {
+				return true;
+			}
+			
+			if (obj is CacheKey) {
+				var other = (CacheKey) obj;
+				return other.File.Path == File.Path && other.Version.ID == Version.ID;
+			}
+			return false;
+		}
+		
+		
+		public CacheKey (IFileWithHistory file, IFileVersion version)
+		{
+			File = file;
+			Version = version;
+		}
+		
+		public override int GetHashCode ()
+		{
+			return Version.ID.GetHashCode ();
 		}
 	}
 }
-

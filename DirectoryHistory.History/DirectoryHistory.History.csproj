@@ -51,6 +51,7 @@
     <Compile Include="IVersionOpener.cs" />
     <Compile Include="ITempFileCreator.cs" />
     <Compile Include="TempFileCache.cs" />
+    <Compile Include="CacheKey.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

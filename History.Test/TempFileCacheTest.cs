@@ -30,42 +30,75 @@ namespace History.Test
 	public class TempFileCacheTest
 	{
 		private Mockery myMockery;
-		
+
 		[SetUp]
 		public void SetUp ()
 		{
 			myMockery = new Mockery ();
 		}
-		
+
 		[TearDown]
 		public void TearDown ()
 		{
 			myMockery.Dispose ();
 			myMockery = null;
 		}
-		
+
 		[Test]
-		public void IsASingleton ()
+		public void GetFile_ReturnsTheCached_File ()
 		{
-			Assert.IsTrue (object.ReferenceEquals (TempFileCache.Instance, TempFileCache.Instance));
-		}
-		
-		[Test]
-		public void GetFile_ReturnsTheCached_File()
-		{
-			var cache = TempFileCache.Instance;
+			var creator = myMockery.NewMock<ITempFileCreator> ();
+			
+			var cache = new TempFileCache (creator);
 			var file1 = myMockery.NewMock<IFileWithHistory> ();
-			string filename = "/tmp/test_repo/some_file.ppt";
+			string filename = "/tmp/test_repo/use_cases.odt";
+			
+			Stub.On (creator).Method ("CreateTempFileFromVersion").Will (Return.Value (filename));
 			
 			Stub.On (file1).GetProperty ("Path").Will (Return.Value (filename));
 			
 			var file2 = myMockery.NewMock<IFileWithHistory> ();
 			Stub.On (file2).GetProperty ("Path").Will (Return.Value (filename));
 			
-			Assert.AreEqual (
-			                 cache.GetFile (file1),
-			                 cache.GetFile (file2)
-			                 );
+			var version = myMockery.NewMock<IFileVersion> ();
+			Stub.On (version).GetProperty ("ID").Will (Return.Value ("0475abdb01ed08f8997986e319e2467b"));
+			
+			Assert.AreEqual (cache.GetFile (file1, version), cache.GetFile (file2, version));
+		}
+
+		[Test]
+		public void GetFile_ReturnsDifferent_TempFile_IfVersionsDiffer ()
+		{
+			var creator = myMockery.NewMock<ITempFileCreator> ();
+			
+			var cache = new TempFileCache (creator);
+			var file1 = myMockery.NewMock<IFileWithHistory> ();
+			string filename = "/tmp/test_repo/use_cases.odt";
+			
+			Stub.On (creator).Method ("CreateTempFileFromVersion").Will (Return.Value (filename));
+			
+			Stub.On (file1).GetProperty ("Path").Will (Return.Value (filename));
+			
+			var version = myMockery.NewMock<IFileVersion> ();
+			Stub.On (version).GetProperty ("ID").Will (Return.Value ("0475abdb01ed08f8997986e319e2467b"));
+			var version2 = myMockery.NewMock<IFileVersion> ();
+			Stub.On (version2).GetProperty ("ID").Will (Return.Value ("72311666ba461988b1264f6f5e368d17"));
+			
+			Assert.AreNotEqual (cache.GetFile (file1, version), cache.GetFile (file1, version2));
+		}
+
+		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void GetFile_DoesntAccept_NullInFileParam ()
+		{
+			new TempFileCache (myMockery.NewMock<ITempFileCreator> ()).GetFile (null, myMockery.NewMock<IFileVersion> ());
+		}
+
+		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void GetFile_DoesntAccept_NullInFileVersionParam ()
+		{
+			new TempFileCache (myMockery.NewMock<ITempFileCreator> ()).GetFile (myMockery.NewMock<IFileWithHistory> (), null);
 		}
 	}
 }
