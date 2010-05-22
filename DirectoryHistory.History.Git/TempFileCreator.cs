@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.IO;
 
 namespace DirectoryHistory.History.Git
 {
@@ -26,11 +27,10 @@ namespace DirectoryHistory.History.Git
 	{
 		public string CreateTempFileFromVersion (IFileWithHistory file, IFileVersion version)
 		{
-			throw new System.NotImplementedException();
-		}
-		
-		public TempFileCreator ()
-		{
+			var temp = Path.GetTempFileName ();
+			var content = file.GetContentForVersion (version);
+			WriteContentToTempFile (content, temp);
+			return RenameTempFile (temp);
 		}
 	}
 }

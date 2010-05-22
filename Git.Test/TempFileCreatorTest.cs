@@ -21,6 +21,7 @@
 using System;
 using System.IO;
 using NUnit.Framework;
+using NMock2;
 
 using DirectoryHistory.History;
 using DirectoryHistory.History.Git;
@@ -30,6 +31,29 @@ namespace Git.Test
 	[TestFixture()]
 	public class TempFileCreatorTest
 	{
+		private Mockery myMockery;
+		
+		private IFileVersion version1;
+		private IFileWithHistory file1;
+		
+		[SetUp]
+		public void SetUp ()
+		{	
+			myMockery = new Mockery ();
+			file1 = myMockery.NewMock <IFileWithHistory> ();
+			version1 = myMockery.NewMock<IFileVersion> ();
+			
+			var testFile = "/tmp/test_repo/use_cases.odt";
+			Stub.On (file1).GetProperty ("Path").Will (Return.Value(testFile));
+		}
+		
+		[TearDown]
+		public void TearDown ()
+		{
+			myMockery.Dispose ();
+			myMockery = null;
+		}
+		
 		[Test]
 		public void Implements_ITempFileCreator ()
 		{
@@ -39,8 +63,17 @@ namespace Git.Test
 		[Test]
 		public void Creates_ATempFile ()
 		{
-			var testFile = "";
-			Assert.IsTrue (File.Exists (testFile));
+			
+			var creator = new TempFileCreator ();
+			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
+			
+			Assert.IsTrue (File.Exists (createdFile));
+		}
+		
+		[Test]
+		public void CreatedTempFile_HasSameEndingAsTheOriginalFile ()
+		{
+			
 		}
 	}
 }
