@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.IO;
+using System.Linq;
 using NUnit.Framework;
 using NMock2;
 
@@ -44,7 +45,7 @@ namespace Git.Test
 			version1 = myMockery.NewMock<IFileVersion> ();
 			
 			var testFile = "/tmp/test_repo/use_cases.odt";
-			Stub.On (file1).GetProperty ("Path").Will (Return.Value(testFile));
+			//Stub.On (file1).GetProperty ("Path").Will (Return.Value(testFile));
 		}
 		
 		[TearDown]
@@ -63,6 +64,9 @@ namespace Git.Test
 		[Test]
 		public void Creates_ATempFile ()
 		{
+			byte[] content = new [] {0, 0, 0}.ToList ().ConvertAll<byte> (b => Convert.ToByte (b)).ToArray ();
+			
+			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value (content));
 			
 			var creator = new TempFileCreator ();
 			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
@@ -73,7 +77,7 @@ namespace Git.Test
 		[Test]
 		public void CreatedTempFile_HasSameEndingAsTheOriginalFile ()
 		{
-			
+			Assert.Fail ();
 		}
 	}
 }
