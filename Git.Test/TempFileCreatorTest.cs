@@ -37,12 +37,15 @@ namespace Git.Test
 		private IFileVersion version1;
 		private IFileWithHistory file1;
 		
+		private IHistoryProvider provider;
+		
 		[SetUp]
 		public void SetUp ()
 		{	
 			myMockery = new Mockery ();
 			file1 = myMockery.NewMock <IFileWithHistory> ();
 			version1 = myMockery.NewMock<IFileVersion> ();
+			provider = myMockery.NewMock<IHistoryProvider> ();
 			
 			var testFile = "/tmp/test_repo/use_cases.odt";
 			//Stub.On (file1).GetProperty ("Path").Will (Return.Value(testFile));
@@ -58,7 +61,7 @@ namespace Git.Test
 		[Test]
 		public void Implements_ITempFileCreator ()
 		{
-			Assert.IsInstanceOfType (typeof (ITempFileCreator), new TempFileCreator ());
+			Assert.IsInstanceOfType (typeof (ITempFileCreator), new TempFileCreator (provider));
 		}
 		
 		[Test]
@@ -67,11 +70,28 @@ namespace Git.Test
 			byte[] content = new [] {0, 0, 0}.ToList ().ConvertAll<byte> (b => Convert.ToByte (b)).ToArray ();
 			
 			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value (content));
+			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
 			
-			var creator = new TempFileCreator ();
+			var creator = new TempFileCreator (provider);
 			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
 			
 			Assert.IsTrue (File.Exists (createdFile));
+		}
+		
+		[Test]
+		public void Creates_ATempFile_WithTheSameContentAsTheOriginal ()
+		{
+			byte[] content = new [] {0, 1, 5, 2, 8, 0}.ToList ().ConvertAll<byte> (b => Convert.ToByte (b)).ToArray ();
+			
+			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value (content));
+			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
+			
+			var creator = new TempFileCreator (provider);
+			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
+			
+			var bytesRead = File.ReadAllBytes (createdFile);
+			
+			CollectionAssert.AreEqual (content, bytesRead);
 		}
 		
 		[Test]

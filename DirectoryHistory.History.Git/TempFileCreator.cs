@@ -20,22 +20,55 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.IO;
+using System.Linq;
+
+using DirectoryHistory.History;
 
 namespace DirectoryHistory.History.Git
 {
 	public class TempFileCreator : ITempFileCreator
 	{
+		public IHistoryProvider Provider {
+			private set;
+			get;
+		}
+		
 		public string CreateTempFileFromVersion (IFileWithHistory file, IFileVersion version)
 		{
 			var temp = Path.GetTempFileName ();
 			var content = file.GetContentForVersion (version);
 			WriteContentToTempFile (content, temp);
-			return "";//RenameTempFile (temp); 
+			var completeTempFileName = AppendOriginalFileEnding (temp, ReadOriginalFileEnding (file.PathInRepository));
+			File.Move (temp, completeTempFileName);
+			return completeTempFileName; 
 		}
 
-		private void WriteContentToTempFile (System.Byte[] content, string file)
+		private static string ReadOriginalFileEnding (string filename)
 		{
-			throw new System.NotImplementedException ();
+			return filename.Split ('.').ToList ().LastOrDefault ();
+		}
+
+		
+		private static string AppendOriginalFileEnding (string file, string fileEnding)
+		{
+			if (file.EndsWith (fileEnding)) {
+				return file;
+			}
+			return string.Format ("{0}.{1}", file, fileEnding);
+		}
+
+		private static void WriteContentToTempFile (System.Byte[] content, string file)
+		{
+			using (var outFile = File.OpenWrite (file)) {
+				foreach (var b in content) {
+					outFile.WriteByte (b);
+				}
+			}			
+		}
+		
+		public TempFileCreator (IHistoryProvider provider)
+		{
+			Provider = provider;
 		}
 
 	}
