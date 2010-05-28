@@ -97,7 +97,15 @@ namespace Git.Test
 		[Test]
 		public void CreatedTempFile_HasSameEndingAsTheOriginalFile ()
 		{
-			Assert.Fail ();
+			byte[] content = new [] {0, 1, 5, 2, 8, 0}.ToList ().ConvertAll<byte> (b => Convert.ToByte (b)).ToArray ();
+			
+			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value (content));
+			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
+			
+			var creator = new TempFileCreator (provider);
+			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
+			
+			StringAssert.EndsWith (".odt", createdFile);
 		}
 	}
 }
