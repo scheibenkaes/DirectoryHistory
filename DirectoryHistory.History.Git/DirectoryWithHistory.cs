@@ -133,7 +133,7 @@ namespace DirectoryHistory.History.Git
 			return false;
 		}
 		
-		public byte[] GetContentForVersion (IFileVersion version)
+		public string GetContentForVersion (IFileVersion version)
 		{
 			throw new InvalidOperationException(Catalog.GetString ("This operation (GetContentForVersion) is not valid for a directory."));
 		}

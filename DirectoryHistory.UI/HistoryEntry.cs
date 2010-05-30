@@ -29,19 +29,14 @@ namespace DirectoryHistory.UI
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class HistoryEntry : Gtk.Bin
 	{
-		public IFileVersion Version {
-			private set;
-			get;
-		}
-		
+		public IFileVersion Version { get; private set; }
+
 		public HistoryEntry (IFileWithHistory file, IFileVersion version)
-		{	
+		{
 			Version = version;
-			this.Build ();	
+			this.Build ();
 			
-			openButton.Clicked += delegate(object sender, EventArgs e) {
-				FileStarter.StartFile (file.Path);
-			};
+			openButton.Clicked += HandleOpenButtonClicked;
 			
 			dateLabel.Text = Version.CreationAt.ToString ();
 			
@@ -49,6 +44,15 @@ namespace DirectoryHistory.UI
 			
 			Show ();
 		}
+
+		
+		private void HandleOpenButtonClicked (object sender, EventArgs e)
+		{
+			throw new NotImplementedException ();
+		}
 	}
 }
+
+
+
 

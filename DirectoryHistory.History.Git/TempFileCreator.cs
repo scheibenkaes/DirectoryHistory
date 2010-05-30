@@ -57,13 +57,9 @@ namespace DirectoryHistory.History.Git
 			return string.Format ("{0}.{1}", file, fileEnding);
 		}
 
-		private static void WriteContentToTempFile (System.Byte[] content, string file)
+		private static void WriteContentToTempFile (string content, string file)
 		{
-			using (var outFile = File.OpenWrite (file)) {
-				foreach (var b in content) {
-					outFile.WriteByte (b);
-				}
-			}			
+			File.WriteAllText (file, content);
 		}
 		
 		public TempFileCreator (IHistoryProvider provider)

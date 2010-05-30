@@ -24,6 +24,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 
+using Mono.Unix;
+
 using GitSharp;
 
 namespace DirectoryHistory.History.Git
@@ -117,29 +119,28 @@ namespace DirectoryHistory.History.Git
 		private IEnumerable<IFileVersion> TransformCommitsIntoFileVersions (IEnumerable<GitSharp.Commit> commitsWithThisFile)
 		{
 			foreach (GitSharp.Commit commit in commitsWithThisFile) {
-				yield return new FileVersion { 
-					ID = commit.ShortHash, 
-					CreationAt = commit.AuthorDate.DateTime, 
-					Commit = new MyCommit() {
-						File = this,
-						Comment = commit.Message
-					}
-				};
+				yield return new FileVersion { ID = commit.ShortHash, CreationAt = commit.AuthorDate.DateTime, Commit = new MyCommit { File = this, Comment = commit.Message } };
 			}
 			yield break;
 		}
 
 		public bool IsBinaryFile ()
 		{
-			//if (File)
-			return false;
+			throw new NotImplementedException ();
 		}
-		
-		public byte[] GetContentForVersion (IFileVersion version)
+
+		public string GetContentForVersion (IFileVersion version)
 		{
-			throw new System.NotImplementedException();
+			var commit = new GitSharp.Commit (repository, version.ID);
+			
+			if (commit == null) {
+				throw new HistoryException (Catalog.GetString (string.Format ("File version {0} is not contained in this commit!", version.ID)));
+			}
+			
+			var file = commit.Tree.Leaves.ToList ().Where (l => l.Path == PathInRepository).First ();
+			return file.Data;
 		}
-		
+
 		public string PathInRepository {
 			get { return Extensions.ReducePath (repository.WorkingDirectory, Path); }
 		}

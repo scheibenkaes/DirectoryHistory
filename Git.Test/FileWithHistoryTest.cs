@@ -24,6 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using NUnit.Framework;
+using NMock2;
 
 using GitSharp;
 
@@ -38,12 +39,16 @@ namespace Git.Test
 	public class FileWithHistoryTest : GitTestCase
 	{
 		private HistoryProvider provider;
+		
+		private Mockery myMockery;
 
 		[SetUp]
 		public override void SetUp ()
 		{
 			base.SetUp ();
 			provider = new HistoryProvider ();
+			
+			myMockery = new Mockery ();
 		}
 
 		[TearDown]
@@ -52,6 +57,9 @@ namespace Git.Test
 			base.TearDown ();
 			provider.Dispose ();
 			provider = null;
+			
+			myMockery.Dispose ();
+			myMockery = null;
 		}
 		
 		[Test]
@@ -116,6 +124,7 @@ namespace Git.Test
 		}
 		
 		[Test]
+		[Ignore("Maybe this isn't needed")]
 		public void DetectsIfAFileIsNotBinary ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
@@ -124,9 +133,21 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void ReadsContentsCorrectly ()
+		public void GetContentForVersion_ReadsContentsCorrectly ()
 		{
-			Assert.Fail ();
+			var longId = "cd3d0560e7bce3b07ad10f9a2c67a4a18b99ab26";
+			IFileVersion version = myMockery.NewMock<IFileVersion> ();
+			Stub.On (version).GetProperty ("ID").Will(Return.Value (longId));
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var file  = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
+			var content = file.GetContentForVersion (version);
+			
+			var expectedContent = @"asd
+
+asf
+";
+			
+			Assert.AreEqual (expectedContent, content);
 		}
 	}
 }

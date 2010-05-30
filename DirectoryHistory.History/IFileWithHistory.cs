@@ -65,6 +65,6 @@ namespace DirectoryHistory.History
 		/// </param>
 		/// <returns>
 		/// </returns>
-		byte[] GetContentForVersion (IFileVersion version);
+		string GetContentForVersion (IFileVersion version);
 	}
 }
