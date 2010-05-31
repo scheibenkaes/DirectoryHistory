@@ -67,9 +67,7 @@ namespace Git.Test
 		[Test]
 		public void Creates_ATempFile ()
 		{
-			byte[] content = new [] {0, 0, 0}.ToList ().ConvertAll<byte> (b => Convert.ToByte (b)).ToArray ();
-			
-			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value (content));
+			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value ("yaddad"));
 			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
 			
 			var creator = new TempFileCreator (provider);
@@ -81,25 +79,23 @@ namespace Git.Test
 		[Test]
 		public void Creates_ATempFile_WithTheSameContentAsTheOriginal ()
 		{
-			byte[] content = new [] {0, 1, 5, 2, 8, 0}.ToList ().ConvertAll<byte> (b => Convert.ToByte (b)).ToArray ();
 			
-			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value (content));
+			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value ("test123\nfoo"));
 			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
 			
 			var creator = new TempFileCreator (provider);
 			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
 			
-			var bytesRead = File.ReadAllBytes (createdFile);
+			var bytesRead = File.ReadAllText (createdFile);
 			
-			CollectionAssert.AreEqual (content, bytesRead);
+			Assert.AreEqual ("test123\nfoo", bytesRead);
 		}
 		
 		[Test]
 		public void CreatedTempFile_HasSameEndingAsTheOriginalFile ()
 		{
-			byte[] content = new [] {0, 1, 5, 2, 8, 0}.ToList ().ConvertAll<byte> (b => Convert.ToByte (b)).ToArray ();
 			
-			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value (content));
+			Stub.On (file1).Method ("GetContentForVersion").Will (Return.Value ("asdf"));
 			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
 			
 			var creator = new TempFileCreator (provider);
