@@ -19,6 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using GLib;
+
 namespace DirectoryHistory
 {
 	public class ExceptionHandling
@@ -34,6 +36,13 @@ namespace DirectoryHistory
 				throw new ArgumentNullException ("displayer");
 			}
 			Displayer = displayer;
+			
+			//GLib.ExceptionManager.UnhandledException += HandleGLibExceptionManagerUnhandledException;
+		}
+
+		private void HandleGLibExceptionManagerUnhandledException (UnhandledExceptionArgs args)
+		{
+			DisplayException (args.ExceptionObject as Exception);
 		}
 		
 		public void DisplayException (Exception exception)

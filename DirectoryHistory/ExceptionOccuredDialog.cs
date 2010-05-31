@@ -45,6 +45,7 @@ namespace DirectoryHistory
 		public ExceptionOccuredDialog ()
 		{
 			this.Build ();
+			HideAll ();
 		}
 	}
 }

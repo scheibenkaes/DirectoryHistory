@@ -34,10 +34,15 @@ using DirectoryHistory.UI;
 public partial class MainWindow : Gtk.Window
 {
 	private ApplicationLogic logic;
+	
+	private readonly ExceptionHandling exceptionHandling = new ExceptionHandling (new ExceptionOccuredDialog ());
 
 	public MainWindow (ApplicationLogic logic) : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
+		
+		
+		
 		this.logic = logic;
 		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;
 		logic.OnDirectoryLoaded += OnDirectoryLoaded;
@@ -219,12 +224,12 @@ public partial class MainWindow : Gtk.Window
 		});
 	}
 
-	private static void RunActionSavely (System.Action action)
+	private void RunActionSavely (System.Action action)
 	{
 		try {
 			action.Invoke ();
 		} catch (Exception ex) {
-			new ExceptionHandling (new ExceptionOccuredDialog ()).DisplayException (ex);
+			exceptionHandling.DisplayException (ex);
 		}
 	}
 
