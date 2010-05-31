@@ -212,7 +212,7 @@ public partial class MainWindow : Gtk.Window
 			if (!string.IsNullOrEmpty (selectedFile)) {
 				var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
 				if (file is IFileWithHistory) {
-					var historyDialog = new HistoryDialog (file) { Modal = true };
+					var historyDialog = new HistoryDialog (logic, file) { Modal = true };
 					historyDialog.Show ();
 				}
 			}

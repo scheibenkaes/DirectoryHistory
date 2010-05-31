@@ -30,10 +30,18 @@ namespace DirectoryHistory.UI
 	public partial class HistoryEntry : Gtk.Bin
 	{
 		public IFileVersion Version { get; private set; }
+		
+		public IFileWithHistory File  {
+			get;
+			private set;
+		}
+		
+		public event EventHandler<ShowVersionOfFileEventArgs> OnVersionShown;
 
 		public HistoryEntry (IFileWithHistory file, IFileVersion version)
 		{
 			Version = version;
+			File = file;
 			this.Build ();
 			
 			openButton.Clicked += HandleOpenButtonClicked;
@@ -48,7 +56,9 @@ namespace DirectoryHistory.UI
 		
 		private void HandleOpenButtonClicked (object sender, EventArgs e)
 		{
-			throw new NotImplementedException ();
+			if (OnVersionShown != null) {
+				OnVersionShown (this, new ShowVersionOfFileEventArgs (File, Version));
+			}
 		}
 	}
 }

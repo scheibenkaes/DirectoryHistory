@@ -1,10 +1,10 @@
 //  
-//  Main.cs
+//  ShowVersionOfFileEventArgs.cs
 //  
 //  Author:
-//       Benjamin Klüglein <scheibenkaes@googlemail.com>
+//       bkn <${AuthorEmail}>
 // 
-//  Copyright (c) 2010 Benjamin Klüglein
+//  Copyright (c) 2010 bkn
 // 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,33 +18,30 @@
 // 
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
-using Gtk;
 
-using Mono.Unix;
-
-using DirectoryHistory.History;
-
-namespace DirectoryHistory
+namespace DirectoryHistory.History
 {
-	class MainClass
+	public class ShowVersionOfFileEventArgs : EventArgs
 	{
-		public static void Main (string[] args)
+		public IFileWithHistory File  {
+			get;
+			private set;
+		}
+		
+		public IFileVersion Version  {
+			get;
+			private set;
+		}
+		
+		public ShowVersionOfFileEventArgs (IFileWithHistory file, IFileVersion version)
 		{
-			Application.Init ();
-			
-			Catalog.Init ("i8n1", "locale");
-			
-			var git = new DirectoryHistory.History.Git.HistoryProvider ();
-			var gitCreator = new DirectoryHistory.History.Git.TempFileCreator (git);
-			var cache = new TempFileCache (gitCreator);
-			
-			var applLogic = new ApplicationLogic (git, cache);
-			
-			MainWindow win = new MainWindow (applLogic);
-			win.Show ();
-			Application.Run ();
+			if (file == null || version == null) {
+				throw new ArgumentNullException ("File and version must not be null");
+			}
+			File = file;
+			Version = version;
 		}
 	}
 }
+

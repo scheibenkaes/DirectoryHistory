@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using DirectoryHistory.Common;
 
 namespace DirectoryHistory.History
 {
@@ -33,10 +34,19 @@ namespace DirectoryHistory.History
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> OnDirectoryLoaded;
 
 		public event AskUserForCreation OnUserRequestForCreation;
-
+		
 		public IHistoryProvider HistoryProvider { get; private set; }
 
 		public IDirectoryWithHistory RootDirectory { get; private set; }
+		
+		private TempFileCache tempFileCache;
+		
+		public void ShowVersionOfFile (object sender, ShowVersionOfFileEventArgs args) 
+		{
+			var tempFile = tempFileCache.GetFile (args.File, args.Version);
+			
+			FileStarter.StartFile (tempFile);
+		}
 		
 		public ICommit CreateCommit (string selectedFile, string comment)
 		{
@@ -80,9 +90,10 @@ namespace DirectoryHistory.History
 				HistoryProvider.Dispose ();
 		}
 
-		public ApplicationLogic (IHistoryProvider provider)
+		public ApplicationLogic (IHistoryProvider provider, TempFileCache cache)
 		{
 			HistoryProvider = provider;
+			tempFileCache = cache;
 		}
 	}
 }

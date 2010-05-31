@@ -34,7 +34,7 @@ namespace DirectoryHistory.UI
 			private set;
 		}
 		
-		public HistoryDialog (IFileWithHistory file)
+		public HistoryDialog (ApplicationLogic logic, IFileWithHistory file)
 		{
 			this.Build ();
 			RegisterEvents ();
@@ -42,7 +42,9 @@ namespace DirectoryHistory.UI
 			
 			label.Text = file.PathInRepository;
 			
-			var entries = CreateEntriesForFile (file);
+			var entries = CreateEntriesForFile (file).ToList ();
+			
+			entries.ForEach (e => e.OnVersionShown += logic.ShowVersionOfFile);
 			
 			DisplayEntries (entries);
 			

@@ -52,6 +52,13 @@
     <Compile Include="ITempFileCreator.cs" />
     <Compile Include="TempFileCache.cs" />
     <Compile Include="CacheKey.cs" />
+    <Compile Include="ShowVersionOfFileEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\DirectoryHistory.Common\DirectoryHistory.Common.csproj">
+      <Project>{E2B6C9C0-23DA-4560-8FCC-D544CF84B1A3}</Project>
+      <Name>DirectoryHistory.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
