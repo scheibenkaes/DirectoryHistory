@@ -34,24 +34,26 @@ using DirectoryHistory.History.Git;
 
 namespace Git.Test
 {
-	[TestFixture()]
-	public class DirectoryWithHistoryTest: GitTestCase
+	[TestFixture]
+	public class DirectoryWithHistoryTest : GitTestCase
 	{
-		
+
 		private IHistoryProvider provider = new HistoryProvider ();
 		private Mockery myMockery;
-		
-		 [SetUp]
-		 public void SetUp ()
-		 {
+
+		[SetUp]
+		public void SetUp ()
+		{
 			myMockery = new Mockery ();
+			TestHelper.CreateTestRepo ();
 		}
-		
+
 		[TearDown]
 		public void TearDown ()
 		{
 			myMockery.Dispose ();
 			myMockery = null;
+			TestHelper.RemoveTestRepo ();
 		}
 
 		[Test]
@@ -60,32 +62,32 @@ namespace Git.Test
 		{
 			new DirectoryWithHistory (new HistoryProvider (), null);
 		}
-		
+
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void Ctor_ProviderIsNecessary ()
 		{
 			new DirectoryWithHistory (null, "/tmp");
 		}
-		
+
 		[Test]
 		public void Status_ShouldBe_NotUnderVC_WhenCreated ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			
 			string dirPath = TestData.TEMP_DIR.PathCombine ("testdir_new");
-			Directory.CreateDirectory (dirPath);			
+			Directory.CreateDirectory (dirPath);
 			var dir = provider.GetDirectory (dirPath);
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, dir.Status);
 		}
-		
+
 		[Test]
 		public void Status_ShouldBe_NotUnderVC_WhenCreated_NotEmptyDirectory ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			
 			string dirPath = TestData.TEMP_DIR.PathCombine ("testdir_new_not_empty");
-			Directory.CreateDirectory (dirPath);			
+			Directory.CreateDirectory (dirPath);
 			var containedFile = dirPath.PathCombine ("a_file.txt");
 			CreateFile (containedFile);
 			var dir = provider.GetDirectory (dirPath);
@@ -95,32 +97,41 @@ namespace Git.Test
 			// Impl. feels a bit dirty, so just to make sure ...
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, provider.GetFile (containedFile).Status);
 		}
-		
+
 		[Test]
 		public void TheRootDir_CantBeNotUnderVersionControl ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			Assert.AreEqual (FileStatus.Committed, provider.GetDirectory (TestData.TEMP_DIR).Status);
 		}
-		
+
 		[Test]
-		public void IsRootDirectory_IsSetWhenRoot()
+		public void IsRootDirectory_IsSetWhenRoot ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			Assert.IsTrue (provider.GetDirectory (TestData.TEMP_DIR).IsRootDirectory);
 		}
 		
-		[Test]
-		public void IsNotRootDirectory_WhenNotRoot()
+		#region IsNotRootDirectory_WhenNotRoot
+		public void Setup_IsNotRootDirectory_WhenNotRoot ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			Assert.IsFalse (provider.GetDirectory (TestData.TEMP_DIR.PathCombine ("committed_dir")).IsRootDirectory);
+			TestHelper.CreateDirectory (Path.Combine (TestData.TEMP_DIR, "committed_dir"));
 		}
 		
 		[Test]
-		[ExpectedException (typeof (InvalidOperationException))]
+		public void IsNotRootDirectory_WhenNotRoot ()
+		{
+			Setup_IsNotRootDirectory_WhenNotRoot ();
+			Assert.IsFalse (provider.GetDirectory (TestData.TEMP_DIR.PathCombine ("committed_dir")).IsRootDirectory);
+		}
+		#endregion
+
+		[Test]
+		[ExpectedException(typeof(InvalidOperationException))]
 		public void GetContentForVersion_IsNotAValidOperation ()
 		{
+			
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			provider.GetDirectory ("/tmp/test_repo").GetContentForVersion (myMockery.NewMock<IFileVersion> ());
 		}

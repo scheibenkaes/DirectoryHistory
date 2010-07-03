@@ -72,6 +72,7 @@
     <Compile Include="FileVersionTest.cs" />
     <Compile Include="MyCommitTest.cs" />
     <Compile Include="TempFileCreatorTest.cs" />
+    <Compile Include="TestHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

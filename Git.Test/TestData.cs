@@ -28,8 +28,6 @@ using GitSharp;
 
 namespace Git.Test
 {
-
-
 	public static class TestData
 	{
 		public const string TEMP_DIR = "/tmp/test_repo";
