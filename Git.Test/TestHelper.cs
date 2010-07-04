@@ -21,6 +21,7 @@
 
 using System;
 using System.IO;
+using System.Diagnostics;
 
 using DirectoryHistory.History;
 using DirectoryHistory.History.Git;
@@ -53,14 +54,14 @@ namespace Git.Test
 		
 		public static void RemoveTestRepo ()
 		{
-			if (Directory.Exists (TestData.TEMP_DIR)) {
-				Directory.Delete (TestData.TEMP_DIR, true);
-			}
+			"rm".RunCommand (string.Format (" -Rf {0}", TestData.TEMP_DIR));
 		}
 		
 		public static void CreateDirectory (string path)
 		{
 			Directory.CreateDirectory (path);
 		}
+		
+		
 	}
 }
