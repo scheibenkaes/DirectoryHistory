@@ -39,7 +39,7 @@ namespace DirectoryHistory.History.Git
 			return dir;
 		}
 		
-		public static string ReducePath (string path, string reducedWith)
+		public static string ReducePath (this string path, string reducedWith)
 		{
 			if (string.IsNullOrEmpty (path)) {
 				throw new ArgumentException ("path is null or empty");
