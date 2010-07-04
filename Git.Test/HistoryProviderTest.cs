@@ -38,14 +38,17 @@ namespace Git.Test
 		{
 			base.SetUp ();
 			provider = new HistoryProvider ();
+			TestHelper.CreateTestRepo ();
 		}
 		
 		[TearDown]
-		public override void TearDown()
+		public override void TearDown ()
 		{
 			base.TearDown ();
 			provider.Dispose ();
 			provider = null;
+			
+			TestHelper.RemoveTestRepo ();
 		}
 		
 		[Test]
@@ -96,7 +99,7 @@ namespace Git.Test
 		[Test]
 		public void AddsAFileToTheRepository ()
 		{
-			provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			provider.LoadDirectory (TestData.TEMP_DIR);
 			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
 			Console.WriteLine (testFile);
 			CreateFile (testFile);
@@ -134,9 +137,10 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void GetFileOrDirectory_ReturnsADirectoryIfExisting()
+		public void GetFileOrDirectory_ReturnsADirectoryIfExisting ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
+			TestHelper.CreateDirectory (Path.Combine (TestData.TEMP_DIR, "committed_dir"));
 			var path = TestData.TEMP_DIR.PathCombine ("committed_dir");
 			
 			var dir = provider.GetFileOrDirectory (path);
