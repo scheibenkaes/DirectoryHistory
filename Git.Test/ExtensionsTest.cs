@@ -39,14 +39,14 @@ namespace Git.Test
 			var proj = TestData.DIR_WITH_GIT;
 			var file = Path.Combine (proj, "foo/bar.txt");
 			
-			Assert.AreEqual ("foo/bar.txt", Extensions.ReducePath (proj, file));
+			Assert.AreEqual ("foo/bar.txt", proj.ReducePath (file));
 		}
 		
 		[Test]
 		public void Test_WrongReducing()
 		{
 			var file = "/tmp/gittest/existing.txt";
-			Assert.AreEqual ("existing.txt", Extensions.ReducePath ("/tmp/gittest", file));
+			Assert.AreEqual ("existing.txt", "/tmp/gittest".ReducePath (file));
 				
 		}
 			
