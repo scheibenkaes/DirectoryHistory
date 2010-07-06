@@ -153,16 +153,28 @@ namespace Git.Test
 		[Test]
 		public void GetContentForVersion_ReadsContentsCorrectly ()
 		{
-			var longId = "cd3d0560e7bce3b07ad10f9a2c67a4a18b99ab26";
-			IFileVersion version = myMockery.NewMock<IFileVersion> ();
-			Stub.On (version).GetProperty ("ID").Will (Return.Value (longId));
+			//			var file = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
+			//			var content = file.GetContentForVersion (version);
+			//			
+			//			var expectedContent = "asd\r\n\r\nasf\r\n";
+			//			
+			//			var repo = new Repository (TestData.TEMP_DIR);
+			
+			
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
-			var content = file.GetContentForVersion (version);
+			var path = "/tmp/test_repo/with_2_versions.txt";
+			var hello = "Hello World";
+			File.AppendAllText (path, hello);
+			provider.AddFile (path);
+			var file = provider.GetFile (path);
+			provider.CommitChanges (new DirectoryHistory.History.Commit (file, "heee jaaa"));
+			var he = " hehe jaaaa";
+			File.AppendAllText (path, he);
+			provider.CommitChanges (new DirectoryHistory.History.Commit (file, "heee jaaa 2"));
 			
-			var expectedContent = "asd\r\n\r\nasf\r\n";
+			var firstCommit = file.History.Last ();
 			
-			Assert.AreEqual (expectedContent, content);
+			Assert.AreEqual (hello, file.GetContentForVersion (firstCommit));
 		}
 	}
 }
