@@ -39,7 +39,7 @@ namespace Git.Test
 	public class FileWithHistoryTest : GitTestCase
 	{
 		private HistoryProvider provider;
-		
+
 		private Mockery myMockery;
 
 		[SetUp]
@@ -49,6 +49,8 @@ namespace Git.Test
 			provider = new HistoryProvider ();
 			
 			myMockery = new Mockery ();
+			
+			TestHelper.CreateTestRepo ();
 		}
 
 		[TearDown]
@@ -61,16 +63,19 @@ namespace Git.Test
 			myMockery.Dispose ();
 			myMockery = null;
 		}
-		
+
 		[Test]
-		public void Test_PathInRepository()
+		public void Test_PathInRepository ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file1 	= provider.GetFile ("/tmp/test_repo/changed.txt");
-			var file2 	= provider.GetFile ("/tmp/test_repo/committed.txt");
+			var file1 = "/tmp/test_repo/changed.txt";
+			var file2 = "/tmp/test_repo/committed.txt";
 			
-			Assert.AreEqual ("changed.txt", file1.PathInRepository);
-			Assert.AreEqual ("committed.txt", file2.PathInRepository);
+			CreateFile (file1);
+			CreateFile (file2);
+			
+			Assert.AreEqual ("changed.txt", provider.GetFile (file1).PathInRepository);
+			Assert.AreEqual ("committed.txt", provider.GetFile (file2).PathInRepository);
 			
 		}
 
@@ -90,6 +95,8 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "changed.txt");
+			CreateFile (testFilePath);
+			provider.AddFile (testFilePath);
 			var file = provider.GetFile (testFilePath);
 			
 			Assert.AreEqual (FileStatus.Changed, file.Status);
@@ -100,52 +107,53 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "committed.txt");
+			CreateFile (testFilePath);
+			provider.AddFile (testFilePath);
 			var file = provider.GetFile (testFilePath);
+			
+			provider.CommitChanges (new DirectoryHistory.History.Commit (file, "dc"));
 			
 			Assert.AreEqual (FileStatus.Committed, file.Status);
 		}
-		
+
 		[Test]
-		public void History_OfAFileWith2Entries()
+		public void History_OfAFileWith2Entries ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 	= provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
+			var file2 = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
 			
 			Assert.AreEqual (2, file2.History.Count ());
 		}
-		
+
 		[Test]
 		[Ignore("Maybe this isn't needed")]
 		public void DetectsIfAFileIsBinary ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 	= provider.GetFile ("/tmp/test_repo/use_cases.odt");
+			var file2 = provider.GetFile ("/tmp/test_repo/use_cases.odt");
 			Assert.IsTrue (file2.IsBinaryFile ());
 		}
-		
+
 		[Test]
 		[Ignore("Maybe this isn't needed")]
 		public void DetectsIfAFileIsNotBinary ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 	= provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
+			var file2 = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
 			Assert.IsFalse (file2.IsBinaryFile ());
 		}
-		
+
 		[Test]
 		public void GetContentForVersion_ReadsContentsCorrectly ()
 		{
 			var longId = "cd3d0560e7bce3b07ad10f9a2c67a4a18b99ab26";
 			IFileVersion version = myMockery.NewMock<IFileVersion> ();
-			Stub.On (version).GetProperty ("ID").Will(Return.Value (longId));
+			Stub.On (version).GetProperty ("ID").Will (Return.Value (longId));
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file  = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
+			var file = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
 			var content = file.GetContentForVersion (version);
 			
-			var expectedContent = @"asd
-
-asf
-";
+			var expectedContent = "asd\r\n\r\nasf\r\n";
 			
 			Assert.AreEqual (expectedContent, content);
 		}
