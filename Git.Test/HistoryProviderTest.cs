@@ -81,8 +81,12 @@ namespace Git.Test
 			CreateFile (testFile_not2BeCommitted);
 			CreateFile (testFile);
 			
-			provider.AddFile (testFile_not2BeCommitted);
-			provider.AddFile (testFile);
+			provider.AddFile (testFile, testFile_not2BeCommitted);
+			
+			provider.CommitChanges (new Commit (provider.GetFile (testFile_not2BeCommitted), "foo"));
+			File.AppendAllText (testFile_not2BeCommitted, "blah");
+			
+			File.AppendAllText (testFile, "blahblah");
 			
 			var commit = new Commit (provider.GetFile (testFile), "GitCommit_EffectsOnlySelectedFiles");
 			provider.CommitChanges (commit);
