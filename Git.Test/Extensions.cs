@@ -30,7 +30,8 @@ namespace Git.Test
 		{
 			var info = new ProcessStartInfo (cmd, args);
 			info.WorkingDirectory = "/tmp";
-			Process.Start (info);
+			var process = Process.Start (info);
+			process.WaitForExit ();
 		}
 	}
 }

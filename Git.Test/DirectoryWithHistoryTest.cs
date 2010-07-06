@@ -84,6 +84,7 @@ namespace Git.Test
 		[Test]
 		public void Status_ShouldBe_NotUnderVC_WhenCreated_NotEmptyDirectory ()
 		{
+			TestHelper.CreateTestRepo ();
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			
 			string dirPath = TestData.TEMP_DIR.PathCombine ("testdir_new_not_empty");
@@ -122,6 +123,7 @@ namespace Git.Test
 		[Test]
 		public void IsNotRootDirectory_WhenNotRoot ()
 		{
+			TestHelper.CreateTestRepo ();
 			Setup_IsNotRootDirectory_WhenNotRoot ();
 			Assert.IsFalse (provider.GetDirectory (TestData.TEMP_DIR.PathCombine ("committed_dir")).IsRootDirectory);
 		}
@@ -131,7 +133,7 @@ namespace Git.Test
 		[ExpectedException(typeof(InvalidOperationException))]
 		public void GetContentForVersion_IsNotAValidOperation ()
 		{
-			
+			TestHelper.CreateTestRepo ();
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			provider.GetDirectory ("/tmp/test_repo").GetContentForVersion (myMockery.NewMock<IFileVersion> ());
 		}

@@ -75,6 +75,13 @@ namespace DirectoryHistory.History.Git
 			Repository.Index.Add (file.PathInRepository);
 		}
 		
+		public void AddFile (params string[] files)
+		{
+			foreach (string file in files) {
+				AddFile (GetFile (file));
+			}
+		}
+		
 		public void CommitChanges (ICommit commit)
 		{
 			AddFile (commit.File);

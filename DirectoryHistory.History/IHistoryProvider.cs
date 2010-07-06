@@ -75,6 +75,14 @@ namespace DirectoryHistory.History
 		void AddFile (IFileWithHistory file);
 		
 		/// <summary>
+		/// Convenience method <see cref="AddFile"/>
+		/// </summary>
+		/// <param name="param">
+		/// The files to be added
+		/// </param>
+		void AddFile (params string[] files);
+		
+		/// <summary>
 		/// Retrieve the file corresponding to the given path.
 		/// </summary>
 		/// <param name="path">

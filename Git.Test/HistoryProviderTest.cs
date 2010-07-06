@@ -71,12 +71,18 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void GitCommit_EffectsOnlySelectedFiles()
+		public void GitCommit_EffectsOnlySelectedFiles ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			
 			var testFile_not2BeCommitted 	= "/tmp/test_repo/changed2.txt";
 			var testFile 					= "/tmp/test_repo/changed.txt";
+			
+			CreateFile (testFile_not2BeCommitted);
+			CreateFile (testFile);
+			
+			provider.AddFile (testFile_not2BeCommitted);
+			provider.AddFile (testFile);
 			
 			var commit = new Commit (provider.GetFile (testFile), "GitCommit_EffectsOnlySelectedFiles");
 			provider.CommitChanges (commit);
@@ -86,11 +92,11 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void Test_GetFile()
+		public void Test_GetFile ()
 		{
 			provider.LoadDirectory (TestData.DIR_WITH_GIT);
 			var testFile = TestData.DIR_WITH_GIT.PathCombine ("committed.txt");
-			
+			CreateFile (testFile);
 			var file = provider.GetFile (testFile);
 			
 			Assert.AreEqual (testFile, file.Path);
@@ -101,7 +107,6 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
-			Console.WriteLine (testFile);
 			CreateFile (testFile);
 			
 			var file = new FileWithHistory (provider, testFile);
@@ -110,6 +115,27 @@ namespace Git.Test
 			
 			Assert.IsNotNull (file.Status);
 			Assert.AreEqual (FileStatus.Changed, file.Status);
+		}
+		
+		[Test]
+		public void Test_AddFile_WithParams ()
+		{
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
+			var testFile2 = TestData.DIR_WITH_GIT.PathCombine ("adding2.txt");
+			CreateFile (testFile);
+			CreateFile (testFile2);
+			
+			provider.AddFile (testFile, testFile2);
+			
+			var file1 = provider.GetFile (testFile);
+			var file2 = provider.GetFile (testFile2);
+			
+			Assert.IsNotNull (file1.Status);
+			Assert.AreEqual (FileStatus.Changed, file1.Status);
+			
+			Assert.IsNotNull (file2.Status);
+			Assert.AreEqual (FileStatus.Changed, file2.Status);
 		}
 		
 		[Test]
@@ -131,7 +157,7 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			var path = TestData.TEMP_DIR.PathCombine ("committed_dir");
-			
+			Directory.CreateDirectory (path);
 			var dir = provider.GetDirectory (path);
 			Assert.IsNotNull (dir);
 		}
@@ -140,8 +166,9 @@ namespace Git.Test
 		public void GetFileOrDirectory_ReturnsADirectoryIfExisting ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			TestHelper.CreateDirectory (Path.Combine (TestData.TEMP_DIR, "committed_dir"));
+			
 			var path = TestData.TEMP_DIR.PathCombine ("committed_dir");
+			TestHelper.CreateDirectory (path);
 			
 			var dir = provider.GetFileOrDirectory (path);
 			Assert.IsNotNull (dir);
@@ -149,10 +176,12 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void GetFileOrDirectory_ReturnsAFileIfExisting()
+		public void GetFileOrDirectory_ReturnsAFileIfExisting ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			var path = TestData.DIR_WITH_GIT.PathCombine ("committed.txt");
+			
+			CreateFile (path);
 			
 			var dir = provider.GetFileOrDirectory (path);
 			Assert.IsNotNull (dir);
