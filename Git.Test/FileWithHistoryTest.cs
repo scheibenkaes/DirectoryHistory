@@ -120,9 +120,16 @@ namespace Git.Test
 		public void History_OfAFileWith2Entries ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
+			var path = "/tmp/test_repo/with_2_versions.txt";
+			CreateFile (path);
+			provider.AddFile (path);
+			var file = provider.GetFile (path);
+			provider.CommitChanges (new DirectoryHistory.History.Commit(file, "heee jaaa"));
+			File.AppendAllText (path, " hehe jaaaa");
+			provider.CommitChanges (new DirectoryHistory.History.Commit (file, "heee jaaa 2"));
 			
-			Assert.AreEqual (2, file2.History.Count ());
+			
+			Assert.AreEqual (2, file.History.Count ());
 		}
 
 		[Test]
