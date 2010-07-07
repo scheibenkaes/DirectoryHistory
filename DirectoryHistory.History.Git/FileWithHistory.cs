@@ -124,11 +124,6 @@ namespace DirectoryHistory.History.Git
 			yield break;
 		}
 
-		public bool IsBinaryFile ()
-		{
-			throw new NotImplementedException ();
-		}
-
 		public string GetContentForVersion (IFileVersion version)
 		{
 			var commit = new GitSharp.Commit (repository, version.ID);

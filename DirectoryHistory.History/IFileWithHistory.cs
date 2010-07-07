@@ -50,14 +50,6 @@ namespace DirectoryHistory.History
 		IEnumerable<IFileVersion> History { get; }
 		
 		/// <summary>
-		/// Detect if a file is a binary file or not.
-		/// </summary>
-		/// <returns>
-		/// true if the file is binary or if it's a directory
-		/// </returns>
-		bool IsBinaryFile ();
-		
-		/// <summary>
 		/// Returns the binary content of the file from the given version.
 		/// </summary>
 		/// <param name="version">

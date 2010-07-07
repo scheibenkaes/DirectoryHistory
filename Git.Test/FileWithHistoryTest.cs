@@ -133,24 +133,6 @@ namespace Git.Test
 		}
 
 		[Test]
-		[Ignore("Maybe this isn't needed")]
-		public void DetectsIfAFileIsBinary ()
-		{
-			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 = provider.GetFile ("/tmp/test_repo/use_cases.odt");
-			Assert.IsTrue (file2.IsBinaryFile ());
-		}
-
-		[Test]
-		[Ignore("Maybe this isn't needed")]
-		public void DetectsIfAFileIsNotBinary ()
-		{
-			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file2 = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
-			Assert.IsFalse (file2.IsBinaryFile ());
-		}
-
-		[Test]
 		public void GetContentForVersion_ReadsContentsCorrectly ()
 		{
 			//			var file = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
