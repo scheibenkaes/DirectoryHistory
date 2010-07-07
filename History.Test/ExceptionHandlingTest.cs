@@ -43,27 +43,6 @@ namespace History.Test
 			myMockery.Dispose ();
 			myMockery = null;
 		}
-		
-		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
-		public void Throws_Exception_If_Displayer_Is_Null ()
-		{
-			new ExceptionHandling (null);
-		}
-		
-		[Test]
-		public void Should_Invoke_Its_Displayer ()
-		{
-			IExceptionDisplayer displayer = myMockery.NewMock <IExceptionDisplayer> ();
-			
-			var exceptionHandling = new ExceptionHandling (displayer);
-			
-			var exception = new Exception ("Uupps");
-			
-			Expect.Once.On (displayer).Method ("DisplayException").With (exception);
-			
-			exceptionHandling.DisplayException (exception);
-		}
 	}
 }
 

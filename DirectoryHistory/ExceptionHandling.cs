@@ -25,18 +25,8 @@ namespace DirectoryHistory
 {
 	public class ExceptionHandling
 	{
-		public IExceptionDisplayer Displayer  {
-			get;
-			private set;
-		}
-		
-		public ExceptionHandling (IExceptionDisplayer displayer)
+		public ExceptionHandling ()
 		{
-			if (displayer == null) {
-				throw new ArgumentNullException ("displayer");
-			}
-			Displayer = displayer;
-			
 			//GLib.ExceptionManager.UnhandledException += HandleGLibExceptionManagerUnhandledException;
 		}
 
@@ -47,7 +37,16 @@ namespace DirectoryHistory
 		
 		public void DisplayException (Exception exception)
 		{
-			Displayer.DisplayException (exception);
+			new ExceptionOccuredDialog ().DisplayException (exception);
+		}
+		
+		public static void RunActionSavely (Action action)
+		{
+			try {
+				action.Invoke ();
+			} catch (Exception ex) {
+				new ExceptionHandling ().DisplayException (ex);
+			}
 		}
 	}
 }
