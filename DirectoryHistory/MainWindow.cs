@@ -28,6 +28,7 @@ using Gtk;
 using Mono.Unix;
 
 using DirectoryHistory;
+using DirectoryHistory.Common;
 using DirectoryHistory.History;
 using DirectoryHistory.UI;
 
@@ -35,9 +36,13 @@ public partial class MainWindow : Gtk.Window
 {
 	private ApplicationLogic logic;
 	
+	private readonly ExceptionHandling exceptionHandling;
+	
 	public MainWindow (ApplicationLogic logic) : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
+		
+		exceptionHandling = new ExceptionHandling (new ExceptionOccuredDialog ());
 		
 		this.logic = logic;
 		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;
@@ -153,7 +158,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnRefreshActionActivated (object sender, System.EventArgs e)
 	{
-		ExceptionHandling.RunActionSavely (() =>
+		exceptionHandling.RunActionSavely (() =>
 		{
 			if (logic.RootDirectory != null) {
 				logic.LoadDirectory (logic.RootDirectory.Path);
@@ -164,7 +169,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnQuitActionActivated (object sender, System.EventArgs e)
 	{
-		ExceptionHandling.RunActionSavely (() => { ExitApp (); });
+		exceptionHandling.RunActionSavely (() => { ExitApp (); });
 	}
 
 	void ShowInfoDialog ()
@@ -177,7 +182,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnAboutActionActivated (object sender, System.EventArgs e)
 	{
-		ExceptionHandling.RunActionSavely (() => { ShowInfoDialog (); });
+		exceptionHandling.RunActionSavely (() => { ShowInfoDialog (); });
 	}
 
 	protected virtual void OnAddActionActivated (object sender, System.EventArgs e)
@@ -208,7 +213,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnFileHistoryActionActivated (object sender, System.EventArgs e)
 	{
-		ExceptionHandling.RunActionSavely (() =>
+		exceptionHandling.RunActionSavely (() =>
 		{
 			var selectedFile = folderlist.ReadSelectedFile ();
 			if (!string.IsNullOrEmpty (selectedFile)) {

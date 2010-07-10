@@ -1,5 +1,5 @@
 //  
-//  ExceptionOccuredDialog.cs
+//  ExceptionHandling.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -19,34 +19,30 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using DirectoryHistory;
-using DirectoryHistory.Common;
 
-namespace DirectoryHistory
+namespace DirectoryHistory.Common
 {
-	public partial class ExceptionOccuredDialog : Gtk.Dialog, IExceptionDisplayer
+	public class ExceptionHandling
 	{
-		public void DisplayException (Exception exc)
+		private readonly IExceptionDisplayer exceptionDisplayer;
+		
+		public ExceptionHandling (IExceptionDisplayer displayer)
 		{
-			typeLabel.Text = exc.Message;
-			stacktraceTextview.Buffer.Text = exc.StackTrace;
-			
-			buttonCancel.Clicked += Quit;
-			buttonOk.Clicked += Quit;
-			
-			ShowAll ();
-			Run ();
+			exceptionDisplayer = displayer;
 		}
 		
-		public void Quit (object sender, EventArgs args)
+		public void DisplayException (Exception exception)
 		{
-			Destroy ();
+			exceptionDisplayer.DisplayException (exception);
 		}
 		
-		public ExceptionOccuredDialog ()
+		public void RunActionSavely (Action action)
 		{
-			this.Build ();
-			HideAll ();
+			try {
+				action.Invoke ();
+			} catch (Exception ex) {
+				DisplayException (ex);
+			}
 		}
 	}
 }
