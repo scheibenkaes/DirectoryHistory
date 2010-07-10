@@ -35,13 +35,9 @@ public partial class MainWindow : Gtk.Window
 {
 	private ApplicationLogic logic;
 	
-	private readonly ExceptionHandling exceptionHandling = new ExceptionHandling (new ExceptionOccuredDialog ());
-
 	public MainWindow (ApplicationLogic logic) : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		
-		
 		
 		this.logic = logic;
 		logic.OnDirectoryLoaded += folderlist.OnDirectoryUpdated;
@@ -70,7 +66,7 @@ public partial class MainWindow : Gtk.Window
 
 	private void EnableAvailableActions (string selectedFile)
 	{
-		if (string.IsNullOrEmpty (selectedFile)) {
+		if (string.IsNullOrEmpty (selectedFile) ) {
 			DisableAllFileActions ();
 		} else {
 			EnableActionsDependingOnTheSelectedFile (selectedFile);
@@ -79,6 +75,7 @@ public partial class MainWindow : Gtk.Window
 
 	private void EnableActionsDependingOnTheSelectedFile (string selectedFile)
 	{
+		// TODO make this calculation take place in logic component
 		var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
 		
 		switch (file.Status) {
@@ -89,12 +86,12 @@ public partial class MainWindow : Gtk.Window
 			break;
 		case FileStatus.Committed:
 			addAction.Sensitive = false;
-			fileHistoryAction.Sensitive = true;
+			fileHistoryAction.Sensitive = file is IDirectoryWithHistory ? false : true;
 			applyAction.Sensitive = false;
 			break;
 		case FileStatus.Changed:
 			addAction.Sensitive = false;
-			fileHistoryAction.Sensitive = true;
+			fileHistoryAction.Sensitive = file is IDirectoryWithHistory ? false : true;
 			applyAction.Sensitive = true;
 			break;
 		default:
@@ -156,7 +153,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnRefreshActionActivated (object sender, System.EventArgs e)
 	{
-		RunActionSavely (() =>
+		ExceptionHandling.RunActionSavely (() =>
 		{
 			if (logic.RootDirectory != null) {
 				logic.LoadDirectory (logic.RootDirectory.Path);
@@ -167,7 +164,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnQuitActionActivated (object sender, System.EventArgs e)
 	{
-		RunActionSavely (() => { ExitApp (); });
+		ExceptionHandling.RunActionSavely (() => { ExitApp (); });
 	}
 
 	void ShowInfoDialog ()
@@ -180,7 +177,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnAboutActionActivated (object sender, System.EventArgs e)
 	{
-		RunActionSavely (() => { ShowInfoDialog (); });
+		ExceptionHandling.RunActionSavely (() => { ShowInfoDialog (); });
 	}
 
 	protected virtual void OnAddActionActivated (object sender, System.EventArgs e)
@@ -211,7 +208,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnFileHistoryActionActivated (object sender, System.EventArgs e)
 	{
-		RunActionSavely (() =>
+		ExceptionHandling.RunActionSavely (() =>
 		{
 			var selectedFile = folderlist.ReadSelectedFile ();
 			if (!string.IsNullOrEmpty (selectedFile)) {
@@ -224,14 +221,7 @@ public partial class MainWindow : Gtk.Window
 		});
 	}
 
-	private void RunActionSavely (System.Action action)
-	{
-		try {
-			action.Invoke ();
-		} catch (Exception ex) {
-			exceptionHandling.DisplayException (ex);
-		}
-	}
+	
 
 	private const string LicenseText = " This program is free software: you can redistribute it and/or modify\r\n it under the terms of the GNU General Public License as published by\r\n the Free Software Foundation, either version 3 of the License, or\r\n (at your option) any later version.\r\n\r\n This program is distributed in the hope that it will be useful,\r\n but WITHOUT ANY WARRANTY; without even the implied warranty of\r\n MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\r\n GNU General Public License for more details.\r\n\r\n You should have received a copy of the GNU General Public License\r\n along with this program.  If not, see <http://www.gnu.org/licenses/>.\r\n";
 }
