@@ -39,6 +39,8 @@ namespace DirectoryHistory.History
 
 		public IDirectoryWithHistory RootDirectory { get; private set; }
 		
+		public ExceptionHandling ExceptionHandling { get; private set; }
+		
 		private TempFileCache tempFileCache;
 		
 		public void ShowVersionOfFile (object sender, ShowVersionOfFileEventArgs args) 
@@ -90,10 +92,11 @@ namespace DirectoryHistory.History
 				HistoryProvider.Dispose ();
 		}
 
-		public ApplicationLogic (IHistoryProvider provider, TempFileCache cache)
+		public ApplicationLogic (ApplicationContext context)
 		{
-			HistoryProvider = provider;
-			tempFileCache = cache;
+			HistoryProvider = context.Provider;
+			tempFileCache = context.TempFileCache;
+			ExceptionHandling = context.ExceptionHandling;
 		}
 	}
 }

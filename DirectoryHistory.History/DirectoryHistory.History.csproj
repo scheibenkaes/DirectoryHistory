@@ -53,6 +53,7 @@
     <Compile Include="TempFileCache.cs" />
     <Compile Include="CacheKey.cs" />
     <Compile Include="ShowVersionOfFileEventArgs.cs" />
+    <Compile Include="ApplicationContext.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

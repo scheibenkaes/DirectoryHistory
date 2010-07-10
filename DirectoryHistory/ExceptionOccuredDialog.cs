@@ -40,7 +40,7 @@ namespace DirectoryHistory
 		
 		public void Quit (object sender, EventArgs args)
 		{
-			Destroy ();
+			Hide ();
 		}
 		
 		public ExceptionOccuredDialog ()

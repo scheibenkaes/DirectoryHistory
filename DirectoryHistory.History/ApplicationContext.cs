@@ -1,10 +1,10 @@
 //  
-//  Main.cs
+//  ApplicationContext.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
 // 
-//  Copyright (c) 2010 Benjamin Klüglein
+//  Copyright (c) 2010 
 // 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -20,38 +20,17 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using Gtk;
-
-using Mono.Unix;
-
-using DirectoryHistory.History;
 using DirectoryHistory.Common;
 
-namespace DirectoryHistory
+
+namespace DirectoryHistory.History
 {
-	class MainClass
+	public class ApplicationContext
 	{
-		public static void Main (string[] args)
-		{
-			Application.Init ();
-			
-			Catalog.Init ("i8n1", "locale");
-			
-			var git = new DirectoryHistory.History.Git.HistoryProvider ();
-			var gitCreator = new DirectoryHistory.History.Git.TempFileCreator (git);
-			var cache = new TempFileCache (gitCreator);
-			
-			var context = new ApplicationContext () {
-				Provider = git,
-				TempFileCache = cache,
-				ExceptionHandling = new ExceptionHandling (new ExceptionOccuredDialog ())
-			};
-			
-			var applLogic = new ApplicationLogic (context);
-			
-			MainWindow win = new MainWindow (applLogic);
-			win.Show ();
-			Application.Run ();
-		}
+		public IHistoryProvider Provider { get; set; }
+
+		public TempFileCache TempFileCache { get; set; }
+		
+		public ExceptionHandling ExceptionHandling { get; set; }
 	}
 }
