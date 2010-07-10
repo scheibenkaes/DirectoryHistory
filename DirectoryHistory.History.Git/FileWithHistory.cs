@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.IO;
 
@@ -28,10 +29,11 @@ using Mono.Unix;
 
 using GitSharp;
 
+using GitCommit = GitSharp.Commit;
+
+
 namespace DirectoryHistory.History.Git
 {
-
-
 	public class FileWithHistory : IFileWithHistory
 	{
 		public string Path { get; private set; }
@@ -126,18 +128,43 @@ namespace DirectoryHistory.History.Git
 
 		public string GetContentForVersion (IFileVersion version)
 		{
-			var commit = new GitSharp.Commit (repository, version.ID);
-			
+			var commit = repository.Get<GitSharp.Commit> (version.ID);
 			if (commit == null) {
 				throw new HistoryException (Catalog.GetString (string.Format ("File version {0} is not contained in this commit!", version.ID)));
 			}
-			
-			var file = commit.Tree.Leaves.ToList ().Where (l => l.Path == PathInRepository).First ();
+
+//			Console.WriteLine (commit);
+//			Console.WriteLine (commit.Tree.Hash);
+//			leaves.ForEach (l =>
+//			{
+//				Console.WriteLine (l);
+//				Console.WriteLine (l.Path);
+//				Console.WriteLine (l.Parent.Hash);
+//				Console.WriteLine ("*");
+//			});
+			var file = GetMeFromTree (commit.Tree).First (l => l != null);
 			return file.Data;
+		}
+		
+		private IEnumerable<Leaf> GetMeFromTree (Tree tree)
+		{
+			var leaf = GetMeFromLeaves (tree.Leaves);
+			if (leaf == null) {
+				foreach (var subTree in tree.Trees) {
+					yield return GetMeFromLeaves (subTree.Leaves);
+				}
+			}
+			yield return leaf;
+		}		
+		
+		
+		private Leaf GetMeFromLeaves (IEnumerable<Leaf> leaves)
+		{
+			return leaves.Where (l => l.Path == PathInRepository).FirstOrDefault ();
 		}
 
 		public string PathInRepository {
-			get { return Extensions.ReducePath (repository.WorkingDirectory, Path); }
+			get { return repository.WorkingDirectory.ReducePath ( Path); }
 		}
 	}
 }
