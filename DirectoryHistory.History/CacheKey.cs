@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-	public struct CacheKey
+	public class CacheKey
 	{
 		public IFileWithHistory File {
 			get;
