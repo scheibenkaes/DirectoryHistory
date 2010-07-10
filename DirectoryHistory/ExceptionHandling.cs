@@ -30,10 +30,10 @@ namespace DirectoryHistory
 			//GLib.ExceptionManager.UnhandledException += HandleGLibExceptionManagerUnhandledException;
 		}
 
-		private void HandleGLibExceptionManagerUnhandledException (UnhandledExceptionArgs args)
-		{
-			DisplayException (args.ExceptionObject as Exception);
-		}
+//		private void HandleGLibExceptionManagerUnhandledException (UnhandledExceptionArgs args)
+//		{
+//			DisplayException (args.ExceptionObject as Exception);
+//		}
 		
 		public void DisplayException (Exception exception)
 		{

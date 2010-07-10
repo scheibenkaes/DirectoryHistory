@@ -66,7 +66,7 @@ public partial class MainWindow : Gtk.Window
 
 	private void EnableAvailableActions (string selectedFile)
 	{
-		if (string.IsNullOrEmpty (selectedFile)) {
+		if (string.IsNullOrEmpty (selectedFile) ) {
 			DisableAllFileActions ();
 		} else {
 			EnableActionsDependingOnTheSelectedFile (selectedFile);
@@ -75,6 +75,7 @@ public partial class MainWindow : Gtk.Window
 
 	private void EnableActionsDependingOnTheSelectedFile (string selectedFile)
 	{
+		// TODO make this calculation take place in logic component
 		var file = logic.HistoryProvider.GetFileOrDirectory (selectedFile);
 		
 		switch (file.Status) {
@@ -85,12 +86,12 @@ public partial class MainWindow : Gtk.Window
 			break;
 		case FileStatus.Committed:
 			addAction.Sensitive = false;
-			fileHistoryAction.Sensitive = true;
+			fileHistoryAction.Sensitive = file is IDirectoryWithHistory ? false : true;
 			applyAction.Sensitive = false;
 			break;
 		case FileStatus.Changed:
 			addAction.Sensitive = false;
-			fileHistoryAction.Sensitive = true;
+			fileHistoryAction.Sensitive = file is IDirectoryWithHistory ? false : true;
 			applyAction.Sensitive = true;
 			break;
 		default:
