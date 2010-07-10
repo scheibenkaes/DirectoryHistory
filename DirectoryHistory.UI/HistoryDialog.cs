@@ -42,7 +42,7 @@ namespace DirectoryHistory.UI
 			
 			label.Text = file.PathInRepository;
 			
-			var entries = CreateEntriesForFile (file).ToList ();
+			var entries = CreateEntriesForFile (logic, file).ToList ();
 			
 			entries.ForEach (e => e.OnVersionShown += logic.ShowVersionOfFile);
 			
@@ -68,10 +68,10 @@ namespace DirectoryHistory.UI
 		}
 
 
-		private static IEnumerable<HistoryEntry> CreateEntriesForFile (IFileWithHistory file)
+		private static IEnumerable<HistoryEntry> CreateEntriesForFile (ApplicationLogic appLogic, IFileWithHistory file)
 		{
 			foreach (var version in file.History) {
-				yield return new HistoryEntry (file, version);
+				yield return new HistoryEntry (appLogic, file, version);
 			}
 			yield break;
 		}

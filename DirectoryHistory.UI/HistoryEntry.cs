@@ -30,18 +30,18 @@ namespace DirectoryHistory.UI
 	public partial class HistoryEntry : Gtk.Bin
 	{
 		public IFileVersion Version { get; private set; }
-		
-		public IFileWithHistory File  {
-			get;
-			private set;
-		}
-		
+
+		public IFileWithHistory File { get; private set; }
+
 		public event EventHandler<ShowVersionOfFileEventArgs> OnVersionShown;
 
-		public HistoryEntry (IFileWithHistory file, IFileVersion version)
+		private readonly ApplicationLogic applicationLogic;
+
+		public HistoryEntry (ApplicationLogic appLogic, IFileWithHistory file, IFileVersion version)
 		{
 			Version = version;
 			File = file;
+			applicationLogic = appLogic;
 			this.Build ();
 			
 			openButton.Clicked += HandleOpenButtonClicked;
@@ -53,11 +53,11 @@ namespace DirectoryHistory.UI
 			Show ();
 		}
 
-		
+
 		private void HandleOpenButtonClicked (object sender, EventArgs e)
 		{
 			if (OnVersionShown != null) {
-				OnVersionShown (this, new ShowVersionOfFileEventArgs (File, Version));
+				applicationLogic.ExceptionHandling.RunActionSavely (() => OnVersionShown (this, new ShowVersionOfFileEventArgs (File, Version)));
 			}
 		}
 	}
