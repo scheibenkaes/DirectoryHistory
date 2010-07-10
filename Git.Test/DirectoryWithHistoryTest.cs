@@ -137,5 +137,25 @@ namespace Git.Test
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			provider.GetDirectory ("/tmp/test_repo").GetContentForVersion (myMockery.NewMock<IFileVersion> ());
 		}
+		
+		[Test]
+		public void Test_Why_FoldersAppearToBeNotUnderVC ()
+		{
+			TestHelper.CreateTestRepo ();
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var dirname = TestData.TEMP_DIR.PathCombine ("test_dir");
+			
+			Directory.CreateDirectory (TestData.TEMP_DIR.PathCombine (dirname));
+			var filename = dirname.PathCombine ("foo.php");
+			CreateFile (filename);
+			
+			var commit = new DirectoryHistory.History.Commit (provider.GetDirectory (dirname), "egal");
+			
+			provider.CommitChanges (commit);
+			
+			var dir = provider.GetDirectory (dirname);
+			
+			Assert.AreEqual (FileStatus.Committed, dir.Status);
+		}
 	}
 }
