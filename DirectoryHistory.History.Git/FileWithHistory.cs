@@ -31,6 +31,7 @@ using GitSharp;
 
 using GitCommit = GitSharp.Commit;
 
+using DirectoryHistory.Common;
 
 namespace DirectoryHistory.History.Git
 {
@@ -133,16 +134,7 @@ namespace DirectoryHistory.History.Git
 				throw new HistoryException (Catalog.GetString (string.Format ("File version {0} is not contained in this commit!", version.ID)));
 			}
 
-//			Console.WriteLine (commit);
-//			Console.WriteLine (commit.Tree.Hash);
-//			leaves.ForEach (l =>
-//			{
-//				Console.WriteLine (l);
-//				Console.WriteLine (l.Path);
-//				Console.WriteLine (l.Parent.Hash);
-//				Console.WriteLine ("*");
-//			});
-			var file = GetMeFromTree (commit.Tree).First (l => l != null);
+			var file = GetMeFromTree (commit.Tree).First (CollectionHelper.NotNull);
 			return file.Data;
 		}
 		
