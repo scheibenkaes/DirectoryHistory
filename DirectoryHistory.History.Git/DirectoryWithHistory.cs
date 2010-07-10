@@ -113,7 +113,7 @@ namespace DirectoryHistory.History.Git
 				if (repository.Index.Status.Untracked.Contains (PathInRepository) || AUntrackedFileContainsThisDirectory ()) {
 					return FileStatus.NotUnderVersionControl;
 				}
-				return FileStatus.NotUnderVersionControl;
+				return FileStatus.Committed;
 			}
 		}
 
