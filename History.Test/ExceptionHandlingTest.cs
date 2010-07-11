@@ -22,7 +22,7 @@ using System;
 using NUnit.Framework;
 using NMock2;
 
-using DirectoryHistory;
+using DirectoryHistory.Common;
 
 namespace History.Test
 {
@@ -42,6 +42,22 @@ namespace History.Test
 		{
 			myMockery.Dispose ();
 			myMockery = null;
+		}
+		
+		[Test]
+		public void RunSavely_CatchesExceptions ()
+		{
+			var displayer = myMockery.NewMock<IExceptionDisplayer> ();
+			var exceptionHandling = new ExceptionHandling (displayer);
+			
+			var exc = new Exception ();
+			
+			Expect.Once.On (displayer).Method ("DisplayException").With (exc);
+			
+			exceptionHandling.RunActionSavely (() =>
+			{
+				throw exc;
+			});
 		}
 	}
 }
