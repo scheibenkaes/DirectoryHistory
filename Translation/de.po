@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2010-07-10 19:45:19+0200\n"
-"PO-Revision-Date: 2010-07-10 19:48:51+0200\n"
+"PO-Revision-Date: 2010-07-11 12:08:08+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -103,12 +103,12 @@ msgstr "Kein Verzeichnis geöffnet"
 
 #: ../DirectoryHistory/gtk-gui/DirectoryHistory.ExceptionOccuredDialog.cs:51
 msgid "<b>An exception occured</b>"
-msgstr ""
+msgstr "<b>Ein Fehler ist aufgetreten</b>"
 
 #: ../DirectoryHistory/gtk-gui/DirectoryHistory.ExceptionOccuredDialog.cs:61
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:64
 msgid "label2"
-msgstr ""
+msgstr "l"
 
 #: ../DirectoryHistory.UI/FolderList.cs:46
 msgid "Status"
@@ -125,7 +125,7 @@ msgstr "Kommentar:"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryDialog.cs:37
 msgid "label1"
-msgstr ""
+msgstr "l"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:51
 msgid "Open this version"
@@ -136,9 +136,8 @@ msgid "Date"
 msgstr "Datum"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:99
-#, fuzzy
 msgid "Comment"
-msgstr "Kommentar:"
+msgstr "Kommentar"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:109
 msgid "Difference"

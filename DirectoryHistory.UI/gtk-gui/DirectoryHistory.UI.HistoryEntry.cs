@@ -31,6 +31,8 @@ namespace DirectoryHistory.UI {
         
         private Gtk.Label label4;
         
+        private Gtk.ScrolledWindow scrolledDifference;
+        
         protected virtual void Build() {
             Stetic.Gui.Initialize(this);
             // Widget DirectoryHistory.UI.HistoryEntry
@@ -114,6 +116,19 @@ namespace DirectoryHistory.UI {
             w8.BottomAttach = ((uint)(3));
             w8.XOptions = ((Gtk.AttachOptions)(4));
             w8.YOptions = ((Gtk.AttachOptions)(4));
+            // Container child table1.Gtk.Table+TableChild
+            this.scrolledDifference = new Gtk.ScrolledWindow();
+            this.scrolledDifference.CanFocus = true;
+            this.scrolledDifference.Name = "scrolledDifference";
+            this.scrolledDifference.ShadowType = ((Gtk.ShadowType)(1));
+            this.table1.Add(this.scrolledDifference);
+            Gtk.Table.TableChild w9 = ((Gtk.Table.TableChild)(this.table1[this.scrolledDifference]));
+            w9.TopAttach = ((uint)(2));
+            w9.BottomAttach = ((uint)(3));
+            w9.LeftAttach = ((uint)(1));
+            w9.RightAttach = ((uint)(2));
+            w9.XOptions = ((Gtk.AttachOptions)(4));
+            w9.YOptions = ((Gtk.AttachOptions)(4));
             this.Add(this.table1);
             if ((this.Child != null)) {
                 this.Child.ShowAll();
