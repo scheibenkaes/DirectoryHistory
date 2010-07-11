@@ -25,6 +25,10 @@ namespace DirectoryHistory.UI {
         
         private Gtk.TextView commentTextview;
         
+        private Gtk.HSeparator hseparator1;
+        
+        private Gtk.HSeparator hseparator2;
+        
         private Gtk.Label label1;
         
         private Gtk.Label label3;
@@ -39,7 +43,7 @@ namespace DirectoryHistory.UI {
             Stetic.BinContainer.Attach(this);
             this.Name = "DirectoryHistory.UI.HistoryEntry";
             // Container child DirectoryHistory.UI.HistoryEntry.Gtk.Container+ContainerChild
-            this.table1 = new Gtk.Table(((uint)(4)), ((uint)(2)), false);
+            this.table1 = new Gtk.Table(((uint)(5)), ((uint)(2)), false);
             this.table1.Name = "table1";
             this.table1.RowSpacing = ((uint)(6));
             this.table1.ColumnSpacing = ((uint)(6));
@@ -89,46 +93,66 @@ namespace DirectoryHistory.UI {
             w5.XOptions = ((Gtk.AttachOptions)(4));
             w5.YOptions = ((Gtk.AttachOptions)(4));
             // Container child table1.Gtk.Table+TableChild
+            this.hseparator1 = new Gtk.HSeparator();
+            this.hseparator1.Name = "hseparator1";
+            this.table1.Add(this.hseparator1);
+            Gtk.Table.TableChild w6 = ((Gtk.Table.TableChild)(this.table1[this.hseparator1]));
+            w6.TopAttach = ((uint)(4));
+            w6.BottomAttach = ((uint)(5));
+            w6.LeftAttach = ((uint)(1));
+            w6.RightAttach = ((uint)(2));
+            w6.XOptions = ((Gtk.AttachOptions)(4));
+            w6.YOptions = ((Gtk.AttachOptions)(4));
+            // Container child table1.Gtk.Table+TableChild
+            this.hseparator2 = new Gtk.HSeparator();
+            this.hseparator2.Name = "hseparator2";
+            this.table1.Add(this.hseparator2);
+            Gtk.Table.TableChild w7 = ((Gtk.Table.TableChild)(this.table1[this.hseparator2]));
+            w7.TopAttach = ((uint)(4));
+            w7.BottomAttach = ((uint)(5));
+            w7.XOptions = ((Gtk.AttachOptions)(4));
+            w7.YOptions = ((Gtk.AttachOptions)(4));
+            // Container child table1.Gtk.Table+TableChild
             this.label1 = new Gtk.Label();
             this.label1.Name = "label1";
             this.label1.LabelProp = Mono.Unix.Catalog.GetString("Date");
             this.table1.Add(this.label1);
-            Gtk.Table.TableChild w6 = ((Gtk.Table.TableChild)(this.table1[this.label1]));
-            w6.XOptions = ((Gtk.AttachOptions)(4));
-            w6.YOptions = ((Gtk.AttachOptions)(4));
+            Gtk.Table.TableChild w8 = ((Gtk.Table.TableChild)(this.table1[this.label1]));
+            w8.XOptions = ((Gtk.AttachOptions)(4));
+            w8.YOptions = ((Gtk.AttachOptions)(4));
             // Container child table1.Gtk.Table+TableChild
             this.label3 = new Gtk.Label();
             this.label3.Name = "label3";
             this.label3.LabelProp = Mono.Unix.Catalog.GetString("Comment");
             this.table1.Add(this.label3);
-            Gtk.Table.TableChild w7 = ((Gtk.Table.TableChild)(this.table1[this.label3]));
-            w7.TopAttach = ((uint)(1));
-            w7.BottomAttach = ((uint)(2));
-            w7.XOptions = ((Gtk.AttachOptions)(4));
-            w7.YOptions = ((Gtk.AttachOptions)(4));
+            Gtk.Table.TableChild w9 = ((Gtk.Table.TableChild)(this.table1[this.label3]));
+            w9.TopAttach = ((uint)(1));
+            w9.BottomAttach = ((uint)(2));
+            w9.XOptions = ((Gtk.AttachOptions)(4));
+            w9.YOptions = ((Gtk.AttachOptions)(4));
             // Container child table1.Gtk.Table+TableChild
             this.label4 = new Gtk.Label();
             this.label4.Name = "label4";
             this.label4.LabelProp = Mono.Unix.Catalog.GetString("Difference");
             this.table1.Add(this.label4);
-            Gtk.Table.TableChild w8 = ((Gtk.Table.TableChild)(this.table1[this.label4]));
-            w8.TopAttach = ((uint)(2));
-            w8.BottomAttach = ((uint)(3));
-            w8.XOptions = ((Gtk.AttachOptions)(4));
-            w8.YOptions = ((Gtk.AttachOptions)(4));
+            Gtk.Table.TableChild w10 = ((Gtk.Table.TableChild)(this.table1[this.label4]));
+            w10.TopAttach = ((uint)(2));
+            w10.BottomAttach = ((uint)(3));
+            w10.XOptions = ((Gtk.AttachOptions)(4));
+            w10.YOptions = ((Gtk.AttachOptions)(4));
             // Container child table1.Gtk.Table+TableChild
             this.scrolledDifference = new Gtk.ScrolledWindow();
             this.scrolledDifference.CanFocus = true;
             this.scrolledDifference.Name = "scrolledDifference";
             this.scrolledDifference.ShadowType = ((Gtk.ShadowType)(1));
             this.table1.Add(this.scrolledDifference);
-            Gtk.Table.TableChild w9 = ((Gtk.Table.TableChild)(this.table1[this.scrolledDifference]));
-            w9.TopAttach = ((uint)(2));
-            w9.BottomAttach = ((uint)(3));
-            w9.LeftAttach = ((uint)(1));
-            w9.RightAttach = ((uint)(2));
-            w9.XOptions = ((Gtk.AttachOptions)(4));
-            w9.YOptions = ((Gtk.AttachOptions)(4));
+            Gtk.Table.TableChild w11 = ((Gtk.Table.TableChild)(this.table1[this.scrolledDifference]));
+            w11.TopAttach = ((uint)(2));
+            w11.BottomAttach = ((uint)(3));
+            w11.LeftAttach = ((uint)(1));
+            w11.RightAttach = ((uint)(2));
+            w11.XOptions = ((Gtk.AttachOptions)(4));
+            w11.YOptions = ((Gtk.AttachOptions)(4));
             this.Add(this.table1);
             if ((this.Child != null)) {
                 this.Child.ShowAll();

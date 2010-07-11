@@ -50,6 +50,8 @@ namespace DirectoryHistory.UI
 			
 			commentTextview.Buffer.Text = Version.Commit.Comment;
 			
+			BorderWidth = 5;
+			
 			Show ();
 		}
 
