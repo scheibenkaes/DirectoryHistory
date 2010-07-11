@@ -17,6 +17,8 @@ namespace DirectoryHistory.UI {
         
         private Gtk.Label label;
         
+        private Gtk.ScrolledWindow scrolledwindow1;
+        
         private Gtk.Button buttonOk;
         
         protected virtual void Build() {
@@ -41,15 +43,23 @@ namespace DirectoryHistory.UI {
             w2.Position = 0;
             w2.Expand = false;
             w2.Fill = false;
+            // Container child entriesVbox.Gtk.Box+BoxChild
+            this.scrolledwindow1 = new Gtk.ScrolledWindow();
+            this.scrolledwindow1.CanFocus = true;
+            this.scrolledwindow1.Name = "scrolledwindow1";
+            this.scrolledwindow1.ShadowType = ((Gtk.ShadowType)(1));
+            this.entriesVbox.Add(this.scrolledwindow1);
+            Gtk.Box.BoxChild w3 = ((Gtk.Box.BoxChild)(this.entriesVbox[this.scrolledwindow1]));
+            w3.Position = 1;
             w1.Add(this.entriesVbox);
-            Gtk.Box.BoxChild w3 = ((Gtk.Box.BoxChild)(w1[this.entriesVbox]));
-            w3.Position = 0;
+            Gtk.Box.BoxChild w4 = ((Gtk.Box.BoxChild)(w1[this.entriesVbox]));
+            w4.Position = 0;
             // Internal child DirectoryHistory.UI.HistoryDialog.ActionArea
-            Gtk.HButtonBox w4 = this.ActionArea;
-            w4.Name = "dialog1_ActionArea";
-            w4.Spacing = 10;
-            w4.BorderWidth = ((uint)(5));
-            w4.LayoutStyle = ((Gtk.ButtonBoxStyle)(4));
+            Gtk.HButtonBox w5 = this.ActionArea;
+            w5.Name = "dialog1_ActionArea";
+            w5.Spacing = 10;
+            w5.BorderWidth = ((uint)(5));
+            w5.LayoutStyle = ((Gtk.ButtonBoxStyle)(4));
             // Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
             this.buttonOk = new Gtk.Button();
             this.buttonOk.CanDefault = true;
@@ -59,9 +69,9 @@ namespace DirectoryHistory.UI {
             this.buttonOk.UseUnderline = true;
             this.buttonOk.Label = "gtk-ok";
             this.AddActionWidget(this.buttonOk, -5);
-            Gtk.ButtonBox.ButtonBoxChild w5 = ((Gtk.ButtonBox.ButtonBoxChild)(w4[this.buttonOk]));
-            w5.Expand = false;
-            w5.Fill = false;
+            Gtk.ButtonBox.ButtonBoxChild w6 = ((Gtk.ButtonBox.ButtonBoxChild)(w5[this.buttonOk]));
+            w6.Expand = false;
+            w6.Fill = false;
             if ((this.Child != null)) {
                 this.Child.ShowAll();
             }

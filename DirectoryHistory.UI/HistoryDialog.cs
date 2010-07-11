@@ -64,7 +64,7 @@ namespace DirectoryHistory.UI
 			var entryBox = new Gtk.VBox ();
 			entries.ToList ().ForEach (entryBox.Add);
 			
-			entriesVbox.Add (entryBox);
+			scrolledwindow1.AddWithViewport (entryBox);
 		}
 
 
