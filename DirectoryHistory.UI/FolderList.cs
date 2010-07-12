@@ -76,8 +76,6 @@ namespace DirectoryHistory.UI
 			}
 			return string.Empty;
 		}
-		
-		
 
 		private void InitializeTreeStore ()
 		{
@@ -97,36 +95,21 @@ namespace DirectoryHistory.UI
 			if (root == null)
 				throw new ArgumentNullException ("root");
 			
-			AddDirectoryToList (root);
-			
-			AddContainingFiles (root);
-			
 			TreeIter treeIter;
 			
 			treeStore.GetIter (out treeIter, new TreePath ("0"));
 			
-			AddSubDirectories (treeIter, root);
+			AddDirectory (treeIter, root);
 		}
 
-		private void AddContainingFiles (IDirectoryWithHistory directoryWithHistory)
+		private void AddDirectory (TreeIter iter, IDirectoryWithHistory dir)
 		{
-			var files = directoryWithHistory.ChildFiles;
-			foreach (IFileWithHistory file in files) {
-				treeStore.AppendValues (file.Status.GetStockFromFileStatus (), file.Path);
+			var it = treeStore.AppendValues (dir.Status.GetStockFromFileStatus (), dir.Path);
+			foreach (var subdir in dir.ChildDirectories) {
+				AddDirectory (it, subdir);
 			}
-		}
-
-		private TreeIter AddDirectoryToList (IDirectoryWithHistory directoryWithHistory)
-		{
-			return treeStore.AppendValues (directoryWithHistory.Status.GetStockFromFileStatus (), directoryWithHistory.Path);
-		}
-
-		private void AddSubDirectories (TreeIter iter, IDirectoryWithHistory directory)
-		{
-			foreach (var child in directory.ChildDirectories) {
-				AddDirectoryToList (child);
-				AddContainingFiles (child);
-				AddSubDirectories (iter, child);
+			foreach (var file in dir.ChildFiles) {
+				treeStore.AppendValues (it, file.Status.GetStockFromFileStatus (), file.Path);
 			}
 		}
 	}
