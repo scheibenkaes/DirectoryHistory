@@ -100,13 +100,6 @@ namespace Git.Test
 		}
 
 		[Test]
-		public void TheRootDir_CantBeNotUnderVersionControl ()
-		{
-			provider.LoadDirectory (TestData.TEMP_DIR);
-			Assert.AreEqual (FileStatus.Committed, provider.GetDirectory (TestData.TEMP_DIR).Status);
-		}
-
-		[Test]
 		public void IsRootDirectory_IsSetWhenRoot ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);

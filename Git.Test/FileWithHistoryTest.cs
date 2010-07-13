@@ -33,9 +33,7 @@ using DirectoryHistory.History.Git;
 
 namespace Git.Test
 {
-
-
-	[TestFixture()]
+	[TestFixture]
 	public class FileWithHistoryTest : GitTestCase
 	{
 		private HistoryProvider provider;
@@ -135,14 +133,6 @@ namespace Git.Test
 		[Test]
 		public void GetContentForVersion_ReadsContentsCorrectly ()
 		{
-			//			var file = provider.GetFile ("/tmp/test_repo/with_2_versions.txt");
-			//			var content = file.GetContentForVersion (version);
-			//			
-			//			var expectedContent = "asd\r\n\r\nasf\r\n";
-			//			
-			//			var repo = new Repository (TestData.TEMP_DIR);
-			
-			
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			var path = "/tmp/test_repo/with_2_versions.txt";
 			var hello = "Hello World";
@@ -157,6 +147,41 @@ namespace Git.Test
 			var firstCommit = file.History.Last ();
 			
 			Assert.AreEqual (hello, file.GetContentForVersion (firstCommit));
+		}
+		
+		[Test]
+		public void GetContentForVersion_ReadsBinaryContentsCorrectly ()
+		{
+			TestHelper.CreateTestRepo ();
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			
+			var firstBytes = new byte[] { 2, 3, 4 };
+			var scndBytes = new byte[] { 5, 6, 7, 9, 0, 7, 4 };
+			
+			var filename = TestData.TEMP_DIR.PathCombine ("test.bin");
+			
+			File.WriteAllBytes (filename, firstBytes);
+			
+			var file = provider.GetFile (filename);
+			provider.CommitChanges (new DirectoryHistory.History.Commit (file, "heee jaaa"));
+			
+			File.WriteAllBytes (filename, scndBytes);
+			provider.CommitChanges (new DirectoryHistory.History.Commit (provider.GetFile (filename), "heee jaaa 2"));
+			
+			Assert.AreEqual (FileStatus.Committed, file.Status);
+			
+			var firstVersion = file.History.Last ();
+			Assert.AreEqual (BytesToString (firstBytes), 
+				file.GetContentForVersion (firstVersion));
+		}
+		
+		private static string BytesToString (byte[] b)
+		{
+			string res = string.Empty;
+			foreach (char c in b) {
+				res += c;
+			}
+			return res;
 		}
 	}
 }
