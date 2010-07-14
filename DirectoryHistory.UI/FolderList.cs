@@ -88,6 +88,8 @@ namespace DirectoryHistory.UI
 			InitializeTreeStore ();
 			
 			DisplayAsRootFolder (args.DirectoryThatChanged);
+			
+			treeview.ExpandAll ();
 		}
 
 		private void DisplayAsRootFolder (IDirectoryWithHistory root)
