@@ -42,15 +42,17 @@ namespace Git.Test
 		private Mockery myMockery;
 
 		[SetUp]
-		public void SetUp ()
+		public override void SetUp ()
 		{
+			base.SetUp ();
 			myMockery = new Mockery ();
 			TestHelper.CreateTestRepo ();
 		}
 
 		[TearDown]
-		public void TearDown ()
+		public override void TearDown ()
 		{
+			base.TearDown ();
 			myMockery.Dispose ();
 			myMockery = null;
 			TestHelper.RemoveTestRepo ();

@@ -20,28 +20,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-
-using GitSharp;
 
 namespace Git.Test
 {
 	public static class TestData
 	{
-		public const string TEMP_DIR = "/tmp/test_repo";
+		public static readonly string TEMP_DIR;
 		
-		public static readonly string DIR_WITH_GIT = TEMP_DIR;
-		
-		public static IList<string> TEST_DIRS = new List<string> {DIR_WITH_GIT};
-		
-		public static void SetUp()
+		static TestData ()
 		{
-		}
-		
-		public static void TearDown ()
-		{	
+			var tmpDir = Path.GetTempPath ();
+			var repo = Path.Combine (tmpDir, "test_repo");
+			Directory.CreateDirectory (repo);
+			TEMP_DIR = repo;
 		}
 	}
 }

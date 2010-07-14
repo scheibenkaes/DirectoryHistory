@@ -37,14 +37,12 @@ namespace Git.Test
 		[SetUp]
 		public void SetUp ()
 		{
-			TestData.SetUp ();
 			
 		}
 
 		[TearDown]
 		public void TearDown ()
 		{
-			TestData.TearDown ();
 		}
 	}
 }

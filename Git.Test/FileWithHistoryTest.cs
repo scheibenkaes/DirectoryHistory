@@ -80,8 +80,8 @@ namespace Git.Test
 		[Test]
 		public void Status_NotUnderVersionControll ()
 		{
-			provider.LoadDirectory (TestData.DIR_WITH_GIT);
-			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "Status_NotUnderVersionControll.txt");
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var testFilePath = Path.Combine (TestData.TEMP_DIR, "Status_NotUnderVersionControll.txt");
 			CreateFile (testFilePath);
 			var file = new FileWithHistory (provider, testFilePath);
 			
@@ -91,8 +91,8 @@ namespace Git.Test
 		[Test(Description = "Test against the test repo")]
 		public void Status_Changed ()
 		{
-			provider.LoadDirectory (TestData.DIR_WITH_GIT);
-			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "changed.txt");
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var testFilePath = Path.Combine (TestData.TEMP_DIR, "changed.txt");
 			CreateFile (testFilePath);
 			provider.AddFile (testFilePath);
 			var file = provider.GetFile (testFilePath);
@@ -103,8 +103,8 @@ namespace Git.Test
 		[Test(Description = "Point the code to a already existing repo and check the file there")]
 		public void Status_Committed ()
 		{
-			provider.LoadDirectory (TestData.DIR_WITH_GIT);
-			var testFilePath = Path.Combine (TestData.DIR_WITH_GIT, "committed.txt");
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var testFilePath = Path.Combine (TestData.TEMP_DIR, "committed.txt");
 			CreateFile (testFilePath);
 			provider.AddFile (testFilePath);
 			var file = provider.GetFile (testFilePath);

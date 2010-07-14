@@ -52,11 +52,11 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void GitCommitting()
+		public void GitCommitting ()
 		{
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("GitCommitting.txt");
+			var testFile = TestData.TEMP_DIR.PathCombine ("GitCommitting.txt");
 			
-			provider.LoadDirectory (TestData.DIR_WITH_GIT);
+			provider.LoadDirectory (TestData.TEMP_DIR);
 			CreateFile (testFile);
 			
 			var file = provider.GetFile (testFile);
@@ -98,8 +98,8 @@ namespace Git.Test
 		[Test]
 		public void Test_GetFile ()
 		{
-			provider.LoadDirectory (TestData.DIR_WITH_GIT);
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("committed.txt");
+			provider.LoadDirectory (TestData.TEMP_DIR);
+			var testFile = TestData.TEMP_DIR.PathCombine ("committed.txt");
 			CreateFile (testFile);
 			var file = provider.GetFile (testFile);
 			
@@ -110,7 +110,7 @@ namespace Git.Test
 		public void AddsAFileToTheRepository ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
+			var testFile = TestData.TEMP_DIR.PathCombine ("adding.txt");
 			CreateFile (testFile);
 			
 			var file = new FileWithHistory (provider, testFile);
@@ -125,8 +125,8 @@ namespace Git.Test
 		public void Test_AddFile_WithParams ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var testFile = TestData.DIR_WITH_GIT.PathCombine ("adding.txt");
-			var testFile2 = TestData.DIR_WITH_GIT.PathCombine ("adding2.txt");
+			var testFile = TestData.TEMP_DIR.PathCombine ("adding.txt");
+			var testFile2 = TestData.TEMP_DIR.PathCombine ("adding2.txt");
 			CreateFile (testFile);
 			CreateFile (testFile2);
 			
@@ -183,7 +183,7 @@ namespace Git.Test
 		public void GetFileOrDirectory_ReturnsAFileIfExisting ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var path = TestData.DIR_WITH_GIT.PathCombine ("committed.txt");
+			var path = TestData.TEMP_DIR.PathCombine ("committed.txt");
 			
 			CreateFile (path);
 			
@@ -194,10 +194,10 @@ namespace Git.Test
 		
 		[Test]
 		[ExpectedException(typeof(FileNotFoundException))]
-		public void GetFileOrDirectory_ThrowsFileNotFound()
+		public void GetFileOrDirectory_ThrowsFileNotFound ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var path = TestData.DIR_WITH_GIT.PathCombine ("not_existing_xxx.txt");
+			var path = TestData.TEMP_DIR.PathCombine ("not_existing_xxx.txt");
 			
 			provider.GetFileOrDirectory (path);
 		}

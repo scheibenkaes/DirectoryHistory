@@ -46,9 +46,6 @@ namespace Git.Test
 			file1 = myMockery.NewMock <IFileWithHistory> ();
 			version1 = myMockery.NewMock<IFileVersion> ();
 			provider = myMockery.NewMock<IHistoryProvider> ();
-			
-			var testFile = "/tmp/test_repo/use_cases.odt";
-			//Stub.On (file1).GetProperty ("Path").Will (Return.Value(testFile));
 		}
 		
 		[TearDown]

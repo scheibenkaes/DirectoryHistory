@@ -26,22 +26,18 @@ using NUnit.Framework;
 
 namespace Git.Test
 {
-
-
 	public class GitTestCase
 	{
 
 		[SetUp]
 		public virtual void SetUp ()
 		{
-			TestData.SetUp ();
 			
 		}
 
 		[TearDown]
 		public virtual void TearDown ()
 		{
-			TestData.TearDown ();
 		}
 		
 		public void CreateFile (string path)

@@ -36,7 +36,7 @@ namespace Git.Test
 		[Test()]
 		public void Test_ReducePath ()
 		{
-			var proj = TestData.DIR_WITH_GIT;
+			var proj = TestData.TEMP_DIR;
 			var file = Path.Combine (proj, "foo/bar.txt");
 			
 			Assert.AreEqual ("foo/bar.txt", proj.ReducePath (file));
