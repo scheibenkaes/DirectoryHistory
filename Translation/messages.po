@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-10 19:45:19+0200\n"
-"PO-Revision-Date: 2010-07-10 19:45:20+0200\n"
+"POT-Creation-Date: 2010-07-19 22:04:13+0200\n"
+"PO-Revision-Date: 2010-07-19 22:04:13+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgid "<b>An exception occured</b>"
 msgstr ""
 
 #: ../DirectoryHistory/gtk-gui/DirectoryHistory.ExceptionOccuredDialog.cs:61
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:64
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:70
 msgid "label2"
 msgstr ""
 
@@ -121,23 +121,23 @@ msgstr ""
 msgid "Comment:"
 msgstr ""
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryDialog.cs:37
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryDialog.cs:39
 msgid "label1"
 msgstr ""
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:51
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:57
 msgid "Open this version"
 msgstr ""
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:91
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:117
 msgid "Date"
 msgstr ""
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:99
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:125
 msgid "Comment"
 msgstr ""
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:109
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:135
 msgid "Difference"
 msgstr ""
 
@@ -157,7 +157,7 @@ msgstr ""
 msgid "The file or directory you tried to open does not exist! ({0})"
 msgstr ""
 
-#: ../DirectoryHistory.History.Git/DirectoryWithHistory.cs:137
+#: ../DirectoryHistory.History.Git/DirectoryWithHistory.cs:158
 msgid "This operation (GetContentForVersion) is not valid for a directory."
 msgstr ""
 

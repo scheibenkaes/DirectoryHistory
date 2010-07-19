@@ -8,6 +8,7 @@
     <translations>
       <translations>
         <Translation isoCode="de" />
+        <Translation isoCode="en" />
       </translations>
     </translations>
     <packageName>i8n1</packageName>

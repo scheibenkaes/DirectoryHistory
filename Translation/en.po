@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2010-07-19 22:04:06+0200\n"
-"PO-Revision-Date: 2010-07-11 12:08:08+0200\n"
+"PO-Revision-Date: 2010-07-19 22:09:13+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -12,53 +12,54 @@ msgstr ""
 
 #: ../DirectoryHistory/MainWindow.cs:127
 msgid "Open directory"
-msgstr "Verzeichnis angeben"
+msgstr "Open directory"
 
 #: ../DirectoryHistory/MainWindow.cs:139
 msgid "There is not yet a repository at this position."
-msgstr "An dieser Stelle existiert noch kein Repository."
+msgstr "There is not yet a repository at this position."
 
 #: ../DirectoryHistory/MainWindow.cs:141
-msgid "Should a new repository be created at {0}?\n"
-msgstr "Soll hier {0} ein neues Repository angelegt werden?\n"
+msgid ""
+"Should a new repository be created at {0}?\n"
+msgstr ""
+"Should a new repository be created at {0}?\n"
 
 #: ../DirectoryHistory/MainWindow.cs:142
 msgid "Yes"
-msgstr "Ja"
+msgstr "Yes"
 
 #: ../DirectoryHistory/MainWindow.cs:143
 msgid "No"
-msgstr "Nein"
+msgstr "No"
 
 #: ../DirectoryHistory/MainWindow.cs:173
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:88
 msgid "Directory History"
-msgstr "Verzeichnis Historie"
+msgstr "Directory History"
 
 #: ../DirectoryHistory/MainWindow.cs:173
 msgid "A program to keep a simple history of your files."
-msgstr "Ein Programm um die Historie von Dateien zu verwalten."
+msgstr "A program to keep a simple history of your files."
 
 #: ../DirectoryHistory/MainWindow.cs:173
 msgid "About Directory History"
-msgstr "Über Verzeichnis Historie"
+msgstr "About Directory History"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:55
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:56
 msgid "openDirectory"
-msgstr "Verzeichnis öffnen"
+msgstr "Open directory"
 
-#
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
 #: ../DirectoryHistory.UI/FolderList.cs:47
 msgid "File"
-msgstr "Datei"
+msgstr "File"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:61
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:62
 msgid "History"
-msgstr "Historie"
+msgstr "History"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:64
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:65
@@ -68,102 +69,96 @@ msgstr "Info"
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:67
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:68
 msgid "refresh"
-msgstr "Neu laden"
+msgstr "Refresh"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:70
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:71
 msgid "quit"
-msgstr "Beenden"
+msgstr "Quit"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:73
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:74
 msgid "_About"
-msgstr "_Über"
+msgstr "_About"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:76
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:77
 msgid "_Add"
-msgstr "Hin_zufügen"
+msgstr "_Add"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:79
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:80
 msgid "_Apply"
-msgstr "_Version erstellen"
+msgstr "_Apply"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:82
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:83
 msgid "File_History"
-msgstr "_Historie"
+msgstr "File_History"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:139
 msgid "No directory loaded"
-msgstr "Kein Verzeichnis geöffnet"
+msgstr "No directory loaded"
 
 #: ../DirectoryHistory/gtk-gui/DirectoryHistory.ExceptionOccuredDialog.cs:51
 msgid "<b>An exception occured</b>"
-msgstr "<b>Ein Fehler ist aufgetreten</b>"
+msgstr "<b>An exception occured</b>"
 
 #: ../DirectoryHistory/gtk-gui/DirectoryHistory.ExceptionOccuredDialog.cs:61
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:70
 msgid "label2"
-msgstr "l"
+msgstr ""
 
 #: ../DirectoryHistory.UI/FolderList.cs:46
 msgid "Status"
-msgstr "Status"
+msgstr "State"
 
 #: ../DirectoryHistory.UI/CommitDialog.cs:30
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.CommitDialog.cs:31
 msgid "Commit changes in {0}"
-msgstr "Änderungen in {0} archivieren?"
+msgstr "Commit changes in {0}"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.CommitDialog.cs:60
 msgid "Comment:"
-msgstr "Kommentar:"
+msgstr "Comment:"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryDialog.cs:39
 msgid "label1"
-msgstr "l"
+msgstr ""
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:57
 msgid "Open this version"
-msgstr "Diese Version öffnen"
+msgstr "Open this version"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:117
 msgid "Date"
-msgstr "Datum"
+msgstr "Date"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:125
 msgid "Comment"
-msgstr "Kommentar"
+msgstr ""
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:135
 msgid "Difference"
-msgstr "Unterschied"
+msgstr ""
 
 #: ../DirectoryHistory.History/Commit.cs:39
 msgid "A comment must not be empty"
-msgstr "Ein Kommentar muss Text enthalten"
+msgstr ""
 
 #: ../DirectoryHistory.History.Git/HistoryProvider.cs:102
 msgid "The file {0} isn't existing!"
-msgstr "Die Datei {0} existiert nicht!"
+msgstr ""
 
 #: ../DirectoryHistory.History.Git/HistoryProvider.cs:110
 msgid "The directory under {0} is not existing"
-msgstr "Das Verzeichnis unter {0} existiert nicht"
+msgstr ""
 
 #: ../DirectoryHistory.History.Git/HistoryProvider.cs:125
 msgid "The file or directory you tried to open does not exist! ({0})"
 msgstr ""
-"Die Datei oder das Verzeichnis das versucht wurde zu öffnen exisitiert nicht "
-"({0})"
 
 #: ../DirectoryHistory.History.Git/DirectoryWithHistory.cs:158
 msgid "This operation (GetContentForVersion) is not valid for a directory."
 msgstr ""
-"Diese Operation (GetContentForVersion) kann nicht auf einem Verzeichnis "
-"ausgeführt werden."
 
-#~ msgid "MainWindow"
-#~ msgstr "Hauptfenster"
