@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.IO;
 using Gtk;
 
 using Mono.Unix;
@@ -34,6 +35,8 @@ namespace DirectoryHistory
 		public static void Main (string[] args)
 		{
 			Application.Init ();
+			
+			ChangeCurrentDirectoryToExePath ();
 			
 			Catalog.Init ("i8n1", "locale");
 			
@@ -52,6 +55,13 @@ namespace DirectoryHistory
 			MainWindow win = new MainWindow (applLogic);
 			win.Show ();
 			Application.Run ();
+		}
+		
+		private static void ChangeCurrentDirectoryToExePath ()
+		{
+			var path = Environment.GetCommandLineArgs ()[0];
+			
+			Environment.CurrentDirectory = Path.GetDirectoryName (path);
 		}
 	}
 }
