@@ -120,7 +120,6 @@ namespace DirectoryHistory.History.Git
 
 		private bool ContainsAFileWithState (FileStatus status)
 		{
-			var files = new List<IFileWithHistory> ();
 			var allChildFiles = GetAllContainedFiles (this);
 			return allChildFiles.Any (f => f.Status == status);
 		}
