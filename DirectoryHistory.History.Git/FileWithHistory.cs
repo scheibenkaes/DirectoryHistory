@@ -155,6 +155,11 @@ namespace DirectoryHistory.History.Git
 			return leaves.Where (l => l.Path == PathInRepository).FirstOrDefault ();
 		}
 
+		public byte[] GetBinaryContentForVersion (IFileVersion version)
+		{
+			throw new System.NotImplementedException();
+		}
+		
 		public string PathInRepository {
 			get { return repository.WorkingDirectory.ReducePath ( Path); }
 		}

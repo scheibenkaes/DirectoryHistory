@@ -46,7 +46,7 @@ namespace DirectoryHistory.History.Git
 
 		public IHistoryProvider Provider { get; private set; }
 
-		private Repository repository;
+		private readonly Repository repository;
 
 		public DirectoryWithHistory (IHistoryProvider provider, string path)
 		{
@@ -155,7 +155,12 @@ namespace DirectoryHistory.History.Git
 		
 		public string GetContentForVersion (IFileVersion version)
 		{
-			throw new InvalidOperationException(Catalog.GetString ("This operation (GetContentForVersion) is not valid for a directory."));
+			throw new InvalidOperationException (Catalog.GetString ("This operation (GetContentForVersion) is not valid for a directory."));
+		}
+		
+		public byte[] GetBinaryContentForVersion (IFileVersion version)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }
