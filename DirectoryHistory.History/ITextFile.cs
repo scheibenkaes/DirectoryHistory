@@ -1,5 +1,5 @@
 //  
-//  IFileWithHistory.cs
+//  ITextFile.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,28 +20,22 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-	public interface IFileWithHistory : IHistorizable, ITextFile
+	/// <summary>
+	/// A file which implements this provides its content of a version as a string
+	/// </summary>
+	public interface ITextFile
 	{
 		/// <summary>
-		/// string representation of the file/folder on disk
+		/// Returns the binary content of the file from the given version.
 		/// </summary>
-		string Path { get; }
-
-		/// <summary>
-		/// The status which the file has under the currently used VCS
-		/// </summary>
-		FileStatus Status { get; }
-
-		/// <summary>
-		/// Get the path to the file without the repository path.
-		/// E.g.:
-		/// 	Path -> /foo/bar/myproj/file.txt
-		/// 	PathInRepository -> file.txt
-		/// </summary>
-		string PathInRepository { get; }
+		/// <param name="version">
+		/// Must not be null
+		/// </param>
+		/// <returns>
+		/// </returns>
+		string GetContentForVersion (IFileVersion version);
 	}
 }

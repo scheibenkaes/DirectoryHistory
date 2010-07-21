@@ -1,5 +1,5 @@
 //  
-//  IFileWithHistory.cs
+//  IBinaryContent.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
@@ -20,28 +20,23 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-	public interface IFileWithHistory : IHistorizable, ITextFile
+	/// <summary>
+	/// A file which implements this, provides its content of a version as a byte array
+	/// </summary>
+	public interface IBinaryFile
 	{
 		/// <summary>
-		/// string representation of the file/folder on disk
+		/// A file which is a IBinaryContent provides its content as a byte array
 		/// </summary>
-		string Path { get; }
-
-		/// <summary>
-		/// The status which the file has under the currently used VCS
-		/// </summary>
-		FileStatus Status { get; }
-
-		/// <summary>
-		/// Get the path to the file without the repository path.
-		/// E.g.:
-		/// 	Path -> /foo/bar/myproj/file.txt
-		/// 	PathInRepository -> file.txt
-		/// </summary>
-		string PathInRepository { get; }
+		/// <param name="version">
+		/// A <see cref="IFileVersion"/>, must not be null
+		/// </param>
+		/// <returns>
+		/// The content of the file of the given version
+		/// </returns>
+		byte[] GetBinaryContentForVersion (IFileVersion version);
 	}
 }

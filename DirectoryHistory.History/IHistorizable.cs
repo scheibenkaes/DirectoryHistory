@@ -1,10 +1,10 @@
 //  
-//  IFileWithHistory.cs
+//  IHistorizable.cs
 //  
 //  Author:
 //       Benjamin Klüglein <scheibenkaes@googlemail.com>
 // 
-//  Copyright (c) 2010 Benjamin Klüglein
+//  Copyright (c) 2010 
 // 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -19,29 +19,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
 using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-	public interface IFileWithHistory : IHistorizable, ITextFile
+	public interface IHistorizable
 	{
 		/// <summary>
-		/// string representation of the file/folder on disk
+		/// Retrieve the history to this file.
 		/// </summary>
-		string Path { get; }
-
-		/// <summary>
-		/// The status which the file has under the currently used VCS
-		/// </summary>
-		FileStatus Status { get; }
-
-		/// <summary>
-		/// Get the path to the file without the repository path.
-		/// E.g.:
-		/// 	Path -> /foo/bar/myproj/file.txt
-		/// 	PathInRepository -> file.txt
-		/// </summary>
-		string PathInRepository { get; }
+		IEnumerable<IFileVersion> History { get; }
 	}
 }
