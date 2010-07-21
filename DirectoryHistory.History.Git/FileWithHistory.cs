@@ -127,12 +127,6 @@ namespace DirectoryHistory.History.Git
 			yield break;
 		}
 
-		public string GetContentForVersion (IFileVersion version)
-		{
-			
-			return FindLeafForVersion (version).Data;
-		}
-		
 		public byte[] GetBinaryContentForVersion (IFileVersion version)
 		{
 			return FindLeafForVersion (version).RawData;

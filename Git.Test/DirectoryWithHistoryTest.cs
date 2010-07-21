@@ -125,15 +125,6 @@ namespace Git.Test
 		#endregion
 
 		[Test]
-		[ExpectedException(typeof(InvalidOperationException))]
-		public void GetContentForVersion_IsNotAValidOperation ()
-		{
-			TestHelper.CreateTestRepo ();
-			provider.LoadDirectory (TestData.TEMP_DIR);
-			provider.GetDirectory ("/tmp/test_repo").GetContentForVersion (myMockery.NewMock<IFileVersion> ());
-		}
-		
-		[Test]
 		public void Test_Why_FoldersAppearToBeNotUnderVC ()
 		{
 			TestHelper.CreateTestRepo ();

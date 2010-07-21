@@ -24,7 +24,7 @@ using System.Collections.Generic;
 
 namespace DirectoryHistory.History
 {
-	public interface IFileWithHistory : IHistorizable, ITextFile, IBinaryFile
+	public interface IFileWithHistory : IHistorizable, IBinaryFile
 	{
 		/// <summary>
 		/// string representation of the file/folder on disk

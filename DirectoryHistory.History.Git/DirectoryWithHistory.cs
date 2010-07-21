@@ -153,11 +153,6 @@ namespace DirectoryHistory.History.Git
 			return false;
 		}
 		
-		public string GetContentForVersion (IFileVersion version)
-		{
-			throw new InvalidOperationException (Catalog.GetString ("This operation (GetContentForVersion) is not valid for a directory."));
-		}
-		
 		public byte[] GetBinaryContentForVersion (IFileVersion version)
 		{
 			throw new System.NotImplementedException();

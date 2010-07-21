@@ -131,25 +131,6 @@ namespace Git.Test
 		}
 
 		[Test]
-		public void GetContentForVersion_ReadsContentsCorrectly ()
-		{
-			provider.LoadDirectory (TestData.TEMP_DIR);
-			var path = "/tmp/test_repo/with_2_versions.txt";
-			var hello = "Hello World";
-			File.AppendAllText (path, hello);
-			provider.AddFile (path);
-			var file = provider.GetFile (path);
-			provider.CommitChanges (new DirectoryHistory.History.Commit (file, "heee jaaa"));
-			var he = " hehe jaaaa";
-			File.AppendAllText (path, he);
-			provider.CommitChanges (new DirectoryHistory.History.Commit (file, "heee jaaa 2"));
-			
-			var firstCommit = file.History.Last ();
-			
-			Assert.AreEqual (hello, file.GetContentForVersion (firstCommit));
-		}
-		
-		[Test]
 		public void GetBinaryContentForVersion_ReadsBinaryContentsCorrectly ()
 		{
 			TestHelper.CreateTestRepo ();

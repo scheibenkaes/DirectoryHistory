@@ -36,6 +36,7 @@ namespace DirectoryHistory.History
 		/// </param>
 		/// <returns>
 		/// </returns>
+		[Obsolete]
 		string GetContentForVersion (IFileVersion version);
 	}
 }

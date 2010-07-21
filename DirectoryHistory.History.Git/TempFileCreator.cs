@@ -36,7 +36,7 @@ namespace DirectoryHistory.History.Git
 		public string CreateTempFileFromVersion (IFileWithHistory file, IFileVersion version)
 		{
 			var temp = Path.GetTempFileName ();
-			var content = file.GetContentForVersion (version);
+			var content = file.GetBinaryContentForVersion (version);
 			WriteContentToTempFile (content, temp);
 			var completeTempFileName = AppendOriginalFileEnding (temp, ReadOriginalFileEnding (file.PathInRepository));
 			File.Move (temp, completeTempFileName);
@@ -56,10 +56,10 @@ namespace DirectoryHistory.History.Git
 			}
 			return string.Format ("{0}.{1}", file, fileEnding);
 		}
-
-		private static void WriteContentToTempFile (string content, string file)
+		
+		private static void WriteContentToTempFile (byte[] content, string file)
 		{
-			File.WriteAllText (file, content);
+			File.WriteAllBytes (file, content);
 		}
 		
 		public TempFileCreator (IHistoryProvider provider)
