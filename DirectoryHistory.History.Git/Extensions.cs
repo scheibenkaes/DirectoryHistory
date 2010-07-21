@@ -44,7 +44,7 @@ namespace DirectoryHistory.History.Git
 			if (string.IsNullOrEmpty (path)) {
 				throw new ArgumentException ("path is null or empty");
 			}
-			var full = new Regex (path);
+			var full = new Regex (path.Replace (@"\", @"\\"));
 			
 			var stripped = full.Replace (reducedWith, "");
 			

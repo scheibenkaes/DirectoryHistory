@@ -43,6 +43,15 @@ namespace Git.Test
 		}
 		
 		[Test]
+		public void Test_ReducePath_Issue13 ()
+		{
+			var proj = TestData.TEMP_DIR;
+			var file = Path.Combine (proj, "foo\\bar.txt");
+			
+			Assert.AreEqual ("foo\\bar.txt", proj.ReducePath (file));
+		}
+		
+		[Test]
 		public void Test_WrongReducing()
 		{
 			var file = "/tmp/gittest/existing.txt";
