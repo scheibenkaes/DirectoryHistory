@@ -139,7 +139,7 @@ namespace DirectoryHistory.History.Git
 				throw new HistoryException (Catalog.GetString (string.Format ("File version {0} is not contained in this commit!", version.ID)));
 			}
 			
-			return GetMeFromTree (commit.Tree).First (CollectionHelper.NotNull);
+			return GetMeFromTree (commit.Tree).FirstOrDefault (CollectionHelper.NotNull);
 		}
 		
 		private IEnumerable<Leaf> GetMeFromTree (Tree tree)
