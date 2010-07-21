@@ -150,7 +150,7 @@ namespace Git.Test
 		}
 		
 		[Test]
-		public void GetContentForVersion_ReadsBinaryContentsCorrectly ()
+		public void GetBinaryContentForVersion_ReadsBinaryContentsCorrectly ()
 		{
 			TestHelper.CreateTestRepo ();
 			provider.LoadDirectory (TestData.TEMP_DIR);
@@ -171,17 +171,8 @@ namespace Git.Test
 			Assert.AreEqual (FileStatus.Committed, file.Status);
 			
 			var firstVersion = file.History.Last ();
-			Assert.AreEqual (BytesToString (firstBytes), 
-				file.GetContentForVersion (firstVersion));
-		}
-		
-		private static string BytesToString (byte[] b)
-		{
-			string res = string.Empty;
-			foreach (char c in b) {
-				res += c;
-			}
-			return res;
+			Assert.AreEqual (firstBytes, 
+				file.GetBinaryContentForVersion (firstVersion));
 		}
 	}
 }

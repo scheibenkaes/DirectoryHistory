@@ -129,13 +129,23 @@ namespace DirectoryHistory.History.Git
 
 		public string GetContentForVersion (IFileVersion version)
 		{
+			
+			return FindLeafForVersion (version).Data;
+		}
+		
+		public byte[] GetBinaryContentForVersion (IFileVersion version)
+		{
+			return FindLeafForVersion (version).RawData;
+		}
+		
+		private GitSharp.Leaf FindLeafForVersion (IFileVersion version)
+		{
 			var commit = repository.Get<GitSharp.Commit> (version.ID);
 			if (commit == null) {
 				throw new HistoryException (Catalog.GetString (string.Format ("File version {0} is not contained in this commit!", version.ID)));
 			}
-
-			var file = GetMeFromTree (commit.Tree).First (CollectionHelper.NotNull);
-			return file.Data;
+			
+			return GetMeFromTree (commit.Tree).First (CollectionHelper.NotNull);
 		}
 		
 		private IEnumerable<Leaf> GetMeFromTree (Tree tree)
@@ -153,11 +163,6 @@ namespace DirectoryHistory.History.Git
 		private Leaf GetMeFromLeaves (IEnumerable<Leaf> leaves)
 		{
 			return leaves.Where (l => l.Path == PathInRepository).FirstOrDefault ();
-		}
-
-		public byte[] GetBinaryContentForVersion (IFileVersion version)
-		{
-			throw new System.NotImplementedException();
 		}
 		
 		public string PathInRepository {
