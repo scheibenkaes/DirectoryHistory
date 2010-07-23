@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-19 22:17:44+0200\n"
-"PO-Revision-Date: 2010-07-19 22:17:44+0200\n"
+"POT-Creation-Date: 2010-07-23 17:34:24+0200\n"
+"PO-Revision-Date: 2010-07-23 17:34:25+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,32 +15,31 @@ msgid "Open directory"
 msgstr ""
 
 #: ../DirectoryHistory/MainWindow.cs:139
-msgid "There is not yet a repository at this position."
+msgid "Please decide"
+msgstr ""
+
+#: ../DirectoryHistory/MainWindow.cs:140
+msgid "ID_AskUserForCreationOfARepository"
 msgstr ""
 
 #: ../DirectoryHistory/MainWindow.cs:141
-msgid ""
-"Should a new repository be created at {0}?\n"
-msgstr ""
-
-#: ../DirectoryHistory/MainWindow.cs:142
 msgid "Yes"
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:143
+#: ../DirectoryHistory/MainWindow.cs:142
 msgid "No"
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:88
 msgid "Directory History"
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 msgid "A program to keep a simple history of your files."
 msgstr ""
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 msgid "About Directory History"
 msgstr ""
 
@@ -155,9 +154,5 @@ msgstr ""
 
 #: ../DirectoryHistory.History.Git/HistoryProvider.cs:125
 msgid "The file or directory you tried to open does not exist! ({0})"
-msgstr ""
-
-#: ../DirectoryHistory.History.Git/DirectoryWithHistory.cs:158
-msgid "This operation (GetContentForVersion) is not valid for a directory."
 msgstr ""
 

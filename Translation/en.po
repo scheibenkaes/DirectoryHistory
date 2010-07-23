@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-19 22:04:06+0200\n"
-"PO-Revision-Date: 2010-07-19 22:09:13+0200\n"
+"POT-Creation-Date: 2010-07-23 17:34:24+0200\n"
+"PO-Revision-Date: 2010-07-23 17:40:18+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,33 +15,37 @@ msgid "Open directory"
 msgstr "Open directory"
 
 #: ../DirectoryHistory/MainWindow.cs:139
-msgid "There is not yet a repository at this position."
-msgstr "There is not yet a repository at this position."
+msgid "Please decide"
+msgstr "Please decide"
+
+#: ../DirectoryHistory/MainWindow.cs:140
+msgid "ID_AskUserForCreationOfARepository"
+msgstr ""
+"The directory you have chosen ({0})\n"
+"is not yet under version control.\n"
+"\n"
+"Should it be put under version control?\n"
+"\n"
+"(This is necessary for this program to function.)"
 
 #: ../DirectoryHistory/MainWindow.cs:141
-msgid ""
-"Should a new repository be created at {0}?\n"
-msgstr ""
-"Should a new repository be created at {0}?\n"
-
-#: ../DirectoryHistory/MainWindow.cs:142
 msgid "Yes"
 msgstr "Yes"
 
-#: ../DirectoryHistory/MainWindow.cs:143
+#: ../DirectoryHistory/MainWindow.cs:142
 msgid "No"
 msgstr "No"
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:88
 msgid "Directory History"
 msgstr "Directory History"
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 msgid "A program to keep a simple history of your files."
 msgstr "A program to keep a simple history of your files."
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 msgid "About Directory History"
 msgstr "About Directory History"
 
@@ -158,7 +162,9 @@ msgstr ""
 msgid "The file or directory you tried to open does not exist! ({0})"
 msgstr ""
 
-#: ../DirectoryHistory.History.Git/DirectoryWithHistory.cs:158
-msgid "This operation (GetContentForVersion) is not valid for a directory."
-msgstr ""
+#~ msgid "There is not yet a repository at this position."
+#~ msgstr "There is not yet a repository at this position."
+
+#~ msgid "Should a new repository be created at {0}?\n"
+#~ msgstr "Should a new repository be created at {0}?\n"
 

@@ -137,9 +137,8 @@ public partial class MainWindow : Gtk.Window
 
 	private bool AskUserForRepositoryCreation (string path)
 	{
-		var dialog = new Dialog (Catalog.GetString ("There is not yet a repository at this position."), this, DialogFlags.Modal);
-		
-		dialog.VBox.PackStart (new Label (string.Format (Catalog.GetString ("Should a new repository be created at {0}?\n"), path)));
+		var dialog = new Dialog (Catalog.GetString ("Please decide"), this, DialogFlags.Modal);
+		dialog.VBox.PackStart (new Label (string.Format (Catalog.GetString ("ID_AskUserForCreationOfARepository"), path)));
 		dialog.AddButton (Catalog.GetString ("Yes"), ResponseType.Yes);
 		dialog.AddButton (Catalog.GetString ("No"), ResponseType.No);
 		

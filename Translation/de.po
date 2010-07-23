@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-19 22:04:06+0200\n"
-"PO-Revision-Date: 2010-07-11 12:08:08+0200\n"
+"POT-Creation-Date: 2010-07-23 17:34:24+0200\n"
+"PO-Revision-Date: 2010-07-23 17:37:24+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,31 +15,36 @@ msgid "Open directory"
 msgstr "Verzeichnis angeben"
 
 #: ../DirectoryHistory/MainWindow.cs:139
-msgid "There is not yet a repository at this position."
-msgstr "An dieser Stelle existiert noch kein Repository."
+msgid "Please decide"
+msgstr "Bitte auswählen"
+
+#: ../DirectoryHistory/MainWindow.cs:140
+msgid "ID_AskUserForCreationOfARepository"
+msgstr ""
+"Das gewählte Verzeichnis ({0})\n"
+"befindet sich nicht unter Versionskontrolle.\n"
+"Soll das gewählte Verzeichnis unter Versionskontrolle gestellt werden?\n"
+"\n"
+"(Dies ist für die Funktionalität dieses Programmes erforderlich)"
 
 #: ../DirectoryHistory/MainWindow.cs:141
-msgid "Should a new repository be created at {0}?\n"
-msgstr "Soll hier {0} ein neues Repository angelegt werden?\n"
-
-#: ../DirectoryHistory/MainWindow.cs:142
 msgid "Yes"
 msgstr "Ja"
 
-#: ../DirectoryHistory/MainWindow.cs:143
+#: ../DirectoryHistory/MainWindow.cs:142
 msgid "No"
 msgstr "Nein"
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:88
 msgid "Directory History"
 msgstr "Verzeichnis Historie"
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 msgid "A program to keep a simple history of your files."
 msgstr "Ein Programm um die Historie von Dateien zu verwalten."
 
-#: ../DirectoryHistory/MainWindow.cs:173
+#: ../DirectoryHistory/MainWindow.cs:172
 msgid "About Directory History"
 msgstr "Über Verzeichnis Historie"
 
@@ -159,11 +164,17 @@ msgstr ""
 "Die Datei oder das Verzeichnis das versucht wurde zu öffnen exisitiert nicht "
 "({0})"
 
-#: ../DirectoryHistory.History.Git/DirectoryWithHistory.cs:158
-msgid "This operation (GetContentForVersion) is not valid for a directory."
-msgstr ""
-"Diese Operation (GetContentForVersion) kann nicht auf einem Verzeichnis "
-"ausgeführt werden."
+#~ msgid "There is not yet a repository at this position."
+#~ msgstr "An dieser Stelle existiert noch kein Repository."
+
+#~ msgid "Should a new repository be created at {0}?\n"
+#~ msgstr "Soll hier {0} ein neues Repository angelegt werden?\n"
+
+#~ msgid "This operation (GetContentForVersion) is not valid for a directory."
+#~ msgstr ""
+#~ "Diese Operation (GetContentForVersion) kann nicht auf einem Verzeichnis "
+#~ "ausgeführt werden."
 
 #~ msgid "MainWindow"
 #~ msgstr "Hauptfenster"
+
