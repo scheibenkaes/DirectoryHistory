@@ -38,7 +38,7 @@ namespace DirectoryHistory
 			
 			ChangeCurrentDirectoryToExePath ();
 			
-			Catalog.Init ("i8n1", "locale");
+			Catalog.Init ("i18n", "locale");
 			
 			var git = new DirectoryHistory.History.Git.HistoryProvider ();
 			var gitCreator = new DirectoryHistory.History.Git.TempFileCreator (git);

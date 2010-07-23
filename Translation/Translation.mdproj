@@ -11,7 +11,7 @@
         <Translation isoCode="en" />
       </translations>
     </translations>
-    <packageName>i8n1</packageName>
+    <packageName>i18n</packageName>
     <outputType>RelativeToOutput</outputType>
     <relPath>locale</relPath>
   </PropertyGroup>
