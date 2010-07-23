@@ -59,22 +59,20 @@ namespace DirectoryHistory.UI
 			}
 		}
 		
-		
 		public string ReadSelectedFile ()
 		{
 			TreeIter iter;
 			TreeModel model;
-			string path = string.Empty;
 			if (treeview.Selection.GetSelected (out model, out iter)) 
 			{
-				return (string) model.GetValue (iter, 1);
+				return (string) model.GetValue (iter, 2);
 			}
 			return string.Empty;
 		}
 
 		private void InitializeTreeStore ()
 		{
-			treeStore = new TreeStore (typeof(string), typeof(string));
+			treeStore = new TreeStore (typeof(string), typeof(string), typeof(string));
 			treeview.Model = treeStore;
 		}
 
@@ -136,7 +134,8 @@ namespace DirectoryHistory.UI
 		{
 			treeStore.AppendValues (iter, 
 				file.Status.GetStockFromFileStatus (), 
-				System.IO.Path.GetFileName (file.Path)
+				System.IO.Path.GetFileName (file.Path),
+				file.Path
 				);
 		}
 		
@@ -144,7 +143,9 @@ namespace DirectoryHistory.UI
 		{
 			return treeStore.AppendValues (iter, 
 				dir.Status.GetStockFromFileStatus (), 
-				System.IO.Path.GetDirectoryName (dir.PathInRepository));
+				dir.PathInRepository,
+				dir.Path
+				);
 		}
 		
 		private TreeIter AddRootDir (IDirectoryWithHistory dir)
