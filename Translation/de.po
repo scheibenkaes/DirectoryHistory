@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-23 17:34:24+0200\n"
-"PO-Revision-Date: 2010-07-23 17:37:24+0200\n"
+"POT-Creation-Date: 2010-07-23 20:35:15+0200\n"
+"PO-Revision-Date: 2010-07-23 20:41:19+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -53,10 +53,14 @@ msgstr "Über Verzeichnis Historie"
 msgid "openDirectory"
 msgstr "Verzeichnis öffnen"
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:55
+msgid "Opens a directory"
+msgstr "Öffnet ein Verzeichnis"
+
 #
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
-#: ../DirectoryHistory.UI/FolderList.cs:47
+#: ../DirectoryHistory.UI/FolderList.cs:95
 msgid "File"
 msgstr "Datei"
 
@@ -75,10 +79,18 @@ msgstr "Info"
 msgid "refresh"
 msgstr "Neu laden"
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:67
+msgid "Refresh the current repository"
+msgstr "Liesst das Verzeichnis erneut ein"
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:70
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:71
 msgid "quit"
 msgstr "Beenden"
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:70
+msgid "Quit the application"
+msgstr "Beendet die Anwendung"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:73
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:74
@@ -90,15 +102,27 @@ msgstr "_Über"
 msgid "_Add"
 msgstr "Hin_zufügen"
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:76
+msgid "Add the selected file to the version control"
+msgstr "Fügt die aktuell ausgewählte Datei der Versionskontrolle hinzu"
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:79
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:80
 msgid "_Apply"
 msgstr "_Version erstellen"
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:79
+msgid "Save the changes to the history of this file"
+msgstr "Speichert Änderungen an der gewählten Datei in der Historie"
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:82
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:83
 msgid "File_History"
 msgstr "_Historie"
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:82
+msgid "Shows the history of the selected file"
+msgstr "Zeigt die Versionen der gewählten Datei an"
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:139
 msgid "No directory loaded"
@@ -113,7 +137,7 @@ msgstr "<b>Ein Fehler ist aufgetreten</b>"
 msgid "label2"
 msgstr "l"
 
-#: ../DirectoryHistory.UI/FolderList.cs:46
+#: ../DirectoryHistory.UI/FolderList.cs:94
 msgid "Status"
 msgstr "Status"
 
@@ -144,7 +168,7 @@ msgstr "Kommentar"
 
 #: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryEntry.cs:135
 msgid "Difference"
-msgstr "Unterschied"
+msgstr "Unterschied zur Vorversion"
 
 #: ../DirectoryHistory.History/Commit.cs:39
 msgid "A comment must not be empty"

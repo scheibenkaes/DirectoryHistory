@@ -16,6 +16,7 @@
         <property name="Label" translatable="yes">openDirectory</property>
         <property name="ShortLabel" translatable="yes">openDirectory</property>
         <property name="StockId">gtk-open</property>
+        <property name="Tooltip" translatable="yes">Opens a directory</property>
         <signal name="Activated" handler="OnOpenActionActivated" />
       </action>
       <action id="FileAction">
@@ -39,6 +40,7 @@
         <property name="Label" translatable="yes">refresh</property>
         <property name="ShortLabel" translatable="yes">refresh</property>
         <property name="StockId">gtk-refresh</property>
+        <property name="Tooltip" translatable="yes">Refresh the current repository</property>
         <signal name="Activated" handler="OnRefreshActionActivated" />
       </action>
       <action id="quitAction">
@@ -46,6 +48,7 @@
         <property name="Label" translatable="yes">quit</property>
         <property name="ShortLabel" translatable="yes">quit</property>
         <property name="StockId">gtk-quit</property>
+        <property name="Tooltip" translatable="yes">Quit the application</property>
         <signal name="Activated" handler="OnQuitActionActivated" />
       </action>
       <action id="aboutAction">
@@ -60,6 +63,7 @@
         <property name="Label" translatable="yes">_Add</property>
         <property name="ShortLabel" translatable="yes">_Add</property>
         <property name="StockId">gtk-add</property>
+        <property name="Tooltip" translatable="yes">Add the selected file to the version control</property>
         <signal name="Activated" handler="OnAddActionActivated" />
       </action>
       <action id="applyAction">
@@ -67,6 +71,7 @@
         <property name="Label" translatable="yes">_Apply</property>
         <property name="ShortLabel" translatable="yes">_Apply</property>
         <property name="StockId">gtk-apply</property>
+        <property name="Tooltip" translatable="yes">Save the changes to the history of this file</property>
         <signal name="Activated" handler="OnApplyActionActivated" />
       </action>
       <action id="fileHistoryAction">
@@ -74,6 +79,7 @@
         <property name="Label" translatable="yes">File_History</property>
         <property name="ShortLabel" translatable="yes">File_History</property>
         <property name="StockId">gtk-dnd-multiple</property>
+        <property name="Tooltip" translatable="yes">Shows the history of the selected file</property>
         <signal name="Activated" handler="OnFileHistoryActionActivated" />
       </action>
     </action-group>

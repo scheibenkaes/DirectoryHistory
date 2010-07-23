@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-23 17:34:24+0200\n"
-"PO-Revision-Date: 2010-07-23 17:34:25+0200\n"
+"POT-Creation-Date: 2010-07-23 20:35:15+0200\n"
+"PO-Revision-Date: 2010-07-23 20:35:15+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -48,9 +48,13 @@ msgstr ""
 msgid "openDirectory"
 msgstr ""
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:55
+msgid "Opens a directory"
+msgstr ""
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
-#: ../DirectoryHistory.UI/FolderList.cs:47
+#: ../DirectoryHistory.UI/FolderList.cs:95
 msgid "File"
 msgstr ""
 
@@ -69,9 +73,17 @@ msgstr ""
 msgid "refresh"
 msgstr ""
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:67
+msgid "Refresh the current repository"
+msgstr ""
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:70
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:71
 msgid "quit"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:70
+msgid "Quit the application"
 msgstr ""
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:73
@@ -84,14 +96,26 @@ msgstr ""
 msgid "_Add"
 msgstr ""
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:76
+msgid "Add the selected file to the version control"
+msgstr ""
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:79
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:80
 msgid "_Apply"
 msgstr ""
 
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:79
+msgid "Save the changes to the history of this file"
+msgstr ""
+
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:82
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:83
 msgid "File_History"
+msgstr ""
+
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:82
+msgid "Shows the history of the selected file"
 msgstr ""
 
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:139
@@ -107,7 +131,7 @@ msgstr ""
 msgid "label2"
 msgstr ""
 
-#: ../DirectoryHistory.UI/FolderList.cs:46
+#: ../DirectoryHistory.UI/FolderList.cs:94
 msgid "Status"
 msgstr ""
 

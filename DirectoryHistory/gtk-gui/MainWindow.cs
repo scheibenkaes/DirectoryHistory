@@ -53,7 +53,7 @@ public partial class MainWindow {
         // Widget MainWindow
         this.UIManager = new Gtk.UIManager();
         Gtk.ActionGroup w1 = new Gtk.ActionGroup("Default");
-        this.openAction = new Gtk.Action("openAction", Mono.Unix.Catalog.GetString("openDirectory"), null, "gtk-open");
+        this.openAction = new Gtk.Action("openAction", Mono.Unix.Catalog.GetString("openDirectory"), Mono.Unix.Catalog.GetString("Opens a directory"), "gtk-open");
         this.openAction.ShortLabel = Mono.Unix.Catalog.GetString("openDirectory");
         w1.Add(this.openAction, null);
         this.FileAction = new Gtk.Action("FileAction", Mono.Unix.Catalog.GetString("File"), null, null);
@@ -65,22 +65,22 @@ public partial class MainWindow {
         this.InfoAction = new Gtk.Action("InfoAction", Mono.Unix.Catalog.GetString("Info"), null, null);
         this.InfoAction.ShortLabel = Mono.Unix.Catalog.GetString("Info");
         w1.Add(this.InfoAction, null);
-        this.refreshAction = new Gtk.Action("refreshAction", Mono.Unix.Catalog.GetString("refresh"), null, "gtk-refresh");
+        this.refreshAction = new Gtk.Action("refreshAction", Mono.Unix.Catalog.GetString("refresh"), Mono.Unix.Catalog.GetString("Refresh the current repository"), "gtk-refresh");
         this.refreshAction.ShortLabel = Mono.Unix.Catalog.GetString("refresh");
         w1.Add(this.refreshAction, "<Control>r");
-        this.quitAction = new Gtk.Action("quitAction", Mono.Unix.Catalog.GetString("quit"), null, "gtk-quit");
+        this.quitAction = new Gtk.Action("quitAction", Mono.Unix.Catalog.GetString("quit"), Mono.Unix.Catalog.GetString("Quit the application"), "gtk-quit");
         this.quitAction.ShortLabel = Mono.Unix.Catalog.GetString("quit");
         w1.Add(this.quitAction, null);
         this.aboutAction = new Gtk.Action("aboutAction", Mono.Unix.Catalog.GetString("_About"), null, "gtk-about");
         this.aboutAction.ShortLabel = Mono.Unix.Catalog.GetString("_About");
         w1.Add(this.aboutAction, null);
-        this.addAction = new Gtk.Action("addAction", Mono.Unix.Catalog.GetString("_Add"), null, "gtk-add");
+        this.addAction = new Gtk.Action("addAction", Mono.Unix.Catalog.GetString("_Add"), Mono.Unix.Catalog.GetString("Add the selected file to the version control"), "gtk-add");
         this.addAction.ShortLabel = Mono.Unix.Catalog.GetString("_Add");
         w1.Add(this.addAction, null);
-        this.applyAction = new Gtk.Action("applyAction", Mono.Unix.Catalog.GetString("_Apply"), null, "gtk-apply");
+        this.applyAction = new Gtk.Action("applyAction", Mono.Unix.Catalog.GetString("_Apply"), Mono.Unix.Catalog.GetString("Save the changes to the history of this file"), "gtk-apply");
         this.applyAction.ShortLabel = Mono.Unix.Catalog.GetString("_Apply");
         w1.Add(this.applyAction, null);
-        this.fileHistoryAction = new Gtk.Action("fileHistoryAction", Mono.Unix.Catalog.GetString("File_History"), null, "gtk-dnd-multiple");
+        this.fileHistoryAction = new Gtk.Action("fileHistoryAction", Mono.Unix.Catalog.GetString("File_History"), Mono.Unix.Catalog.GetString("Shows the history of the selected file"), "gtk-dnd-multiple");
         this.fileHistoryAction.ShortLabel = Mono.Unix.Catalog.GetString("File_History");
         w1.Add(this.fileHistoryAction, null);
         this.UIManager.InsertActionGroup(w1, 0);
