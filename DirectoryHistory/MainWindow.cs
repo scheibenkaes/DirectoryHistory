@@ -88,12 +88,12 @@ public partial class MainWindow : Gtk.Window
 			break;
 		case FileStatus.Committed:
 			addAction.Sensitive = false;
-			fileHistoryAction.Sensitive = file is IDirectoryWithHistory ? false : true;
+			fileHistoryAction.Sensitive = file is IDirectoryWithHistory || !file.History.Any () ? false : true;
 			applyAction.Sensitive = false;
 			break;
 		case FileStatus.Changed:
 			addAction.Sensitive = false;
-			fileHistoryAction.Sensitive = file is IDirectoryWithHistory ? false : true;
+			fileHistoryAction.Sensitive = file is IDirectoryWithHistory || !file.History.Any () ?  false : true;
 			applyAction.Sensitive = true;
 			break;
 		default:
