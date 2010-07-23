@@ -20,7 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
+
 using Gtk;
 
 using Mono.Unix;
@@ -30,8 +32,6 @@ using DirectoryHistory.History;
 
 namespace DirectoryHistory.UI
 {
-
-
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class FolderList : Gtk.Bin
 	{
@@ -42,12 +42,7 @@ namespace DirectoryHistory.UI
 		public FolderList ()
 		{
 			this.Build ();
-			InitializeTreeStore ();
 			
-			treeview.AppendColumn (Catalog.GetString ("Status"), new CellRendererPixbuf (), "icon_name", 0);
-			treeview.AppendColumn (Catalog.GetString ("File"), new CellRendererText (), "text", 1);
-			
-			RegisterCallbacks ();
 		}
 
 		private void RegisterCallbacks ()
@@ -69,7 +64,7 @@ namespace DirectoryHistory.UI
 		{
 			TreeIter iter;
 			TreeModel model;
-			
+			string path = string.Empty;
 			if (treeview.Selection.GetSelected (out model, out iter)) 
 			{
 				return (string) model.GetValue (iter, 1);
@@ -97,22 +92,64 @@ namespace DirectoryHistory.UI
 			if (root == null)
 				throw new ArgumentNullException ("root");
 			
+			InitializeTreeStore ();
+			
+			treeview.AppendColumn (Catalog.GetString ("Status"), new CellRendererPixbuf (), "icon_name", 0);
+			treeview.AppendColumn (Catalog.GetString ("File"), new CellRendererText (), "text", 1);
+			
+			RegisterCallbacks ();
+			
+			treeview.FreezeChildNotify ();
+			
 			TreeIter treeIter;
 			
 			treeStore.GetIter (out treeIter, new TreePath ("0"));
 			
-			AddDirectory (treeIter, root);
+			var subIter = AddRootDir (root);
+			
+			foreach (var dir in root.ChildDirectories) {
+				AddDirectory (subIter, dir);
+			}
+			AddChildFiles (subIter, root.ChildFiles);
+			
+			treeview.ThawChildNotify ();
 		}
 
-		private void AddDirectory (TreeIter iter, IDirectoryWithHistory dir)
+		private TreeIter AddDirectory (TreeIter iter, IDirectoryWithHistory dir)
 		{
-			var it = treeStore.AppendValues (dir.Status.GetStockFromFileStatus (), dir.Path);
+			var childiter = AddASingleDirectory (iter, dir);
 			foreach (var subdir in dir.ChildDirectories) {
-				AddDirectory (it, subdir);
+				AddDirectory (childiter, subdir);
 			}
-			foreach (var file in dir.ChildFiles) {
-				treeStore.AppendValues (it, file.Status.GetStockFromFileStatus (), file.Path);
+			AddChildFiles (childiter, dir.ChildFiles);
+			return childiter;
+		}
+		
+		private void AddChildFiles (TreeIter iter, IEnumerable<IFileWithHistory> files)
+		{
+			foreach (var file in files) {
+				AddASingleFile (iter, file);
 			}
+		}
+		
+		private void AddASingleFile (TreeIter iter, IFileWithHistory file)
+		{
+			treeStore.AppendValues (iter, 
+				file.Status.GetStockFromFileStatus (), 
+				System.IO.Path.GetFileName (file.Path)
+				);
+		}
+		
+		private TreeIter AddASingleDirectory (TreeIter iter, IDirectoryWithHistory dir)
+		{
+			return treeStore.AppendValues (iter, 
+				dir.Status.GetStockFromFileStatus (), 
+				System.IO.Path.GetDirectoryName (dir.PathInRepository));
+		}
+		
+		private TreeIter AddRootDir (IDirectoryWithHistory dir)
+		{
+			return treeStore.AppendValues (dir.Status.GetStockFromFileStatus (), dir.Path);
 		}
 	}
 }
