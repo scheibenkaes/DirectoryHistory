@@ -26,6 +26,8 @@ namespace DirectoryHistory.UI {
             // Widget DirectoryHistory.UI.HistoryDialog
             this.Name = "DirectoryHistory.UI.HistoryDialog";
             this.WindowPosition = ((Gtk.WindowPosition)(4));
+            this.DefaultWidth = 640;
+            this.DefaultHeight = 480;
             // Internal child DirectoryHistory.UI.HistoryDialog.VBox
             Gtk.VBox w1 = this.VBox;
             w1.Name = "dialog1_VBox";
@@ -75,8 +77,6 @@ namespace DirectoryHistory.UI {
             if ((this.Child != null)) {
                 this.Child.ShowAll();
             }
-            this.DefaultWidth = 400;
-            this.DefaultHeight = 300;
             this.Show();
         }
     }

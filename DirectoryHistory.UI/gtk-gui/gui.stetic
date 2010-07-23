@@ -151,6 +151,8 @@
   <widget class="Gtk.Dialog" id="DirectoryHistory.UI.HistoryDialog" design-size="400 300">
     <property name="MemberName" />
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="DefaultWidth">640</property>
+    <property name="DefaultHeight">480</property>
     <property name="Buttons">1</property>
     <property name="HelpButton">False</property>
     <child internal-child="VBox">
