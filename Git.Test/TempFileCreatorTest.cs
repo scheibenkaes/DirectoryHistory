@@ -65,7 +65,7 @@ namespace Git.Test
 		public void Creates_ATempFile ()
 		{
 			Stub.On (file1).Method ("GetBinaryContentForVersion").Will (Return.Value (new byte[] {2, 34, 5}));
-			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
+			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt".OsIndependentPath ()));
 			
 			var creator = new TempFileCreator (provider);
 			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
@@ -78,7 +78,7 @@ namespace Git.Test
 		{
 			var result = new byte[] { 2, 34, 5 };
 			Stub.On (file1).Method ("GetBinaryContentForVersion").Will (Return.Value (result));
-			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
+			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt".OsIndependentPath ()));
 			
 			var creator = new TempFileCreator (provider);
 			var createdFile = creator.CreateTempFileFromVersion (file1, version1);
@@ -93,7 +93,7 @@ namespace Git.Test
 		{
 			
 			Stub.On (file1).Method ("GetBinaryContentForVersion").Will (Return.Value (new byte[] {2, 3, 4, 5}));
-			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt"));
+			Stub.On (file1).GetProperty ("PathInRepository").Will (Return.Value ("test_repo/use_cases.odt".OsIndependentPath ()));
 			
 			var creator = new TempFileCreator (provider);
 			var createdFile = creator.CreateTempFileFromVersion (file1, version1);

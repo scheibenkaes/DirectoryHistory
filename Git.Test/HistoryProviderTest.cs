@@ -75,8 +75,8 @@ namespace Git.Test
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
 			
-			var testFile_not2BeCommitted 	= "/tmp/test_repo/changed2.txt";
-			var testFile 					= "/tmp/test_repo/changed.txt";
+			var testFile_not2BeCommitted 	= "/tmp/test_repo/changed2.txt".OsIndependentPath ();
+			var testFile 					= "/tmp/test_repo/changed.txt".OsIndependentPath ();
 			
 			CreateFile (testFile_not2BeCommitted);
 			CreateFile (testFile);
@@ -153,7 +153,7 @@ namespace Git.Test
 		public void TryingToAccessANotExistingFileLeadsToAnError ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			provider.GetFile ("/tmp/test_repo/i_do_NOT_exist.txt");
+			provider.GetFile ("/tmp/test_repo/i_do_NOT_exist.txt".OsIndependentPath ());
 		}
 		
 		[Test]

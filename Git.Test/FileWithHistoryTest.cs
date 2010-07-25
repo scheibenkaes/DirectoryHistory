@@ -66,8 +66,8 @@ namespace Git.Test
 		public void Test_PathInRepository ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var file1 = "/tmp/test_repo/changed.txt";
-			var file2 = "/tmp/test_repo/committed.txt";
+			var file1 = "/tmp/test_repo/changed.txt".OsIndependentPath ();
+			var file2 = "/tmp/test_repo/committed.txt".OsIndependentPath ();
 			
 			CreateFile (file1);
 			CreateFile (file2);
@@ -118,7 +118,7 @@ namespace Git.Test
 		public void History_OfAFileWith2Entries ()
 		{
 			provider.LoadDirectory (TestData.TEMP_DIR);
-			var path = "/tmp/test_repo/with_2_versions.txt";
+			var path = "/tmp/test_repo/with_2_versions.txt".OsIndependentPath ();
 			CreateFile (path);
 			provider.AddFile (path);
 			var file = provider.GetFile (path);

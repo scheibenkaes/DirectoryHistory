@@ -96,8 +96,6 @@ namespace Git.Test
 			var dir = provider.GetDirectory (dirPath);
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, dir.Status);
 			
-			// Breaking the one assert per test rule here because of gits handling of empty files and the implementation taking care of this.
-			// Impl. feels a bit dirty, so just to make sure ...
 			Assert.AreEqual (FileStatus.NotUnderVersionControl, provider.GetFile (containedFile).Status);
 		}
 

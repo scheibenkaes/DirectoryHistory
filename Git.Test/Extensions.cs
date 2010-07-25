@@ -29,9 +29,14 @@ namespace Git.Test
 		public static void RunCommand (this string cmd, string args)
 		{
 			var info = new ProcessStartInfo (cmd, args);
-			info.WorkingDirectory = "/tmp";
+			info.WorkingDirectory = System.IO.Path.GetTempPath ();
 			var process = Process.Start (info);
 			process.WaitForExit ();
+		}
+		
+		public static string OsIndependentPath (this string path)
+		{
+			return path.Replace ("/", System.IO.Path.DirectorySeparatorChar.ToString ());
 		}
 	}
 }

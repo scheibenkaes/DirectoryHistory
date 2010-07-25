@@ -62,6 +62,11 @@ namespace Git.Test
 			Directory.CreateDirectory (path);
 		}
 		
+		public static string CreateTestFilePath (string file)
+		{
+			var osindependentFilename = file.Replace ("/", Path.DirectorySeparatorChar.ToString ());
+			return Path.Combine (TestData.TEMP_DIR, osindependentFilename);
+		}
 		
 	}
 }

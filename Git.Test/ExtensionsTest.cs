@@ -23,6 +23,7 @@ using System;
 using System.IO;
 using NUnit.Framework;
 
+using DirectoryHistory.History;
 using DirectoryHistory.History.Git;
 
 namespace Git.Test
@@ -37,9 +38,10 @@ namespace Git.Test
 		public void Test_ReducePath ()
 		{
 			var proj = TestData.TEMP_DIR;
-			var file = Path.Combine (proj, "foo/bar.txt");
+			var filename = Path.Combine ("foo", "bar.txt");
+			var file = Path.Combine (proj, filename);
 			
-			Assert.AreEqual ("foo/bar.txt", proj.ReducePath (file));
+			Assert.AreEqual (filename, proj.ReducePath (file));
 		}
 		
 		[Test]
@@ -54,7 +56,8 @@ namespace Git.Test
 		[Test]
 		public void Test_WrongReducing()
 		{
-			var file = "/tmp/gittest/existing.txt";
+			var file = Path.DirectorySeparatorChar + "tmp".PathCombine ( "gittest", "existing.txt");
+			
 			Assert.AreEqual ("existing.txt", "/tmp/gittest".ReducePath (file));
 				
 		}

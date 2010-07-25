@@ -45,7 +45,6 @@
     <Compile Include="ExtensionsTest.cs" />
     <Compile Include="CommitTest.cs" />
     <Compile Include="ExceptionHandlingTest.cs" />
-    <Compile Include="FileSystemTests.cs" />
     <Compile Include="FileStarterTest.cs" />
     <Compile Include="TempFileCacheTest.cs" />
     <Compile Include="CacheKeyTest.cs" />
