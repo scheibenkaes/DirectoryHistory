@@ -107,7 +107,7 @@ namespace DirectoryHistory.History.Git
 				if (DirectoryIsEmpty ()) {
 					return FileStatus.NotUnderVersionControl;
 				}
-				if (repository.Index.Status.Untracked.Contains (PathInRepository) || AUntrackedFileContainsThisDirectory ()) {
+				if (repository.Index.Status.Untracked.Contains (PathInRepository) || AUntrackedFileIsContainedInThisDirectory ()) {
 					return FileStatus.NotUnderVersionControl;
 				}
 				if (ContainsAFileWithState (FileStatus.Changed)) {
@@ -123,7 +123,7 @@ namespace DirectoryHistory.History.Git
 			var allChildFiles = GetAllContainedFiles (this);
 			return allChildFiles.Any (f => f.Status == status);
 		}
-		
+
 		private static IEnumerable<IFileWithHistory> GetAllContainedFiles (IDirectoryWithHistory dir)
 		{
 			foreach (var subdir in dir.ChildDirectories) {
@@ -137,7 +137,7 @@ namespace DirectoryHistory.History.Git
 		}
 
 
-		private bool AUntrackedFileContainsThisDirectory ()
+		private bool AUntrackedFileIsContainedInThisDirectory ()
 		{
 			return repository.Status.Untracked.Any (file => file.StartsWith (PathInRepository));
 		}
@@ -145,17 +145,17 @@ namespace DirectoryHistory.History.Git
 
 		private bool DirectoryIsEmpty ()
 		{
-			return !Directory.GetFiles (Path).Any ();
+			return !Directory.GetFileSystemEntries (Path).Any ();
 		}
-		
+
 		public bool IsBinaryFile ()
 		{
 			return false;
 		}
-		
+
 		public byte[] GetBinaryContentForVersion (IFileVersion version)
 		{
-			throw new System.NotImplementedException();
+			throw new System.NotImplementedException ();
 		}
 	}
 }
