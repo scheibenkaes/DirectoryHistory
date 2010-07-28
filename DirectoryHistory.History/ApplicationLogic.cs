@@ -34,22 +34,22 @@ namespace DirectoryHistory.History
 		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> OnDirectoryLoaded;
 
 		public event AskUserForCreation OnUserRequestForCreation;
-		
+
 		public IHistoryProvider HistoryProvider { get; private set; }
 
 		public IDirectoryWithHistory RootDirectory { get; private set; }
-		
+
 		public ExceptionHandling ExceptionHandling { get; private set; }
-		
+
 		private TempFileCache tempFileCache;
-		
-		public void ShowVersionOfFile (object sender, ShowVersionOfFileEventArgs args) 
+
+		public void ShowVersionOfFile (object sender, ShowVersionOfFileEventArgs args)
 		{
 			var tempFile = tempFileCache.GetFile (args.File, args.Version);
 			
 			FileStarter.StartFile (tempFile);
 		}
-		
+
 		public ICommit CreateCommit (string selectedFile, string comment)
 		{
 			return new Commit (HistoryProvider.GetFile (selectedFile), comment);
@@ -57,19 +57,22 @@ namespace DirectoryHistory.History
 
 		public void LoadDirectory (string path)
 		{
-			if (string.IsNullOrEmpty (path)) {
-				throw new ArgumentNullException ("path");
-			}
-			
-			if (!HistoryProvider.IsARepository (path)) {
-				bool shouldCreate = AskUserIfHeWantsARepositoryToBeCreated (path);
-				if (shouldCreate) {
-					RootDirectory = HistoryProvider.CreateRepository (path);
-				} else {
-					return;
+			ExceptionHandling.RunActionSavely (() =>
+			{
+				if (string.IsNullOrEmpty (path)) {
+					throw new ArgumentNullException ("path");
 				}
-			}
-			LoadExistingRepository (path);
+				
+				if (!HistoryProvider.IsARepository (path)) {
+					bool shouldCreate = AskUserIfHeWantsARepositoryToBeCreated (path);
+					if (shouldCreate) {
+						RootDirectory = HistoryProvider.CreateRepository (path);
+					} else {
+						return;
+					}
+				}
+				LoadExistingRepository (path);
+			});
 		}
 
 		private bool AskUserIfHeWantsARepositoryToBeCreated (string path)
@@ -85,8 +88,8 @@ namespace DirectoryHistory.History
 				OnDirectoryLoaded (this, new DirectoryStatusWasUpdatedEventArgs (RootDirectory));
 			}
 		}
-		
-		public void CleanUp()
+
+		public void CleanUp ()
 		{
 			if (HistoryProvider != null)
 				HistoryProvider.Dispose ();
