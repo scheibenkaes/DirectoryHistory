@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-23 20:35:15+0200\n"
-"PO-Revision-Date: 2010-07-23 20:41:19+0200\n"
+"POT-Creation-Date: 2010-07-28 22:17:42+0200\n"
+"PO-Revision-Date: 2010-07-28 22:17:57+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Öffnet ein Verzeichnis"
 #
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:58
 #: ../DirectoryHistory/gtk-gui/MainWindow.cs:59
-#: ../DirectoryHistory.UI/FolderList.cs:95
+#: ../DirectoryHistory.UI/FolderList.cs:118
 msgid "File"
 msgstr "Datei"
 
@@ -137,7 +137,11 @@ msgstr "<b>Ein Fehler ist aufgetreten</b>"
 msgid "label2"
 msgstr "l"
 
-#: ../DirectoryHistory.UI/FolderList.cs:94
+#: ../DirectoryHistory.UI/FolderList.cs:116
+msgid "Type"
+msgstr "Typ"
+
+#: ../DirectoryHistory.UI/FolderList.cs:117
 msgid "Status"
 msgstr "Status"
 
@@ -150,7 +154,7 @@ msgstr "Änderungen in {0} archivieren?"
 msgid "Comment:"
 msgstr "Kommentar:"
 
-#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryDialog.cs:39
+#: ../DirectoryHistory.UI/gtk-gui/DirectoryHistory.UI.HistoryDialog.cs:41
 msgid "label1"
 msgstr "l"
 
