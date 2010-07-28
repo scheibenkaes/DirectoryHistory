@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2010-07-28 22:32:55+0200\n"
-"PO-Revision-Date: 2010-07-28 22:17:57+0200\n"
+"PO-Revision-Date: 2010-07-28 22:39:15+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -194,7 +194,7 @@ msgstr ""
 
 #: ../DirectoryHistory.History.Git/FileWithHistory.cs:133
 msgid "The requested version ({0}) could not be found"
-msgstr ""
+msgstr "Die angeforderte Version {0} konnte nicht gefunden werden"
 
 #~ msgid "There is not yet a repository at this position."
 #~ msgstr "An dieser Stelle existiert noch kein Repository."
@@ -209,3 +209,4 @@ msgstr ""
 
 #~ msgid "MainWindow"
 #~ msgstr "Hauptfenster"
+
