@@ -129,7 +129,13 @@ namespace DirectoryHistory.History.Git
 
 		public byte[] GetBinaryContentForVersion (IFileVersion version)
 		{
-			return FindLeafForVersion (version).RawData;
+			var leaf = FindLeafForVersion (version);
+			if (leaf == null) {
+				throw new HistoryException (
+					string.Format (Catalog.GetString ("The requested version ({0}) could not be found"), version.ID)
+					);
+			}
+			return leaf.RawData;
 		}
 		
 		private GitSharp.Leaf FindLeafForVersion (IFileVersion version)
