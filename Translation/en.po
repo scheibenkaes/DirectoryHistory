@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-28 22:17:42+0200\n"
+"POT-Creation-Date: 2010-07-28 22:32:55+0200\n"
 "PO-Revision-Date: 2010-07-23 17:40:18+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
@@ -189,6 +189,10 @@ msgstr ""
 
 #: ../DirectoryHistory.History.Git/HistoryProvider.cs:125
 msgid "The file or directory you tried to open does not exist! ({0})"
+msgstr ""
+
+#: ../DirectoryHistory.History.Git/FileWithHistory.cs:133
+msgid "The requested version ({0}) could not be found"
 msgstr ""
 
 #~ msgid "There is not yet a repository at this position."
