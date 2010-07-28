@@ -65,7 +65,7 @@ namespace DirectoryHistory.UI
 			TreeModel model;
 			if (treeview.Selection.GetSelected (out model, out iter)) 
 			{
-				return (string) model.GetValue (iter, 2);
+				return (string) model.GetValue (iter, 3);
 			}
 			return string.Empty;
 		}
