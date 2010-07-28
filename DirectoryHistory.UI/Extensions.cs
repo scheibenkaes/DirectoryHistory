@@ -27,8 +27,6 @@ using DirectoryHistory.History;
 
 namespace DirectoryHistory.UI
 {
-
-
 	public static class Extensions
 	{
 		public static string GetStockFromFileStatus (this FileStatus status)
@@ -47,6 +45,14 @@ namespace DirectoryHistory.UI
 			}
 			
 			return stock;
+		}
+		
+		public static string GetStockForType (this IFileWithHistory fileOrDirectory)
+		{
+			if (fileOrDirectory is IDirectoryWithHistory) {
+				return Stock.Directory;
+			}
+			return Stock.File;
 		}
 	}
 }

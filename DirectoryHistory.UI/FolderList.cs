@@ -72,7 +72,7 @@ namespace DirectoryHistory.UI
 
 		private void InitializeTreeStore ()
 		{
-			treeStore = new TreeStore (typeof(string), typeof(string), typeof(string));
+			treeStore = new TreeStore (typeof(string), typeof(string), typeof(string), typeof(string));
 			treeview.Model = treeStore;
 		}
 
@@ -92,8 +92,7 @@ namespace DirectoryHistory.UI
 			
 			InitializeTreeStore ();
 			
-			treeview.AppendColumn (Catalog.GetString ("Status"), new CellRendererPixbuf (), "icon_name", 0);
-			treeview.AppendColumn (Catalog.GetString ("File"), new CellRendererText (), "text", 1);
+			AppendColumns ();
 			
 			RegisterCallbacks ();
 			
@@ -111,6 +110,13 @@ namespace DirectoryHistory.UI
 			AddChildFiles (subIter, root.ChildFiles);
 			
 			treeview.ThawChildNotify ();
+		}
+		
+		private void AppendColumns ()
+		{
+			treeview.AppendColumn (Catalog.GetString ("Type"), 		new CellRendererPixbuf (), 	"icon_name", 	0);
+			treeview.AppendColumn (Catalog.GetString ("Status"), 	new CellRendererPixbuf (), 	"icon_name", 	1);
+			treeview.AppendColumn (Catalog.GetString ("File"), 		new CellRendererText (), 	"text", 		2);
 		}
 
 		private TreeIter AddDirectory (TreeIter iter, IDirectoryWithHistory dir)
@@ -133,6 +139,7 @@ namespace DirectoryHistory.UI
 		private void AddASingleFile (TreeIter iter, IFileWithHistory file)
 		{
 			treeStore.AppendValues (iter, 
+				file.GetStockForType (),
 				file.Status.GetStockFromFileStatus (), 
 				System.IO.Path.GetFileName (file.Path),
 				file.Path
@@ -142,6 +149,7 @@ namespace DirectoryHistory.UI
 		private TreeIter AddASingleDirectory (TreeIter iter, IDirectoryWithHistory dir)
 		{
 			return treeStore.AppendValues (iter, 
+				dir.GetStockForType (),
 				dir.Status.GetStockFromFileStatus (), 
 				dir.PathInRepository,
 				dir.Path
@@ -150,7 +158,10 @@ namespace DirectoryHistory.UI
 		
 		private TreeIter AddRootDir (IDirectoryWithHistory dir)
 		{
-			return treeStore.AppendValues (dir.Status.GetStockFromFileStatus (), dir.Path);
+			return treeStore.AppendValues (
+				dir.GetStockForType (),
+				dir.Status.GetStockFromFileStatus (), 
+				dir.Path);
 		}
 	}
 }
