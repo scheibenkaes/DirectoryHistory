@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-28 22:32:55+0200\n"
+"POT-Creation-Date: 2010-07-29 19:42:19+0200\n"
 "PO-Revision-Date: 2010-07-28 22:39:15+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
@@ -124,7 +124,7 @@ msgstr "_Historie"
 msgid "Shows the history of the selected file"
 msgstr "Zeigt die Versionen der gewählten Datei an"
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:139
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:138
 msgid "No directory loaded"
 msgstr "Kein Verzeichnis geöffnet"
 
@@ -192,7 +192,7 @@ msgstr ""
 "Die Datei oder das Verzeichnis das versucht wurde zu öffnen exisitiert nicht "
 "({0})"
 
-#: ../DirectoryHistory.History.Git/FileWithHistory.cs:133
+#: ../DirectoryHistory.History.Git/FileWithHistory.cs:134
 msgid "The requested version ({0}) could not be found"
 msgstr "Die angeforderte Version {0} konnte nicht gefunden werden"
 
@@ -209,4 +209,3 @@ msgstr "Die angeforderte Version {0} konnte nicht gefunden werden"
 
 #~ msgid "MainWindow"
 #~ msgstr "Hauptfenster"
-

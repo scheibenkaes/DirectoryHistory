@@ -9,7 +9,7 @@
     <widget-library name="../../DirectoryHistory.UI/bin/Debug/DirectoryHistory.UI.dll" />
     <widget-library name="../bin/Debug/DirectoryHistory.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="462 300">
+  <widget class="Gtk.Window" id="MainWindow" design-size="462 421">
     <action-group name="Default">
       <action id="openAction">
         <property name="Type">Action</property>
@@ -93,7 +93,6 @@
     <child>
       <widget class="Gtk.VBox" id="vbox1">
         <property name="MemberName" />
-        <property name="Spacing">6</property>
         <child>
           <widget class="Gtk.MenuBar" id="menubar1">
             <property name="MemberName" />

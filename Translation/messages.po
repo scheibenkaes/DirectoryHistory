@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-07-28 22:32:55+0200\n"
-"PO-Revision-Date: 2010-07-28 22:32:55+0200\n"
+"POT-Creation-Date: 2010-07-29 19:43:29+0200\n"
+"PO-Revision-Date: 2010-07-29 19:43:29+0200\n"
 "Last-Translator: Benjamin Klüglein <scheibenkaes@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Shows the history of the selected file"
 msgstr ""
 
-#: ../DirectoryHistory/gtk-gui/MainWindow.cs:139
+#: ../DirectoryHistory/gtk-gui/MainWindow.cs:138
 msgid "No directory loaded"
 msgstr ""
 
@@ -184,7 +184,7 @@ msgstr ""
 msgid "The file or directory you tried to open does not exist! ({0})"
 msgstr ""
 
-#: ../DirectoryHistory.History.Git/FileWithHistory.cs:133
+#: ../DirectoryHistory.History.Git/FileWithHistory.cs:134
 msgid "The requested version ({0}) could not be found"
 msgstr ""
 
