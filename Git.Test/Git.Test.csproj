@@ -38,27 +38,35 @@
     <Reference Include="System.Core" />
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\GitSharp-0.2.0.0.9\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\lib\GitSharp\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Tamir.SharpSSH, Version=1.1.1.13, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\GitSharp-0.2.0.0.9\Tamir.SharpSSH.dll</HintPath>
+      <HintPath>..\lib\GitSharp\Tamir.SharpSSH.dll</HintPath>
     </Reference>
     <Reference Include="Winterdom.IO.FileMap, Version=2.0.2.0, Culture=neutral, PublicKeyToken=4982617362e1edb5">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\GitSharp-0.2.0.0.9\Winterdom.IO.FileMap.dll</HintPath>
+      <HintPath>..\lib\GitSharp\Winterdom.IO.FileMap.dll</HintPath>
     </Reference>
     <Reference Include="GitSharp.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.Core.dll</HintPath>
+      <HintPath>..\lib\GitSharp\GitSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="GitSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\GitSharp-0.2.0.0.9\GitSharp.dll</HintPath>
+      <HintPath>..\lib\GitSharp\GitSharp.dll</HintPath>
     </Reference>
     <Reference Include="NMock2, Version=2.0.0.44, Culture=neutral, PublicKeyToken=37d3be0adc87c2b7">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\NMock\NMock2.dll</HintPath>
+    </Reference>
+    <Reference Include="DiffieHellman, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp\DiffieHellman.dll</HintPath>
+    </Reference>
+    <Reference Include="Org.Mentalis.Security, Version=1.0.13.715, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GitSharp\Org.Mentalis.Security.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
