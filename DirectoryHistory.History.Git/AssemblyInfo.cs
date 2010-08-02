@@ -25,11 +25,11 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("DirectoryHistory.History.Git")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("History implementation using the Git DVCS")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Benjamin Klüglein")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

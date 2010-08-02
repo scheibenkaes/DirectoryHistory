@@ -6,8 +6,8 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../../DirectoryHistory.UI/bin/Debug/DirectoryHistory.UI.dll" />
-    <widget-library name="../bin/Debug/DirectoryHistory.exe" internal="true" />
+    <widget-library name="../../DirectoryHistory.UI/bin/Release/DirectoryHistory.UI.dll" />
+    <widget-library name="../bin/Release/DirectoryHistory.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="462 421">
     <action-group name="Default">

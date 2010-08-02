@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("DirectoyHistory")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Main executable of DirectoryHistory")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Benjamin Klüglein")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
