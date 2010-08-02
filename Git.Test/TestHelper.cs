@@ -2,9 +2,9 @@
 //  TestHelper.cs
 //  
 //  Author:
-//       b6n <${AuthorEmail}>
+//       Benjamin Klüglein <scheibenkaes@googlemail.com>
 // 
-//  Copyright (c) 2010 b6n
+//  Copyright (c) 2010 Benjamin Klüglein
 // 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by

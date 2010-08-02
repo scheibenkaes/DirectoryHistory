@@ -75,7 +75,7 @@ namespace DirectoryHistory.History.Git
 		{
 			var directories = Directory.GetDirectories (Path).ToList ();
 			
-			// TODO Make this mor reasonable
+			// TODO Make this more reasonable
 			var ignoredDirectories = directories.Where (dir => dir.EndsWith (IgnoredFolders[0]));
 			
 			var subDirToBeAdded = new List<IDirectoryWithHistory> ();
