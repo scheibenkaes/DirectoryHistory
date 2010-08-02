@@ -49,7 +49,6 @@
     <Compile Include="Commit.cs" />
     <Compile Include="IFileVersion.cs" />
     <Compile Include="HistoryException.cs" />
-    <Compile Include="IVersionOpener.cs" />
     <Compile Include="ITempFileCreator.cs" />
     <Compile Include="TempFileCache.cs" />
     <Compile Include="CacheKey.cs" />

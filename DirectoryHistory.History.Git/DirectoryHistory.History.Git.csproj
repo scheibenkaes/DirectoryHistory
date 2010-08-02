@@ -67,7 +67,6 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="FileVersion.cs" />
     <Compile Include="MyCommit.cs" />
-    <Compile Include="VersionOpener.cs" />
     <Compile Include="TempFileCreator.cs" />
   </ItemGroup>
   <ItemGroup>
