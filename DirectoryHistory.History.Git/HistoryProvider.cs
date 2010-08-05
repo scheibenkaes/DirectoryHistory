@@ -125,8 +125,5 @@ namespace DirectoryHistory.History.Git
 			}
 			throw new FileNotFoundException (string.Format (Catalog.GetString ("The file or directory you tried to open does not exist! ({0})"), path));
 		}
-		
-		public event EventHandler<DirectoryStatusWasUpdatedEventArgs> DirectoryWasUpdated;
-		
 	}
 }
